@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import { Div, Input as BaseInput, Label } from 'basedesign-iswad';
 
-import Icon from 'BaseComponents/Icon';
+import Icon from '@/baseComponents/Icon';
 
 import styles from './TextBox.module.scss';
 

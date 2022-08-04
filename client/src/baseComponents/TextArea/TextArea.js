@@ -15,9 +15,6 @@ const TextArea = ({
   className,
   ...props
 }) => {
-  useEffect(() => {
-    console.log(errorMessage);
-  }, [errorMessage]);
   return (
     <>
       <Div className={cx('mainInputContainer', className)}>

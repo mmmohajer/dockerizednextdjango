@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faImage, faClose } from '@fortawesome/free-solid-svg-icons';
 
-import Dashboard from 'Images/js-images/icons/svg/dashboard.svg';
+import Dashboard from '@/images/js-Images/icons/svg/dashboard.svg';
 
 function Icon({ type, color, width, scale }) {
   let iconTypes = {

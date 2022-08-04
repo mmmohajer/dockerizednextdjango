@@ -5,9 +5,9 @@ import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { Div } from 'basedesign-iswad';
 
-import useApiCalls from 'Hooks/useApiCalls';
-import { ACTIVATE_USER_API_ROUTE } from 'Constants/apiRoutes';
-import { addAlertItem } from 'Utils/notifications';
+import useApiCalls from '@/hooks/useApiCalls';
+import { ACTIVATE_USER_API_ROUTE } from '@/constants/apiRoutes';
+import { addAlertItem } from '@/utils/notifications';
 
 import styles from './ActivateUser.module.scss';
 

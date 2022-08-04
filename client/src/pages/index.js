@@ -2,11 +2,11 @@ import React from 'react';
 import cx from 'classnames';
 import { Div, Paragraph } from 'basedesign-iswad';
 
-import PublicRoute from 'Components/PublicRoute';
+import PublicRoute from '@/components/PublicRoute';
 
-import TestForm from 'Components/TestForm';
+import TestForm from '@/components/TestForm';
 
-import styles from './Home.module.scss';
+import styles from './index.module.scss';
 
 function Home() {
   return (

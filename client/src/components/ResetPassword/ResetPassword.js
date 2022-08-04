@@ -6,9 +6,9 @@ import jwt_decode from 'jwt-decode';
 import { Form, Input } from 'basedesign-iswad';
 
 import { emailValidators, passwordValidators } from './utils';
-import useApiCalls from 'Hooks/useApiCalls';
-import { SEND_RESET_PASSWORD_EMAIL_API_ROUTE, PASSWORD_SET_API_ROUTE } from 'Constants/apiRoutes';
-import { addAlertItem } from 'Utils/notifications';
+import useApiCalls from '@/hooks/useApiCalls';
+import { SEND_RESET_PASSWORD_EMAIL_API_ROUTE, PASSWORD_SET_API_ROUTE } from '@/constants/apiRoutes';
+import { addAlertItem } from '@/utils/notifications';
 
 import styles from './ResetPassword.module.scss';
 
@@ -111,8 +111,7 @@ const ResetPassword = () => {
         <Form
           className="textWhite py1"
           toBeValidatedFields={toBeValidatedFields}
-          onSubmit={() => setSendResetEmailReq(true)}
-        >
+          onSubmit={() => setSendResetEmailReq(true)}>
           <Input
             type="text"
             name="email"
@@ -132,8 +131,7 @@ const ResetPassword = () => {
         <Form
           className="textWhite py1"
           toBeValidatedFields={toBeValidatedResetFields}
-          onSubmit={() => setSendPasswordSetReq(true)}
-        >
+          onSubmit={() => setSendPasswordSetReq(true)}>
           <Input
             type="password"
             name="password"

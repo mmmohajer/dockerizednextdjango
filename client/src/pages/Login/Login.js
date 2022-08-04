@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 
-import PublicRoute from 'Components/PublicRoute';
-import LoginComponent from 'Components/Login';
-import GoogleAuth from 'Components/GoogleAuth';
-import MicrosoftAuth from 'Components/MicrosoftAuth';
-import FacebookAuth from 'Components/FacebookAuth';
+import PublicRoute from '@/components/PublicRoute';
+import LoginComponent from '@/components/Login';
+import GoogleAuth from '@/components/GoogleAuth';
+import MicrosoftAuth from '@/components/MicrosoftAuth';
+import FacebookAuth from '@/components/FacebookAuth';
 
 import styles from './Login.module.scss';
 
@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <PublicRoute>
       <LoginComponent />
-      <GoogleAuth />
+      {/* <GoogleAuth /> */}
       {/* <MicrosoftAuth /> */}
       {/* <FacebookAuth /> */}
     </PublicRoute>

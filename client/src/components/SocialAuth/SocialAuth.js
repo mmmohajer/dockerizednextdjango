@@ -4,8 +4,8 @@ import { Div } from 'basedesign-iswad';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import useApiCalls from 'Hooks/useApiCalls';
-import { loginUser } from 'Utils/auth';
+import useApiCalls from '@/hooks/useApiCalls';
+import { loginUser } from '@/utils/auth';
 
 import styles from './SocialAuth.module.scss';
 

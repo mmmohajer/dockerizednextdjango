@@ -3,12 +3,12 @@ import cx from 'classnames';
 import dayjs from 'dayjs';
 import { Div, Form } from 'basedesign-iswad';
 
-import TextBox from 'BaseComponents/TextBox';
-import Select from 'BaseComponents/Select';
-import DatePicker from 'BaseComponents/DatePicker';
-import ImagePicker from 'BaseComponents/ImagePicker';
-import TextArea from 'BaseComponents/TextArea';
-import Button from 'BaseComponents/Button';
+import TextBox from '@/baseComponents/TextBox';
+import Select from '@/baseComponents/Select';
+import DatePicker from '@/baseComponents/DatePicker';
+import ImagePicker from '@/baseComponents/ImagePicker';
+import TextArea from '@/baseComponents/TextArea';
+import Button from '@/baseComponents/Button';
 
 import { passwordValidators } from './validators';
 
@@ -88,6 +88,7 @@ const TestForm = () => {
           errorMessage={passwordErrorMessage}
           errorHandler={setPasswordErrorMessage}
           name="password"
+          id="passwordFieldHomePage"
         />
         <Select
           options={PROVINCE_CHOICES}
@@ -99,6 +100,7 @@ const TestForm = () => {
           isRequired
           errorMessage={provinceErrorMessage}
           errorHandler={setProvinceErrorMessage}
+          id="provinceFieldHomePAge"
         />
         <DatePicker
           labelText="Birth Date"
@@ -115,6 +117,7 @@ const TestForm = () => {
           setFile={setProfilePhoto}
           errorMessage={profilePhotoErrorMessage}
           errorHandler={setProfilePhotoErrorMessage}
+          id="profilePhotoFieldHomePage"
         />
         <TextArea
           isRequired
@@ -123,6 +126,7 @@ const TestForm = () => {
           setVal={setMessage}
           errorMessage={messageErrorMessage}
           errorHandler={setMessageErrorMessage}
+          id="messageFieldHomePage"
         />
         <Button type="submit" id="testFormSubmit">
           Submit
