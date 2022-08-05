@@ -8,7 +8,7 @@ import TestForm from '@/components/TestForm';
 
 import styles from './index.module.scss';
 
-function Home() {
+function Index() {
   return (
     <PublicRoute>
       <Div>
@@ -19,4 +19,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Index;

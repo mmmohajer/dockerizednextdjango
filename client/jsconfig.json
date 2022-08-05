@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@/baseComponents/*": ["baseComponents/*"],
-      "@/components/*": ["components/*"],
-      "@/reducers/*": ["reducers/*"],
-      "@/services/*": ["services/*"],
-      "@/store/*": ["store/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/utils/*": ["utils/*"],
-      "@/constants/*": ["constants/*"],
-      "@/styles/*": ["assets/styles/*"],
-      "@/images/*": ["assets/images/*"]
+      "@/root/*": ["/*"],
+      "@/baseComponents/*": ["src/baseComponents/*"],
+      "@/components/*": ["src/components/*"],
+      "@/reducers/*": ["src/reducers/*"],
+      "@/services/*": ["src/services/*"],
+      "@/store/*": ["src/store/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/utils/*": ["src/utils/*"],
+      "@/constants/*": ["src/constants/*"],
+      "@/styles/*": ["src/assets/styles/*"],
+      "@/images/*": ["src/assets/images/*"]
     }
   }
 }

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { useDispatch } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import { Form, Input } from 'basedesign-iswad';
+import { useRouter } from 'next/router';
 
 import { emailValidators, passwordValidators } from './utils';
 import useApiCalls from '@/hooks/useApiCalls';
@@ -14,7 +14,7 @@ import styles from './ResetPassword.module.scss';
 
 const ResetPassword = () => {
   const dispatch = useDispatch();
-  const [searchParams] = useSearchParams();
+  const router = useRouter();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -63,11 +63,11 @@ const ResetPassword = () => {
   }, [data]);
 
   useEffect(() => {
-    if (searchParams?.get('token')) {
-      const localToken = searchParams.get('token');
+    if (router?.query?.token) {
+      const localToken = router.query.token;
       setToken(localToken);
     }
-  }, [searchParams]);
+  }, [router]);
 
   useEffect(() => {
     if (token) {

@@ -14,6 +14,18 @@ services:
     depends_on:
       - api
 
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    command: npm start
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - api
+
   api:
     restart: always
     build:
@@ -56,7 +68,7 @@ services:
       - db
       - smtp4dev
       - redis
-  
+
   celery-flower:
     build:
       dockerfile: Dockerfile
@@ -72,7 +84,7 @@ services:
       - db
       - smtp4dev
       - redis
-  
+
   db:
     restart: always
     image: postgres:13-alpine
@@ -92,7 +104,7 @@ services:
       - "143:143"
     volumes:
       - smtp4dev-data:/smtp4dev
-  
+
   redis:
     image: redis:alpine3.15
     restart: always
