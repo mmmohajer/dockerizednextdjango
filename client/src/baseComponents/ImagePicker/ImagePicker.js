@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import cx from 'classnames';
 import { Div, Label, Input } from 'basedesign-iswad';
 
@@ -13,6 +13,7 @@ import styles from './ImagePicker.module.scss';
 const ImagePicker = ({
   labelText,
   isRequired,
+  file,
   setFile,
   hasCropper = true,
   cropInfo,
@@ -20,6 +21,8 @@ const ImagePicker = ({
   errorHandler,
   className
 }) => {
+  const inputFileField = useRef();
+
   const [src, setSrc] = useState('');
   const [fileName, setFileName] = useState('');
   const [showCropper, setShowCropper] = useState(false);
@@ -61,6 +64,7 @@ const ImagePicker = ({
               onChange={fileChangeHandler}
               className="no-display"
               accept=".jpg,.jpeg,.png"
+              ref={(el) => (inputFileField.current = el)}
             />
             <Div
               type="flex"
@@ -71,13 +75,15 @@ const ImagePicker = ({
               <Icon type="image-upload" color={COLORS.grayDark} scale={4} />
             </Div>
           </Label>
-          <ImagePreview src={src} setSrc={setSrc} setFile={setFile} />
+          <ImagePreview
+            src={src}
+            setSrc={setSrc}
+            setFile={setFile}
+            setFileName={setFileName}
+            inputFileField={inputFileField}
+          />
         </Div>
-        <Div
-          className={cx(
-            'iswad_input_errorMessage',
-            errorMessage && 'iswad_input_errorMessage_active'
-          )}>
+        <Div className={cx('inputErrorMessage', errorMessage && 'inputErrorMessageIsActive')}>
           {errorMessage}
         </Div>
       </Div>

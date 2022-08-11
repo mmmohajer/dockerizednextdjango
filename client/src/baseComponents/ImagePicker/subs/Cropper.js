@@ -57,7 +57,6 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
 
   useEffect(() => {
     if (useScaledSize) {
-      console.log('Hello');
       getScaledVal();
     }
   }, [src, useScaledSize]);

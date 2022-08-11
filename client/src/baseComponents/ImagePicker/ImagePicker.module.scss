@@ -10,15 +10,7 @@
 }
 
 %cropper {
-  max-width: 600px !important;
-
-  @include atMedium {
-    max-width: 600px !important;
-  }
-
-  @include atLarge {
-    max-width: 1000px !important;
-  }
+  max-width: 90% !important;
 }
 
 .iconContainer {
@@ -47,12 +39,12 @@
   box-shadow: $boxShadow1;
   z-index: 1000;
   position: fixed;
+  overflow-y: auto;
   @extend %cropper;
 }
 
 .reactCropper {
   @extend %cropper;
-  background-color: red;
 }
 
 .cropper {

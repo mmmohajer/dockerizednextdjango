@@ -39,11 +39,7 @@ const TextArea = ({
           />
 
           {errorMessage && (
-            <Div
-              className={cx(
-                'iswad_input_errorMessage',
-                errorMessage && 'iswad_input_errorMessage_active'
-              )}>
+            <Div className={cx('inputErrorMessage', errorMessage && 'inputErrorMessageIsActive')}>
               {errorMessage}
             </Div>
           )}

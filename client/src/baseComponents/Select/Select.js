@@ -52,11 +52,7 @@ const Select = ({
             placeholder={placeHolder || 'Choose an option...'}
           />
         </Div>
-        <Div
-          className={cx(
-            'iswad_input_errorMessage',
-            errorMessage && 'iswad_input_errorMessage_active'
-          )}>
+        <Div className={cx('inputErrorMessage', errorMessage && 'inputErrorMessageIsActive')}>
           {errorMessage}
         </Div>
       </Div>

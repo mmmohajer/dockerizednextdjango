@@ -6,7 +6,7 @@ import Close from '@/baseComponents/Close';
 
 import styles from '../ImagePicker.module.scss';
 
-const ImagePreview = ({ src, setFile, setSrc }) => {
+const ImagePreview = ({ src, setFile, setSrc, setFileName, inputFileField }) => {
   return (
     <>
       {src && (
@@ -18,6 +18,8 @@ const ImagePreview = ({ src, setFile, setSrc }) => {
               onClick={() => {
                 setFile('');
                 setSrc('');
+                setFileName('');
+                inputFileField.current.value = null;
               }}
             />
           </Div>

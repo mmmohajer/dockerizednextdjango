@@ -15,6 +15,9 @@ const TextBox = ({
   errorHandler,
   className,
   type,
+  hasIcon = false,
+  iconType,
+  iconColor = 'gray',
   ...props
 }) => {
   const [curType, setCurType] = useState(type);
@@ -29,7 +32,10 @@ const TextBox = ({
         )}
         <Div className={cx('inputFieldContainer')}>
           <BaseInput
-            className={cx('inputField', type === 'password' && styles.inputWithEye)}
+            containerClassName={cx('pos-rel')}
+            className={cx('inputField', type === 'password' && 'inputWithIcon')}
+            errorContainerClassName={cx('inputErrorMessage')}
+            activeErrorContainerClassName={cx('inputErrorMessageIsActive')}
             type={curType}
             value={val}
             onChange={(e) => {
@@ -41,10 +47,19 @@ const TextBox = ({
             }}
             {...props}
           />
+
+          {hasIcon && (
+            <>
+              <Div className={cx(styles.icon)}>
+                <Icon type={iconType} color={iconColor} width={'14'} />
+              </Div>
+            </>
+          )}
+
           {type === 'password' && (
             <>
               <Div
-                className={cx('mouse-hand', styles.eye)}
+                className={cx('mouse-hand', styles.icon)}
                 onClick={() => {
                   if (curType === 'password') {
                     setCurType('text');
