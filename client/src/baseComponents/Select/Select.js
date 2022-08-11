@@ -49,7 +49,7 @@ const Select = ({
             isOptionsActive={isOptionsActive}
             setIsOptionsActive={setIsOptionsActive}
             selectIntialShownText={selectIntialShownText}
-            placeHolder={placeHolder || 'Choose an option...'}
+            placeholder={placeHolder || 'Choose an option...'}
           />
         </Div>
         <Div
