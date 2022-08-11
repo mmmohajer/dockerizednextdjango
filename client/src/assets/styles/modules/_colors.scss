@@ -26,6 +26,22 @@
   &Danger {
     color: $dangerColor;
   }
+
+  &ThemeOne {
+    color: $themeOne;
+  }
+
+  &ThemeTwo {
+    color: $themeTwo;
+  }
+
+  &ThemeThree {
+    color: $themeThree;
+  }
+
+  &ThemeFour {
+    color: $themeFour;
+  }
 }
 
 .bg {
@@ -55,5 +71,21 @@
 
   &Danger {
     background-color: $dangerColor;
+  }
+
+  &ThemeOne {
+    background-color: $themeOne;
+  }
+
+  &ThemeTwo {
+    background-color: $themeTwo;
+  }
+
+  &ThemeThree {
+    background-color: $themeThree;
+  }
+
+  &ThemeFour {
+    background-color: $themeFour;
   }
 }

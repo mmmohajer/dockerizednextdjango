@@ -36,5 +36,9 @@ export const COLORS = {
   success: '#5cb85c',
   danger: '#d9534f',
   grayBright: '#ebebeb',
-  grayDark: '#777'
+  grayDark: '#777',
+  themeOne: '#d2e4ff',
+  themeTwo: '#4359d4',
+  themeThree: '#0c1261',
+  themeFour: '#f8986c'
 };

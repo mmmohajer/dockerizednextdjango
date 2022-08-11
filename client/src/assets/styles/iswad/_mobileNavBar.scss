@@ -1,7 +1,10 @@
 .iswad_mobNav {
-  transform: translateX(100%);
-  transition: all 0.3s ease-in-out;
-
+  background-color: $themeThree;
+  transform: translateX(150%);
+  transition: all 0.2s ease-in-out;
+  right: 1.5rem;
+  top: 70px;
+  border-radius: 5px;
   &_active {
     transform: translateX(0);
   }
@@ -9,18 +12,15 @@
 
 .iswad_mobNavItem,
 .iswad_mobSubNavItem {
+  border-bottom: 1px solid $themeTwo;
+  color: white;
   &:hover {
-    border-color: $primaryColor;
-    background: rgba($primaryColor, 0.1);
-    color: $primaryColor;
+    border-color: $themeFour;
+    color: $themeFour;
   }
   &_active {
-    border-color: $primaryColor;
-    background: linear-gradient(
-      rgba($primaryColor, 0.2),
-      rgba($primaryColor, 0.3)
-    );
-    color: $primaryColor !important;
+    border-color: $themeFour;
+    color: $themeFour !important;
   }
 }
 

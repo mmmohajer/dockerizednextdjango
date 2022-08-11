@@ -1,17 +1,14 @@
 .iswad_navItem,
 .iswad_subNavItem {
+  color: white;
+  display: block;
   &:hover {
-    border-color: $primaryColor;
-    background: rgba($primaryColor, 0.1);
-    color: $primaryColor;
+    border-color: $themeFour;
+    border-bottom: 3px solid $themeFour;
   }
   &_active {
-    border-color: $primaryColor;
-    background: linear-gradient(
-      rgba($primaryColor, 0.2),
-      rgba($primaryColor, 0.3)
-    );
-    color: $primaryColor !important;
+    border-bottom: 3px solid $themeFour;
+    color: $themeFour !important;
   }
 }
 
