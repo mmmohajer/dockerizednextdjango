@@ -56,33 +56,22 @@ createReactBaseComponent() {
 
 createReactPage() {
     local pageName=$(readData "What is the page name?")
-    local pageUrl=$(readData "What is the page url?")
     
-    pageName="$(tr '[:lower:]' '[:upper:]' <<< ${pageName:0:1})${pageName:1}"
     local addr="client/src/pages/$pageName"
     local testFolderAddr="client/src/pages/$pageName/__test__"
     mkdir -p "$addr"
     mkdir -p "$testFolderAddr"
     
-    local jsContext=$(getJsPageContext $pageName)
-    local indexContext="export { default } from \"./$pageName\";"
-    local testFileContext=$(getTestFileContext $pageName)
+    local jsContext=$(getJsPageContext Index)
+    local testFileContext=$(getTestFileContext index)
     
-    local innerJsFileAddr="client/src/pages/$pageName/$pageName.js"
     local innerIndexFileAddr="client/src/pages/$pageName/index.js"
-    local innersassFileAddr="client/src/pages/$pageName/$pageName.module.scss"
+    local innersassFileAddr="client/src/pages/$pageName/Index.module.scss"
     local innerTestFileAddr="client/src/pages/$pageName/__test__/$pageName.test.js"
     
-    echo "$jsContext" >> $innerJsFileAddr
-    echo "$indexContext" >> "$innerIndexFileAddr"
+    echo "$jsContext" >> "$innerIndexFileAddr"
     echo "$testFileContext" >> $innerTestFileAddr
     touch "$innersassFileAddr"
-    
-    echo -en "${I_YELLOW}"
-    echo "Do not forget to add the follwoings to the AppRoutes.js file:"
-    echo -en "${I_GREEN}"
-    echo "<Route path=\"/$pageUrl\" element={<$pageName />}></Route>"
-    echo -en "${DEFAULT_COLOR}"
     
     return 0
 }

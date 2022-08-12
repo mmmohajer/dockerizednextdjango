@@ -28,7 +28,7 @@ getJsPageContext() {
 import cx from \"classnames\";
 import { Div } from \"basedesign-iswad\";
 
-import PublicRoute from \"Components/PublicRoute\";
+import PublicRoute from \"@/components/PublicRoute\";
 
 import styles from \"./$compName.module.scss\";
 

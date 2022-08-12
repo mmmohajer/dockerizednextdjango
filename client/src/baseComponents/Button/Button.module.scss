@@ -1,21 +1,48 @@
 @import '@/styles/base/_variables';
 
-.btn {
+.btn1 {
   outline: none;
   border: solid 1px;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: $boxShadow1;
   padding: 10px 1rem;
-}
-
-.primary {
   background-color: $primaryColor;
   border-color: $primaryColor;
   color: white;
-  min-width: 200px;
 
   &:hover {
     background-color: $inverseColor;
     border-color: $inverseColor;
+  }
+}
+
+.btn2 {
+  outline: none;
+  border: solid 1px;
+  border-radius: 0;
+  padding: 10px 1rem;
+  background-color: $themeOne;
+  border-color: $themeOne;
+
+  &:hover {
+    background-color: $fadedColor;
+    border-color: $fadedColor;
+  }
+}
+
+.btn3 {
+  outline: none;
+  border: none;
+  border-radius: 0;
+  padding: 10px 1rem;
+  background-color: $themeTwo;
+  border-color: $themeTwo;
+  box-shadow: $boxShadow1;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $successColor;
+    border-color: $successColor;
+    transform: scale(1.05);
   }
 }

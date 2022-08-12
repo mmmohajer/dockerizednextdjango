@@ -21,13 +21,26 @@ import Mail from '@/images/js-Images/icons/svg/mail.svg';
 import Youtube from '@/images/js-Images/icons/svg/youtube.svg';
 import Person from '@/images/js-Images/icons/svg/person.svg';
 import PersonFill from '@/images/js-Images/icons/svg/person-fill.svg';
+
+import { LIST_OF_ICONS } from '@/constants/devDesignVars';
 function Icon({ type, color, width, scale }) {
   let iconTypes = {
-    flag: <FontAwesomeIcon icon={faFlag} style={{ color, width }} />,
-    certificate: <FontAwesomeIcon icon={faCertificate} style={{ color, width }} />,
-    quoteLeft: <FontAwesomeIcon icon={faQuoteLeft} style={{ color, width }} />,
-    angleRight: <FontAwesomeIcon icon={faAngleRight} style={{ color, width }} />,
-    angleLeft: <FontAwesomeIcon icon={faAngleLeft} style={{ color, width }} />,
+    flag: <FontAwesomeIcon icon={faFlag} style={{ color, width, transform: `scale(${scale})` }} />,
+    certificate: (
+      <FontAwesomeIcon
+        icon={faCertificate}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    quoteLeft: (
+      <FontAwesomeIcon icon={faQuoteLeft} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    angleRight: (
+      <FontAwesomeIcon icon={faAngleRight} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    angleLeft: (
+      <FontAwesomeIcon icon={faAngleLeft} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
     eye: <FontAwesomeIcon icon={faEye} style={{ color, width, transform: `scale(${scale})` }} />,
     'image-upload': (
       <FontAwesomeIcon icon={faImage} style={{ color, width, transform: `scale(${scale})` }} />
@@ -86,24 +99,7 @@ function Icon({ type, color, width, scale }) {
 }
 
 Icon.propTypes = {
-  type: PropTypes.oneOf([
-    'flag',
-    'dashboard',
-    'instagram',
-    'phone',
-    'location',
-    'mail',
-    'certificate',
-    'quoteLeft',
-    'angleLeft',
-    'angleRight',
-    'close',
-    'youtube',
-    'person',
-    'person-fill',
-    'eye',
-    'image-upload'
-  ]),
+  type: PropTypes.oneOf(LIST_OF_ICONS),
   color: PropTypes.string,
   width: PropTypes.string
 };
