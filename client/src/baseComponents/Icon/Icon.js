@@ -100,7 +100,9 @@ Icon.propTypes = {
     'close',
     'youtube',
     'person',
-    'person-fill'
+    'person-fill',
+    'eye',
+    'image-upload'
   ]),
   color: PropTypes.string,
   width: PropTypes.string
