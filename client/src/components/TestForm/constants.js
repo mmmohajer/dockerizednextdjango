@@ -12,3 +12,14 @@ export const PROVINCE_CHOICES = [
   { value: 'QC', shownText: 'Quebec' },
   { value: 'YT', shownText: 'Yukon Territories' }
 ];
+
+export const SPORTS = [
+  { value: 'badminton', shownText: 'Badminton' },
+  { value: 'tennis', shownText: 'Tennis' },
+  { value: 'soccer', shownText: 'Soccer' },
+  { value: 'hockey', shownText: 'Hockey' },
+  { value: 'pickleball', shownText: 'Pickle Ball' },
+  { value: 'pingpong', shownText: 'Ping Pong' },
+  { value: 'running', shownText: 'Running' },
+  { value: 'walking', shownText: 'Walking' }
+];

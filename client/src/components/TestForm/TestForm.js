@@ -8,11 +8,13 @@ import Select from '@/baseComponents/Select';
 import DatePicker from '@/baseComponents/DatePicker';
 import ImagePicker from '@/baseComponents/ImagePicker';
 import TextArea from '@/baseComponents/TextArea';
+import FormCheckBox from '@/baseComponents/FormCheckBox';
+import SingleCheckBox from '@/baseComponents/SingleCheckBox';
 import Button from '@/baseComponents/Button';
 
 import { passwordValidators } from './validators';
 
-import { PROVINCE_CHOICES } from './constants';
+import { PROVINCE_CHOICES, SPORTS } from './constants';
 
 import styles from './TestForm.module.scss';
 
@@ -22,12 +24,16 @@ const TestForm = () => {
   const [birthDate, setBirthDate] = useState(new Date());
   const [profilePhoto, setProfilePhoto] = useState('');
   const [message, setMessage] = useState('');
+  const [favoriteSports, setFavoriteSports] = useState([]);
+  const [termsApproval, setTermsApproval] = useState(false);
 
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
   const [provinceErrorMessage, setProvinceErrorMessage] = useState('');
   const [birthDateErrorMessage, setBirthDateErrorMessage] = useState('');
   const [profilePhotoErrorMessage, setProfilePhotoErrorMessage] = useState('');
   const [messageErrorMessage, setMessageErrorMessage] = useState('');
+  const [favoriteSportsErrorMessage, setFavoriteSportsErrorMessage] = useState('');
+  const [termsApprovalErrorMessage, setTermsApprovalErrorMessage] = useState('');
 
   const toBeValidatedFields = [
     {
@@ -57,6 +63,15 @@ const TestForm = () => {
     if (!message) {
       setMessageErrorMessage('You must send a message to us!');
       validated = false;
+    }
+
+    if (favoriteSports.length < 3) {
+      setFavoriteSportsErrorMessage('You must pick at least 3 sports!');
+      validated = false;
+    }
+
+    if (!termsApproval) {
+      setTermsApprovalErrorMessage('You must agree our terms and conditions');
     }
 
     return validated;
@@ -127,6 +142,23 @@ const TestForm = () => {
           errorMessage={messageErrorMessage}
           errorHandler={setMessageErrorMessage}
           id="messageFieldHomePage"
+        />
+        <FormCheckBox
+          options={SPORTS}
+          labelText="Your favourite sports?"
+          isRequired
+          selectedOptions={favoriteSports}
+          setSelectedOptions={setFavoriteSports}
+          errorMessage={favoriteSportsErrorMessage}
+          errorHandler={setFavoriteSportsErrorMessage}
+        />
+        <SingleCheckBox
+          labelText="I agree terms and conditions"
+          isRequired
+          selected={termsApproval}
+          setSelected={setTermsApproval}
+          errorMessage={termsApprovalErrorMessage}
+          errorHandler={setTermsApprovalErrorMessage}
         />
         <Button type="submit" id="testFormSubmit">
           Submit

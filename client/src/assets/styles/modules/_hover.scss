@@ -26,6 +26,22 @@
   color: $dangerColor;
 }
 
+.hover-text-themeOne:hover {
+  color: $themeOne;
+}
+
+.hover-text-themeTwo:hover {
+  color: $themeTwo;
+}
+
+.hover-text-themeThree:hover {
+  color: $themeThree;
+}
+
+.hover-text-themeFour:hover {
+  color: $themeFour;
+}
+
 .hover-bg-primary:hover {
   background-color: $primaryColor;
 }
@@ -52,4 +68,20 @@
 
 .hover-bg-warning:hover {
   background-color: $warningColor;
+}
+
+.hover-bg-themeOne:hover {
+  background-color: $themeOne;
+}
+
+.hover-bg-themeTwo:hover {
+  background-color: $themeTwo;
+}
+
+.hover-bg-themeThree:hover {
+  background-color: $themeThree;
+}
+
+.hover-bg-themeFour:hover {
+  background-color: $themeFour;
 }

@@ -10,7 +10,8 @@ import {
   faCertificate,
   faQuoteLeft,
   faAngleRight,
-  faAngleLeft
+  faAngleLeft,
+  faCheck
 } from '@fortawesome/free-solid-svg-icons';
 
 import Dashboard from '@/images/js-Images/icons/svg/dashboard.svg';
@@ -45,7 +46,12 @@ function Icon({ type, color, width, scale }) {
     'image-upload': (
       <FontAwesomeIcon icon={faImage} style={{ color, width, transform: `scale(${scale})` }} />
     ),
-    close: <FontAwesomeIcon icon={faClose} style={{ color, width, transform: `scale(${scale})` }} />
+    close: (
+      <FontAwesomeIcon icon={faClose} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'check-mark': (
+      <FontAwesomeIcon icon={faCheck} style={{ color, width, transform: `scale(${scale})` }} />
+    )
   };
 
   iconTypes['dashboard'] = (

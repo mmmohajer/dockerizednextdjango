@@ -8,21 +8,34 @@
   margin-bottom: 2rem;
 }
 
-.labelForInput {
+%label {
   color: $appGrayDarkColor;
   font-size: 14px;
 
   &Container {
-    margin-bottom: 4px;
     margin-left: 4px;
   }
 }
 
+.labelForInput {
+  @extend %label;
+
+  &Container {
+    margin-bottom: 4px;
+  }
+}
+
+.labelForCheckBox {
+  @extend %label;
+
+  &Container {
+    margin-bottom: 16px;
+  }
+}
+
 %inputField {
-  width: 100%;
   border: none;
   box-shadow: $boxShadow1;
-  padding: 8px 1rem;
   border: solid 1px $appGrayBrightColor;
 
   &Container {
@@ -37,6 +50,8 @@
 .input {
   &Field {
     @extend %inputField;
+    width: 100%;
+    padding: 8px 1rem;
     height: 40px;
 
     &Container {
@@ -64,9 +79,19 @@
 
 .textAreaField {
   @extend %inputField;
+  width: 100%;
+  padding: 8px 1rem;
   height: 80px;
   min-height: 40px;
   max-height: 160px;
   min-width: 100%;
   max-width: 100%;
+}
+
+.mainCheckBoxContainer {
+  margin-bottom: 2rem;
+}
+
+.chechBoxField {
+  @extend %inputField;
 }

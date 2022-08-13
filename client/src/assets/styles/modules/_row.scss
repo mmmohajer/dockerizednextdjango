@@ -291,3 +291,24 @@
     }
   }
 }
+
+.grid {
+  display: grid;
+  width: 100%;
+
+  &--cols--auto {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  &--cols--oneFourth {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &--cols--oneThird {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &--cols--oneHalf {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

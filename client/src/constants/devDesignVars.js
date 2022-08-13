@@ -2,6 +2,7 @@ export const LIST_OF_ICONS = [
   'angleLeft',
   'angleRight',
   'certificate',
+  'check-mark',
   'close',
   'dashboard',
   'eye',
