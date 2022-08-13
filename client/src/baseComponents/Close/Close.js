@@ -9,7 +9,16 @@ import styles from './Close.module.scss';
 const Close = ({ className, ...props }) => {
   return (
     <>
-      <Div className={cx('pos-abs pos-abs--rt', className)} {...props}>
+      <Div
+        type="flex"
+        hAlign="center"
+        vAlign="center"
+        className={cx(
+          'pos-abs mouse-hand br-rad-per-50 br-all-solid-1 w-px-20 height-px-20',
+          styles.close,
+          className
+        )}
+        {...props}>
         <Icon type="close" />
       </Div>
     </>

@@ -6,6 +6,9 @@ import DisplayHeadings from './subs/DisplayHeadings';
 import DisplayColors from './subs/DisplayColors';
 import DisplayIcons from './subs/DisplayIcons';
 import DisplayButtons from './subs/DisplayButtons';
+import DisplayForm from './subs/DisplayForm';
+import DisplayAlert from './subs/DisplayAlert';
+import DisplayModals from './subs/DisplayModals';
 
 import styles from './DevDesign.module.scss';
 
@@ -20,6 +23,12 @@ const DevDesign = () => {
       <DisplayIcons />
       <Heading className="flex flex--jc--center flex--ai--center my1">Buttons</Heading>
       <DisplayButtons />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Form Components</Heading>
+      <DisplayForm />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Alerts</Heading>
+      <DisplayAlert />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Modals</Heading>
+      <DisplayModals />
     </>
   );
 };

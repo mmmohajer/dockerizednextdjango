@@ -1,6 +1,6 @@
 import React from "react";
 import { render as renderRTL, screen, fireEvent } from "@testing-library/react";
-import TestForm from "../TestForm";
+import FormRadioButton from "../FormRadioButton";
 import * as reactRedux from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
@@ -12,7 +12,7 @@ jest.mock("react-redux", () => ({
   useDispatch: jest.fn(),
 }));
 
-describe("Test TestForm Component", () => {
+describe("Test FormRadioButton Component", () => {
   const useSelectorMock = reactRedux.useSelector;
   const useDispatchMock = reactRedux.useDispatch;
 
@@ -27,8 +27,8 @@ describe("Test TestForm Component", () => {
   });
 
   test("", () => {
-    render(<TestForm />);
+    render(<FormRadioButton />);
 
-    expect(screen.getByText(/TestForm/i)).toBeInTheDocument();
+    expect(screen.getByText(/FormRadioButton/i)).toBeInTheDocument();
   });
 });

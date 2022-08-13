@@ -23,3 +23,14 @@ export const SPORTS = [
   { value: 'running', shownText: 'Running' },
   { value: 'walking', shownText: 'Walking' }
 ];
+
+export const FAVORITE_HOBBY = [
+  { value: 'reading', shownText: 'Reading' },
+  { value: 'sport', shownText: 'Sport' },
+  { value: 'music', shownText: 'Music' },
+  { value: 'watch_tv', shownText: 'Watch TV' },
+  { value: 'study', shownText: 'Study' },
+  { value: 'talking', shownText: 'Talking' },
+  { value: 'running', shownText: 'Running' },
+  { value: 'walking', shownText: 'Walking' }
+];

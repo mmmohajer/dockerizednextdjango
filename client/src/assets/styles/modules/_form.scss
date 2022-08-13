@@ -33,6 +33,14 @@
   }
 }
 
+.labelForRadioButton {
+  @extend %label;
+
+  &Container {
+    margin-bottom: 16px;
+  }
+}
+
 %inputField {
   border: none;
   box-shadow: $boxShadow1;
@@ -93,5 +101,9 @@
 }
 
 .chechBoxField {
+  @extend %inputField;
+}
+
+.radioButtonField {
   @extend %inputField;
 }

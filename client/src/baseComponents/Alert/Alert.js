@@ -21,8 +21,8 @@ const Alert = () => {
             className={cx(
               'm1 p1',
               notif?.type === 'success' && 'bgSuccess',
-              notif?.type === 'error' && 'bgWarning',
-              notif?.type === 'danger' && 'bgDanger'
+              notif?.type === 'error' && 'bgDanger',
+              notif?.type === 'warning' && 'bgWarning'
             )}>
             <Div className="w-per-100" type="flex" direction="horizontal" distributedBetween>
               <Paragraph>{notif.message}</Paragraph>
