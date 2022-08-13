@@ -5,12 +5,11 @@ import { Div } from 'basedesign-iswad';
 
 import Button from '@/baseComponents/Button';
 
-import { setModalType } from '@/reducers/general/modalType';
-import { MODAL_TYPES } from '@/constants/devDesignVars';
+import { isLoading, isLoaded } from '@/reducers/general/loading';
 
 import styles from '../DevDesign.module.scss';
 
-function DisplayModals() {
+function DisplayLoading() {
   const dispatch = useDispatch();
 
   return (
@@ -21,17 +20,19 @@ function DisplayModals() {
         hAlign="center"
         vAlign="center"
         className={cx('p1 w-per-90 flex--wrap', styles.card)}>
-        {MODAL_TYPES.map((item, idx) => (
-          <Button
-            key={idx}
-            className={'w-px-200 ml-auto mr-auto mb1'}
-            onClick={() => dispatch(setModalType(item))}>
-            Show moal of type {item}
-          </Button>
-        ))}
+        <Button
+          className={'w-px-200 ml-auto mr-auto mb1'}
+          onClick={() => {
+            dispatch(isLoading());
+            setTimeout(() => {
+              dispatch(isLoaded());
+            }, 5000);
+          }}>
+          Show Loading for 5 seconds
+        </Button>
       </Div>
     </>
   );
 }
 
-export default DisplayModals;
+export default DisplayLoading;

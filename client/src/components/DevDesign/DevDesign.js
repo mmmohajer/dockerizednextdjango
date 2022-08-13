@@ -9,6 +9,10 @@ import DisplayButtons from './subs/DisplayButtons';
 import DisplayForm from './subs/DisplayForm';
 import DisplayAlert from './subs/DisplayAlert';
 import DisplayModals from './subs/DisplayModals';
+import DisplayLoading from './subs/DisplayLoading';
+import DisplayCards from './subs/DisplayCards';
+import DisplayPagination from './subs/DisplayPagination';
+import DisplayTable from './subs/DisplayTable';
 
 import styles from './DevDesign.module.scss';
 
@@ -29,6 +33,14 @@ const DevDesign = () => {
       <DisplayAlert />
       <Heading className="flex flex--jc--center flex--ai--center my1">Modals</Heading>
       <DisplayModals />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Modals</Heading>
+      <DisplayLoading />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Cards</Heading>
+      <DisplayCards />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Pagination</Heading>
+      <DisplayPagination />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Table</Heading>
+      <DisplayTable />
     </>
   );
 };

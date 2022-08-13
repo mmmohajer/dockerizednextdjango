@@ -18,7 +18,7 @@ function DisplayColors() {
       <Div
         type="flex"
         direction="vertical"
-        hAign="center"
+        hAlign="center"
         vAlign="center"
         className={cx('p1 w-per-90 flex--wrap', styles.card)}>
         {ALERT_TYPES.map((item, idx) => (
