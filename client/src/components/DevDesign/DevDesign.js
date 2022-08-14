@@ -13,6 +13,7 @@ import DisplayLoading from './subs/DisplayLoading';
 import DisplayCards from './subs/DisplayCards';
 import DisplayPagination from './subs/DisplayPagination';
 import DisplayTable from './subs/DisplayTable';
+import DisplayText from './subs/DisplayText';
 
 import styles from './DevDesign.module.scss';
 
@@ -41,6 +42,8 @@ const DevDesign = () => {
       <DisplayPagination />
       <Heading className="flex flex--jc--center flex--ai--center my1">Table</Heading>
       <DisplayTable />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Text</Heading>
+      <DisplayText />
     </>
   );
 };
