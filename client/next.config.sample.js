@@ -23,5 +23,9 @@ module.exports = {
     });
 
     return config;
+  },
+
+  images: {
+    domains: ['picsum.photos', 'img.icons8.com']
   }
 };
