@@ -1,6 +1,7 @@
 import { generateKey } from '@/utils/helpers';
 import {
   addNotification,
+  activateNotification,
   removeNotification,
   deactivateNotification
 } from '@/reducers/general/notifications';
@@ -15,6 +16,9 @@ export const removeAlertItem = (dispatch, key) => {
 export const addAlertItem = (dispatch, message, type) => {
   const key = generateKey();
   dispatch(addNotification({ key, message, type }));
+  setTimeout(() => {
+    dispatch(activateNotification({ key }));
+  }, 5);
   setTimeout(() => {
     removeAlertItem(dispatch, key);
   }, 10000);
