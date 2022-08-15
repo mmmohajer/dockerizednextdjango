@@ -33,11 +33,13 @@ const CheckBox = ({
         {labelText && (
           <Div
             className={cx(
-              'labelForInputContainer',
+              'labelForCheckBoxFieldContainer',
               direction === 'horizontal' && 'mr1',
               direction === 'vertical' && 'mb1'
             )}>
-            <Label className={cx(isRequired && 'required', 'labelForInput')}>{labelText}</Label>
+            <Label className={cx(isRequired && 'required', 'labelForCheckBoxField')}>
+              {labelText}
+            </Label>
           </Div>
         )}
         <Div

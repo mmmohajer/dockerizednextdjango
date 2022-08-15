@@ -25,6 +25,14 @@
   }
 }
 
+.labelForCheckBoxField {
+  @extend %label;
+
+  &Container {
+    // margin-bottom: 16px;
+  }
+}
+
 .labelForCheckBox {
   @extend %label;
 
