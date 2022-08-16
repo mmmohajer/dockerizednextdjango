@@ -18,9 +18,15 @@ function DisplayModals() {
         vAlign="center"
         className={cx('p1 w-per-90 flex--wrap', styles.card)}>
         {CARD_TYPES.map((item, idx) => (
-          <Div direction="vertical" type="flex" hAlign="center" vAlign="center" className="mb4">
+          <Div
+            key={idx}
+            direction="vertical"
+            type="flex"
+            hAlign="center"
+            vAlign="center"
+            className="mb4">
             <Div className="mb1">Type: {item}</Div>
-            <Card key={idx} type={item} />
+            <Card type={item} />
           </Div>
         ))}
       </Div>
