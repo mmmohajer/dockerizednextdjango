@@ -4,7 +4,8 @@ module.exports = {
   },
 
   publicRuntimeConfig: {
-    PRODUCTION: false
+    PRODUCTION: false,
+    WITHOUT_DOCKER: 0
   },
 
   env: {
