@@ -143,6 +143,9 @@ const DisplayForm = () => {
             errorMessage={profilePhotoErrorMessage}
             errorHandler={setProfilePhotoErrorMessage}
             id="profilePhotoFieldHomePage"
+            hasCropper={false}
+            hasResizer={true}
+            maxWidth={50}
           />
           <TextArea
             isRequired

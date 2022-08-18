@@ -1,4 +1,4 @@
-import { CANVAS_ID, IMAGE_CROPPER_ID } from './constants';
+import { CANVAS_ID, IMAGE_CROPPER_ID, RESIZE_IMAGE_CANVAS_ID } from './constants';
 
 export const cropImage = (imagePath, newX, newY, newWidth, newHeight) => {
   try {
@@ -62,4 +62,47 @@ const dataURLtoFile = (dataurl, filename) => {
   }
 
   return new File([u8arr], filename, { type: mime });
+};
+
+export const resizeImage = (imagePath, maxWidth) => {
+  try {
+    //create an image object from the path
+    const originalImage = new Image();
+    originalImage.src = imagePath;
+
+    //initialize the canvas object
+    const canvas = document.getElementById(RESIZE_IMAGE_CANVAS_ID);
+    const ctx = canvas.getContext('2d');
+
+    const setWidth = originalImage.width <= maxWidth ? originalImage.width : maxWidth;
+    const setHeight =
+      originalImage.width <= maxWidth
+        ? originalImage.height
+        : (originalImage.height * maxWidth) / originalImage.width;
+
+    // wait for the image to finish loading
+    originalImage.addEventListener('load', function () {
+      //set the canvas size to the new width and height
+      canvas.width = setWidth;
+      canvas.height = setHeight;
+
+      console.log(setWidth);
+
+      // draw the image
+      ctx.drawImage(originalImage, 0, 0, setWidth, setHeight);
+    });
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
+export const getResizedImg = (setSrc, fileName) => {
+  const canvas = document.getElementById(RESIZE_IMAGE_CANVAS_ID);
+  const fileExtension = fileName.split('.').pop();
+  const dataURL = canvas.toDataURL(`image/png`);
+  console.log(dataURL);
+  const newFile = dataURLtoFile(dataURL, fileName);
+  setSrc(URL.createObjectURL(newFile));
+  return newFile;
 };

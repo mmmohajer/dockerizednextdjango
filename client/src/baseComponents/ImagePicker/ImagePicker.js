@@ -7,6 +7,7 @@ import { COLORS } from '@/constants/vars';
 import Icon from '@/baseComponents/Icon';
 import ImagePreview from './subs/ImagePreview';
 import Cropper from './subs/Cropper';
+import Resizer from './subs/Resizer';
 
 import styles from './ImagePicker.module.scss';
 
@@ -17,6 +18,8 @@ const ImagePicker = ({
   setFile,
   hasCropper = true,
   cropInfo,
+  hasResizer = false,
+  maxWidth,
   errorMessage,
   errorHandler,
   className
@@ -26,6 +29,7 @@ const ImagePicker = ({
   const [src, setSrc] = useState('');
   const [fileName, setFileName] = useState('');
   const [showCropper, setShowCropper] = useState(false);
+  const [showResizer, setShowResizer] = useState(false);
 
   const fileChangeHandler = (e) => {
     if (e.target?.files?.[0]) {
@@ -34,6 +38,7 @@ const ImagePicker = ({
       setFileName(localFile?.name);
       setSrc(URL.createObjectURL(localFile));
       setShowCropper(true);
+      setShowResizer(true);
     }
   };
 
@@ -47,6 +52,18 @@ const ImagePicker = ({
           fileName={fileName}
           setShowCropper={setShowCropper}
           cropInfo={cropInfo}
+        />
+      ) : (
+        ''
+      )}
+      {hasResizer && showResizer ? (
+        <Resizer
+          src={src}
+          setSrc={setSrc}
+          setFile={setFile}
+          fileName={fileName}
+          setShowResizer={setShowResizer}
+          maxWidth={maxWidth}
         />
       ) : (
         ''
