@@ -5,6 +5,7 @@ import { Div, Heading } from 'basedesign-iswad';
 import DisplayHeadings from './subs/DisplayHeadings';
 import DisplayColors from './subs/DisplayColors';
 import DisplayIcons from './subs/DisplayIcons';
+import DisplayAnchor from './subs/DisplayAnchor';
 import DisplayButtons from './subs/DisplayButtons';
 import DisplayForm from './subs/DisplayForm';
 import DisplayAlert from './subs/DisplayAlert';
@@ -26,6 +27,8 @@ const DevDesign = () => {
       <DisplayColors />
       <Heading className="flex flex--jc--center flex--ai--center my1">Icons</Heading>
       <DisplayIcons />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Anchors</Heading>
+      <DisplayAnchor />
       <Heading className="flex flex--jc--center flex--ai--center my1">Buttons</Heading>
       <DisplayButtons />
       <Heading className="flex flex--jc--center flex--ai--center my1">Form Components</Heading>

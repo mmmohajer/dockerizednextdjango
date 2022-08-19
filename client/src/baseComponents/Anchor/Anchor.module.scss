@@ -1,0 +1,32 @@
+@import '@/styles/base/_variables';
+
+.anchor1 {
+  padding: 1rem;
+  color: black;
+
+  &:hover {
+    background-color: $inverseColor;
+    color: white;
+    border-color: $inverseColor;
+  }
+}
+
+.anchor2 {
+  padding: 1rem;
+  color: $themeTwo;
+
+  &:hover {
+    color: $fadedColor;
+  }
+}
+
+.anchor3 {
+  padding: 1rem;
+  color: $themeTwo;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: $successColor;
+    transform: scale(1.05);
+  }
+}
