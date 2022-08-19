@@ -145,7 +145,7 @@ const DisplayForm = () => {
             id="profilePhotoFieldHomePage"
             hasCropper={false}
             hasResizer={true}
-            maxWidth={50}
+            maxWidth={200}
           />
           <TextArea
             isRequired

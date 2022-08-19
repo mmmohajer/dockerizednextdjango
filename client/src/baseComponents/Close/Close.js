@@ -13,11 +13,7 @@ const Close = ({ className, ...props }) => {
         type="flex"
         hAlign="center"
         vAlign="center"
-        className={cx(
-          'pos-abs mouse-hand br-rad-per-50 br-all-solid-1 w-px-20 height-px-20',
-          styles.close,
-          className
-        )}
+        className={cx('pos-abs mouse-hand w-px-20 height-px-20', styles.close, className)}
         {...props}>
         <Icon type="close" />
       </Div>

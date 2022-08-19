@@ -86,8 +86,6 @@ export const resizeImage = (imagePath, maxWidth) => {
       canvas.width = setWidth;
       canvas.height = setHeight;
 
-      console.log(setWidth);
-
       // draw the image
       ctx.drawImage(originalImage, 0, 0, setWidth, setHeight);
     });
@@ -101,7 +99,6 @@ export const getResizedImg = (setSrc, fileName) => {
   const canvas = document.getElementById(RESIZE_IMAGE_CANVAS_ID);
   const fileExtension = fileName.split('.').pop();
   const dataURL = canvas.toDataURL(`image/png`);
-  console.log(dataURL);
   const newFile = dataURLtoFile(dataURL, fileName);
   setSrc(URL.createObjectURL(newFile));
   return newFile;

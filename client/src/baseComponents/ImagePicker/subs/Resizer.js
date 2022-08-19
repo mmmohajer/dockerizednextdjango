@@ -2,27 +2,12 @@ import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { Div, Image as BaseImage } from 'basedesign-iswad';
 
-import Button from '@/baseComponents/Button';
-
-import 'react-image-crop/dist/ReactCrop.css';
-
 import { resizeImage, getResizedImg } from '../utils';
 import { RESIZE_IMAGE_CANVAS_ID, IMAGE_RESIZER_ID, RESIZER_ID } from '../constants';
 
 import styles from '../ImagePicker.module.scss';
 
-const Cropper = ({
-  src,
-  setSrc,
-  setFile,
-  fileName,
-  maxWidth,
-  setShowResizer,
-  useScaledSize = false
-}) => {
-  const [widthScale, setWidthScale] = useState(1);
-  const [heightScale, setHeightScale] = useState(1);
-
+const Resizer = ({ src, setSrc, setFile, fileName, maxWidth, setShowResizer }) => {
   const doResize = () => {
     return new Promise(function (resolve, reject) {
       const resized = resizeImage(src, maxWidth);
@@ -36,32 +21,30 @@ const Cropper = ({
     });
   };
 
-  const resizeHandler = (e) => {
-    e.preventDefault();
+  const resizeHandler = () => {
     doResize().then(() => {
       setFile(getResizedImg(setSrc, fileName));
       setShowResizer(false);
     });
   };
 
-  const getScaledVal = () => {
-    const resizer = document.getElementById(CROPPER_ID);
-    const originalImage = new Image();
-    originalImage.src = src;
-    setTimeout(() => {
-      setWidthScale(resizer.offsetWidth / originalImage.width);
-      setHeightScale(resizer.offsetHeight / originalImage.height);
-    }, 1000);
-  };
-
   useEffect(() => {
-    if (useScaledSize) {
-      getScaledVal();
+    if (src && maxWidth) {
+      setTimeout(() => {
+        resizeHandler();
+      }, [500]);
     }
-  }, [src, useScaledSize]);
+  }, [src, maxWidth]);
 
   return (
     <>
+      <Div
+        type="flex"
+        hAlign="center"
+        vAlign="center"
+        className="pos-fix pos-fix--lt w-per-100 height-vh-full z-10000 bgBlack op-90 textWhite">
+        Processing your image
+      </Div>
       <Div
         type="flex"
         direction="vertical"
@@ -75,7 +58,6 @@ const Cropper = ({
           </Div>
         </Div>
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">
-          <Button onClick={resizeHandler}>Resize Image</Button>
           <Div className={cx(styles.canvasContainer)}>
             <canvas id={RESIZE_IMAGE_CANVAS_ID} className=""></canvas>
           </Div>
@@ -85,4 +67,4 @@ const Cropper = ({
   );
 };
 
-export default Cropper;
+export default Resizer;
