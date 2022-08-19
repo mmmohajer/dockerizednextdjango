@@ -15,7 +15,7 @@ function DisplayIcons() {
         hAlign="center"
         vAlign="center"
         className={cx('p1 w-per-90 flex--wrap', styles.card)}>
-        <Text className={'w-px-200 ml-auto mr-auto mb1'} summerized_max_length={310}>
+        <Text className={'max-w-px-400 ml-auto mr-auto mb1'} summerized_max_length={310}>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
           been the industry's standard dummy text ever since the 1500s, when an unknown printer took
           a galley of type and scrambled it to make a type specimen book. It has survived not only
