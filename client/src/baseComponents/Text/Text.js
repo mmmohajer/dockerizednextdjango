@@ -32,7 +32,7 @@ const Text = ({ children, className, summerized_max_length = 100, ...props }) =>
   return (
     <>
       {displayShowMore && showAbstractText ? (
-        <Div className={cx(className)} {...props}>
+        <Div className={cx(styles.text, className)} {...props}>
           {cutText}
           <BaseText
             className="mouse-hand"
@@ -48,7 +48,7 @@ const Text = ({ children, className, summerized_max_length = 100, ...props }) =>
         ''
       )}
       {displayShowLess && !showAbstractText ? (
-        <Div className={cx(className)} {...props}>
+        <Div className={cx(styles.text, className)} {...props}>
           {cutText}
           <BaseText
             className="mouse-hand"
