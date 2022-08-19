@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { Div, Paragraph } from 'basedesign-iswad';
+import Router from 'next/router';
 
 import styles from './AdminRoute.module.scss';
 
 const AdminRoute = ({ children }) => {
-  const navigate = useNavigate();
-
   const profile = useSelector((state) => state.profile);
   const [isAdmin, setIsAdmin] = useState(true);
   const [time, setTime] = useState(5);
@@ -31,7 +29,7 @@ const AdminRoute = ({ children }) => {
         }, 1000);
       }
       if (time === 0) {
-        navigate('/');
+        Router.push('/');
       }
     }
   }, [isAdmin, time]);

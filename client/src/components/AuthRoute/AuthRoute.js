@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { Div, Paragraph } from 'basedesign-iswad';
+import Router from 'next/router';
 
 import styles from './AuthRoute.module.scss';
 
 const AuthRoute = ({ children }) => {
-  const navigate = useNavigate();
-
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
   const [time, setTime] = useState(5);
@@ -23,7 +21,7 @@ const AuthRoute = ({ children }) => {
         }, 1000);
       }
       if (time === 0) {
-        navigate('/');
+        Router.push('/');
       }
     }
   }, [isAuthenticated, time]);
