@@ -49,9 +49,9 @@ function DisplayTable() {
     });
   }, [data]);
 
-  useEffect(() => {
-    console.log(selectedData);
-  }, [selectedData]);
+  // useEffect(() => {
+  //   console.log(selectedData);
+  // }, [selectedData]);
 
   const [currentPage, setCurrentPage] = useState(1);
 

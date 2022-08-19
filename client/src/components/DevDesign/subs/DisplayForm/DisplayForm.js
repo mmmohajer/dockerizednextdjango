@@ -143,7 +143,7 @@ const DisplayForm = () => {
             errorMessage={profilePhotoErrorMessage}
             errorHandler={setProfilePhotoErrorMessage}
             id="profilePhotoFieldHomePage"
-            hasCropper={false}
+            hasCropper={true}
             hasResizer={true}
             maxWidth={200}
           />

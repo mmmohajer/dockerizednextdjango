@@ -44,18 +44,6 @@ const ImagePicker = ({
 
   return (
     <>
-      {hasCropper && showCropper ? (
-        <Cropper
-          src={src}
-          setSrc={setSrc}
-          setFile={setFile}
-          fileName={fileName}
-          setShowCropper={setShowCropper}
-          cropInfo={cropInfo}
-        />
-      ) : (
-        ''
-      )}
       {hasResizer && showResizer ? (
         <Resizer
           src={src}
@@ -64,6 +52,19 @@ const ImagePicker = ({
           fileName={fileName}
           setShowResizer={setShowResizer}
           maxWidth={maxWidth}
+        />
+      ) : (
+        ''
+      )}
+
+      {hasCropper && showCropper && !showResizer ? (
+        <Cropper
+          src={src}
+          setSrc={setSrc}
+          setFile={setFile}
+          fileName={fileName}
+          setShowCropper={setShowCropper}
+          cropInfo={cropInfo}
         />
       ) : (
         ''
