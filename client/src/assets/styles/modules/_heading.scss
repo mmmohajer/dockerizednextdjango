@@ -2,7 +2,7 @@
   font-weight: $fontHeadingWeight;
 }
 
-.h1 {
+h1 {
   @extend %headingText;
   font-size: $fontH1Size;
 
@@ -19,7 +19,7 @@
   }
 }
 
-.h2 {
+h2 {
   @extend %headingText;
   font-size: $fontH2Size;
 
@@ -36,7 +36,7 @@
   }
 }
 
-.h3 {
+h3 {
   @extend %headingText;
   font-size: $fontH3Size;
 
