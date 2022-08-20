@@ -61,8 +61,8 @@ const Resizer = ({ src, setSrc, setFile, fileName, maxWidth, setShowResizer }) =
           </Div>
         </Div>
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">
-          <Div className={cx(styles.canvasContainer)}>
-            <canvas id={RESIZE_IMAGE_CANVAS_ID} className="ImagePickerCanvasContainer"></canvas>
+          <Div className={cx('ImagePickerCanvasContainer', styles.canvasContainer)}>
+            <canvas id={RESIZE_IMAGE_CANVAS_ID} className=""></canvas>
           </Div>
         </Div>
       </Div>

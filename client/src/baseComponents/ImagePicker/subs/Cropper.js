@@ -88,8 +88,8 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
         </ReactCrop>
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">
           <Button onClick={cropHandler}>Crop Image</Button>
-          <Div className={cx(styles.canvasContainer)}>
-            <canvas id={CANVAS_ID} className="ImagePickerCanvasContainer"></canvas>
+          <Div className={cx('ImagePickerCanvasContainer', styles.canvasContainer)}>
+            <canvas id={CANVAS_ID} className=""></canvas>
           </Div>
         </Div>
       </Div>
