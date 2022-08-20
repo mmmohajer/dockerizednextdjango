@@ -51,7 +51,7 @@ const Resizer = ({ src, setSrc, setFile, fileName, maxWidth, setShowResizer }) =
         hAlign="center"
         vAlign="center"
         className={cx(
-          'pos-fix pos-fix--center p2 bgWhite ImagePickerCropperContainer',
+          'pos-fix pos-fix--center p2 bgWhite ImagePickerCropperContainerZIndex',
           styles.cropperContainer
         )}
         id={RESIZER_ID}>
@@ -61,7 +61,7 @@ const Resizer = ({ src, setSrc, setFile, fileName, maxWidth, setShowResizer }) =
           </Div>
         </Div>
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">
-          <Div className={cx('ImagePickerCanvasContainer', styles.canvasContainer)}>
+          <Div className={cx('ImagePickerCanvasContainerZIndex', styles.canvasContainer)}>
             <canvas id={RESIZE_IMAGE_CANVAS_ID} className=""></canvas>
           </Div>
         </Div>
