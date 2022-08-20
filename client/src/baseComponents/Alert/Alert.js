@@ -15,7 +15,7 @@ const Alert = () => {
 
   return (
     <>
-      <BaseAlert>
+      <BaseAlert className="AlertContainerZIndex">
         {notifications.map((notif) => (
           <AlertItem
             key={notif.key}

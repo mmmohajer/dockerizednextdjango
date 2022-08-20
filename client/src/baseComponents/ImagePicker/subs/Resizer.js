@@ -50,7 +50,10 @@ const Resizer = ({ src, setSrc, setFile, fileName, maxWidth, setShowResizer }) =
         direction="vertical"
         hAlign="center"
         vAlign="center"
-        className={cx('pos-fix pos-fix--center p2 bgWhite', styles.cropperContainer)}
+        className={cx(
+          'pos-fix pos-fix--center p2 bgWhite ImagePickerCropperContainer',
+          styles.cropperContainer
+        )}
         id={RESIZER_ID}>
         <Div className={styles.reactCropper}>
           <Div type="flex" hAlign="center" vAlign="center" className={cx(styles.cropper)}>
@@ -59,7 +62,7 @@ const Resizer = ({ src, setSrc, setFile, fileName, maxWidth, setShowResizer }) =
         </Div>
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">
           <Div className={cx(styles.canvasContainer)}>
-            <canvas id={RESIZE_IMAGE_CANVAS_ID} className=""></canvas>
+            <canvas id={RESIZE_IMAGE_CANVAS_ID} className="ImagePickerCanvasContainer"></canvas>
           </Div>
         </Div>
       </Div>

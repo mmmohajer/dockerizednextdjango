@@ -14,9 +14,9 @@ const Modal = () => {
     <>
       {modalType === 'data_submitted_successfully' && (
         <BaseModal
-          fullHeightclassName="z-10 op-50 bgBlack"
+          fullHeightclassName="op-50 bgBlack ModalMainClickableZIndex"
           className={cx(
-            'pos-rel z-100 baxShadowType1 bgWhite p2 w-per-80 min-w-px-300 max-w-px-600 br-all-solid-1 br-rad-px-10 br-color-inverse'
+            'pos-rel baxShadowType1 bgWhite p2 w-per-80 min-w-px-300 max-w-px-600 br-all-solid-1 br-rad-px-10 br-color-inverse ModalContainerZIndex'
           )}>
           <DataSubmittedSuccessfully />
         </BaseModal>

@@ -68,7 +68,10 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
         direction="vertical"
         hAlign="center"
         vAlign="center"
-        className={cx('pos-fix pos-fix--center p2 bgWhite', styles.cropperContainer)}
+        className={cx(
+          'pos-fix pos-fix--center p2 bgWhite ImagePickerCropperContainer',
+          styles.cropperContainer
+        )}
         id={CROPPER_ID}>
         <ReactCrop
           aspect={aspect}
@@ -86,7 +89,7 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">
           <Button onClick={cropHandler}>Crop Image</Button>
           <Div className={cx(styles.canvasContainer)}>
-            <canvas id={CANVAS_ID} className=""></canvas>
+            <canvas id={CANVAS_ID} className="ImagePickerCanvasContainer"></canvas>
           </Div>
         </Div>
       </Div>

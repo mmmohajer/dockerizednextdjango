@@ -37,7 +37,6 @@
 
 .cropperContainer {
   box-shadow: $boxShadow1;
-  z-index: 1000;
   position: fixed;
   overflow-y: auto;
   @extend %cropper;
