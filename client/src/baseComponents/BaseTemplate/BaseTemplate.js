@@ -6,12 +6,14 @@ import { Div } from 'basedesign-iswad';
 import { getLocalStorage, setLocalStorage, removeLocalStorage } from '@/utils/auth';
 import { authenticated, notAuthenticated } from '@/services/auth';
 import { getProfile } from '@/services/profile';
+import { setIpAddress } from '@/reducers/general/ipAddress';
 import useApiCalls from '@/hooks/useApiCalls';
 import { ACCESS_TOKEN_CHEANGE_TIME } from '@/constants/vars';
 import {
   REFRESH_TOKEN_API_ROUTE,
   MY_PROFILE_API_ROUTE,
-  AUTHENTICATE_USER_API_ROUTE
+  AUTHENTICATE_USER_API_ROUTE,
+  GET_IP_INFO_ROUTE
 } from '@/constants/apiRoutes';
 
 import Loading from '@/baseComponents/Loading';
@@ -38,6 +40,22 @@ const BaseTemplate = ({ children }) => {
       setAccessToken(getLocalStorage('access_token'));
       setRefreshToken(getLocalStorage('refresh_token'));
     }
+  }, []);
+  const [sendGetIpReq, setSendGetIpReq] = useState(false);
+  const { data: getIpData, error: getIpError } = useApiCalls({
+    sendReq: sendGetIpReq,
+    setSendReq: setSendGetIpReq,
+    method: 'GET',
+    url: GET_IP_INFO_ROUTE,
+    showErrorMessage: false
+  });
+  useEffect(() => {
+    if (getIpData?.IPv4) {
+      dispatch(setIpAddress(getIpData.IPv4));
+    }
+  }, [getIpData]);
+  useEffect(() => {
+    setSendGetIpReq(true);
   }, []);
 
   const { data: refreshData, error: refreshError } = useApiCalls({

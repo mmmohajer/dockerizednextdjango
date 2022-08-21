@@ -1,3 +1,4 @@
+// INTERNAL API ROUTES
 export const REGISTER_API_ROUTE = '/api/auth/users/';
 export const LOGIN_API_ROUTE = '/api/auth/jwt/create/';
 export const REFRESH_TOKEN_API_ROUTE = '/api/auth/jwt/refresh/';
@@ -13,3 +14,6 @@ export const MICROSOFT_AUTH_TOKEN_API_ROUTE = '/api/auth/microsoft-auth/';
 export const MICROSOFT_AUTH_HANDLE_TOKEN_API_ROUTE = '/api/auth/microsoft-auth-handle-token/';
 export const FACEBOOK_AUTH_TOKEN_API_ROUTE = '/api/auth/facebook-auth/';
 export const FACEBOOK_AUTH_HANDLE_TOKEN_API_ROUTE = '/api/auth/facebook-auth-handle-token/';
+
+// EXTERNAL API ROUTES
+export const GET_IP_INFO_ROUTE = 'https://geolocation-db.com/json/';
