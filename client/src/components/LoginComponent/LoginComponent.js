@@ -1,39 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { useDispatch } from 'react-redux';
-import { Form, Label, Input } from 'basedesign-iswad';
+import { Div, Form } from 'basedesign-iswad';
+
+import TextBox from '@/baseComponents/TextBox';
+import Button from '@/baseComponents/Button';
 
 import useApiCalls from '@/hooks/useApiCalls';
 import { emailValidators, passwordValidators } from './utils';
 import { loginUser } from '@/utils/auth';
 import { LOGIN_API_ROUTE } from '@/constants/apiRoutes';
 
-import styles from './Login.module.scss';
+import styles from './LoginComponent.module.scss';
 
-const Login = () => {
+const LoginComponent = () => {
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
-  const [emailErrorIsActive, setEmailErrorIsActive] = useState(false);
 
+  const [password, setPassword] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
-  const [passwordErrorIsActive, setPasswordErrorIsActive] = useState(false);
 
   const toBeValidatedFields = [
     {
       input_name: 'email',
       validators: emailValidators,
-      errorMessageHandler: setEmailErrorMessage,
-      errorActivateHandler: setEmailErrorIsActive
+      errorMessageHandler: setEmailErrorMessage
     },
     {
       input_name: 'password',
       validators: passwordValidators,
-      errorMessageHandler: setPasswordErrorMessage,
-      errorActivateHandler: setPasswordErrorIsActive
+      errorMessageHandler: setPasswordErrorMessage
     }
   ];
 
@@ -59,39 +57,41 @@ const Login = () => {
   return (
     <>
       <Form
-        className="textWhite py1"
+        className="textWhite py1 flex flex--jc--center flex--dir--col ml-auto mr-auto w-per-100"
         toBeValidatedFields={toBeValidatedFields}
         onSubmit={() => setSendLoginReq(true)}>
-        <Input
+        <TextBox
           type="text"
           name="email"
-          placeholder="Type your email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setEmailErrorIsActive(false);
-            setEmailErrorMessage('');
-          }}
+          labelText="Email"
+          placeholder=""
+          isRequired
+          val={email}
+          setVal={setEmail}
           errorMessage={emailErrorMessage}
-          errorIsActive={emailErrorIsActive}
+          errorHandler={setEmailErrorMessage}
+          id="loginEmail"
         />
-        <Input
+        <TextBox
           type="password"
           name="password"
-          placeholder="Type your password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-            setPasswordErrorIsActive(false);
-            setPasswordErrorMessage('');
-          }}
+          labelText="Password"
+          placeholder=""
+          isRequired
+          val={password}
+          setVal={setPassword}
           errorMessage={passwordErrorMessage}
-          errorIsActive={passwordErrorIsActive}
+          errorHandler={setPasswordErrorMessage}
+          id="loginPassword"
         />
-        <Input type="submit" value="Submit" />
+        <Div type="flex" hAlign="center">
+          <Button className="w-px-200" type="submit" id="loginButton">
+            Login
+          </Button>
+        </Div>
       </Form>
     </>
   );
 };
 
-export default Login;
+export default LoginComponent;

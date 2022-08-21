@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { useDispatch } from 'react-redux';
-import { Form, Label, Input, Div, Button } from 'basedesign-iswad';
+import { Form, Div } from 'basedesign-iswad';
 
 import useApiCalls from '@/hooks/useApiCalls';
 import { REGISTER_API_ROUTE, RESEND_ACTIVATE_EMAIL_API_ROUTE } from '@/constants/apiRoutes';
 import { addAlertItem } from '@/utils/notifications';
 
-import styles from './Register.module.scss';
+import TextBox from '@/baseComponents/TextBox';
+import Button from '@/baseComponents/Button';
+import Captcha from '@/baseComponents/Captcha';
+import Icon from '@/baseComponents/Icon';
+
+import styles from './RegisterComponent.module.scss';
 
 import {
   firstNameValidators,
@@ -16,51 +21,43 @@ import {
   passwordValidators
 } from './utils';
 
-const Register = () => {
+const RegisterComponent = () => {
   const dispatch = useDispatch();
 
   const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
   const [fistNameErrorMessage, setFirstNameErrorMessage] = useState('');
-  const [fistNameErrorIsActive, setFirstNameErrorIsActive] = useState(false);
 
+  const [lastName, setLastName] = useState('');
   const [lastNameErrorMessage, setLastNameErrorMessage] = useState('');
-  const [lastNameErrorIsActive, setLastNameErrorIsActive] = useState(false);
 
+  const [email, setEmail] = useState('');
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
-  const [emailErrorIsActive, setEmailErrorIsActive] = useState(false);
 
+  const [password, setPassword] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
-  const [passwordErrorIsActive, setPasswordErrorIsActive] = useState(false);
+
+  const [submitted, setSubmitted] = useState(false);
 
   const toBeValidatedFields = [
     {
       input_name: 'first_name',
       validators: firstNameValidators,
-      errorMessageHandler: setFirstNameErrorMessage,
-      errorActivateHandler: setFirstNameErrorIsActive
+      errorMessageHandler: setFirstNameErrorMessage
     },
     {
       input_name: 'last_name',
       validators: lastNameValidators,
-      errorMessageHandler: setLastNameErrorMessage,
-      errorActivateHandler: setLastNameErrorIsActive
+      errorMessageHandler: setLastNameErrorMessage
     },
     {
       input_name: 'email',
       validators: emailValidators,
-      errorMessageHandler: setEmailErrorMessage,
-      errorActivateHandler: setEmailErrorIsActive
+      errorMessageHandler: setEmailErrorMessage
     },
     {
       input_name: 'password',
       validators: passwordValidators,
-      errorMessageHandler: setPasswordErrorMessage,
-      errorActivateHandler: setPasswordErrorIsActive
+      errorMessageHandler: setPasswordErrorMessage
     }
   ];
 
@@ -110,70 +107,75 @@ const Register = () => {
         className="textWhite py1"
         toBeValidatedFields={toBeValidatedFields}
         onSubmit={() => setSendRegisterReq(true)}>
-        <Label className="textBlack" htmlFor="sample">
-          First Name
-        </Label>
-        <Input
+        <TextBox
           type="text"
           name="first_name"
-          placeholder="Type your first name"
-          value={firstName}
-          onChange={(e) => {
-            setFirstName(e.target.value);
-            setFirstNameErrorIsActive(false);
-            setFirstNameErrorMessage('');
-          }}
+          isRequired
+          labelText="First Name"
+          placeholder=""
+          val={firstName}
+          setVal={setFirstName}
           errorMessage={fistNameErrorMessage}
-          errorIsActive={fistNameErrorIsActive}
+          errorHandler={setFirstNameErrorMessage}
+          id="loginFirstName"
         />
-        <Input
+        <TextBox
           type="text"
           name="last_name"
-          placeholder="Type your last name"
-          value={lastName}
-          onChange={(e) => {
-            setLastName(e.target.value);
-            setLastNameErrorIsActive(false);
-            setLastNameErrorMessage('');
-          }}
+          isRequired
+          labelText="Last Name"
+          placeholder=""
+          val={lastName}
+          setVal={setLastName}
           errorMessage={lastNameErrorMessage}
-          errorIsActive={lastNameErrorIsActive}
+          errorHandler={setLastNameErrorMessage}
+          id="loginLastName"
         />
-        <Input
+        <TextBox
           type="text"
           name="email"
-          placeholder="Type your email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setEmailErrorIsActive(false);
-            setEmailErrorMessage('');
-          }}
+          isRequired
+          labelText="Email"
+          placeholder=""
+          val={email}
+          setVal={setEmail}
           errorMessage={emailErrorMessage}
-          errorIsActive={emailErrorIsActive}
+          errorHandler={setEmailErrorMessage}
+          id="loginEmail"
         />
-        <Input
+        <TextBox
           type="password"
           name="password"
-          placeholder="Type your password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-            setPasswordErrorIsActive(false);
-            setPasswordErrorMessage('');
-          }}
+          placeholder=""
+          labelText="Password"
+          isRequired
+          val={password}
+          setVal={setPassword}
           errorMessage={passwordErrorMessage}
-          errorIsActive={passwordErrorIsActive}
+          errorHandler={setPasswordErrorMessage}
+          id="loginPassword"
         />
-        <Input type="submit" value="Submit" />
+        <Captcha />
+        <Div type="flex" hAlign="center">
+          <Button id="registerSubmit" className="w-px-200" type="submit">
+            Register
+          </Button>
+        </Div>
       </Form>
       {submitted && (
-        <Div>
-          <Button onClick={() => setSendResendEmailReq(true)}>Resend Email</Button>
+        <Div type="flex" hAlign="center" className="w-per-100">
+          <Button
+            className="w-px-200 flex flex--jc--center flex--ai--center"
+            onClick={() => setSendResendEmailReq(true)}>
+            <Div className={cx('ml1', styles.iconContainer)}>
+              <Icon type="rotate" color="white" />
+            </Div>
+            <Div>Resend Email</Div>
+          </Button>
         </Div>
       )}
     </>
   );
 };
 
-export default Register;
+export default RegisterComponent;
