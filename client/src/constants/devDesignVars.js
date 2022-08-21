@@ -15,6 +15,7 @@ export const LIST_OF_ICONS = [
   'person-fill',
   'phone',
   'quoteLeft',
+  'rotate',
   'youtube'
 ];
 

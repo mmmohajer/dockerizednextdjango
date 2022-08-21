@@ -11,7 +11,8 @@ import {
   faQuoteLeft,
   faAngleRight,
   faAngleLeft,
-  faCheck
+  faCheck,
+  faRotate
 } from '@fortawesome/free-solid-svg-icons';
 
 import Dashboard from '@/images/js-Images/icons/svg/dashboard.svg';
@@ -51,6 +52,9 @@ function Icon({ type, color, width, scale }) {
     ),
     'check-mark': (
       <FontAwesomeIcon icon={faCheck} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    rotate: (
+      <FontAwesomeIcon icon={faRotate} style={{ color, width, transform: `scale(${scale})` }} />
     )
   };
 
