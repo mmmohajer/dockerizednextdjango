@@ -9,7 +9,6 @@ import { addAlertItem } from '@/utils/notifications';
 
 import TextBox from '@/baseComponents/TextBox';
 import Button from '@/baseComponents/Button';
-import Captcha from '@/baseComponents/Captcha';
 import Icon from '@/baseComponents/Icon';
 
 import styles from './RegisterComponent.module.scss';
@@ -155,7 +154,6 @@ const RegisterComponent = () => {
           errorHandler={setPasswordErrorMessage}
           id="loginPassword"
         />
-        <Captcha />
         <Div type="flex" hAlign="center">
           <Button id="registerSubmit" className="w-px-200" type="submit">
             Register
