@@ -5,6 +5,7 @@ from . import views
 
 api_router = routers.DefaultRouter()
 api_router.register(r'profile', views.ProfileViewSet, basename='profile')
+api_router.register(r'captcha', views.CaptchaViewSet, basename='captcha')
 
 urlpatterns = [
     path('', include(api_router.urls)),

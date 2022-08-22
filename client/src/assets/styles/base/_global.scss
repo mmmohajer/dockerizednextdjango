@@ -55,3 +55,11 @@ ul {
   margin: 0 auto;
   position: relative;
 }
+
+.captcha {
+  font-family: 'Rubik Maze', cursive;
+  letter-spacing: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  user-select: none;
+}

@@ -6,7 +6,7 @@ import json
 from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
 
-from core.models import ProfileModel
+from core.models import ProfileModel, CaptchaModel
 
 User = get_user_model()
 
@@ -76,3 +76,18 @@ def oauthHandleToken(request, authGetProfileUrl, first_name_key="given_name", la
         return (True, {"access": str(cur_user_access_token), "refresh": str(cur_user_refresh_token)})
     except Exception as e:
         return (False, {"Error": str(e)})
+
+
+def check_captcha(request):
+    captcha_uuid = request.data.get("captcha_uuid", "")
+    sent_captcha_code = request.data.get("user_captcha_code", "")
+    if captcha_uuid and sent_captcha_code:
+        captcha_queryset = CaptchaModel.objects.filter(uuid=captcha_uuid)
+        if captcha_queryset.count():
+            cur_captcha = captcha_queryset.first()
+            captcha_code = cur_captcha.captcha
+            if captcha_code == sent_captcha_code:
+                return {"success": True, "message": "Captcha confirmed successfully"}
+            return {"success": False, "message": "The captcha code does not match the one existing in our system"}
+        return {"success": False, "message": "No captcha code found with the current uuid"}
+    return {"success": False, "message": "Captcha information is not provided"}

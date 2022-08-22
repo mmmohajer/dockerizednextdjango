@@ -1,8 +1,10 @@
-from . import profile_view, general_view, user_view
+from . import profile_view, general_view, user_view, captcha_view
 
 ProtectedCRUDViewSet = general_view.ProtectedCRUDViewSet
 
 ProfileViewSet = profile_view.ProfileViewSet
+
+CaptchaViewSet = captcha_view.CaptchaViewSet
 
 AddUserToGroup = user_view.AddUserToGroup.as_view()
 ActivateUserViewSet = user_view.ActivateUserViewSet.as_view()

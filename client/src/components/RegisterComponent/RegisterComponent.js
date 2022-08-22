@@ -10,6 +10,7 @@ import { addAlertItem } from '@/utils/notifications';
 import TextBox from '@/baseComponents/TextBox';
 import Button from '@/baseComponents/Button';
 import Icon from '@/baseComponents/Icon';
+import Captcha from '@/baseComponents/Captcha';
 
 import styles from './RegisterComponent.module.scss';
 
@@ -34,6 +35,11 @@ const RegisterComponent = () => {
 
   const [password, setPassword] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
+
+  const [userCaptchaCode, setUserCaptchaCode] = useState('');
+  const [userCaptchaCodeErrorMessage, setUserCaptchaCodeErrorMessage] = useState('');
+  const [captchaCode, setCaptchaCode] = useState('');
+  const [captchaUUID, setCaptchaUUID] = useState('');
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -65,7 +71,9 @@ const RegisterComponent = () => {
     first_name: firstName,
     last_name: lastName,
     email,
-    password
+    password,
+    captcha_uuid: captchaUUID,
+    user_captcha_code: userCaptchaCode
   };
   const { data, error } = useApiCalls({
     sendReq: sendRegisterReq,
@@ -100,12 +108,33 @@ const RegisterComponent = () => {
     }
   }, [resendData]);
 
+  const customValidations = () => {
+    let validated = true;
+    if (!userCaptchaCode) {
+      setUserCaptchaCodeErrorMessage('Captcha is required');
+      validated = false;
+    }
+
+    if (userCaptchaCode !== captchaCode) {
+      setUserCaptchaCodeErrorMessage('Captcha code is incorrect');
+      validated = false;
+    }
+
+    return validated;
+  };
+
+  const handleSubmit = () => {
+    if (customValidations()) {
+      setSendRegisterReq(true);
+    }
+  };
+
   return (
     <>
       <Form
         className="textWhite py1"
         toBeValidatedFields={toBeValidatedFields}
-        onSubmit={() => setSendRegisterReq(true)}>
+        onSubmit={handleSubmit}>
         <TextBox
           type="text"
           name="first_name"
@@ -153,6 +182,15 @@ const RegisterComponent = () => {
           errorMessage={passwordErrorMessage}
           errorHandler={setPasswordErrorMessage}
           id="loginPassword"
+        />
+        <Captcha
+          userCaptchaCode={userCaptchaCode}
+          setUserCaptchaCode={setUserCaptchaCode}
+          userCaptchaCodeErrorMessage={userCaptchaCodeErrorMessage}
+          setUserCaptchaCodeErrorMessage={setUserCaptchaCodeErrorMessage}
+          captchaCode={captchaCode}
+          setCaptchaCode={setCaptchaCode}
+          setCaptchaUUID={setCaptchaUUID}
         />
         <Div type="flex" hAlign="center">
           <Button id="registerSubmit" className="w-px-200" type="submit">

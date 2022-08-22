@@ -5,7 +5,6 @@ import notifications from './general/notifications';
 import language from './general/language';
 import activeMenu from './general/activeMenu';
 import modalType from './general/modalType';
-import ipAddress from './general/ipAddress';
 
 import isAuthenticated from './apiCalls/isAuthenticated';
 import profile from './apiCalls/profile';
@@ -16,7 +15,6 @@ const reducer = combineReducers({
   language,
   activeMenu,
   modalType,
-  ipAddress,
   isAuthenticated,
   profile
 });

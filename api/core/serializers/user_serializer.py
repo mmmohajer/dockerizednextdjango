@@ -7,11 +7,11 @@ from django.db import IntegrityError, transaction
 from django.conf import settings
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import AccessToken
-from djoser.signals import user_registered, user_activated
+from rest_framework.exceptions import ValidationError
 
 from core.models import ProfileModel
 from core.tasks import send_activation_email
-from core.utils import code_generator
+from core.utils import code_generator, check_captcha
 
 User = get_user_model()
 
@@ -21,18 +21,21 @@ class UserCreateSerializer(BaseUserCreateSerializer):
         fields = ['id', 'uuid', 'first_name', 'last_name', 'email', 'password']
 
     def create(self, validated_data):
-        try:
-            user = self.perform_create(validated_data)
-            profile = ProfileModel()
-            profile.user = user
-            profile.save()
-            subscriber_group = Group.objects.filter(name="Subscriber").first()
-            if subscriber_group:
-                subscriber_group.user_set.add(user)
-        except IntegrityError:
-            self.fail("cannot_create_user")
-
-        return user
+        captcha_verified = check_captcha(self.context["request"])
+        if captcha_verified.get("success"):
+            try:
+                user = self.perform_create(validated_data)
+                profile = ProfileModel()
+                profile.user = user
+                profile.save()
+                subscriber_group = Group.objects.filter(name="Subscriber").first()
+                if subscriber_group:
+                    subscriber_group.user_set.add(user)
+                return user
+            except IntegrityError:
+                self.fail("cannot_create_user")
+        else:
+            raise ValidationError(captcha_verified["message"])
 
     def perform_create(self, validated_data):
         with transaction.atomic():
@@ -44,7 +47,7 @@ class UserCreateSerializer(BaseUserCreateSerializer):
                 user.save(update_fields=["is_active", "register_token"])
                 send_activation_email.delay(
                     validated_data.get("first_name", validated_data["email"]), validated_data["email"], user_token)
-        return user
+            return user
 
 
 class UserSerializer(BaseUserSerializer):
