@@ -1,5 +1,5 @@
 .iswad_table {
-  border: solid 1px black;
+  // border: solid 1px;
   border-radius: 10px;
 
   &_headContainer {
@@ -15,20 +15,25 @@
 }
 
 .iswad_th {
-  // background-color: yellow;
-  border-bottom: solid 1px black;
+  font-weight: bold;
+  background-color: orange;
 }
 
 .iswad_tr {
-  border-bottom: solid 1px black;
+  & .iswad_td {
+    border-bottom: solid 1px;
+  }
+
   &:nth-child(odd) {
-    background-color: red;
+    background-color: dodgerblue;
   }
   &:nth-child(even) {
-    background-color: silver;
+    background-color: darkgoldenrod;
   }
   &:last-child {
-    border-bottom: none;
+    & .iswad_td {
+      border-bottom: none;
+    }
   }
 }
 
@@ -36,8 +41,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: solid 1px black;
+  // border-right: solid 1px black;
   padding: 8px 0;
+  border-bottom: solid 1px;
 
   &:last-child {
     border-right: none;

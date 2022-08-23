@@ -25,6 +25,8 @@ const Table = ({ ...props }) => {
         showDefaultSelectable={false}
         selectableComp={selectableComp}
         selectableColWidth={40}
+        selectableHeaderClassName={cx(styles.selectable)}
+        selectableRowClassName={cx(styles.selectable)}
         {...props}
       />
     </>
