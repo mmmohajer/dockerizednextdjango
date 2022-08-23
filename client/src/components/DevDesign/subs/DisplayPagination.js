@@ -17,7 +17,11 @@ function DisplayPagination() {
         vAlign="center"
         className={cx('p1 w-per-90 flex--wrap', styles.card)}>
         <Div>Content of page {currentPage}</Div>
-        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          numberOfTotalPages={15}
+        />
       </Div>
     </>
   );
