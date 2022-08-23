@@ -6,7 +6,7 @@ import Icon from '@/baseComponents/Icon';
 
 import styles from './Pagination.module.scss';
 
-const Pagination = ({ currentPage, setCurrentPage }) => {
+const Pagination = ({ currentPage, setCurrentPage, ...props }) => {
   const firstPageComp = () => <Icon type="angleDoubleLeft" />;
   const lastPageComp = () => <Icon type="angleDoubleRight" />;
   const prevComp = () => <Icon type="angleLeft" />;
@@ -15,7 +15,6 @@ const Pagination = ({ currentPage, setCurrentPage }) => {
     <>
       <BasePagination
         numberOfShownPages={5}
-        numberOfTotalPages={10}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         showDefaultFirstLastIcon={false}
@@ -27,6 +26,7 @@ const Pagination = ({ currentPage, setCurrentPage }) => {
         containerClassName={cx('')}
         itemClassName={cx('')}
         activeItemClassName={cx('')}
+        {...props}
       />
     </>
   );

@@ -15,7 +15,7 @@
 }
 
 .iswad_th {
-  background-color: yellow;
+  // background-color: yellow;
   border-bottom: solid 1px black;
 }
 
@@ -37,7 +37,7 @@
   justify-content: center;
   align-items: center;
   border-right: solid 1px black;
-  padding: 8px;
+  padding: 8px 0;
 
   &:last-child {
     border-right: none;
