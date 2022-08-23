@@ -1,4 +1,6 @@
 export const LIST_OF_ICONS = [
+  'angleDoubleLeft',
+  'angleDoubleRight',
   'angleLeft',
   'angleRight',
   'certificate',
@@ -11,11 +13,13 @@ export const LIST_OF_ICONS = [
   'instagram',
   'location',
   'mail',
+  'minus',
   'person',
   'person-fill',
   'phone',
   'quoteLeft',
   'rotate',
+  'search',
   'youtube'
 ];
 

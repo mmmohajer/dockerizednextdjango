@@ -12,7 +12,11 @@ import {
   faAngleRight,
   faAngleLeft,
   faCheck,
-  faRotate
+  faRotate,
+  faAngleDoubleLeft,
+  faAngleDoubleRight,
+  faSearch,
+  faMinus
 } from '@fortawesome/free-solid-svg-icons';
 
 import Dashboard from '@/images/js-Images/icons/svg/dashboard.svg';
@@ -55,7 +59,23 @@ function Icon({ type, color, width, scale }) {
     ),
     rotate: (
       <FontAwesomeIcon icon={faRotate} style={{ color, width, transform: `scale(${scale})` }} />
-    )
+    ),
+    angleDoubleLeft: (
+      <FontAwesomeIcon
+        icon={faAngleDoubleLeft}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    angleDoubleRight: (
+      <FontAwesomeIcon
+        icon={faAngleDoubleRight}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    search: (
+      <FontAwesomeIcon icon={faSearch} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    minus: <FontAwesomeIcon icon={faMinus} style={{ color, width, transform: `scale(${scale})` }} />
   };
 
   iconTypes['dashboard'] = (

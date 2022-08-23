@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
-import { Div, Table } from 'basedesign-iswad';
+import { Div } from 'basedesign-iswad';
 import Image from 'next/image';
 
 import Button from '@/baseComponents/Button';
+import Table from '@/baseComponents/Table';
 
 import { headLines, data } from './utils';
 
@@ -75,7 +76,6 @@ function DisplayTable() {
           rowsPerPage={10}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
-          showDefaultPagination={true}
           numberOfShownPages={5}
         />
         <Button onClick={() => setCurrentPage(currentPage + 1)}>Next Page</Button>
