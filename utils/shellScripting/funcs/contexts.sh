@@ -29,13 +29,16 @@ import cx from \"classnames\";
 import { Div } from \"basedesign-iswad\";
 
 import PublicRoute from \"@/components/PublicRoute\";
+import Seo from \"@/components/Seo\";
 
 import styles from \"./$compName.module.scss\";
 
 const $compName = () => {
   return (
     <PublicRoute>
-      <Div>$compName</Div>
+      <Seo>
+        <Div>$compName</Div>
+      </Seo>
     </PublicRoute>
   );
 };
