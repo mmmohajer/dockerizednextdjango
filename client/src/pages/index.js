@@ -2,8 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import { Div, Paragraph } from 'basedesign-iswad';
 
-import Seo from '@/baseComponents/Seo';
 import PublicRoute from '@/baseComponents/PublicRoute';
+import Seo from '@/baseComponents/Seo';
 
 import styles from './index.module.scss';
 
