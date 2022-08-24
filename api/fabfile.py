@@ -16,3 +16,6 @@ MANAGE_CALL = 'python manage.py'
 
 def createNewGroup():
     coreUtils.createNewGroup()
+
+def remove_old_captcha():
+    coreUtils.remove_old_captcha()

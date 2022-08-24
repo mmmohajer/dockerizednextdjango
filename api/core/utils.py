@@ -5,6 +5,7 @@ import requests
 import json
 from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
+from datetime import datetime, timedelta
 
 from core.models import ProfileModel, CaptchaModel
 
@@ -96,3 +97,19 @@ def check_captcha(request):
                 return {"success": False, "message": "The captcha has been expred, please reload the captch code!"}
         return {"success": False, "message": "No captcha code found with the current uuid"}
     return {"success": False, "message": "Captcha information is not provided"}
+
+
+def remove_old_captcha():
+    try:
+        three_days_ago = datetime.now() - timedelta(hours=72)
+        count = 0
+        captcha_queryset = CaptchaModel.objects.filter(created_at__lt=three_days_ago)
+        if captcha_queryset.count():
+            for item in captcha_queryset:
+                print(item)
+                item.delete()
+                count += 1
+        print(f"Remove old captcha task was successfully done and {count} items removed!")
+    except Exception as e:
+        print(f"Remove old captcha task was failed!")
+        print(str(e))

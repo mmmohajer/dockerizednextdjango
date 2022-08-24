@@ -2,6 +2,8 @@ from celery import shared_task
 from templated_email import send_templated_mail
 from django.core.mail import BadHeaderError
 
+from core.utils import remove_old_captcha
+
 # ----------------------------------------------
 # Periodic Tasks
 # ----------------------------------------------
@@ -12,9 +14,15 @@ from django.core.mail import BadHeaderError
 #     print(f"{first_name} {last_name}")
 #     return
 
+@shared_task
+def remove_old_captcha_periodic_task():
+    remove_old_captcha()
+    return
+
 # ----------------------------------------------
 # Send Emails
 # ----------------------------------------------
+
 
 @shared_task
 def send_activation_email(first_name, email, code):
