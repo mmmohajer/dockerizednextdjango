@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { Div, Paragraph } from 'basedesign-iswad';
 
 import Seo from '@/baseComponents/Seo';
-import PublicRoute from '@/components/PublicRoute';
+import PublicRoute from '@/baseComponents/PublicRoute';
 
 import styles from './index.module.scss';
 

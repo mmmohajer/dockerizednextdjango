@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 
-import PublicRoute from '@/components/PublicRoute';
-import LoginComponent from '@/components/LoginComponent';
-import GoogleAuth from '@/components/GoogleAuth';
-// import MicrosoftAuth from '@/components/MicrosoftAuth';
-// import FacebookAuth from '@/components/FacebookAuth';
+import PublicRoute from '@/baseComponents/PublicRoute';
+import LoginComponent from '@/baseComponents/LoginComponent';
+import GoogleAuth from '@/baseComponents/GoogleAuth';
+// import MicrosoftAuth from '@/baseComponents/MicrosoftAuth';
+// import FacebookAuth from '@/baseComponents/FacebookAuth';
 
 import styles from './index.module.scss';
 

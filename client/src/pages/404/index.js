@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { Div } from 'basedesign-iswad';
 
-import PublicRoute from '@/components/PublicRoute';
+import PublicRoute from '@/baseComponents/PublicRoute';
 
 import styles from './index.module.scss';
 

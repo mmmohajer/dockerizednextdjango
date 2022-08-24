@@ -7,7 +7,7 @@ import {
   GOOGLE_AUTH_TOKEN_API_ROUTE,
   GOOGLE_AUTH_HANDLE_TOKEN_API_ROUTE
 } from '@/constants/apiRoutes';
-import SocialAuth from '@/components/SocialAuth';
+import SocialAuth from '@/baseComponents/SocialAuth';
 
 import styles from './GoogleAuth.module.scss';
 

@@ -3,8 +3,8 @@ import cx from 'classnames';
 import { useSelector } from 'react-redux';
 import { Column, Div, Row } from 'basedesign-iswad';
 
-import SocialMedia from '@/components/SocialMedia';
-import Info from '@/components/Info';
+import SocialMedia from './subs/SocialMedia';
+import Info from './subs/Info';
 
 import { SERVICES } from '@/constants/services';
 import { INFORMATION, FOOTER_ABOUT, SOCIAL_MEDIA } from './constants';

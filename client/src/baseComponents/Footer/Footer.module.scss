@@ -1,0 +1,11 @@
+@import '@/styles/base/_variables';
+
+.socialMediaIconContainer {
+  &:hover {
+    border-color: $themeFour;
+  }
+}
+
+.infoIconContainer {
+  margin-top: 2px;
+}

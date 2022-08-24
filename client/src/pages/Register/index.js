@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 
-import PublicRoute from '@/components/PublicRoute';
-import RegisterComponent from '@/components/RegisterComponent';
+import PublicRoute from '@/baseComponents/PublicRoute';
+import RegisterComponent from '@/baseComponents/RegisterComponent';
 
 import styles from './index.module.scss';
 

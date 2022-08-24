@@ -5,7 +5,7 @@ import { Div } from 'basedesign-iswad';
 import Icon from '@/baseComponents/Icon';
 import { COLORS } from '@/constants/vars';
 
-import styles from './SocialMedia.module.scss';
+import styles from '../Footer.module.scss';
 
 const SocialMedia = ({ href, type, scale = 1.5, ...props }) => {
   const [iconColor, setIconColor] = useState(COLORS.faded);
@@ -25,7 +25,7 @@ const SocialMedia = ({ href, type, scale = 1.5, ...props }) => {
           }}
           className={cx(
             'flex flex--jc--center w-px-50 height-px-50 br-none mx1',
-            styles.iconContainer
+            styles.socialMediaIconContainer
           )}>
           <Icon type={type} color={iconColor} scale={scale} />
         </Div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { render as renderRTL, screen, fireEvent } from "@testing-library/react";
-import SocialMedia from "../SocialMedia";
+import TestComponent from "../TestComponent";
 import * as reactRedux from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
@@ -12,7 +12,7 @@ jest.mock("react-redux", () => ({
   useDispatch: jest.fn(),
 }));
 
-describe("Test SocialMedia Component", () => {
+describe("Test TestComponent Component", () => {
   const useSelectorMock = reactRedux.useSelector;
   const useDispatchMock = reactRedux.useDispatch;
 
@@ -27,8 +27,8 @@ describe("Test SocialMedia Component", () => {
   });
 
   test("", () => {
-    render(<SocialMedia />);
+    render(<TestComponent />);
 
-    expect(screen.getByText(/SocialMedia/i)).toBeInTheDocument();
+    expect(screen.getByText(/TestComponent/i)).toBeInTheDocument();
   });
 });

@@ -1,8 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 
-import PublicRoute from '@/components/PublicRoute';
-import ActivateUserComponent from '@/components/ActivateUser';
+import PublicRoute from '@/baseComponents/PublicRoute';
+import ActivateUserComponent from '@/baseComponents/ActivateUser';
 
 import styles from './index.module.scss';
 

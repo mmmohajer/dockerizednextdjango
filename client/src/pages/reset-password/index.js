@@ -2,8 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import { Div } from 'basedesign-iswad';
 
-import PublicRoute from '@/components/PublicRoute';
-import ResetPasswordComponent from '@/components/ResetPassword';
+import PublicRoute from '@/baseComponents/PublicRoute';
+import ResetPasswordComponent from '@/baseComponents/ResetPassword';
 
 import styles from './index.module.scss';
 
