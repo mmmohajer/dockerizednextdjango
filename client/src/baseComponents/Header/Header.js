@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import { Div, Text, HamburgerIcon } from 'basedesign-iswad';
-
-import { LangToFarsi, langToEnglish } from '@/reducers/general/language';
+import { Div, HamburgerIcon } from 'basedesign-iswad';
+import Image from 'next/image';
 
 import DesktopNav from './subs/DesktopNav';
 import MobileNav from './subs/MobileNav';
@@ -31,7 +30,9 @@ const Header = () => {
     <>
       {mobMenuIsActive && (
         <Div
-          className="w-per-100 height-vh-full bgBlack op-20 pos-fix pos-fix--lt show-flex-in-md-sm-xsm"
+          type="flex"
+          showIn={['xs', 'sm', 'md']}
+          className="w-per-100 height-vh-full bgBlack op-20 pos-fix pos-fix--lt"
           onClick={() => {
             setIconToggler(true);
             setTimeout(() => {
@@ -41,37 +42,27 @@ const Header = () => {
           }}></Div>
       )}
       <Div type="flex" vAlign="center" distributedBetween className="pr2 pt1 pb1 bgThemeThree">
-        <Div className="ml3 textWhite">Base Design</Div>
+        <Div type="flex" vAlign="center" className="ml3 textWhite">
+          Base Design
+        </Div>
 
         {/* DESKTOP NAVBAR */}
-        <Div className="show-flex-in-lg">
+        <Div type="flex" showIn={['lg']} className="">
           <Div>
             <DesktopNav MENUES={MENU_ITEMS} />
           </Div>
         </Div>
 
-        <Div type="flex" direction="horizontal" hAlign="center" vAlign="center">
-          {/* LANGUAGE SELECTION*/}
-
-          <Div
-            type="flex"
-            hAlign="center"
-            vAlign="center"
-            className="min-w-px-90 height-px-40 bgThemeFour textThemeThree f-b br-rad-px-5 englishFont">
-            <Div className="mouse-hand" onClick={() => dispatch(langToEnglish())}>
-              {language === 'fa' && <Text>English</Text>}
-            </Div>
-            <Div className="mouse-hand" onClick={() => dispatch(LangToFarsi())}>
-              {language === 'en' && <Text>فارسی</Text>}
-            </Div>
-          </Div>
+        <Div
+          showIn={['xs', 'sm', 'md']}
+          type="flex"
+          direction="horizontal"
+          hAlign="center"
+          vAlign="center">
           {/* HABURGER MENU */}
-          <Div
-            className={cx(
-              'show-flex-in-md-sm-xsm w-per-100 flex flex--jc--between flex--ai--center pl2 pr2'
-            )}>
+          <Div type="flex" hAlign="center" vAlign="center" className={cx('w-per-100 pl2 pr2')}>
             {showHamburgerIcon ? (
-              <Div className="z-100000">
+              <Div className="">
                 <HamburgerIcon
                   cssConfig={HAMBURGER_CONFIG}
                   onClick={() => setMobMenuIsActive(!mobMenuIsActive)}
@@ -84,8 +75,10 @@ const Header = () => {
             )}
             {/* MOBILE NAVBAR */}
             <Div
+              type="flex"
+              direction="vertical"
               className={cx(
-                'flex flex--dir--col z-10000 iswad_mobNav pos-abs',
+                'HeaderMobNavContainerZIndex iswad_mobNav pos-abs',
                 mobMenuIsActive && 'iswad_mobNav_active'
               )}>
               <MobileNav
