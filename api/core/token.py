@@ -3,11 +3,11 @@ from datetime import timedelta
 
 
 class OneDayAccessToken(AccessToken):
-    lifetime = timedelta(days=1)
+    lifetime = timedelta(minutes=5)
 
 
 class ThirtyDaysAccessToken(AccessToken):
-    lifetime = timedelta(days=30)
+    lifetime = timedelta(minutes=5)
 
 
 class OneDayRefreshToken(RefreshToken):

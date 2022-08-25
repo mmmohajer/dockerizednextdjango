@@ -10,6 +10,7 @@ api_router.register(r'captcha', views.CaptchaViewSet, basename='captcha')
 urlpatterns = [
     path('', include(api_router.urls)),
     path('create-token/', views.CreateTokenViewSet),
+    path('logout/', views.LogOutViewSet),
     path('add-user-to-group/', views.AddUserToGroup),
     path('activate-user/', views.ActivateUserViewSet),
     path('resend-activation-email/', views.ResendActivationEmailViewSet),

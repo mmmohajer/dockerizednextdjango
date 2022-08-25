@@ -35,7 +35,6 @@ const BaseTemplate = ({ children }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setAccessToken(getLocalStorage('access_token'));
       setRefreshToken(getLocalStorage('refresh_token'));
     }
   }, []);
@@ -69,10 +68,23 @@ const BaseTemplate = ({ children }) => {
   });
 
   useEffect(() => {
+    if (refreshToken) {
+      setSendRefreshTokenReq(true);
+    }
+  }, [refreshToken]);
+
+  useEffect(() => {
+    if (refreshData) {
+      setLocalStorage('access_token', refreshData['access']);
+      setAccessToken(refreshData['access']);
+    }
+  }, [refreshData]);
+
+  useEffect(() => {
     if (accessToken) {
       setSendAuthenticatedReq(true);
     }
-  }, []);
+  }, [accessToken]);
 
   useEffect(() => {
     if (authenticatedData) {
@@ -102,7 +114,9 @@ const BaseTemplate = ({ children }) => {
         setSendGetCurUserReq(true);
         setInterval(() => {
           setSendRefreshTokenReq(true);
-          setSendRefreshTokenReq(false);
+          setTimeout(() => {
+            setSendRefreshTokenReq(false);
+          }, 1000);
         }, ACCESS_TOKEN_CHEANGE_TIME);
       } catch (err) {
         console.log(err);
@@ -115,12 +129,6 @@ const BaseTemplate = ({ children }) => {
       getProfile(dispatch, profileData);
     }
   }, [profileData]);
-
-  useEffect(() => {
-    if (refreshData) {
-      setLocalStorage('access_token', refreshData['access']);
-    }
-  }, [refreshData]);
 
   return (
     <>

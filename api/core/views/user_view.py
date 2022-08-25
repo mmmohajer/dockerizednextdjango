@@ -26,22 +26,36 @@ class CreateTokenViewSet(views.APIView):
         email = request.data.get("email", "")
         password = request.data.get("password", "")
         keep_logged_in = request.data.get("keep_logged_in", False)
-        if email and password:
-            user = get_object_or_404(User, email=email)
-            if user:
-                if user.check_password(password):
-                    if keep_logged_in:
-                        print("Yes")
-                        access_token = str(ThirtyDaysAccessToken.for_user(user))
-                        refresh_token = str(ThirtyDaysRefreshToken.for_user(user))
-                    else:
-                        print("No!!!")
-                        access_token = str(OneDayAccessToken.for_user(user))
-                        refresh_token = str(OneDayRefreshToken.for_user(user))
-                    return response.Response(status=status.HTTP_200_OK, data={"access": access_token, "refresh": refresh_token})
+        try:
+            if email and password:
+                user = get_object_or_404(User, email=email)
+                if user:
+                    if user.check_password(password):
+                        if keep_logged_in:
+                            access_token = str(ThirtyDaysAccessToken.for_user(user))
+                            refresh_token = str(ThirtyDaysRefreshToken.for_user(user))
+                        else:
+                            access_token = str(OneDayAccessToken.for_user(user))
+                            refresh_token = str(OneDayRefreshToken.for_user(user))
+                        return response.Response(status=status.HTTP_200_OK, data={"access": access_token, "refresh": refresh_token})
+                    return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email or password is incorrect."})
                 return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email or password is incorrect."})
-            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email or password is incorrect."})
-        return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email and password are required fields."})
+            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email and password are required fields."})
+        except Exception as e:
+            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": f"{str(e)}"})
+
+
+class LogOutViewSet(views.APIView):
+
+    def post(self, request, format=None):
+        refresh_token = request.data.get("refresh", "")
+        if refresh_token:
+            try:
+                RefreshToken(refresh_token).blacklist()
+            except Exception as e:
+                return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"success:": False, "message": f"{str(e)}"})
+            return response.Response(status=status.HTTP_200_OK, data={"success": True, "message": "You have been successfully logged out"})
+        return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"success": False, "message": "You need to send refresh token to properly logout the user"})
 
 
 class AddUserToGroup(views.APIView):

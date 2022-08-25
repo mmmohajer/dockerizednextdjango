@@ -16,6 +16,7 @@ THIRD_PARTY_APPS = [
     'debug_toolbar',
     'djoser',
     'rest_framework_swagger',
+    'rest_framework_simplejwt.token_blacklist'
 ]
 
 LOCAL_APPS = [
