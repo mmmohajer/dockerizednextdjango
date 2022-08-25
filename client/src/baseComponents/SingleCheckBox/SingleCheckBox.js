@@ -7,7 +7,6 @@ import CheckBox from '@/baseComponents/CheckBox';
 import styles from './SingleCheckBox.module.scss';
 
 const SingleCheckBox = ({
-  options,
   selected,
   setSelected,
   labelText,
@@ -17,7 +16,7 @@ const SingleCheckBox = ({
   errorHandler
 }) => {
   useEffect(() => {
-    if (selected) {
+    if (selected && errorHandler) {
       errorHandler('');
     }
   }, [selected]);

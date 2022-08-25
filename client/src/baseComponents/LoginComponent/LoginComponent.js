@@ -5,6 +5,7 @@ import { Div, Form } from 'basedesign-iswad';
 
 import TextBox from '@/baseComponents/TextBox';
 import Button from '@/baseComponents/Button';
+import SingleCheckBox from '@/baseComponents/SingleCheckBox';
 
 import useApiCalls from '@/hooks/useApiCalls';
 import { emailValidators, passwordValidators } from './utils';
@@ -22,6 +23,8 @@ const LoginComponent = () => {
   const [password, setPassword] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
+  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
+
   const toBeValidatedFields = [
     {
       input_name: 'email',
@@ -38,7 +41,8 @@ const LoginComponent = () => {
   const [sendLoginReq, setSendLoginReq] = useState(false);
   const bodyData = {
     email,
-    password
+    password,
+    keep_logged_in: keepLoggedIn
   };
   const { data, error } = useApiCalls({
     sendReq: sendLoginReq,
@@ -83,6 +87,11 @@ const LoginComponent = () => {
           errorMessage={passwordErrorMessage}
           errorHandler={setPasswordErrorMessage}
           id="loginPassword"
+        />
+        <SingleCheckBox
+          labelText="Keep me logged in"
+          selected={keepLoggedIn}
+          setSelected={setKeepLoggedIn}
         />
         <Div type="flex" hAlign="center">
           <Button className="w-px-200" type="submit" id="loginButton">

@@ -6,6 +6,7 @@ ProfileViewSet = profile_view.ProfileViewSet
 
 CaptchaViewSet = captcha_view.CaptchaViewSet
 
+CreateTokenViewSet = user_view.CreateTokenViewSet.as_view()
 AddUserToGroup = user_view.AddUserToGroup.as_view()
 ActivateUserViewSet = user_view.ActivateUserViewSet.as_view()
 ResendActivationEmailViewSet = user_view.ResendActivationEmailViewSet.as_view()
