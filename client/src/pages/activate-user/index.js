@@ -1,9 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
 
-import PublicRoute from '@/baseComponents/PublicRoute';
-import Seo from '@/baseComponents/Seo';
 import ActivateUserComponent from '@/baseComponents/ActivateUser';
+import PublicRoute from '@/components/PublicRoute';
+import Seo from '@/components/Seo';
 
 import styles from './index.module.scss';
 

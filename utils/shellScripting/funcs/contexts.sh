@@ -28,8 +28,8 @@ getJsPageContext() {
 import cx from \"classnames\";
 import { Div } from \"basedesign-iswad\";
 
-import PublicRoute from \"@/baseComponents/PublicRoute\";
-import Seo from \"@/baseComponents/Seo\";
+import PublicRoute from \"@/components/PublicRoute\";
+import Seo from \"@/components/Seo\";
 
 import styles from \"./$compName.module.scss\";
 
