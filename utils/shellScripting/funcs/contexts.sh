@@ -30,6 +30,7 @@ import { Div } from \"basedesign-iswad\";
 
 import PublicRoute from \"@/components/PublicRoute\";
 import Seo from \"@/components/Seo\";
+import PageContainer from '@/components/PageContainer';
 
 import styles from \"./$compName.module.scss\";
 
@@ -37,7 +38,9 @@ const $compName = () => {
   return (
     <PublicRoute>
       <Seo>
-        <Div>$compName</Div>
+        <PageContainer>
+          <Div>$compName</Div>
+        </PageContainer>
       </Seo>
     </PublicRoute>
   );

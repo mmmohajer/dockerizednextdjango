@@ -17,8 +17,6 @@ import {
 import Loading from '@/baseComponents/Loading';
 import Alert from '@/baseComponents/Alert';
 import Modal from '@/baseComponents/Modal';
-import Header from '@/baseComponents/Header';
-import Footer from '@/baseComponents/Footer';
 
 import styles from './BaseTemplate.module.scss';
 
@@ -135,12 +133,8 @@ const BaseTemplate = ({ children }) => {
       {loading && <Loading />}
       <Alert />
       <Modal />
-      <Div className={cx('flex flex--dir--col min-height-vh-full flex--jc--between')}>
-        <Div>
-          <Header />
-          <Div>{children}</Div>
-        </Div>
-        <Footer />
+      <Div type="flex" direction="vertical" className="min-height-vh-full">
+        {children}
       </Div>
     </>
   );

@@ -4,6 +4,7 @@ import { Div } from 'basedesign-iswad';
 
 import PublicRoute from '@/components/PublicRoute';
 import Seo from '@/components/Seo';
+import PageContainer from '@/components/PageContainer';
 
 import styles from './index.module.scss';
 
@@ -11,7 +12,9 @@ const Index = () => {
   return (
     <PublicRoute>
       <Seo>
-        <Div>Unknown404</Div>
+        <PageContainer>
+          <Div>Unknown404</Div>
+        </PageContainer>
       </Seo>
     </PublicRoute>
   );
