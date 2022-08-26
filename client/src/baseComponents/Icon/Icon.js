@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import { Div } from 'basedesign-iswad';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFlag,
@@ -29,7 +30,7 @@ import Person from '@/images/js-Images/icons/svg/person.svg';
 import PersonFill from '@/images/js-Images/icons/svg/person-fill.svg';
 
 import { LIST_OF_ICONS } from '@/constants/devDesignVars';
-function Icon({ type, color, width, scale }) {
+function Icon({ type, color, width, scale, className, ...props }) {
   let iconTypes = {
     flag: <FontAwesomeIcon icon={faFlag} style={{ color, width, transform: `scale(${scale})` }} />,
     certificate: (
@@ -125,13 +126,20 @@ function Icon({ type, color, width, scale }) {
     <PersonFill fill={color} stroke={color} style={{ transform: `scale(${scale})` }} />
   );
 
-  return <>{iconTypes[type]}</>;
+  return (
+    <>
+      <Div type="flex" hAlign="center" vAlign="center" className={cx(className)} {...props}>
+        {iconTypes[type]}
+      </Div>
+    </>
+  );
 }
 
 Icon.propTypes = {
   type: PropTypes.oneOf(LIST_OF_ICONS),
   color: PropTypes.string,
-  width: PropTypes.string
+  width: PropTypes.string,
+  className: PropTypes.string
 };
 
 Icon.defaultProps = {
