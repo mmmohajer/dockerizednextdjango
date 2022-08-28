@@ -7,7 +7,7 @@ import Footer from '@/baseComponents/Footer';
 
 import styles from './PageContainer.module.scss';
 
-const PageContainer = () => {
+const PageContainer = ({ children }) => {
   return (
     <>
       <Div className={cx('flex flex--dir--col min-height-vh-full flex--jc--between')}>

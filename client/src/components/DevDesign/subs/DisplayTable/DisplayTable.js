@@ -63,7 +63,7 @@ function DisplayTable() {
         direction="vertical"
         hAlign="center"
         vAlign="center"
-        className={cx('p1 w-per-90 flex--wrap of-x-auto', styles.card)}>
+        className={cx('p1 w-per-90 flex--wrap of-x-auto scrollType1', styles.card)}>
         <Table
           headLines={headLines}
           data={data}
