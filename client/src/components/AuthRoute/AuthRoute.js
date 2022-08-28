@@ -1,18 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Div, Paragraph } from 'basedesign-iswad';
 import Router from 'next/router';
+
+import { isLoading, isLoaded } from '@/reducers/general/loading';
 
 import styles from './AuthRoute.module.scss';
 
 const AuthRoute = ({ children }) => {
+  const dispatch = useDispatch();
+
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
+  const [isChecked, setIsChecked] = useState(false);
   const [time, setTime] = useState(5);
 
   useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(isLoaded);
+      setIsChecked(true);
+    }
     if (!isAuthenticated) {
+      dispatch(isLoading());
+      setTimeout(() => {
+        setIsChecked(true);
+        dispatch(isLoaded());
+      }, 2000);
+    }
+  }, [isAuthenticated]);
+
+  useEffect(() => {
+    if (isChecked && !isAuthenticated) {
       let currentTime = time;
       if (time > 0) {
         setTimeout(() => {
@@ -24,17 +43,18 @@ const AuthRoute = ({ children }) => {
         Router.push('/');
       }
     }
-  }, [isAuthenticated, time]);
+  }, [isChecked, isAuthenticated, time]);
 
   return (
     <>
-      {isAuthenticated ? (
-        children
-      ) : (
+      {isChecked && isAuthenticated ? children : ''}
+      {isChecked && !isAuthenticated ? (
         <Div>
           <Paragraph> The content of this page is private</Paragraph>
           <Paragraph>You will be redirected to home page in {time}s</Paragraph>
         </Div>
+      ) : (
+        ''
       )}
     </>
   );
