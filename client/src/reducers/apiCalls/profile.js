@@ -10,7 +10,7 @@ reducerObject['removeProfile'] = (state, action) => {
 
 const slice = createSlice({
   name: 'profile',
-  initialState: [],
+  initialState: {},
   reducers: reducerObject
 });
 

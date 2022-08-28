@@ -8,7 +8,7 @@ import PageContainer from '@/components/PageContainer';
 
 import styles from './index.module.scss';
 
-function Index() {
+const Index = () => {
   return (
     <PublicRoute>
       <Seo>
@@ -20,6 +20,6 @@ function Index() {
       </Seo>
     </PublicRoute>
   );
-}
+};
 
 export default Index;
