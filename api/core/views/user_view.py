@@ -4,7 +4,7 @@ from requests import delete
 from rest_framework import viewsets, permissions, status, views, response, decorators, response, pagination
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
-from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken
 import django.contrib.auth.password_validation as validators
 import requests
 import json
@@ -95,7 +95,7 @@ class ResendActivationEmailViewSet(views.APIView):
     def post(self, request, format=None):
         user = get_object_or_404(User, email=request.data.get("email"))
         if user:
-            user_token = str(AccessToken.for_user(user))
+            user_token = str(OneDayAccessToken.for_user(user))
             user.register_token = user_token
             user.save(update_fields=["register_token"])
             send_activation_email.delay(user.first_name, user.email, user_token)
@@ -108,7 +108,7 @@ class SendForgotPasswordViewSet(views.APIView):
     def post(self, request, format=None):
         user = get_object_or_404(User, email=request.data.get("email"))
         if user:
-            user_token = str(AccessToken.for_user(user))
+            user_token = str(OneDayAccessToken.for_user(user))
             user.reset_password_token = user_token
             user.save(update_fields=["reset_password_token"])
             send_reset_password_email.delay(user.first_name, user.email, user_token)
