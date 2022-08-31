@@ -94,7 +94,7 @@ def check_captcha(request):
                     return {"success": True, "message": "Captcha confirmed successfully"}
                 return {"success": False, "message": "The captcha code does not match the one existing in our system"}
             else:
-                return {"success": False, "message": "The captcha has been expred, please reload the captch code!"}
+                return {"success": False, "message": "The captcha has been expired, please reload the captch code!"}
         return {"success": False, "message": "No captcha code found with the current uuid"}
     return {"success": False, "message": "Captcha information is not provided"}
 

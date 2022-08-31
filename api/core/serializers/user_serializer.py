@@ -6,12 +6,12 @@ from django.contrib.auth.models import Group
 from django.db import IntegrityError, transaction
 from django.conf import settings
 from rest_framework import serializers
-from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework.exceptions import ValidationError
 
 from core.models import ProfileModel
 from core.tasks import send_activation_email
 from core.utils import code_generator, check_captcha
+from core.token import OneDayAccessToken
 
 User = get_user_model()
 
@@ -42,7 +42,7 @@ class UserCreateSerializer(BaseUserCreateSerializer):
             user = User.objects.create_user(**validated_data)
             if settings.SEND_ACTIVATION_EMAIL:
                 user.is_active = False
-                user_token = str(AccessToken.for_user(user))
+                user_token = str(OneDayAccessToken.for_user(user))
                 user.register_token = user_token
                 user.save(update_fields=["is_active", "register_token"])
                 send_activation_email.delay(

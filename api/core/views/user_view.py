@@ -31,13 +31,15 @@ class CreateTokenViewSet(views.APIView):
                 user = get_object_or_404(User, email=email)
                 if user:
                     if user.check_password(password):
-                        if keep_logged_in:
-                            access_token = str(ThirtyDaysAccessToken.for_user(user))
-                            refresh_token = str(ThirtyDaysRefreshToken.for_user(user))
-                        else:
-                            access_token = str(OneDayAccessToken.for_user(user))
-                            refresh_token = str(OneDayRefreshToken.for_user(user))
-                        return response.Response(status=status.HTTP_200_OK, data={"access": access_token, "refresh": refresh_token})
+                        if user.is_active:
+                            if keep_logged_in:
+                                access_token = str(ThirtyDaysAccessToken.for_user(user))
+                                refresh_token = str(ThirtyDaysRefreshToken.for_user(user))
+                            else:
+                                access_token = str(OneDayAccessToken.for_user(user))
+                                refresh_token = str(OneDayRefreshToken.for_user(user))
+                            return response.Response(status=status.HTTP_200_OK, data={"access": access_token, "refresh": refresh_token})
+                        return response.Response(status=status.HTTP_405_METHOD_NOT_ALLOWED, data={"message": f"There is no active account with your email {email}"})
                     return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email or password is incorrect."})
                 return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email or password is incorrect."})
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email and password are required fields."})
