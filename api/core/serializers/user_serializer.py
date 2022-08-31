@@ -24,6 +24,7 @@ class UserCreateSerializer(BaseUserCreateSerializer):
         captcha_verified = check_captcha(self.context["request"])
         if captcha_verified.get("success"):
             try:
+                validated_data["email"] = validated_data["email"].lower()
                 user = self.perform_create(validated_data)
                 profile = ProfileModel()
                 profile.user = user

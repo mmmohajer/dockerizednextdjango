@@ -40,7 +40,7 @@ const LoginComponent = () => {
 
   const [sendLoginReq, setSendLoginReq] = useState(false);
   const bodyData = {
-    email,
+    email: email.toLowerCase(),
     password,
     keep_logged_in: keepLoggedIn
   };

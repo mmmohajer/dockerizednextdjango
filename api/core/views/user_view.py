@@ -28,7 +28,7 @@ class CreateTokenViewSet(views.APIView):
         keep_logged_in = request.data.get("keep_logged_in", False)
         try:
             if email and password:
-                user = get_object_or_404(User, email=email)
+                user = get_object_or_404(User, email=email.lower())
                 if user:
                     if user.check_password(password):
                         if user.is_active:

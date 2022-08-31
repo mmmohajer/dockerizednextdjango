@@ -70,7 +70,7 @@ const RegisterComponent = () => {
   const bodyData = {
     first_name: firstName,
     last_name: lastName,
-    email,
+    email: email.toLowerCase(),
     password,
     captcha_uuid: captchaUUID,
     user_captcha_code: userCaptchaCode
