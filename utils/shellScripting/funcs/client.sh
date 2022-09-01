@@ -58,19 +58,14 @@ createReactPage() {
     local pageName=$(readData "What is the page name?")
     
     local addr="client/src/pages/$pageName"
-    local testFolderAddr="client/src/pages/$pageName/__test__"
     mkdir -p "$addr"
-    mkdir -p "$testFolderAddr"
     
     local jsContext=$(getJsPageContext Index)
-    local testFileContext=$(getTestFileContext index)
     
     local innerIndexFileAddr="client/src/pages/$pageName/index.js"
     local innersassFileAddr="client/src/pages/$pageName/Index.module.scss"
-    local innerTestFileAddr="client/src/pages/$pageName/__test__/$pageName.test.js"
     
     echo "$jsContext" >> "$innerIndexFileAddr"
-    echo "$testFileContext" >> $innerTestFileAddr
     touch "$innersassFileAddr"
     
     return 0
