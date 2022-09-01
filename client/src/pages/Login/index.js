@@ -5,7 +5,6 @@ import LoginComponent from '@/baseComponents/LoginComponent';
 import GoogleAuth from '@/baseComponents/GoogleAuth';
 // import MicrosoftAuth from '@/baseComponents/MicrosoftAuth';
 // import FacebookAuth from '@/baseComponents/FacebookAuth';
-import Logout from '@/baseComponents/Logout';
 import PublicRoute from '@/components/PublicRoute';
 import Seo from '@/components/Seo';
 
@@ -19,7 +18,6 @@ const Index = () => {
         <GoogleAuth />
         {/* <MicrosoftAuth /> */}
         {/* <FacebookAuth /> */}
-        <Logout />
       </Seo>
     </PublicRoute>
   );

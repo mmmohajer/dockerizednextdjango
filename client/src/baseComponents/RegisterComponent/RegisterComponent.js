@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Div } from 'basedesign-iswad';
+import Router from 'next/router';
 
 import useApiCalls from '@/hooks/useApiCalls';
 import { REGISTER_API_ROUTE, RESEND_ACTIVATE_EMAIL_API_ROUTE } from '@/constants/apiRoutes';
@@ -23,6 +24,7 @@ import {
 
 const RegisterComponent = () => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
   const [firstName, setFirstName] = useState('');
   const [fistNameErrorMessage, setFirstNameErrorMessage] = useState('');
@@ -42,6 +44,12 @@ const RegisterComponent = () => {
   const [captchaUUID, setCaptchaUUID] = useState('');
 
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      Router.push('/');
+    }
+  }, [isAuthenticated]);
 
   const toBeValidatedFields = [
     {

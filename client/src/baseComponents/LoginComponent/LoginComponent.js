@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Div, Form } from 'basedesign-iswad';
+import Router from 'next/router';
 
 import TextBox from '@/baseComponents/TextBox';
 import Button from '@/baseComponents/Button';
@@ -16,6 +17,7 @@ import styles from './LoginComponent.module.scss';
 
 const LoginComponent = () => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
   const [email, setEmail] = useState('');
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
@@ -37,6 +39,12 @@ const LoginComponent = () => {
       errorMessageHandler: setPasswordErrorMessage
     }
   ];
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      Router.push('/');
+    }
+  }, [isAuthenticated]);
 
   const [sendLoginReq, setSendLoginReq] = useState(false);
   const bodyData = {

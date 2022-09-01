@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
-import { useSearchParams } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Div } from 'basedesign-iswad';
 import { useRouter } from 'next/router';
 import Router from 'next/router';
@@ -16,7 +15,14 @@ import styles from './ActivateUser.module.scss';
 
 const ActivateUser = () => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
   const router = useRouter();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      Router.push('/');
+    }
+  }, [isAuthenticated]);
 
   const [token, setToken] = useState('');
   const [userId, setUserId] = useState('');
@@ -31,7 +37,8 @@ const ActivateUser = () => {
     setSendReq: setSendActivateReq,
     method: 'POST',
     url: ACTIVATE_USER_API_ROUTE,
-    bodyData
+    bodyData,
+    showLoading: true
   });
 
   useEffect(() => {
@@ -57,6 +64,7 @@ const ActivateUser = () => {
           'Sorry, we are unable to activate your registration. That might be because your token has been expired.',
           'error'
         );
+        Router.push('/register');
       }
     }
   }, [token]);
