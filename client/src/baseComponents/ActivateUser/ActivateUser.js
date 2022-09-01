@@ -5,10 +5,12 @@ import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { Div } from 'basedesign-iswad';
 import { useRouter } from 'next/router';
+import Router from 'next/router';
 
 import useApiCalls from '@/hooks/useApiCalls';
 import { ACTIVATE_USER_API_ROUTE } from '@/constants/apiRoutes';
 import { addAlertItem } from '@/utils/notifications';
+import { loginUser } from '@/utils/auth';
 
 import styles from './ActivateUser.module.scss';
 
@@ -70,9 +72,13 @@ const ActivateUser = () => {
       if (data.is_activated) {
         addAlertItem(
           dispatch,
-          'Congrats! you have successfully activated your registration with us! you can now login with your new credentials.',
+          'Congrats! you have successfully activated your registration with us!',
           'success'
         );
+        if (data.access && data.refresh) {
+          loginUser(data.access, data.refresh, dispatch);
+          Router.push('/');
+        }
       }
     }
   }, [data]);

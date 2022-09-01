@@ -86,7 +86,9 @@ class ActivateUserViewSet(views.APIView):
             if user.register_token == register_token:
                 user.is_active = True
                 user.save(update_fields=["is_active"])
-                return response.Response(status=status.HTTP_200_OK, data={"is_activated": True, "message": "User has been successfully activated!"})
+                access_token = str(OneDayAccessToken.for_user(user))
+                refresh_token = str(OneDayRefreshToken.for_user(user))
+                return response.Response(status=status.HTTP_200_OK, data={"is_activated": True, "message": "User has been successfully activated!", "access": access_token, "refresh": refresh_token})
         return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"is_activated": False, "message": "Unable to activate a user!"})
 
 
