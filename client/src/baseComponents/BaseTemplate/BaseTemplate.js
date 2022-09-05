@@ -27,6 +27,7 @@ const BaseTemplate = ({ children }) => {
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
   const [showLoading, setShowLoading] = useState(true);
+  const [firstRefreshReq, setFirstRefreshReq] = useState(true);
   const [accessToken, setAccessToken] = useState('');
   const [refreshToken, setRefreshToken] = useState('');
   const [sendGetCurUserReq, setSendGetCurUserReq] = useState(false);
@@ -91,7 +92,10 @@ const BaseTemplate = ({ children }) => {
   useEffect(() => {
     if (refreshData) {
       setLocalStorage('access_token', refreshData['access']);
-      setAccessToken(refreshData['access']);
+      if (firstRefreshReq) {
+        setAccessToken(refreshData['access']);
+        setFirstRefreshReq(false);
+      }
     }
   }, [refreshData]);
 
