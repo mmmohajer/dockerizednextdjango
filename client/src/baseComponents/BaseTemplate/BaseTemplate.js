@@ -31,7 +31,6 @@ const BaseTemplate = ({ children }) => {
   const [sendGetCurUserReq, setSendGetCurUserReq] = useState(false);
   const [sendAuthenticatedReq, setSendAuthenticatedReq] = useState(false);
   const [sendrefreshTokenReq, setSendRefreshTokenReq] = useState(false);
-  const [sendRepeatedrefreshTokenReq, setSendRepeatedRefreshTokenReq] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -57,16 +56,6 @@ const BaseTemplate = ({ children }) => {
     method: 'POST',
     url: REFRESH_TOKEN_API_ROUTE,
     bodyData: { refresh: refreshToken },
-    showLoading: true,
-    showErrorMessage: false
-  });
-
-  const { data: repeatedRefreshData, error: repeatedRefreshError } = useApiCalls({
-    sendReq: sendRepeatedrefreshTokenReq,
-    setSendReq: setSendRepeatedRefreshTokenReq,
-    method: 'POST',
-    url: REFRESH_TOKEN_API_ROUTE,
-    bodyData: { refresh: refreshToken },
     showLoading: false,
     showErrorMessage: false
   });
@@ -76,7 +65,7 @@ const BaseTemplate = ({ children }) => {
     setSendReq: setSendAuthenticatedReq,
     method: 'GET',
     url: AUTHENTICATE_USER_API_ROUTE,
-    showLoading: true,
+    showLoading: false,
     showErrorMessage: false
   });
 
@@ -85,7 +74,7 @@ const BaseTemplate = ({ children }) => {
     setSendReq: setSendGetCurUserReq,
     method: 'GET',
     url: MY_PROFILE_API_ROUTE,
-    showLoading: true,
+    showLoading: false,
     showErrorMessage: false
   });
 
@@ -101,13 +90,6 @@ const BaseTemplate = ({ children }) => {
       setAccessToken(refreshData['access']);
     }
   }, [refreshData]);
-
-  useEffect(() => {
-    if (repeatedRefreshData) {
-      setLocalStorage('access_token', repeatedRefreshData['access']);
-      setAccessToken(repeatedRefreshData['access']);
-    }
-  }, [repeatedRefreshData]);
 
   useEffect(() => {
     if (accessToken) {
@@ -142,9 +124,9 @@ const BaseTemplate = ({ children }) => {
       try {
         setSendGetCurUserReq(true);
         setInterval(() => {
-          setSendRepeatedRefreshTokenReq(true);
+          setSendRefreshTokenReq(true);
           setTimeout(() => {
-            setSendRepeatedRefreshTokenReq(false);
+            setSendRefreshTokenReq(false);
           }, 1000);
         }, ACCESS_TOKEN_CHEANGE_TIME);
       } catch (err) {
