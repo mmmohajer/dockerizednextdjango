@@ -51,7 +51,7 @@ const useApiCalls = ({
         } else if (method.toLowerCase() === 'patch') {
           res = await axios.patch(url, bodyData && bodyData, headers && { headers });
         } else if (method.toLowerCase() === 'delete') {
-          res = await axios.delete(url, bodyData && bodyData, headers && { headers });
+          res = await axios.delete(url, headers && { headers });
         }
         if (res?.data) {
           setData(res.data);

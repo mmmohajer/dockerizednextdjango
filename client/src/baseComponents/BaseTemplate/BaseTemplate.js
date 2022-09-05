@@ -163,9 +163,7 @@ const BaseTemplate = ({ children }) => {
       {loading && <Loading />}
       <Alert />
       <Modal />
-      <Div type="flex" direction="vertical" className="min-height-vh-full">
-        {children}
-      </Div>
+      <Div className="appContainer">{children}</Div>
     </>
   );
 };
