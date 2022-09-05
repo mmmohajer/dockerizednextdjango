@@ -56,10 +56,14 @@ const useApiCalls = ({
         if (res?.data) {
           setData(res.data);
         }
-        dispatch(isLoaded());
+        if (showLoading) {
+          dispatch(isLoaded());
+        }
       } catch (err) {
         setError(err.response);
-        dispatch(isLoaded());
+        if (showLoading) {
+          dispatch(isLoaded());
+        }
         if (showErrorMessage) {
           showErrorAPIAlert(err.response, dispatch);
         }

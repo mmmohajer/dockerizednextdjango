@@ -26,6 +26,7 @@ const BaseTemplate = ({ children }) => {
   const loading = useSelector((state) => state.loading);
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
+  const [showLoading, setShowLoading] = useState(true);
   const [accessToken, setAccessToken] = useState('');
   const [refreshToken, setRefreshToken] = useState('');
   const [sendGetCurUserReq, setSendGetCurUserReq] = useState(false);
@@ -37,6 +38,7 @@ const BaseTemplate = ({ children }) => {
       if (getLocalStorage('refresh_token')) {
         setRefreshToken(getLocalStorage('refresh_token'));
       } else {
+        setShowLoading(false);
         notAuthenticated(dispatch);
       }
     }
@@ -45,7 +47,7 @@ const BaseTemplate = ({ children }) => {
   useEffect(() => {
     if (!isAuthenticated?.isChecked) {
       dispatch(isLoading());
-    } else {
+    } else if (!showLoading) {
       dispatch(isLoaded());
     }
   }, [isAuthenticated]);
@@ -92,6 +94,12 @@ const BaseTemplate = ({ children }) => {
   }, [refreshData]);
 
   useEffect(() => {
+    if (refreshError?.data) {
+      setShowLoading(false);
+    }
+  }, [refreshError]);
+
+  useEffect(() => {
     if (accessToken) {
       setSendAuthenticatedReq(true);
     }
@@ -111,6 +119,7 @@ const BaseTemplate = ({ children }) => {
 
   useEffect(() => {
     if (authenticatedError?.data) {
+      setShowLoading(false);
       notAuthenticated(dispatch);
       removeLocalStorage('access_token');
       removeLocalStorage('refresh_token');
@@ -137,6 +146,7 @@ const BaseTemplate = ({ children }) => {
 
   useEffect(() => {
     if (profileData) {
+      setShowLoading(false);
       getProfile(dispatch, profileData);
     }
   }, [profileData]);
