@@ -38,6 +38,8 @@ const BaseTemplate = ({ children }) => {
       if (getLocalStorage('refresh_token')) {
         setRefreshToken(getLocalStorage('refresh_token'));
       } else {
+        removeLocalStorage('access_token');
+        removeLocalStorage('refresh_token');
         setShowLoading(false);
         notAuthenticated(dispatch);
       }
@@ -95,6 +97,8 @@ const BaseTemplate = ({ children }) => {
 
   useEffect(() => {
     if (refreshError?.data) {
+      removeLocalStorage('access_token');
+      removeLocalStorage('refresh_token');
       setShowLoading(false);
     }
   }, [refreshError]);
