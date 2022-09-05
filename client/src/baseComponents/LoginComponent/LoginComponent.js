@@ -41,7 +41,7 @@ const LoginComponent = () => {
   ];
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated?.authenticated) {
       Router.push('/');
     }
   }, [isAuthenticated]);
@@ -68,45 +68,47 @@ const LoginComponent = () => {
 
   return (
     <>
-      <Form
-        className="textWhite py1 flex flex--jc--center flex--dir--col ml-auto mr-auto w-per-100"
-        toBeValidatedFields={toBeValidatedFields}
-        onSubmit={() => setSendLoginReq(true)}>
-        <TextBox
-          type="text"
-          name="email"
-          labelText="Email"
-          placeholder=""
-          isRequired
-          val={email}
-          setVal={setEmail}
-          errorMessage={emailErrorMessage}
-          errorHandler={setEmailErrorMessage}
-          id="loginEmail"
-        />
-        <TextBox
-          type="password"
-          name="password"
-          labelText="Password"
-          placeholder=""
-          isRequired
-          val={password}
-          setVal={setPassword}
-          errorMessage={passwordErrorMessage}
-          errorHandler={setPasswordErrorMessage}
-          id="loginPassword"
-        />
-        <SingleCheckBox
-          labelText="Keep me logged in"
-          selected={keepLoggedIn}
-          setSelected={setKeepLoggedIn}
-        />
-        <Div type="flex" hAlign="center">
-          <Button className="w-px-200" type="submit" id="loginButton">
-            Login
-          </Button>
-        </Div>
-      </Form>
+      {isAuthenticated?.isChecked && (
+        <Form
+          className="textWhite py1 flex flex--jc--center flex--dir--col ml-auto mr-auto w-per-100"
+          toBeValidatedFields={toBeValidatedFields}
+          onSubmit={() => setSendLoginReq(true)}>
+          <TextBox
+            type="text"
+            name="email"
+            labelText="Email"
+            placeholder=""
+            isRequired
+            val={email}
+            setVal={setEmail}
+            errorMessage={emailErrorMessage}
+            errorHandler={setEmailErrorMessage}
+            id="loginEmail"
+          />
+          <TextBox
+            type="password"
+            name="password"
+            labelText="Password"
+            placeholder=""
+            isRequired
+            val={password}
+            setVal={setPassword}
+            errorMessage={passwordErrorMessage}
+            errorHandler={setPasswordErrorMessage}
+            id="loginPassword"
+          />
+          <SingleCheckBox
+            labelText="Keep me logged in"
+            selected={keepLoggedIn}
+            setSelected={setKeepLoggedIn}
+          />
+          <Div type="flex" hAlign="center">
+            <Button className="w-px-200" type="submit" id="loginButton">
+              Login
+            </Button>
+          </Div>
+        </Form>
+      )}
     </>
   );
 };

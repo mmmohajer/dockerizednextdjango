@@ -13,6 +13,7 @@ import {
   MY_PROFILE_API_ROUTE,
   AUTHENTICATE_USER_API_ROUTE
 } from '@/constants/apiRoutes';
+import { isLoaded, isLoading } from '@/reducers/general/loading';
 
 import Loading from '@/baseComponents/Loading';
 import Alert from '@/baseComponents/Alert';
@@ -30,16 +31,39 @@ const BaseTemplate = ({ children }) => {
   const [sendGetCurUserReq, setSendGetCurUserReq] = useState(false);
   const [sendAuthenticatedReq, setSendAuthenticatedReq] = useState(false);
   const [sendrefreshTokenReq, setSendRefreshTokenReq] = useState(false);
+  const [sendRepeatedrefreshTokenReq, setSendRepeatedRefreshTokenReq] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setRefreshToken(getLocalStorage('refresh_token'));
+      if (getLocalStorage('refresh_token')) {
+        setRefreshToken(getLocalStorage('refresh_token'));
+      } else {
+        notAuthenticated(dispatch);
+      }
     }
   }, []);
+
+  useEffect(() => {
+    if (!isAuthenticated?.isChecked) {
+      dispatch(isLoading());
+    } else {
+      dispatch(isLoaded());
+    }
+  }, [isAuthenticated]);
 
   const { data: refreshData, error: refreshError } = useApiCalls({
     sendReq: sendrefreshTokenReq,
     setSendReq: setSendRefreshTokenReq,
+    method: 'POST',
+    url: REFRESH_TOKEN_API_ROUTE,
+    bodyData: { refresh: refreshToken },
+    showLoading: true,
+    showErrorMessage: false
+  });
+
+  const { data: repeatedRefreshData, error: repeatedRefreshError } = useApiCalls({
+    sendReq: sendRepeatedrefreshTokenReq,
+    setSendReq: setSendRepeatedRefreshTokenReq,
     method: 'POST',
     url: REFRESH_TOKEN_API_ROUTE,
     bodyData: { refresh: refreshToken },
@@ -52,7 +76,7 @@ const BaseTemplate = ({ children }) => {
     setSendReq: setSendAuthenticatedReq,
     method: 'GET',
     url: AUTHENTICATE_USER_API_ROUTE,
-    showLoading: false,
+    showLoading: true,
     showErrorMessage: false
   });
 
@@ -61,7 +85,7 @@ const BaseTemplate = ({ children }) => {
     setSendReq: setSendGetCurUserReq,
     method: 'GET',
     url: MY_PROFILE_API_ROUTE,
-    showLoading: false,
+    showLoading: true,
     showErrorMessage: false
   });
 
@@ -77,6 +101,13 @@ const BaseTemplate = ({ children }) => {
       setAccessToken(refreshData['access']);
     }
   }, [refreshData]);
+
+  useEffect(() => {
+    if (repeatedRefreshData) {
+      setLocalStorage('access_token', repeatedRefreshData['access']);
+      setAccessToken(repeatedRefreshData['access']);
+    }
+  }, [repeatedRefreshData]);
 
   useEffect(() => {
     if (accessToken) {
@@ -105,15 +136,15 @@ const BaseTemplate = ({ children }) => {
   }, [authenticatedError]);
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated?.authenticated) {
       setAccessToken(getLocalStorage('access_token'));
       setRefreshToken(getLocalStorage('refresh_token'));
       try {
         setSendGetCurUserReq(true);
         setInterval(() => {
-          setSendRefreshTokenReq(true);
+          setSendRepeatedRefreshTokenReq(true);
           setTimeout(() => {
-            setSendRefreshTokenReq(false);
+            setSendRepeatedRefreshTokenReq(false);
           }, 1000);
         }, ACCESS_TOKEN_CHEANGE_TIME);
       } catch (err) {

@@ -15,7 +15,7 @@ const useApiCalls = ({
   bodyData,
   headers,
   useDefaultHeaders = true,
-  showLoading = false,
+  showLoading = true,
   showErrorMessage = true
 }) => {
   const dispatch = useDispatch();

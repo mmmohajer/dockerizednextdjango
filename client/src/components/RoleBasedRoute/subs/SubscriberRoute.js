@@ -11,11 +11,20 @@ import styles from '../RoleBasedRoute.module.scss';
 
 const SubscriberRoute = ({ children }) => {
   const dispatch = useDispatch();
-
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
   const profile = useSelector((state) => state.profile);
+
   const [isSubscriber, setIsSubscriber] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [time, setTime] = useState(5);
+
+  useEffect(() => {
+    if (isAuthenticated?.isChecked && !isAuthenticated?.authenticated) {
+      setIsSubscriber(false);
+      setIsChecked(true);
+      dispatch(isLoaded());
+    }
+  }, [isAuthenticated]);
 
   useEffect(() => {
     if (profile) {

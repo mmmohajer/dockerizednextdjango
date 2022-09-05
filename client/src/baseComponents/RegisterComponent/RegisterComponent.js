@@ -46,7 +46,7 @@ const RegisterComponent = () => {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated?.authenticated) {
       Router.push('/');
     }
   }, [isAuthenticated]);
@@ -139,73 +139,75 @@ const RegisterComponent = () => {
 
   return (
     <>
-      <Form
-        className="textWhite py1"
-        toBeValidatedFields={toBeValidatedFields}
-        onSubmit={handleSubmit}>
-        <TextBox
-          type="text"
-          name="first_name"
-          isRequired
-          labelText="First Name"
-          placeholder=""
-          val={firstName}
-          setVal={setFirstName}
-          errorMessage={fistNameErrorMessage}
-          errorHandler={setFirstNameErrorMessage}
-          id="loginFirstName"
-        />
-        <TextBox
-          type="text"
-          name="last_name"
-          isRequired
-          labelText="Last Name"
-          placeholder=""
-          val={lastName}
-          setVal={setLastName}
-          errorMessage={lastNameErrorMessage}
-          errorHandler={setLastNameErrorMessage}
-          id="loginLastName"
-        />
-        <TextBox
-          type="text"
-          name="email"
-          isRequired
-          labelText="Email"
-          placeholder=""
-          val={email}
-          setVal={setEmail}
-          errorMessage={emailErrorMessage}
-          errorHandler={setEmailErrorMessage}
-          id="loginEmail"
-        />
-        <TextBox
-          type="password"
-          name="password"
-          placeholder=""
-          labelText="Password"
-          isRequired
-          val={password}
-          setVal={setPassword}
-          errorMessage={passwordErrorMessage}
-          errorHandler={setPasswordErrorMessage}
-          id="loginPassword"
-        />
-        <Captcha
-          userCaptchaCode={userCaptchaCode}
-          setUserCaptchaCode={setUserCaptchaCode}
-          userCaptchaCodeErrorMessage={userCaptchaCodeErrorMessage}
-          setUserCaptchaCodeErrorMessage={setUserCaptchaCodeErrorMessage}
-          captchaCode={captchaCode}
-          setCaptchaCode={setCaptchaCode}
-          setCaptchaUUID={setCaptchaUUID}
-        />
-        <Div type="flex" hAlign="center">
-          <Button id="registerSubmit" className="w-px-200" type="submit">
-            Register
-          </Button>
-        </Div>
-      </Form>
+      {isAuthenticated?.isChecked && (
+        <Form
+          className="textWhite py1"
+          toBeValidatedFields={toBeValidatedFields}
+          onSubmit={handleSubmit}>
+          <TextBox
+            type="text"
+            name="first_name"
+            isRequired
+            labelText="First Name"
+            placeholder=""
+            val={firstName}
+            setVal={setFirstName}
+            errorMessage={fistNameErrorMessage}
+            errorHandler={setFirstNameErrorMessage}
+            id="loginFirstName"
+          />
+          <TextBox
+            type="text"
+            name="last_name"
+            isRequired
+            labelText="Last Name"
+            placeholder=""
+            val={lastName}
+            setVal={setLastName}
+            errorMessage={lastNameErrorMessage}
+            errorHandler={setLastNameErrorMessage}
+            id="loginLastName"
+          />
+          <TextBox
+            type="text"
+            name="email"
+            isRequired
+            labelText="Email"
+            placeholder=""
+            val={email}
+            setVal={setEmail}
+            errorMessage={emailErrorMessage}
+            errorHandler={setEmailErrorMessage}
+            id="loginEmail"
+          />
+          <TextBox
+            type="password"
+            name="password"
+            placeholder=""
+            labelText="Password"
+            isRequired
+            val={password}
+            setVal={setPassword}
+            errorMessage={passwordErrorMessage}
+            errorHandler={setPasswordErrorMessage}
+            id="loginPassword"
+          />
+          <Captcha
+            userCaptchaCode={userCaptchaCode}
+            setUserCaptchaCode={setUserCaptchaCode}
+            userCaptchaCodeErrorMessage={userCaptchaCodeErrorMessage}
+            setUserCaptchaCodeErrorMessage={setUserCaptchaCodeErrorMessage}
+            captchaCode={captchaCode}
+            setCaptchaCode={setCaptchaCode}
+            setCaptchaUUID={setCaptchaUUID}
+          />
+          <Div type="flex" hAlign="center">
+            <Button id="registerSubmit" className="w-px-200" type="submit">
+              Register
+            </Button>
+          </Div>
+        </Form>
+      )}
       {submitted && (
         <Div type="flex" hAlign="center" className="w-per-100">
           <Button

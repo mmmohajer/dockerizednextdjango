@@ -11,11 +11,20 @@ import styles from '../RoleBasedRoute.module.scss';
 
 const AppAdminRoute = ({ children }) => {
   const dispatch = useDispatch();
-
   const profile = useSelector((state) => state.profile);
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
+
   const [isAppAdmin, setIsAppAdmin] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [time, setTime] = useState(5);
+
+  useEffect(() => {
+    if (isAuthenticated?.isChecked && !isAuthenticated?.authenticated) {
+      setIsAppAdmin(false);
+      setIsChecked(true);
+      dispatch(isLoaded());
+    }
+  }, [isAuthenticated]);
 
   useEffect(() => {
     if (profile) {
@@ -29,10 +38,6 @@ const AppAdminRoute = ({ children }) => {
         }
         dispatch(isLoaded());
       }
-      setTimeout(() => {
-        setIsChecked(true);
-        dispatch(isLoaded());
-      }, 2000);
     }
   }, [profile]);
 
