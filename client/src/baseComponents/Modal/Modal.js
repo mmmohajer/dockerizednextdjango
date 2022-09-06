@@ -9,6 +9,7 @@ import styles from './Modal.module.scss';
 
 const Modal = () => {
   const modalType = useSelector((state) => state.modalType);
+  const modalProps = useSelector((state) => state.modalProps);
 
   return (
     <>
@@ -18,7 +19,7 @@ const Modal = () => {
           className={cx(
             'pos-rel baxShadowType1 bgWhite p2 w-per-80 min-w-px-300 max-w-px-600 br-all-solid-1 br-rad-px-10 br-color-inverse ModalContainerZIndex'
           )}>
-          <DataSubmittedSuccessfully />
+          <DataSubmittedSuccessfully {...modalProps} />
         </BaseModal>
       )}
     </>
