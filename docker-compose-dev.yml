@@ -89,6 +89,22 @@ services:
       - smtp4dev
       - redis
 
+  channels:
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+    env_file:
+      - ./config/envFiles/django/develop/.env
+    volumes:
+      - ./api:/usr/src/app
+    ports:
+      - "8001:8001"
+    command: daphne -b 0.0.0.0 -p 8001 config.asgi:application
+    depends_on:
+      - db
+      - smtp4dev
+      - redis
+
   api-test:
     build:
       dockerfile: Dockerfile.dev

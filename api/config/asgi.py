@@ -12,12 +12,15 @@ import os
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.security.websocket import AllowedHostsOriginValidator
+import django
 from django.core.asgi import get_asgi_application
 from django.urls import path
 
 from websocket.consumers import ChatConsumer
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+
+django.setup()
 
 application = ProtocolTypeRouter({
     # Django's ASGI application to handle traditional HTTP requests
@@ -27,7 +30,7 @@ application = ProtocolTypeRouter({
     "websocket": AllowedHostsOriginValidator(
         AuthMiddlewareStack(
             URLRouter([
-                path("api/socket-server/", ChatConsumer.as_asgi())
+                path("ws/socket-server/", ChatConsumer.as_asgi())
             ])
         )
     ),
