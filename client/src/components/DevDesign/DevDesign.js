@@ -16,6 +16,7 @@ import DisplayPagination from './subs/DisplayPagination';
 import DisplayTable from './subs/DisplayTable';
 import DisplayText from './subs/DisplayText';
 import DisplayParagraph from './subs/DisplayParagraph';
+import DisplayDraggableFileUploader from './subs/DisplayDraggableFileUploader';
 
 import styles from './DevDesign.module.scss';
 
@@ -34,11 +35,15 @@ const DevDesign = () => {
       <DisplayButtons />
       <Heading className="flex flex--jc--center flex--ai--center my1">Form Components</Heading>
       <DisplayForm />
+      <Heading className="flex flex--jc--center flex--ai--center my1">
+        Draggable File Uploader
+      </Heading>
+      <DisplayDraggableFileUploader />
       <Heading className="flex flex--jc--center flex--ai--center my1">Alerts</Heading>
       <DisplayAlert />
       <Heading className="flex flex--jc--center flex--ai--center my1">Modals</Heading>
       <DisplayModals />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Modals</Heading>
+      <Heading className="flex flex--jc--center flex--ai--center my1">Loadings</Heading>
       <DisplayLoading />
       <Heading className="flex flex--jc--center flex--ai--center my1">Cards</Heading>
       <DisplayCards />

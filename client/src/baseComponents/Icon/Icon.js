@@ -17,7 +17,8 @@ import {
   faAngleDoubleLeft,
   faAngleDoubleRight,
   faSearch,
-  faMinus
+  faMinus,
+  faFileUpload
 } from '@fortawesome/free-solid-svg-icons';
 
 import Dashboard from '@/images/js-Images/icons/svg/dashboard.svg';
@@ -76,7 +77,12 @@ function Icon({ type, color, width, scale, className, ...props }) {
     search: (
       <FontAwesomeIcon icon={faSearch} style={{ color, width, transform: `scale(${scale})` }} />
     ),
-    minus: <FontAwesomeIcon icon={faMinus} style={{ color, width, transform: `scale(${scale})` }} />
+    minus: (
+      <FontAwesomeIcon icon={faMinus} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'file-upload': (
+      <FontAwesomeIcon icon={faFileUpload} style={{ color, width, transform: `scale(${scale})` }} />
+    )
   };
 
   iconTypes['dashboard'] = (

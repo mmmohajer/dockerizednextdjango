@@ -8,6 +8,7 @@ export const LIST_OF_ICONS = [
   'close',
   'dashboard',
   'eye',
+  'file-upload',
   'flag',
   'image-upload',
   'instagram',
