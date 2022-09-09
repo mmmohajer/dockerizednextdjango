@@ -19,7 +19,7 @@ const ActivateUser = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated?.isChecked && isAuthenticated?.authenticated) {
       Router.push('/');
     }
   }, [isAuthenticated]);

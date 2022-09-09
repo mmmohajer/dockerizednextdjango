@@ -22,16 +22,27 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 
 django.setup()
 
-application = ProtocolTypeRouter({
-    # Django's ASGI application to handle traditional HTTP requests
-    "http": get_asgi_application,
+DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
-    # WebSocket chat handler
-    "websocket": AllowedHostsOriginValidator(
-        AuthMiddlewareStack(
-            URLRouter([
-                path("ws/socket-server/", ChatConsumer.as_asgi())
-            ])
-        )
-    ),
-})
+if DEBUG:
+    application = ProtocolTypeRouter({
+        "websocket": AllowedHostsOriginValidator(
+            AuthMiddlewareStack(
+                URLRouter([
+                    path("ws/socket-server/", ChatConsumer.as_asgi())
+                ])
+            )
+        ),
+    })
+else:
+    application = ProtocolTypeRouter({
+        "http": get_asgi_application,
+
+        "websocket": AllowedHostsOriginValidator(
+            AuthMiddlewareStack(
+                URLRouter([
+                    path("ws/socket-server/", ChatConsumer.as_asgi())
+                ])
+            )
+        ),
+    })
