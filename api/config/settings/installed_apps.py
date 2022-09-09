@@ -16,13 +16,15 @@ THIRD_PARTY_APPS = [
     'debug_toolbar',
     'djoser',
     'rest_framework_swagger',
-    'rest_framework_simplejwt.token_blacklist'
+    'rest_framework_simplejwt.token_blacklist',
+    'channels'
 ]
 
 LOCAL_APPS = [
     'core',
     'app',
     'like',
+    'websocket'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

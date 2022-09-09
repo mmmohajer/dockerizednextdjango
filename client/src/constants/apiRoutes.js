@@ -17,5 +17,7 @@ export const FACEBOOK_AUTH_TOKEN_API_ROUTE = '/api/auth/facebook-auth/';
 export const FACEBOOK_AUTH_HANDLE_TOKEN_API_ROUTE = '/api/auth/facebook-auth-handle-token/';
 export const CAPTCHA_API_ROUTE = '/api/captcha/';
 
+export const WEBSOCKET_CHAT_API_ROUTE = `/api/socket-server/`;
+
 // EXTERNAL API ROUTES
 export const GET_IP_INFO_ROUTE = 'https://geolocation-db.com/json/';

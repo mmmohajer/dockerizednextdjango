@@ -1,3 +1,5 @@
+import { APP_DOMAIN } from '@/root/config';
+
 export const generateKey = (length = 16) => {
   var result = '';
   var characters =
@@ -7,4 +9,8 @@ export const generateKey = (length = 16) => {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
+};
+
+export const websocketApiRoute = (url) => {
+  return `ws://${APP_DOMAIN}${url}`;
 };

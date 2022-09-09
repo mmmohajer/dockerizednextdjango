@@ -40,7 +40,7 @@ const TextBox = ({
             value={val}
             onChange={(e) => {
               setVal(e.target.value);
-              errorHandler('');
+              errorHandler && errorHandler('');
               if (onChange) {
                 onChange(e);
               }
