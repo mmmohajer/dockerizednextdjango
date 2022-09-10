@@ -37,6 +37,8 @@ Setup:
 2. Active the python virtual env and install the following package: <br>
    `pip install python-dotenv`
 
+**Note**: Remember for `deployment`, you need to change the value of `PRODUCTION` to true in `next.config.js` file <br>
+
 <hr>
 
 2. Test production environment on your local PC: <br>
