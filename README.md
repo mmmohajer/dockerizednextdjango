@@ -31,6 +31,12 @@ Setup:
 
 **Note**: In order to send activation email after registration, put SEND_ACTIVATION_EMAIL=1 in the environment variables.
 
+**Note**: In order to run the application, without the docker, you need to take the following steps: <br>
+
+1. Go to client folder and change the value of `WITHOUT_DOCKER` to `0` <br>
+2. Active the python virtual env and install the following package: <br>
+   `pip install python-dotenv`
+
 <hr>
 
 2. Test production environment on your local PC: <br>

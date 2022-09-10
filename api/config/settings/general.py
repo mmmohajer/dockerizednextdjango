@@ -3,15 +3,8 @@ import os
 import environ
 
 if not os.environ.get('DEBUG'):
-    print("\n\n-----\n\nGo to config/settings folder, open general.py file, and uncomment the following two lines in\nfrom dotenv import load_dotenv\nload_dotenv()\nRemember that for it to work, you need to run pip install python-dotenv\n\n-----\n\n")
-
-# If you are not using docker, uncomment this section, and install python-dotenv package
-# pip install python-dotenv
-# from dotenv import load_dotenv
-# load_dotenv()
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-environ.Env.read_env(BASE_DIR / ".env")
+    from dotenv import load_dotenv
+    load_dotenv()
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'SomeRandomString')
 
