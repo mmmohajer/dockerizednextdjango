@@ -6,6 +6,7 @@ import { getLocalStorage } from '@/utils/auth';
 import { TOKEN_SPACE_WORD } from '@/constants/vars';
 import { isLoading, isLoaded } from '@/reducers/general/loading';
 import { showErrorAPIAlert } from '@/utils/notifications';
+import { WITHOUT_DOCKER, API_BASE_URL_WITHOUT_DOCKER } from '@/root/config';
 
 const useApiCalls = ({
   sendReq,
@@ -25,8 +26,8 @@ const useApiCalls = ({
 
   useEffect(() => {
     const sendRequest = async () => {
-      if (Boolean(parseInt(process.env.WITHOUT_DOCKER))) {
-        url = `${process.env.API_BASE_URL_WITHOUT_DOCKER}${url}`;
+      if (Boolean(parseInt(WITHOUT_DOCKER))) {
+        url = `${API_BASE_URL_WITHOUT_DOCKER}${url}`;
       }
 
       const accessToken = getLocalStorage('access_token');
