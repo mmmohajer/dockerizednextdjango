@@ -3,7 +3,7 @@ initialSetupInMAcOrLinux() {
     source venv/bin/activate
     pip install --upgrade pip
     pip install -r api/requirements.txt
-    pip install pytest pytest-django model_bakery pytest-watch isort flake8 autopep8 locust
+    pip install pytest pytest-django model_bakery pytest-watch isort flake8 autopep8 locust python-dotenv
     echo "Python virtual environment is ready"
     cp ".env.sample" ".env"
     cp "config/envFiles/django/develop/.env.sample" "config/envFiles/django/develop/.env"
