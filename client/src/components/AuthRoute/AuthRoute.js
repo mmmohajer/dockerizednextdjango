@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Div, Paragraph } from 'basedesign-iswad';
 import Router from 'next/router';
 
-import { isLoading, isLoaded } from '@/reducers/general/loading';
-
 import styles from './AuthRoute.module.scss';
 
 const AuthRoute = ({ children }) => {
@@ -14,24 +12,22 @@ const AuthRoute = ({ children }) => {
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
   const [isChecked, setIsChecked] = useState(false);
+  const [isAuthUser, setIsAuthUser] = useState(false);
   const [time, setTime] = useState(5);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      dispatch(isLoaded);
+    if (isAuthenticated?.isChecked && !isAuthenticated?.authenticated) {
+      setIsAuthUser(false);
       setIsChecked(true);
     }
-    if (!isAuthenticated) {
-      dispatch(isLoading());
-      setTimeout(() => {
-        setIsChecked(true);
-        dispatch(isLoaded());
-      }, 2000);
+    if (isAuthenticated?.isChecked && isAuthenticated?.authenticated) {
+      setIsChecked(true);
+      setIsAuthUser(true);
     }
   }, [isAuthenticated]);
 
   useEffect(() => {
-    if (isChecked && !isAuthenticated) {
+    if (isChecked && !isAuthUser) {
       let currentTime = time;
       if (time > 0) {
         setTimeout(() => {
@@ -43,12 +39,12 @@ const AuthRoute = ({ children }) => {
         Router.push('/');
       }
     }
-  }, [isChecked, isAuthenticated, time]);
+  }, [isChecked, isAuthUser, time]);
 
   return (
     <>
-      {isChecked && isAuthenticated ? children : ''}
-      {isChecked && !isAuthenticated ? (
+      {isChecked && isAuthUser ? children : ''}
+      {isChecked && !isAuthUser ? (
         <Div>
           <Paragraph> The content of this page is private</Paragraph>
           <Paragraph>You will be redirected to home page in {time}s</Paragraph>
