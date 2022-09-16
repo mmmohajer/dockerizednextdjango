@@ -49,4 +49,4 @@ class PublicChatRoomMessage(TimeStampedUUIDModel):
     objects = PublicChatRoomMessageManager()
 
     def __str__(self):
-        return self.content
+        return self.message
