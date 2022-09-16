@@ -1,3 +1,3 @@
-from websocket.consumers import chat
+from websocket.consumers import public_chat
 
-ChatConsumer = chat.ChatConsumer
+PublicChatConsumer = public_chat.PublicChatConsumer

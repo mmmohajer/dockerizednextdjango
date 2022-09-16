@@ -85,7 +85,6 @@ const ActivateUser = () => {
         );
         if (data.access && data.refresh) {
           loginUser(data.access, data.refresh, dispatch);
-          Router.push('/');
         }
       }
     }
@@ -93,7 +92,14 @@ const ActivateUser = () => {
 
   return (
     <>
-      <Div>ActivateUser</Div>
+      {!token ? (
+        <Div>
+          In order to activate your account you must have a proper token being sent from your email
+          address
+        </Div>
+      ) : (
+        <Div>Activating your account</Div>
+      )}
     </>
   );
 };

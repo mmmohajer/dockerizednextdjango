@@ -1,0 +1,4 @@
+from . import public_chat_serializer
+
+PublicChatRoomSerializer = public_chat_serializer.PublicChatRoomSerializer
+PublicChatRoomMessageSerializer = public_chat_serializer.PublicChatRoomMessageSerializer

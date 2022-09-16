@@ -18,7 +18,7 @@ export const FACEBOOK_AUTH_HANDLE_TOKEN_API_ROUTE = '/api/auth/facebook-auth-han
 export const CAPTCHA_API_ROUTE = '/api/captcha/';
 
 // WEBSOCKET API ROUTES
-export const WEBSOCKET_CHAT_API_ROUTE = `/ws/socket-server/`;
+export const WEBSOCKET_CHAT_API_ROUTE = `/wss/public-chat/`;
 
 // EXTERNAL API ROUTES
 export const GET_IP_INFO_ROUTE = 'https://geolocation-db.com/json/';
