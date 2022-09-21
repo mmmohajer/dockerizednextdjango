@@ -31,7 +31,7 @@ const Header = () => {
         vAlign="center"
         className={cx('w-per-100 bgPrimary textWhite p2', styles.headerContainer)}>
         <Div className="mouse-hand" onClick={() => Router.push('/')}>
-          Pokemon App
+          App Logo
         </Div>
         <Div type="flex" showIn={lgDesignSize}>
           <DesktopNav />
