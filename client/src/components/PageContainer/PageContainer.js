@@ -10,7 +10,7 @@ import Footer from '@/baseComponents/Footer';
 
 import styles from './PageContainer.module.scss';
 
-const PageContainer = ({ pageIdentifier, children }) => {
+const PageContainer = ({ pageIdentifier, hasHeader = true, hasFooter = true, children }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,12 +23,12 @@ const PageContainer = ({ pageIdentifier, children }) => {
     <>
       <Div className={cx('flex flex--dir--col min-height-vh-full flex--jc--between')}>
         <Div>
-          <Header />
+          {hasHeader && <Header />}
           <Div type="flex" direction="vertical" className={cx('p2', styles.mainContainer)}>
             {children}
           </Div>
         </Div>
-        <Footer />
+        {hasFooter && <Footer />}
       </Div>
     </>
   );

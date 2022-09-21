@@ -21,7 +21,7 @@ const DesktopNav = () => {
           <Anchor href={item.to} key={idx} anchorType={0}>
             <NavItem
               isActive={activeMenu === item.identifier}
-              className="p2 mouse-hand textWhite hover-bg-themeThree"
+              className="p1 mouse-hand textWhite hover-bg-themeThree"
               activeClassName={cx(styles.activeDesktopNavItem)}
               onClick={() => dispatch(setActiveMenu(item.identifier))}>
               {item.title}
