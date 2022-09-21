@@ -33,7 +33,7 @@ Setup:
 
 **Note**: In order to run the application, without the docker, you need to take the following steps: <br>
 
-1. Go to client folder and change the value of `WITHOUT_DOCKER` to `0` <br>
+1. Go to client folder and change the value of `WITHOUT_DOCKER` to `1` <br>
 2. Active the python virtual env and install the following package: <br>
    `pip install python-dotenv`
 

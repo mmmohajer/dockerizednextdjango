@@ -78,6 +78,7 @@ Then, you can simply login with the following command: <br>
 For our app: <br>
 `sudo ufw allow 5555` --> Celery flower port <br>
 `sudo ufw allow 5432` --> DB port<br>
+`sudo ufw allow 8001` --> Websockets port<br>
 `sudo ufw enable` --> Enable all firewall rules <br>
 `sudo reboot` --> Reboot the server <br>
 
@@ -93,12 +94,6 @@ Make the following changes: <br>
 `bantime = 604800s` <br>
 `findtime = 10800s` <br>
 `maxretry = 2` <br>
-AND <br>
-`mode = aggressive` <br>
-`port = ssh` <br>
-`logpath = %(sshd_log)s` <br>
-`backend = %(sshd_backend)s` <br>
-`enabled = true` <br>
 
 `sudo systemctl restart fail2ban` <br>
 
@@ -115,14 +110,14 @@ Instructions here: https://docs.docker.com/engine/install/ubuntu/ <br>
 **Install docker-compose in the server** <br>
 Instructions comes from here: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04 <br>
 
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
-sudo chmod +x /usr/bin/docker-compose
-docker-compose --version
+`sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose` <br>
+`sudo chmod +x /usr/bin/docker-compose` <br>
+`docker-compose --version` <br>
 
 **Add your username to the docker group** <br>
 So, you can run docker commands without the need of sudo <br>
 `sudo groupadd docker` <br>
-`sudo usermod -aG docker $USER_NAME` <br>
+`sudo usermod -aG docker USER_NAME` <br>
 `newgrp docker` <br>
 `docker run hello-world` --> check if it works <br>
 
@@ -142,14 +137,15 @@ So, you can run docker commands without the need of sudo <br>
 Create the following subfolders: <br>
 `./api/vol/static/` <br>
 `./api/vol/media/` <br>
-for all .env.sample files `cp .env.sample .env` <br>
+Copy all the environment variables in server: <br>
+`./automation.sh` --> 7 <br>
 Run `nano .env` --> change .env variables <br>
 Then you need to add ssl config to your domain, so take the following steps: <br>
 
 Create following subfolders: <br>
 `./nginx/certbot/conf/` <br>
 `./nginx/certbot/www/` <br>
-`docker-compose -f docker-compose-createSSl.yml up --build -d` <br>
+`docker-compose -f docker-compose-createSSL.yml up --build -d` <br>
 Add A records to the DNS settings of relevant domain pointing to the server IP address. <br>
 **Note: www also must be referring to the server ip address** <br>
 And then change domains and email in `init-letsencrypt.sh` <br>
