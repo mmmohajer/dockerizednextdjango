@@ -12,13 +12,16 @@ import {
   faQuoteLeft,
   faAngleRight,
   faAngleLeft,
+  faAngleDown,
+  faAngleUp,
   faCheck,
   faRotate,
   faAngleDoubleLeft,
   faAngleDoubleRight,
   faSearch,
   faMinus,
-  faFileUpload
+  faFileUpload,
+  faSave
 } from '@fortawesome/free-solid-svg-icons';
 
 import Dashboard from '@/images/js-Images/icons/svg/dashboard.svg';
@@ -48,6 +51,12 @@ function Icon({ type, color, width, scale, className, ...props }) {
     ),
     angleLeft: (
       <FontAwesomeIcon icon={faAngleLeft} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    angleDown: (
+      <FontAwesomeIcon icon={faAngleDown} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    angleUp: (
+      <FontAwesomeIcon icon={faAngleUp} style={{ color, width, transform: `scale(${scale})` }} />
     ),
     eye: <FontAwesomeIcon icon={faEye} style={{ color, width, transform: `scale(${scale})` }} />,
     'image-upload': (
@@ -82,7 +91,8 @@ function Icon({ type, color, width, scale, className, ...props }) {
     ),
     'file-upload': (
       <FontAwesomeIcon icon={faFileUpload} style={{ color, width, transform: `scale(${scale})` }} />
-    )
+    ),
+    save: <FontAwesomeIcon icon={faSave} style={{ color, width, transform: `scale(${scale})` }} />
   };
 
   iconTypes['dashboard'] = (

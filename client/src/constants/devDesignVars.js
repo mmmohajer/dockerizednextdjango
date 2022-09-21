@@ -1,8 +1,10 @@
 export const LIST_OF_ICONS = [
   'angleDoubleLeft',
   'angleDoubleRight',
+  'angleDown',
   'angleLeft',
   'angleRight',
+  'angleUp',
   'certificate',
   'check-mark',
   'close',
@@ -20,11 +22,12 @@ export const LIST_OF_ICONS = [
   'phone',
   'quoteLeft',
   'rotate',
+  'save',
   'search',
   'youtube'
 ];
 
-export const ANCHOR_TYPES = [1, 2, 3];
+export const ANCHOR_TYPES = [0, 1, 2, 3];
 
 export const BUTTON_TYPES = [1, 2, 3];
 

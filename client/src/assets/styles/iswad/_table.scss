@@ -1,12 +1,12 @@
 .iswad_table {
   // border: solid 1px;
   border-radius: 10px;
-  background-color: white;
 
   &_headContainer {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   &_search {
@@ -15,14 +15,20 @@
   }
 }
 
+%oneLine {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .iswad_th {
   font-weight: bold;
-  // background-color: orange;
+  @extend %oneLine;
 }
 
 .iswad_tr {
   & .iswad_td {
-    border-bottom: solid 1px;
+    border-bottom: dotted 0.3px $inverseColor;
   }
 
   // &:nth-child(odd) {
@@ -42,11 +48,11 @@
 
 .iswad_td {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   // border-right: solid 1px black;
   padding: 8px 0;
-  border-bottom: solid 1px;
+  border-bottom: dotted 0.2px $inverseColor;
 
   &:last-child {
     border-right: none;

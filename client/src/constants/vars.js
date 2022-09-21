@@ -27,6 +27,11 @@ const Facebbok_AUTH_REDIRECT_URL = 'https://makeclient.ngrok.io/login';
 export const FACEBOOK_AUTH_URL = `${FACEBOOK_AUTH_BASE_URL}?client_id=${FACEBOOK_AUTH_CLIENT_ID}&redirect_uri=${Facebbok_AUTH_REDIRECT_URL}&auth_type=rerequest&scope=email public_profile`;
 // ---------------------------------------------------------------------------
 
+export const lgDesignSize = ['md', 'lg'];
+export const smDesignSize = ['xs', 'sm'];
+
+// ---------------------------------------------------------------------------
+
 export const COLORS = {
   primary: '#0275d8',
   faded: '#f7f7f7',

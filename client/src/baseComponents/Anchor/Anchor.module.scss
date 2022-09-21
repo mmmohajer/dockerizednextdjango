@@ -1,13 +1,15 @@
 @import '@/styles/base/_variables';
 
+.anchor0 {
+  color: transparent;
+}
+
 .anchor1 {
-  padding: 1rem;
-  color: black;
+  text-decoration: underline;
+  color: blue;
 
   &:hover {
-    background-color: $inverseColor;
-    color: white;
-    border-color: $inverseColor;
+    color: red;
   }
 }
 

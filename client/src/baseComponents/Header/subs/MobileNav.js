@@ -1,42 +1,45 @@
 import React from 'react';
 import cx from 'classnames';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Div, MobNav, MobNavItem } from 'basedesign-iswad';
 
+import { MENU_ITEMS } from '@/constants/menuItems';
 import { setActiveMenu } from '@/reducers/general/activeMenu';
+import { hideMobileNav } from '@/reducers/general/mobileNavIsActive';
+
+import Anchor from '@/baseComponents/Anchor';
+import AllPageClickable from '@/baseComponents/AllPageClickable';
 
 import styles from '../Header.module.scss';
 
-const MobileNav = ({ MENUES, setIconToggler, mobMenuIsActive, setMobMenuIsActive }) => {
+const MobileNav = () => {
   const dispatch = useDispatch();
-
-  const language = useSelector((state) => state.language);
+  const mobileNavIsActive = useSelector((state) => state.mobileNavIsActive);
   const activeMenu = useSelector((state) => state.activeMenu);
 
   return (
     <>
+      {mobileNavIsActive && <AllPageClickable onClick={() => dispatch(hideMobileNav())} />}
       <MobNav
-        isActive={mobMenuIsActive}
-        className={cx('w-px-300 bgInverse pl2 pr2 pt1 pb1 of-y-auto')}>
-        {MENUES.map(
-          (menu, idx) =>
-            menu.showInHeader === true && (
-              <MobNavItem
-                className={cx('flex flex--ai--center my1 py1 w-per-100')}
-                onClick={() => {
-                  dispatch(setActiveMenu(menu.en));
-                  setIconToggler(true);
-                  setTimeout(() => {
-                    setIconToggler(false);
-                  }, [500]);
-                  setMobMenuIsActive(false);
-                }}
-                isActive={activeMenu === menu.en}
-                key={idx}>
-                <Div className="mouse-hand">{language === 'en' ? menu.en : menu.fa}</Div>
-              </MobNavItem>
-            )
+        type="flex"
+        className={cx(
+          'w-px-300 text-center bgPrimary boxShadowType1 transition1 HeaderMobNavContainerZIndex'
         )}
+        isActive={mobileNavIsActive}>
+        {MENU_ITEMS?.map((item, idx) => (
+          <Anchor href={item.to} key={idx} anchorType={0}>
+            <MobNavItem
+              isActive={activeMenu === item.identifier}
+              className="p2 mouse-hand textWhite hover-bg-themeThree boxShaodwType1"
+              activeClassName={cx(styles.activeMobileNavItem)}
+              onClick={() => {
+                dispatch(setActiveMenu(item.identifier));
+                dispatch(hideMobileNav());
+              }}>
+              {item.title}
+            </MobNavItem>
+          </Anchor>
+        ))}
       </MobNav>
     </>
   );

@@ -20,6 +20,7 @@ const Anchor = ({
         <Link href={to} {...props}>
           <a
             className={cx(
+              anchorType === 0 && styles.anchor0,
               anchorType === 1 && styles.anchor1,
               anchorType === 2 && styles.anchor2,
               anchorType === 3 && styles.anchor3,
@@ -32,6 +33,7 @@ const Anchor = ({
       {!internal && (
         <a
           className={cx(
+            anchorType === 0 && styles.anchor0,
             anchorType === 1 && styles.anchor1,
             anchorType === 2 && styles.anchor2,
             anchorType === 3 && styles.anchor3,

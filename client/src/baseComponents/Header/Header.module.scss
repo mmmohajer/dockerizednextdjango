@@ -1,3 +1,15 @@
-.nav {
-  flex-direction: row-reverse;
+@import '@/styles/base/_variables';
+
+.headerContainer {
+  height: $HeaderHeight;
+}
+
+.activeDesktopNavItem {
+  background-color: blue;
+  box-shadow: $boxShadow1;
+}
+
+.activeMobileNavItem {
+  background-color: blue;
+  box-shadow: $boxShadow1;
 }

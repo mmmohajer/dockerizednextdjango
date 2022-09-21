@@ -1,16 +1,6 @@
-.iswad_navItem,
-.iswad_subNavItem {
-  color: white;
-  display: block;
-  &:hover {
-    border-color: $themeFour;
-    border-bottom: 3px solid $themeFour;
-  }
-  &_active {
-    border-bottom: 3px solid $themeFour;
-    color: $themeFour !important;
-  }
-}
+// .iswad_navItem,
+// .iswad_subNavItem {
+// }
 
 .iswad_subNavContainer {
   width: 100%;

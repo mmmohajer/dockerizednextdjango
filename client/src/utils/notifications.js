@@ -21,7 +21,7 @@ export const addAlertItem = (dispatch, message, type) => {
   }, 5);
   setTimeout(() => {
     removeAlertItem(dispatch, key);
-  }, 10000);
+  }, 5000);
 };
 
 const cleaningError = (err) => {

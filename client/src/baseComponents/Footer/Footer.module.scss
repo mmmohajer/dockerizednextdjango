@@ -1,11 +1,9 @@
 @import '@/styles/base/_variables';
 
-.socialMediaIconContainer {
-  &:hover {
-    border-color: $themeFour;
-  }
+.footerContainer {
+  height: $footerHeight;
 }
 
-.infoIconContainer {
-  margin-top: 2px;
+.copyRightContainer {
+  height: $copyRightHeight;
 }

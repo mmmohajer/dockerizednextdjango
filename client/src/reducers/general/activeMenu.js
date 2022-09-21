@@ -5,7 +5,7 @@ reducerObject['setActiveMenu'] = (state, action) => action.payload;
 
 const slice = createSlice({
   name: 'activeMenu',
-  initialState: 'Home',
+  initialState: 'home',
   reducers: reducerObject
 });
 

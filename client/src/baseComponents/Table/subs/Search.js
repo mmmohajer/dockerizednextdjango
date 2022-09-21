@@ -4,6 +4,8 @@ import { Div } from 'basedesign-iswad';
 
 import Icon from '@/baseComponents/Icon';
 
+import styles from '../Table.module.scss';
+
 const Search = React.forwardRef(
   ({ closable = true, iconColor = 'gray', className, containerClassName, ...props }, ref) => {
     const [activeSearch, setActiveSearch] = useState(false);
@@ -16,8 +18,8 @@ const Search = React.forwardRef(
 
     return (
       <>
-        <div className="flex">
-          <div
+        <Div className={cx('flex', activeSearch && 'ml1')}>
+          <Div
             className={cx(
               'min-height-px-30 min-w-px-30 br-rad-px-50 bgWhite flex flex--jc--center flex--ai--center iswad_search_container',
               containerClassName
@@ -45,8 +47,8 @@ const Search = React.forwardRef(
               )}
               {...props}
             />
-          </div>
-        </div>
+          </Div>
+        </Div>
       </>
     );
   }

@@ -1,26 +1,14 @@
 .iswad_mobNav {
-  background-color: $themeThree;
+  overflow: hidden;
+  position: fixed;
+  top: calc($HeaderHeight + 2px);
+  right: 0.5rem;
+  transition: $transition1;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
   transform: translateX(150%);
-  transition: all 0.2s ease-in-out;
-  right: 1.5rem;
-  top: 70px;
-  border-radius: 5px;
   &_active {
     transform: translateX(0);
-  }
-}
-
-.iswad_mobNavItem,
-.iswad_mobSubNavItem {
-  border-bottom: 1px solid $themeTwo;
-  color: white;
-  &:hover {
-    border-color: $themeFour;
-    color: $themeFour;
-  }
-  &_active {
-    border-color: $themeFour;
-    color: $themeFour !important;
   }
 }
 

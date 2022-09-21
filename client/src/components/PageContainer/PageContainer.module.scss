@@ -1,0 +1,5 @@
+@import '@/styles/base/_variables';
+
+.mainContainer {
+  min-height: calc(100vh - $HeaderHeight - $footerHeight);
+}

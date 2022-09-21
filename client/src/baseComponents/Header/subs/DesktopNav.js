@@ -1,41 +1,33 @@
 import React from 'react';
 import cx from 'classnames';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Div, NavBar, NavItem } from 'basedesign-iswad';
 
+import { MENU_ITEMS } from '@/constants/menuItems';
 import { setActiveMenu } from '@/reducers/general/activeMenu';
+
+import Anchor from '@/baseComponents/Anchor';
 
 import styles from '../Header.module.scss';
 
-const DesktopNav = ({ MENUES }) => {
+const DesktopNav = () => {
   const dispatch = useDispatch();
-
-  const language = useSelector((state) => state.language);
   const activeMenu = useSelector((state) => state.activeMenu);
 
   return (
     <>
-      <NavBar className={cx('pos-rel w-per-100 flex flex--jc--between flex--ai--center px2')}>
-        <Div className="flex flex--jc--start flex--ai--center">
-          <Div type="flex" className={cx(language === 'fa' && styles.nav)}>
-            {MENUES.map(
-              (menu, idx) =>
-                menu.showInHeader === true && (
-                  <NavItem
-                    className={cx('px2 flex flex--ai--center textBlack')}
-                    onClick={() => {
-                      dispatch(setActiveMenu(menu.en));
-                    }}
-                    isActive={activeMenu === menu.en}
-                    key={idx}>
-                    <Div className="mouse-hand pb1 pt1">
-                      {language === 'en' ? menu.en : menu.fa}
-                    </Div>
-                  </NavItem>
-                )
-            )}
-          </Div>
-        </Div>
+      <NavBar type="flex" className={cx('text-center transition1 HeaderMobNavContainerZIndex')}>
+        {MENU_ITEMS?.map((item, idx) => (
+          <Anchor href={item.to} key={idx} anchorType={0}>
+            <NavItem
+              isActive={activeMenu === item.identifier}
+              className="p2 mouse-hand textWhite hover-bg-themeThree"
+              activeClassName={cx(styles.activeDesktopNavItem)}
+              onClick={() => dispatch(setActiveMenu(item.identifier))}>
+              {item.title}
+            </NavItem>
+          </Anchor>
+        ))}
       </NavBar>
     </>
   );

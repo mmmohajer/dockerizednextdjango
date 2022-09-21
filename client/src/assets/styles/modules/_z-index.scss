@@ -31,5 +31,9 @@
 }
 
 .HeaderMobNavContainerZIndex {
+  z-index: 100000;
+}
+
+.AllPageClickableZIndex {
   z-index: 10000;
 }

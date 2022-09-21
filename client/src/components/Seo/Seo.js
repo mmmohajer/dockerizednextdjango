@@ -9,6 +9,9 @@ const Seo = ({ title, keywords, description, children }) => {
         <meta name="keywords" content={keywords} />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
       </Head>
       {children}
     </>
@@ -16,9 +19,9 @@ const Seo = ({ title, keywords, description, children }) => {
 };
 
 Seo.defaultProps = {
-  title: 'Something | APP-NAME',
-  description: 'Some Description',
-  keywords: 'Keyword1, Keyword2, Keyword3'
+  title: 'Pokemon App',
+  description: 'This app is designed by Mohammad Mohajer only for test purposes as an assessment',
+  keywords: 'Pokemon, Doctalk, Mohammad Mohajer, Assessment'
 };
 
 export default Seo;
