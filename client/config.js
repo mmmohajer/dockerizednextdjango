@@ -1,6 +1,7 @@
 import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 
+export const PRODUCTION = publicRuntimeConfig.PRODUCTION;
 export const WITHOUT_DOCKER = !publicRuntimeConfig.PRODUCTION
   ? publicRuntimeConfig.WITHOUT_DOCKER
   : 0;

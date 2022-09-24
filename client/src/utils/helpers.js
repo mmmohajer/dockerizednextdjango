@@ -1,4 +1,4 @@
-import { APP_DOMAIN, WITHOUT_DOCKER } from '@/root/config';
+import { APP_DOMAIN, WITHOUT_DOCKER, PRODUCTION } from '@/root/config';
 
 export const generateKey = (length = 16) => {
   var result = '';
@@ -15,6 +15,10 @@ export const websocketApiRoute = (url) => {
   if (Boolean(parseInt(WITHOUT_DOCKER))) {
     return `ws://localhost:8000${url}`;
   } else {
-    return `ws://${APP_DOMAIN}${url}`;
+    if (!PRODUCTION) {
+      return `ws://${APP_DOMAIN}${url}`;
+    } else {
+      return `wss://${APP_DOMAIN}${url}`;
+    }
   }
 };

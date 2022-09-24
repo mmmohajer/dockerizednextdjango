@@ -255,3 +255,5 @@ api/vol
 .ssh
 nginx/certbot
 sudoPassword.txt
+
+redis.conf
