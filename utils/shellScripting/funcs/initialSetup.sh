@@ -12,6 +12,7 @@ initialSetupInMAcOrLinux() {
     cp "config/envFiles/postgres/prod/.env.sample" "config/envFiles/postgres/prod/.env"
     cp "client/next.config.sample.js" "client/next.config.js"
     cp "api/.env.sample" "api/.env"
+    cp "redis/redis-sample.conf" "redis/redis.conf"
     echo "All environment variables have been copied"
     mkdir -p "api/vol/media"
     mkdir -p "api/vol/static"
@@ -30,6 +31,7 @@ initialSetupInWindows() {
     cp "config/envFiles/postgres/prod/.env.sample" "config/envFiles/postgres/prod/.env"
     cp "client/next.config.sample.js" "client/next.config.js"
     cp "api/.env.sample" "api/.env"
+    cp "redis/redis-sample.conf" "redis/redis.conf"
     echo "All environment variables have been copied" 
 }
 
@@ -38,5 +40,6 @@ initialSetupInServer() {
     cp "config/envFiles/django/prod/.env.sample" "config/envFiles/django/prod/.env"
     cp "config/envFiles/postgres/prod/.env.sample" "config/envFiles/postgres/prod/.env"
     cp "client/next.config.sample.js" "client/next.config.js"
+    cp "redis/redis-sample.conf" "redis/redis.conf"
     echo "All environment variables have been copied"
 }

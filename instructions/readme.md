@@ -140,6 +140,7 @@ Create the following subfolders: <br>
 Copy all the environment variables in server: <br>
 `./automation.sh` --> 7 <br>
 Run `nano .env` --> change .env variables <br>
+Also change the redis password in `redis/redis.conf` file. Seach for `requirepass` and then determine the password for it. Also, in django env variables, you must set the exact same value for `REDIS_USER_PASS` <br>
 Then you need to add ssl config to your domain, so take the following steps: <br>
 
 Create following subfolders: <br>
