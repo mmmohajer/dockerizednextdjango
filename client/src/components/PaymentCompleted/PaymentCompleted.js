@@ -59,8 +59,6 @@ const PaymentCompleted = () => {
     if (router?.query) {
       if (router.query?.payment_intent) {
         setPaymentIntentId(router.query.payment_intent);
-      } else {
-        console.log(router.query);
       }
     }
   }, [router]);

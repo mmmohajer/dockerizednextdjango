@@ -62,6 +62,10 @@ DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'mmmohajer70@gmail.com
 
 USE_CELERY = bool(int(os.environ.get('USE_CELERY', 0)))
 
+# ----------------------- Stripe ----------------------------
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', 'STRIPE_SECRET_KEY')
+STRIPE_PAYMENT_INTENT_WEBHOOK_SECRET = os.environ.get(
+    'STRIPE_PAYMENT_INTENT_WEBHOOK_SECRET', 'STRIPE_PAYMENT_INTENT_WEBHOOK_SECRET')
 
 # ----------------------- Google Auth -----------------------
 GOOGLE_AUTH_CLIENT_ID = os.environ.get(

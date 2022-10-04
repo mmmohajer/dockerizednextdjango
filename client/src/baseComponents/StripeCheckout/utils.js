@@ -1,12 +1,11 @@
 import { loadStripe } from '@stripe/stripe-js';
 
+import { STRIPE_PUBLISHABLE_API_KEY } from 'config';
 import { COLORS } from '@/constants/vars';
 
 const boxShadow1 = 'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px';
 
-export const stripePublishableApiKey = loadStripe(
-  'pk_test_51LkX0zBjlQ77ZngH6DNpx3kq31GoLa32DKReaSvY7j07cwumtWYB9tUuGH4hVl12LzT6M8BE5VBRBhVDMDkE4Uoz001KTStv1u'
-);
+export const stripePublishableApiKey = loadStripe(STRIPE_PUBLISHABLE_API_KEY);
 
 export const appearance = {
   theme: 'none',

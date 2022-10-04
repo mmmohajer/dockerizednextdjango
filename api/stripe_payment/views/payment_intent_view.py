@@ -1,19 +1,22 @@
-from locale import currency
-from unicodedata import name
+# In order to get more information about how to perform CRUD for a stripe
+# Customer visit: https://stripe.com/docs/api/customers
+
+# In order to get more information about how to perform CRUD for a stripe
+# Payment Intent visit: https://stripe.com/docs/api/payment_intents/object
+
 from django.shortcuts import get_object_or_404
 from django.conf import settings
 from requests import delete
 from rest_framework import viewsets, permissions, status, views, response, decorators, response, pagination
 from django.contrib.auth import get_user_model
 import stripe
-import json
 
 from stripe_payment.models import StripeCustomerModel, PaymentIntentModel
 from stripe_payment.serializers import PaymentIntentSerializer
 
 User = get_user_model()
 
-stripe.api_key = "sk_test_51LkX0zBjlQ77ZngHDT4NCSK6GHrr3ZrJdVOhsNOPnIfIiosZajr3S3Ttvzx1tDKHrMzwe80JvuOzgW8qu2cNoE8300qUGpBmEz"
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 class CreatePaymentIntentViewSet(views.APIView):
@@ -52,7 +55,7 @@ class PaymentIntentWebhookViewSet(views.APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, format=None):
-        endpoint_secret = 'whsec_9254007ed4d37a520fe5caed683d8aa57da5d445a81a0cfbec99456068dfa086'
+        endpoint_secret = settings.STRIPE_PAYMENT_INTENT_WEBHOOK_SECRET
         payload = request.body
         sig_header = request.headers.get('stripe-signature')
         event = None
