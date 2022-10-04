@@ -4,6 +4,9 @@
 # In order to get more information about how to perform CRUD for a stripe
 # Payment Intent visit: https://stripe.com/docs/api/payment_intents/object
 
+# In order to build webhooks, visit the following link:
+# https://dashboard.stripe.com/webhooks/create?endpoint_location=local&events=payment_intent.succeeded
+
 from django.shortcuts import get_object_or_404
 from django.conf import settings
 from requests import delete
