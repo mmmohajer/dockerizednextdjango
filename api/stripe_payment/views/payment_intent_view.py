@@ -7,6 +7,9 @@
 # In order to build webhooks, visit the following link:
 # https://dashboard.stripe.com/webhooks/create?endpoint_location=local&events=payment_intent.succeeded
 
+# In order for setting up future payments, visit:
+# https://stripe.com/docs/payments/save-and-reuse
+
 from django.shortcuts import get_object_or_404
 from django.conf import settings
 from requests import delete
