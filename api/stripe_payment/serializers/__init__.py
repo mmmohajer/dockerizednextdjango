@@ -1,0 +1,3 @@
+from . import payment_intent_serializer
+
+PaymentIntentSerializer = payment_intent_serializer.PaymentIntentSerializer

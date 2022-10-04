@@ -5,8 +5,8 @@ from core.models.general import TimeStampedUUIDModel
 
 
 class StripeCustomer(TimeStampedUUIDModel):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,
-                                on_delete=models.CASCADE, related_name='stripe_customer')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE, related_name='stripe_customer')
     stripe_customer_id = models.CharField(max_length=256)
 
     def __str__(self):

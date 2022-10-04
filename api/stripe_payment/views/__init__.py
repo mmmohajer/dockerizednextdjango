@@ -1,5 +1,5 @@
-from . import stripe_view
+from . import payment_intent_view
 
-CreatePaymentIntentViewSet = stripe_view.CreatePaymentIntentViewSet.as_view()
-PaymentIntentWebhookViewSet = stripe_view.PaymentIntentWebhookViewSet.as_view()
-RetrievePaymentIntentViewSet = stripe_view.RetrievePaymentIntentViewSet.as_view()
+CreatePaymentIntentViewSet = payment_intent_view.CreatePaymentIntentViewSet.as_view()
+PaymentIntentWebhookViewSet = payment_intent_view.PaymentIntentWebhookViewSet.as_view()
+RetrievePaymentIntentViewSet = payment_intent_view.RetrievePaymentIntentViewSet.as_view()

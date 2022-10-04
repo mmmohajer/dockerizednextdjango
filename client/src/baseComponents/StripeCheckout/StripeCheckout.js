@@ -32,7 +32,6 @@ const StripeCheckout = () => {
   });
   useEffect(() => {
     if (data?.client_secret) {
-      console.log(data);
       setClientSecret(data.client_secret);
     }
   }, [data]);

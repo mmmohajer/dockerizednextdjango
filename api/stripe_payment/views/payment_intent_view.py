@@ -8,7 +8,8 @@ from django.contrib.auth import get_user_model
 import stripe
 import json
 
-from stripe_payment.models import StripeCustomerModel
+from stripe_payment.models import StripeCustomerModel, PaymentIntentModel
+from stripe_payment.serializers import PaymentIntentSerializer
 
 User = get_user_model()
 
@@ -25,18 +26,22 @@ class CreatePaymentIntentViewSet(views.APIView):
                 stripe_customer_qs = StripeCustomerModel.objects.filter(
                     user__email=request.user.email)
                 if not stripe_customer_qs.count():
-                    new_customer = stripe.Customer.create(
+                    current_customer = stripe.Customer.create(
                         email=request.user.email, name=f"{request.user.first_name} {request.user.last_name}")
                     new_stripe_customer_model = StripeCustomerModel()
                     new_stripe_customer_model.user = request.user
-                    new_stripe_customer_model.stripe_customer_id = new_customer.id
+                    new_stripe_customer_model.stripe_customer_id = current_customer.id
                     new_stripe_customer_model.save()
+                else:
+                    current_customer = stripe.Customer.retrieve(
+                        stripe_customer_qs[0].stripe_customer_id)
                 metadata = {
                     "id": "1234556678",
-                    "quantity": 2
+                    "quantity": 2,
+                    "order_is_confirmed": False
                 }
                 intent = stripe.PaymentIntent.create(
-                    amount=amount, currency="cad", automatic_payment_methods={"enabled": True}, metadata=metadata)
+                    amount=amount, currency="cad", automatic_payment_methods={"enabled": True}, metadata=metadata, customer=current_customer)
                 return response.Response(status=status.HTTP_200_OK, data={"client_secret": intent["client_secret"]})
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"Error": "Only an authenticated user can have payment to our system. Also, the amount must a number greater than zero."})
         except Exception as e:
@@ -59,7 +64,12 @@ class PaymentIntentWebhookViewSet(views.APIView):
             raise e
         if event['type'] == 'payment_intent.succeeded':
             payment_intent = event['data']['object']
-            print(payment_intent)
+            new_payment_intent = PaymentIntentModel()
+            new_payment_intent.payment_intent_id = payment_intent.id
+            new_payment_intent.save()
+            stripe.PaymentIntent.modify(payment_intent.id, metadata={"order_is_confirmed": True})
+            serializer = PaymentIntentSerializer(new_payment_intent)
+            return response.Response(status=status.HTTP_200_OK, data={"payment_intent_details": serializer.data})
         return response.Response(status=status.HTTP_200_OK)
 
 
