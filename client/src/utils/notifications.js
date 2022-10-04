@@ -5,6 +5,7 @@ import {
   removeNotification,
   deactivateNotification
 } from '@/reducers/general/notifications';
+import { AUTOMATIC_REMOVE_ALERT_TIME_IN_SECONDS } from '@/constants/vars';
 
 export const removeAlertItem = (dispatch, key) => {
   dispatch(deactivateNotification({ key }));
@@ -21,7 +22,7 @@ export const addAlertItem = (dispatch, message, type) => {
   }, 5);
   setTimeout(() => {
     removeAlertItem(dispatch, key);
-  }, 5000);
+  }, AUTOMATIC_REMOVE_ALERT_TIME_IN_SECONDS * 1000);
 };
 
 const cleaningError = (err) => {

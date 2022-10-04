@@ -8,7 +8,6 @@ from rest_framework_simplejwt.tokens import RefreshToken
 import django.contrib.auth.password_validation as validators
 import requests
 import json
-import jwt
 
 from core.permissions import *
 from core.models import *

@@ -26,3 +26,4 @@ google-auth-oauthlib>0.4.0,<=0.5.1
 google-auth-httplib2>0.0.1,<=0.1.0
 channels>3.0.0,<=3.0.5
 channels-redis>3.0.0,<=3.4.1
+stripe>3.0.0,<=4.1.0

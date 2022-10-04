@@ -7,6 +7,8 @@ import {
 export const ACCESS_TOKEN_CHEANGE_TIME = 1000 * 60 * 4.5;
 export const TOKEN_SPACE_WORD = 'JWT';
 
+export const AUTOMATIC_REMOVE_ALERT_TIME_IN_SECONDS = 10;
+
 // ------------------------- Google Auth -------------------------
 const GOOGLE_AUTH_BASE_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
 export const GOOGLE_AUTH_SCOPE_PROFILE_URL = 'https://www.googleapis.com/auth/userinfo.profile';
