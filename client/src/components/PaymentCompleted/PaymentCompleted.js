@@ -5,19 +5,30 @@ import { Div } from 'basedesign-iswad';
 import Router, { useRouter } from 'next/router';
 
 import { isLoading, isLoaded } from '@/reducers/general/loading';
-import { STRIPE_RETRIEVE_PAYMENT_INTENT_API_ROUTE } from '@/constants/apiRoutes';
+import {
+  STRIPE_RETRIEVE_PAYMENT_INTENT_API_ROUTE,
+  STRIPE_RETRIEVE_SETUP_INTENT_API_ROUTE
+} from '@/constants/apiRoutes';
 import useApiCalls from '@/hooks/useApiCalls';
 
 import styles from './PaymentCompleted.module.scss';
 
-const PaymentCompleted = () => {
+const PaymentCompleted = ({ use_for_future_payment = false }) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
   const [isProcessingPayment, setIsProcessingPayment] = useState(true);
   const [isConfirmingOrder, setIsConfirmingOrder] = useState(false);
   const [paymentIntentId, setPaymentIntentId] = useState('');
+  const [retrieveIntentUrl, setRetrieveIntentUrl] = useState('');
 
+  useEffect(() => {
+    if (use_for_future_payment) {
+      setRetrieveIntentUrl(STRIPE_RETRIEVE_SETUP_INTENT_API_ROUTE);
+    } else {
+      setRetrieveIntentUrl(STRIPE_RETRIEVE_PAYMENT_INTENT_API_ROUTE);
+    }
+  }, [use_for_future_payment]);
   const [sendRetrievePaymentReq, setSendRetrievePaymentReq] = useState(false);
   const bodyData = {
     id: paymentIntentId
@@ -26,7 +37,7 @@ const PaymentCompleted = () => {
     sendReq: sendRetrievePaymentReq,
     setSendReq: setSendRetrievePaymentReq,
     method: 'POST',
-    url: STRIPE_RETRIEVE_PAYMENT_INTENT_API_ROUTE,
+    url: retrieveIntentUrl,
     bodyData,
     showLoading: false
   });
@@ -57,8 +68,11 @@ const PaymentCompleted = () => {
 
   useEffect(() => {
     if (router?.query) {
-      if (router.query?.payment_intent) {
+      if (!use_for_future_payment && router.query?.payment_intent) {
         setPaymentIntentId(router.query.payment_intent);
+      }
+      if (use_for_future_payment && router.query?.setup_intent) {
+        setPaymentIntentId(router.query.setup_intent);
       }
     }
   }, [router]);

@@ -4,7 +4,7 @@ from rest_framework import viewsets, permissions, status, views, response, decor
 from django.contrib.auth import get_user_model
 import stripe
 
-from stripe_payment.models import StripeCustomerModel, PaymentIntentModel
+from stripe_payment.models import StripeCustomerModel, SetupIntentModel
 from stripe_payment.serializers import PaymentIntentSerializer
 
 User = get_user_model()
@@ -12,14 +12,12 @@ User = get_user_model()
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
-class CreatePaymentIntentViewSet(views.APIView):
+class CreateSetupIntentViewSet(views.APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, format=None):
         try:
-            amount = int(request.data.get("amount", 0) * 100)
-            save_card_for_future_usage = request.data.get("save_card_for_future_usage", False)
-            if request.user and amount:
+            if request.user:
                 stripe_customer_qs = StripeCustomerModel.objects.filter(
                     user__email=request.user.email)
                 if not stripe_customer_qs.count():
@@ -37,19 +35,15 @@ class CreatePaymentIntentViewSet(views.APIView):
                     "quantity": 2,
                     "order_is_confirmed": False
                 }
-                if save_card_for_future_usage:
-                    intent = stripe.PaymentIntent.create(
-                        amount=amount, currency="cad", automatic_payment_methods={"enabled": True}, metadata=metadata, customer=current_customer, setup_future_usage="off_session")
-                else:
-                    intent = stripe.PaymentIntent.create(
-                        amount=amount, currency="cad", automatic_payment_methods={"enabled": True}, metadata=metadata, customer=current_customer)
+                intent = stripe.SetupIntent.create(
+                    usage="off_session", metadata=metadata, customer=current_customer)
                 return response.Response(status=status.HTTP_200_OK, data={"client_secret": intent["client_secret"]})
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Only an authenticated user can have payment to our system. Also, the amount must a number greater than zero."})
         except Exception as e:
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"Error": str(e)})
 
 
-class PaymentIntentWebhookViewSet(views.APIView):
+class SetupIntentWebhookViewSet(views.APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, format=None):
@@ -63,33 +57,27 @@ class PaymentIntentWebhookViewSet(views.APIView):
             raise e
         except stripe.error.SignatureVerificationError as e:
             raise e
-        if event['type'] == 'payment_intent.succeeded':
-            payment_intent = event['data']['object']
-            # try:
-            #     stripe.PaymentMethod.attach(payment_intent.payment_method,
-            #                                 customer=payment_intent.customer)
-            # except Exception as e:
-            #     print(e)
-            new_payment_intent = PaymentIntentModel()
-            new_payment_intent.payment_intent_id = payment_intent.id
-            new_payment_intent.save()
-            stripe.PaymentIntent.modify(payment_intent.id, metadata={"order_is_confirmed": True})
-            serializer = PaymentIntentSerializer(new_payment_intent)
-            return response.Response(status=status.HTTP_200_OK, data={"payment_intent_details": serializer.data})
+        if event['type'] == 'setup_intent.succeeded':
+            setup_intent = event['data']['object']
+            new_setup_intent = SetupIntentModel()
+            new_setup_intent.setup_intent_id = setup_intent.id
+            new_setup_intent.save()
+            stripe.SetupIntent.modify(setup_intent.id, metadata={"order_is_confirmed": True})
+            return response.Response(status=status.HTTP_200_OK)
         return response.Response(status=status.HTTP_200_OK)
 
 
-class RetrievePaymentIntentViewSet(views.APIView):
+class RetrieveSetupIntentViewSet(views.APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, format=None):
         client_secret = request.data.get("id")
         if client_secret:
             try:
-                data = stripe.PaymentIntent.retrieve(id=client_secret)
+                data = stripe.SetupIntent.retrieve(id=client_secret)
                 return response.Response(status=status.HTTP_200_OK, data={"payload": data})
             except Exception as e:
                 print(e)
                 return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": str(e)})
         else:
-            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "You must provide the id of payment intent"})
+            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "You must provide the id of setup intent"})

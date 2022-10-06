@@ -14,7 +14,7 @@ const Index = () => {
     <PublicRoute>
       <Seo>
         <PageContainer>
-          <PaymentCompleted />
+          <PaymentCompleted use_for_future_payment={false} />
         </PageContainer>
       </Seo>
     </PublicRoute>

@@ -18,6 +18,8 @@ export const FACEBOOK_AUTH_HANDLE_TOKEN_API_ROUTE = '/api/auth/facebook-auth-han
 export const CAPTCHA_API_ROUTE = '/api/captcha/';
 export const STRIPE_CREATE_PAYMENT_INTENT_API_ROUTE = '/api/create-payment-intent/';
 export const STRIPE_RETRIEVE_PAYMENT_INTENT_API_ROUTE = '/api/retrieve-payment-intent/';
+export const STRIPE_CREATE_SETUP_INTENT_API_ROUTE = '/api/create-setup-intent/';
+export const STRIPE_RETRIEVE_SETUP_INTENT_API_ROUTE = '/api/retrieve-setup-intent/';
 
 // WEBSOCKET API ROUTES
 export const WEBSOCKET_CHAT_API_ROUTE = `/wss/public-chat/`;

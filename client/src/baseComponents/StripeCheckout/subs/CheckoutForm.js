@@ -11,7 +11,7 @@ import Button from '@/baseComponents/Button';
 
 import styles from '../StripeCheckout.module.scss';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ use_for_future_payment }) => {
   const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
@@ -19,12 +19,21 @@ const CheckoutForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(isLoading());
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        return_url: `${FRONT_END_URL}/payment-completed`
-      }
-    });
+    if (!use_for_future_payment) {
+      const { error } = await stripe.confirmPayment({
+        elements,
+        confirmParams: {
+          return_url: `${FRONT_END_URL}/payment-completed`
+        }
+      });
+    } else {
+      const { error } = await stripe.confirmSetup({
+        elements,
+        confirmParams: {
+          return_url: `${FRONT_END_URL}/payment-completed`
+        }
+      });
+    }
     dispatch(isLoaded());
     console.log(error);
   };
