@@ -1,14 +1,14 @@
-from . import payment_intent_view, future_payment_view, stripe_customer_view, stripe_product_view, subscription_view
+from . import payment_intent_view, future_payment_view, stripe_webhooks_view, stripe_customer_view, stripe_product_view, subscription_view
 
 SubscribePlanViewSet = subscription_view.SubscribePlanViewSet
 
 CreatePaymentIntentViewSet = payment_intent_view.CreatePaymentIntentViewSet.as_view()
-PaymentIntentWebhookViewSet = payment_intent_view.PaymentIntentWebhookViewSet.as_view()
 RetrievePaymentIntentViewSet = payment_intent_view.RetrievePaymentIntentViewSet.as_view()
 
 CreateSetupIntentViewSet = future_payment_view.CreateSetupIntentViewSet.as_view()
-SetupIntentWebhookViewSet = future_payment_view.SetupIntentWebhookViewSet.as_view()
 RetrieveSetupIntentViewSet = future_payment_view.RetrieveSetupIntentViewSet.as_view()
+
+GeneralWebhookViewSet = stripe_webhooks_view.GeneralWebhookViewSet.as_view()
 
 CreateStripeCustomerViewSet = stripe_customer_view.CreateStripeCustomerViewSet.as_view()
 RetrieveStripeCustomerViewSet = stripe_customer_view.RetrieveStripeCustomerViewSet.as_view()

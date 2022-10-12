@@ -49,36 +49,6 @@ class CreatePaymentIntentViewSet(views.APIView):
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"Error": str(e)})
 
 
-class PaymentIntentWebhookViewSet(views.APIView):
-    permission_classes = [permissions.AllowAny]
-
-    def post(self, request, format=None):
-        endpoint_secret = settings.STRIPE_PAYMENT_INTENT_WEBHOOK_SECRET
-        payload = request.body
-        sig_header = request.headers.get('stripe-signature')
-        event = None
-        try:
-            event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
-        except ValueError as e:
-            raise e
-        except stripe.error.SignatureVerificationError as e:
-            raise e
-        if event['type'] == 'payment_intent.succeeded':
-            payment_intent = event['data']['object']
-            # try:
-            #     stripe.PaymentMethod.attach(payment_intent.payment_method,
-            #                                 customer=payment_intent.customer)
-            # except Exception as e:
-            #     print(e)
-            new_payment_intent = PaymentIntentModel()
-            new_payment_intent.payment_intent_id = payment_intent.id
-            new_payment_intent.save()
-            stripe.PaymentIntent.modify(payment_intent.id, metadata={"order_is_confirmed": True})
-            serializer = PaymentIntentSerializer(new_payment_intent)
-            return response.Response(status=status.HTTP_200_OK, data={"payment_intent_details": serializer.data})
-        return response.Response(status=status.HTTP_200_OK)
-
-
 class RetrievePaymentIntentViewSet(views.APIView):
     permission_classes = [permissions.AllowAny]
 

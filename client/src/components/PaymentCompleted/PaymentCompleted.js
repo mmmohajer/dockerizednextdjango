@@ -47,12 +47,14 @@ const PaymentCompleted = ({ use_for_future_payment = false }) => {
         console.log(data.payload);
         if (data.payload?.status === 'succeeded') {
           setIsProcessingPayment(false);
-          if (!Boolean(data.payload?.metadata?.order_is_confirmed)) {
+          if (data.payload?.metadata?.order_is_confirmed === 'False') {
+            dispatch(isLoading());
             setIsConfirmingOrder(true);
             setTimeout(() => {
               setSendRetrievePaymentReq(true);
             }, 1000);
           } else {
+            console.log('Here');
             dispatch(isLoaded());
             setIsConfirmingOrder(false);
             Router.push('/');

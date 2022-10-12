@@ -24,6 +24,7 @@ def remove_old_captcha():
 def make_automatic_payment_for_subscribers():
     customer_id = "cus_MY572eMgNVdFHo"
     payment_method_id = "pm_1LpfykBjlQ77ZngHCr8Aq0QP"
+    # See all available payment methods
     payment_methods = stripe.PaymentMethod.list(customer=customer_id, type="card")
     print(payment_methods)
     try:

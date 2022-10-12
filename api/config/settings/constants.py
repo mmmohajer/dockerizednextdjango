@@ -66,7 +66,6 @@ USE_CELERY = bool(int(os.environ.get('USE_CELERY', 0)))
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', 'STRIPE_SECRET_KEY')
 STRIPE_PAYMENT_INTENT_WEBHOOK_SECRET = os.environ.get(
     'STRIPE_PAYMENT_INTENT_WEBHOOK_SECRET', 'STRIPE_PAYMENT_INTENT_WEBHOOK_SECRET')
-
 # ----------------------- Google Auth -----------------------
 GOOGLE_AUTH_CLIENT_ID = os.environ.get(
     'GOOGLE_AUTH_CLIENT_ID', 'GOOGLE_AUTH_CLIENT_ID_CODE')
