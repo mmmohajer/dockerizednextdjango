@@ -54,7 +54,6 @@ const PaymentCompleted = ({ use_for_future_payment = false }) => {
               setSendRetrievePaymentReq(true);
             }, 1000);
           } else {
-            console.log('Here');
             dispatch(isLoaded());
             setIsConfirmingOrder(false);
             Router.push('/');
