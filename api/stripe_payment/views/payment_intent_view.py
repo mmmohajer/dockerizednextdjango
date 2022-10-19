@@ -46,7 +46,7 @@ class CreatePaymentIntentViewSet(views.APIView):
                 return response.Response(status=status.HTTP_200_OK, data={"client_secret": intent["client_secret"]})
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Only an authenticated user can have payment to our system. Also, the amount must a number greater than zero."})
         except Exception as e:
-            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"Error": str(e)})
+            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": str(e)})
 
 
 class RetrievePaymentIntentViewSet(views.APIView):
