@@ -1,5 +1,5 @@
 # Pull official base image
-FROM python:3.9.12-alpine3.15
+FROM python:3.9.13-buster
 
 # Assign the label for the developer (arbitrary)
 LABEL Developer="Mohammad Mahdi Mohajer"
@@ -11,24 +11,12 @@ ENV PYTHONUNBUFFERED 1
 # Set the working directory
 WORKDIR /usr/src/app
 
-# In order to properly install psycopg2 --->
-# We need two temporary install the following dependencies
-RUN apk add --update --no-cache postgresql-client
-RUN apk add --update --no-cache --virtual .tmp-build-deps \
-    gcc libc-dev python3-dev musl-dev jpeg-dev \
-    zlib-dev libjpeg linux-headers postgresql-dev \
-    libffi-dev build-base
-
 # Update the pip package manager
 RUN pip install --upgrade pip
 
 # Copy requirements.txt and install all the required libraries
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
-
-# Remove the temporarily installed dependencies, --->
-# in order to prevent any security issue
-RUN apk del .tmp-build-deps
 
 # Copy all the files from current folder to --->
 # the working directory of the image
@@ -43,7 +31,7 @@ RUN chmod +x /usr/src/app/wait-for
 EXPOSE 8000
 
 # Create a user app that belongs to the group app
-RUN addgroup app && adduser -SG app app
+RUN useradd app
 
 # Change the owner of current folder to the user app --->
 # And set the user app as the current user

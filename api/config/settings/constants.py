@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from datetime import timedelta
 
 LANGUAGE_CODE = 'en-us'
@@ -9,6 +10,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+BASE_DIR = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))).parent.absolute()
 
 STATIC_URL = '/static/static/'
 MEDIA_URL = '/static/media/'

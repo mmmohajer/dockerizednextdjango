@@ -3,6 +3,7 @@ from rest_framework import viewsets, permissions, status, views, response, decor
 from django.contrib.auth import get_user_model
 import stripe
 
+from core.pdf_manipulation import create_pdf
 from stripe_payment.models import PaymentIntentModel, SetupIntentModel
 from stripe_payment.serializers import PaymentIntentSerializer
 
@@ -32,6 +33,7 @@ class GeneralWebhookViewSet(views.APIView):
             new_payment_intent.save()
             stripe.PaymentIntent.modify(payment_intent.id, metadata={"order_is_confirmed": True})
             serializer = PaymentIntentSerializer(new_payment_intent)
+            create_pdf()
             return response.Response(status=status.HTTP_200_OK, data={"payment_intent_details": serializer.data})
         if event['type'] == 'setup_intent.succeeded':
             setup_intent = event['data']['object']

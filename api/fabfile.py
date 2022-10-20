@@ -10,6 +10,7 @@ django.setup()
 
 from django.conf import settings
 from core import utils as coreUtils
+from core.pdf_manipulation import create_pdf
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -37,3 +38,6 @@ def make_automatic_payment_for_subscribers():
         payment_intent_id = err.payment_intent['id']
         payment_intent = stripe.PaymentIntent.retrieve(payment_intent_id)
     return
+
+def create_pdf_test():
+    create_pdf()

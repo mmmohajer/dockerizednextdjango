@@ -59,6 +59,8 @@ Setup:
    - Create the following subfolders: <br>
      ./api/vol/static/ <br>
      ./api/vol/media/ <br>
+     ./api/vol/static/app_static_files <br>
+     ./api/vol/media/pdfs <br>
    - Go to **root folder** and run `./automation.sh` in terminal<br>
    - Choose Option `7` --> `Copy environment variables in server`<br>
    - Then you need to add ssl config to your domain, so take the following steps: <br>
