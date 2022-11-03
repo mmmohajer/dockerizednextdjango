@@ -16,6 +16,6 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @shared_task
 def make_automatic_payment_for_subscribers():
-    payment_methods = stripe.PaymentMethod.list(customer="cus_MY572eMgNVdFHo", type="card")
+    payment_methods = stripe.PaymentMethod.list(customer="cus_MjaTP9lSZXxH5L", type="card")
     print(payment_methods)
     return

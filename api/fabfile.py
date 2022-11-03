@@ -22,9 +22,14 @@ def createNewGroup():
 def remove_old_captcha():
     coreUtils.remove_old_captcha()
 
+def get_automatic_payment_for_subscribers():
+    payment_methods = stripe.PaymentMethod.list(customer="cus_MjaTP9lSZXxH5L", type="card")
+    print(payment_methods)
+    return
+
 def make_automatic_payment_for_subscribers():
-    customer_id = "cus_MY572eMgNVdFHo"
-    payment_method_id = "pm_1LpfykBjlQ77ZngHCr8Aq0QP"
+    customer_id = "cus_MjaTP9lSZXxH5L"
+    payment_method_id = "pm_1M07IXBjlQ77ZngHdlV0wKW9"
     # See all available payment methods
     payment_methods = stripe.PaymentMethod.list(customer=customer_id, type="card")
     print(payment_methods)
@@ -37,6 +42,28 @@ def make_automatic_payment_for_subscribers():
         print("Code is: %s" % err.code)
         payment_intent_id = err.payment_intent['id']
         payment_intent = stripe.PaymentIntent.retrieve(payment_intent_id)
+    return
+
+def create_charge_for_customer():
+    try:
+        charge = stripe.Charge.create(amount=2000, currency="cad", customer="cus_MjaTP9lSZXxH5L")
+        print(charge)
+    except stripe.error.CardError as e:
+        print(e)
+        err = e.error
+        # Error code will be authentication_required if authentication is needed
+        print("Code is: %s" % err.code)
+    return
+
+def retrieve_customer():
+    try:
+        current_customer = stripe.Customer.retrieve("cus_MjaTP9lSZXxH5L")
+        print(current_customer)
+    except stripe.error.CardError as e:
+        print(e)
+        err = e.error
+        # Error code will be authentication_required if authentication is needed
+        print("Code is: %s" % err.code)
     return
 
 def create_pdf_test():

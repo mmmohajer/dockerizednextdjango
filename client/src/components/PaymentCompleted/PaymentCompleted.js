@@ -13,22 +13,24 @@ import useApiCalls from '@/hooks/useApiCalls';
 
 import styles from './PaymentCompleted.module.scss';
 
-const PaymentCompleted = ({ use_for_future_payment = false }) => {
+const PaymentCompleted = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
+  const [useForFuturePayment, setUseForFuturePayment] = useState(false);
   const [isProcessingPayment, setIsProcessingPayment] = useState(true);
   const [isConfirmingOrder, setIsConfirmingOrder] = useState(false);
   const [paymentIntentId, setPaymentIntentId] = useState('');
   const [retrieveIntentUrl, setRetrieveIntentUrl] = useState('');
 
   useEffect(() => {
-    if (use_for_future_payment) {
+    if (useForFuturePayment) {
       setRetrieveIntentUrl(STRIPE_RETRIEVE_SETUP_INTENT_API_ROUTE);
     } else {
       setRetrieveIntentUrl(STRIPE_RETRIEVE_PAYMENT_INTENT_API_ROUTE);
     }
-  }, [use_for_future_payment]);
+  }, [useForFuturePayment]);
+
   const [sendRetrievePaymentReq, setSendRetrievePaymentReq] = useState(false);
   const bodyData = {
     id: paymentIntentId
@@ -69,10 +71,11 @@ const PaymentCompleted = ({ use_for_future_payment = false }) => {
 
   useEffect(() => {
     if (router?.query) {
-      if (!use_for_future_payment && router.query?.payment_intent) {
+      if (router.query?.payment_intent) {
+        setUseForFuturePayment(false);
         setPaymentIntentId(router.query.payment_intent);
-      }
-      if (use_for_future_payment && router.query?.setup_intent) {
+      } else if (router.query?.setup_intent) {
+        setUseForFuturePayment(true);
         setPaymentIntentId(router.query.setup_intent);
       }
     }

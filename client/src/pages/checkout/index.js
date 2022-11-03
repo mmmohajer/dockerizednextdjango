@@ -14,7 +14,7 @@ const Index = () => {
     <PublicRoute>
       <Seo>
         <PageContainer>
-          <StripeCheckout use_for_future_payment={false} />
+          <StripeCheckout use_for_future_payment={true} />
         </PageContainer>
       </Seo>
     </PublicRoute>

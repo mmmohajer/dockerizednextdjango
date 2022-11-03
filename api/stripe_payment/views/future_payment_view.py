@@ -43,30 +43,6 @@ class CreateSetupIntentViewSet(views.APIView):
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"Error": str(e)})
 
 
-class SetupIntentWebhookViewSet(views.APIView):
-    permission_classes = [permissions.AllowAny]
-
-    def post(self, request, format=None):
-        endpoint_secret = settings.STRIPE_PAYMENT_INTENT_WEBHOOK_SECRET
-        payload = request.body
-        sig_header = request.headers.get('stripe-signature')
-        event = None
-        try:
-            event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
-        except ValueError as e:
-            raise e
-        except stripe.error.SignatureVerificationError as e:
-            raise e
-        if event['type'] == 'setup_intent.succeeded':
-            setup_intent = event['data']['object']
-            new_setup_intent = SetupIntentModel()
-            new_setup_intent.setup_intent_id = setup_intent.id
-            new_setup_intent.save()
-            stripe.SetupIntent.modify(setup_intent.id, metadata={"order_is_confirmed": True})
-            return response.Response(status=status.HTTP_200_OK)
-        return response.Response(status=status.HTTP_200_OK)
-
-
 class RetrieveSetupIntentViewSet(views.APIView):
     permission_classes = [permissions.AllowAny]
 
