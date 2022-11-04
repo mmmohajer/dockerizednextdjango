@@ -1,6 +1,6 @@
 from django.conf import settings
 
-from core.helpers import PDF
+from core.utils import PDF
 
 data = [
     ["First name", "Last name", "Age", "City", ],  # 'testing','size'],

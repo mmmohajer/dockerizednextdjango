@@ -3,7 +3,7 @@ from rest_framework import viewsets, permissions, status, views, response, decor
 from django.contrib.auth import get_user_model
 import stripe
 
-from core.pdf_manipulation import create_pdf
+from core.utils import create_pdf
 from stripe_payment.models import PaymentIntentModel, SetupIntentModel
 from stripe_payment.serializers import PaymentIntentSerializer
 
