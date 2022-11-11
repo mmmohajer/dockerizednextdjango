@@ -12,6 +12,8 @@ GeneralWebhookViewSet = stripe_webhooks_view.GeneralWebhookViewSet.as_view()
 
 CreateStripeCustomerViewSet = stripe_customer_view.CreateStripeCustomerViewSet.as_view()
 RetrieveStripeCustomerViewSet = stripe_customer_view.RetrieveStripeCustomerViewSet.as_view()
+AddActiveCardToStripeCustomerViewSet = stripe_customer_view.AddActiveCardToStripeCustomerViewSet.as_view()
+CustomerSourceHandlerViewSet = stripe_customer_view.CustomerSourceHandlerViewSet.as_view()
 
 CreateStripeProductViewSet = stripe_product_view.CreateStripeProductViewSet.as_view()
 RetrieveStripeProductViewSet = stripe_product_view.RetrieveStripeProductViewSet.as_view()

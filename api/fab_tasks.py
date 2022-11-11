@@ -58,7 +58,7 @@ def retrieve_customer():
         current_customer = stripe.Customer.list_sources(
             "cus_MjaTP9lSZXxH5L",
             object="card",
-            limit=3,
+            limit=10,
         )
         print(current_customer)
     except stripe.error.CardError as e:
@@ -73,13 +73,7 @@ def create_customer_card():
     try:
         current_customer_card = stripe.Customer.create_source(
             "cus_MjaTP9lSZXxH5L",
-            source={
-                "object": "card",
-                "number": "4242424242424242",
-                "exp_month": 12,
-                "exp_year": 2024,
-                "cvc": 123
-            }
+            source="tok_1M2MCaBjlQ77ZngHUT4Ccq0e"
         )
         print(current_customer_card)
     except stripe.error.CardError as e:

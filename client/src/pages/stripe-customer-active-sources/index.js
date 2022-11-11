@@ -2,8 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { Div } from 'basedesign-iswad';
 
-import StripeCheckout from '@/baseComponents/StripeCheckout';
-import StripeTokenizeCharge from '@/baseComponents/StripeTokenizeCharge';
+import StripeCustomerActivePayments from '@/baseComponents/StripeCustomerActivePayments';
 import PublicRoute from '@/components/PublicRoute';
 import Seo from '@/components/Seo';
 import PageContainer from '@/components/PageContainer';
@@ -15,8 +14,7 @@ const Index = () => {
     <PublicRoute>
       <Seo>
         <PageContainer>
-          {/* <StripeCheckout use_for_future_payment={true} /> */}
-          <StripeTokenizeCharge />
+          <StripeCustomerActivePayments />
         </PageContainer>
       </Seo>
     </PublicRoute>

@@ -15,6 +15,8 @@ urlpatterns = [
     path('general-webhook/', views.GeneralWebhookViewSet),
     path('create-stripe-customer/', views.CreateStripeCustomerViewSet),
     path('retrieve-stripe-customer/', views.RetrieveStripeCustomerViewSet),
+    path('add-active-card-to-stripe-customer/', views.AddActiveCardToStripeCustomerViewSet),
+    path('stripe-customer-source-handler/', views.CustomerSourceHandlerViewSet),
     path('create-stripe-product/', views.CreateStripeProductViewSet),
     path('retrieve-stripe-product/', views.RetrieveStripeProductViewSet),
     path('create-subscription/', views.CreateSubscriptionViewSet)
