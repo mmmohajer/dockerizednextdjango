@@ -38,16 +38,19 @@ def create_pdf():
     pdf.cell(0, 10, 'Chapter 1', ln=True, link=ch1_link)
     pdf.cell(0, 10, 'Chapter 2', ln=True, link=ch2_link)
     pdf.add_page()
-    pdf.set_font("Times", size=10)
-    pdf.create_table(table_data=data, title='I\'m the first title', cell_width='even')
-    pdf.ln()
-    pdf.create_table(table_data=data, title='I start at 25', cell_width='uneven', x_start=25)
-    pdf.ln()
-    pdf.create_table(table_data=data, title="I'm in the middle", cell_width=22, x_start='C')
-    pdf.ln()
-    pdf.create_table(table_data=data_as_dict, title='Is my text red', align_header='R', align_data='R', cell_width=[
-        15, 15, 10, 45, ], x_start='C', emphasize_data=['45', 'Jules'], emphasize_style='BIU', emphasize_color=(255, 0, 0))
-    pdf.ln()
+    max_col_widths = [50, 50, 70, 50]
+    col_widths = []
+    header_cols = ["First Name", "Last Name", "Email", "Age"]
+    test_data = [
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"]
+    ]
+    # pdf.create_customizable_table(header_cols=header_cols, data=test_data, col_widths=col_widths)
+    pdf.ln(3)
+    pdf.create_customizable_table(header_cols=header_cols,
+                                  data=test_data, max_col_widths=max_col_widths)
     # for i in range(1, 41):
     #     pdf.cell(0, 10, f'This is line {i} :D', ln=True, border=False)
     pdf.output(f"{settings.MEDIA_ROOT}/pdfs/pdf_1.pdf")

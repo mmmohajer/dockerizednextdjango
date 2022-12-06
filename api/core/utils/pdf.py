@@ -33,7 +33,11 @@ class PDF(FPDF):
         super().__init__(orientation, unit, format, font_cache_dir)
         self.title = title
 
-    def add_text(self, text, font_color=None, border_color=None, fill_color=None, padding=6, is_in_the_middle=False, font_size=12, font_style="", border_width=0.75, align="L", text_height=10, has_border=False, is_filled=False, go_to_the_next_line=False, is_full_width=False, set_x=None, set_y=None, set_xy=None, link=None, is_multiline=False):
+    def calc_text_w(self, text, font_style="", font_size=12, padding=6):
+        self.set_font('helvetica', font_style, font_size)
+        return self.get_string_width(text) + padding
+
+    def add_text(self, text, text_width=None, font_color=None, border_color=None, fill_color=None, padding=6, is_in_the_middle=False, font_size=12, font_style="", border_width=0.75, align="L", text_height=10, has_border=False, is_filled=False, go_to_the_next_line=False, is_full_width=False, set_x=None, set_y=None, link=None, is_multiline=False):
         if not font_color:
             font_color = (0, 0, 0)
         if not border_color:
@@ -41,7 +45,10 @@ class PDF(FPDF):
         if not fill_color:
             fill_color = (255, 255, 255)
         self.set_font('helvetica', font_style, font_size)
-        text_w = self.get_string_width(self.title) + 6
+        if text_width:
+            text_w = text_width
+        else:
+            text_w = self.get_string_width(text) + padding
         doc_w = self.w
         if is_in_the_middle:
             self.set_x((doc_w - text_w) / 2)
@@ -120,196 +127,62 @@ class PDF(FPDF):
         self.chapter_body(chapter)
         return
 
-    def create_table(self, table_data, title='', data_size=10, title_size=12, align_data='L', align_header='L', cell_width='even', x_start='x_default', emphasize_data=[], emphasize_style=None, emphasize_color=(0, 0, 0)):
-        """
-        table_data: 
-                    list of lists with first element being list of headers
-        title: 
-                    (Optional) title of table (optional)
-        data_size: 
-                    the font size of table data
-        title_size: 
-                    the font size fo the title of the table
-        align_data: 
-                    align table data
-                    L = left align
-                    C = center align
-                    R = right align
-        align_header: 
-                    align table data
-                    L = left align
-                    C = center align
-                    R = right align
-        cell_width: 
-                    even: evenly distribute cell/column width
-                    uneven: base cell size on lenght of cell/column items
-                    int: int value for width of each cell/column
-                    list of ints: list equal to number of columns with the widht of each cell / column
-        x_start: 
-                    where the left edge of table should start
-        emphasize_data:  
-                    which data elements are to be emphasized - pass as list 
-                    emphasize_style: the font style you want emphaized data to take
-                    emphasize_color: emphasize color (if other than black) 
-
-        """
-        default_style = self.font_style
-        if emphasize_style == None:
-            emphasize_style = default_style
-        # default_font = self.font_family
-        # default_size = self.font_size_pt
-        # default_style = self.font_style
-        # default_color = self.color # This does not work
-
-        # Get Width of Columns
-        def get_col_widths():
-            col_width = cell_width
-            if col_width == 'even':
-                # distribute content evenly   # epw = effective page width (width of page not including margins)
-                col_width = self.epw / len(data[0]) - 1
-            elif col_width == 'uneven':
-                col_widths = []
-
-                # searching through columns for largest sized cell (not rows but cols)
-                for col in range(len(table_data[0])):  # for every row
-                    longest = 0
-                    for row in range(len(table_data)):
-                        cell_value = str(table_data[row][col])
-                        value_length = self.get_string_width(cell_value)
-                        if value_length > longest:
-                            longest = value_length
-                    col_widths.append(longest + 4)  # add 4 for padding
-                col_width = col_widths
-
-                # compare columns
-
-            elif isinstance(cell_width, list):
-                col_width = cell_width  # TODO: convert all items in list to int
-            else:
-                # TODO: Add try catch
-                col_width = int(col_width)
-            return col_width
-
-        # Convert dict to lol
-        # Why? because i built it with lol first and added dict func after
-        # Is there performance differences?
-        if isinstance(table_data, dict):
-            header = [key for key in table_data]
-            data = []
-            for key in table_data:
-                value = table_data[key]
-                data.append(value)
-            # need to zip so data is in correct format (first, second, third --> not first, first, first)
-            data = [list(a) for a in zip(*data)]
-
+    def create_customizable_table(self, header_cols, data, col_widths=[], max_col_widths=[]):
+        whole_w = 0
+        calculated_col_widths = [0] * len(header_cols)
+        if col_widths:
+            calculated_col_widths = col_widths
         else:
-            header = table_data[0]
-            data = table_data[1:]
+            for idx, col in enumerate(header_cols):
+                cur_w = self.calc_text_w(col, font_style="B", font_size=12, padding=6)
+                calculated_col_widths[idx] = cur_w
+            for idx_r, row in enumerate(data):
+                for idx_c, col in enumerate(row):
+                    cur_w = self.calc_text_w(col, font_size=12, padding=6)
+                    calculated_col_widths[idx_c] = max(calculated_col_widths[idx_c], cur_w)
+                    if max_col_widths:
+                        calculated_col_widths[idx_c] = min(
+                            calculated_col_widths[idx_c], max_col_widths[idx_c])
 
-        line_height = self.font_size * 2.5
+        for w in calculated_col_widths:
+            whole_w += w
 
-        col_width = get_col_widths()
-        self.set_font(size=title_size)
+        self.add_text(text=f" ", text_width=whole_w, font_size=12, font_style="B",
+                      has_border="B", is_filled=True, go_to_the_next_line=True,
+                      border_color=(151, 151, 151),
+                      border_width=1, align='C', text_height=0)
+        self.ln()
 
-        # Get starting position of x
-        # Determin width of table to get x starting point for centred table
-        if x_start == 'C':
-            table_width = 0
-            if isinstance(col_width, list):
-                for width in col_width:
-                    table_width += width
-            else:  # need to multiply cell width by number of cells to get table width
-                table_width = col_width * len(table_data[0])
-            # Get x start by subtracting table width from pdf width and divide by 2 (margins)
-            margin_width = self.w - table_width
-            # TODO: Check if table_width is larger than pdf width
+        cur_y = self.get_y() + 5
+        cur_x = self.get_x()
+        max_y_of_multicell = cur_y
+        for idx, col in enumerate(header_cols):
+            cur_w = calculated_col_widths[idx]
+            self.add_text(text=f"{col}", text_width=cur_w, font_size=12, font_style="B",
+                          has_border=False, is_filled=False, go_to_the_next_line=False,
+                          border_color=(151, 151, 151),
+                          border_width=1, text_height=5, align='L', is_multiline=True, set_y=cur_y, set_x=cur_x)
+            max_y_of_multicell = max(self.get_y(), max_y_of_multicell)
+            cur_x += cur_w
+        self.ln()
+        self.add_text(text=f" ", text_width=whole_w, font_size=12, font_style="B",
+                      has_border="T", is_filled=True, go_to_the_next_line=True,
+                      border_color=(151, 151, 151),
+                      border_width=1, align='C', text_height=0, set_y=max_y_of_multicell + 5)
 
-            center_table = margin_width / 2  # only want width of left margin not both
-            x_start = center_table
-            self.set_x(x_start)
-        elif isinstance(x_start, int):
-            self.set_x(x_start)
-        elif x_start == 'x_default':
-            x_start = self.set_x(self.l_margin)
-
-        # TABLE CREATION #
-
-        # add title
-        if title != '':
-            self.multi_cell(0, line_height, title, border=0, align='j',
-                            ln=3, max_line_height=self.font_size)
-            self.ln(line_height)  # move cursor back to the left margin
-
-        self.set_font(size=data_size)
-        # add header
-        y1 = self.get_y()
-        if x_start:
-            x_left = x_start
-        else:
-            x_left = self.get_x()
-        x_right = self.epw + x_left
-        if not isinstance(col_width, list):
-            if x_start:
-                self.set_x(x_start)
-            for datum in header:
-                self.multi_cell(col_width, line_height, datum, border=0,
-                                align=align_header, ln=3, max_line_height=self.font_size)
-                x_right = self.get_x()
-            self.ln(line_height)  # move cursor back to the left margin
-            y2 = self.get_y()
-            self.line(x_left, y1, x_right, y1)
-            self.line(x_left, y2, x_right, y2)
-
-            for row in data:
-                if x_start:  # not sure if I need this
-                    self.set_x(x_start)
-                for datum in row:
-                    if datum in emphasize_data:
-                        self.set_text_color(*emphasize_color)
-                        self.set_font(style=emphasize_style)
-                        self.multi_cell(col_width, line_height, datum, border=0,
-                                        align=align_data, ln=3, max_line_height=self.font_size)
-                        self.set_text_color(0, 0, 0)
-                        self.set_font(style=default_style)
-                    else:
-                        # ln = 3 - move cursor to right with same vertical offset # this uses an object named self
-                        self.multi_cell(col_width, line_height, datum, border=0,
-                                        align=align_data, ln=3, max_line_height=self.font_size)
-                self.ln(line_height)  # move cursor back to the left margin
-
-        else:
-            if x_start:
-                self.set_x(x_start)
-            for i in range(len(header)):
-                datum = header[i]
-                self.multi_cell(col_width[i], line_height, datum, border=0,
-                                align=align_header, ln=3, max_line_height=self.font_size)
-                x_right = self.get_x()
-            self.ln(line_height)  # move cursor back to the left margin
-            y2 = self.get_y()
-            self.line(x_left, y1, x_right, y1)
-            self.line(x_left, y2, x_right, y2)
-
-            for i in range(len(data)):
-                if x_start:
-                    self.set_x(x_start)
-                row = data[i]
-                for i in range(len(row)):
-                    datum = row[i]
-                    if not isinstance(datum, str):
-                        datum = str(datum)
-                    adjusted_col_width = col_width[i]
-                    if datum in emphasize_data:
-                        self.set_text_color(*emphasize_color)
-                        self.set_font(style=emphasize_style)
-                        self.multi_cell(adjusted_col_width, line_height, datum, border=0,
-                                        align=align_data, ln=3, max_line_height=self.font_size)
-                        self.set_text_color(0, 0, 0)
-                        self.set_font(style=default_style)
-                    else:
-                        # ln = 3 - move cursor to right with same vertical offset # this uses an object named self
-                        self.multi_cell(adjusted_col_width, line_height, datum, border=0,
-                                        align=align_data, ln=3, max_line_height=self.font_size)
-                self.ln(line_height)  # move cursor back to the left margin
-        y3 = self.get_y()
-        self.line(x_left, y3, x_right, y3)
+        cur_y = self.get_y()
+        initial_cur_x = self.get_x()
+        max_y_of_multicell = cur_y
+        for idx_r, row in enumerate(data):
+            cur_x = initial_cur_x
+            for idx_c, col in enumerate(row):
+                cur_w = calculated_col_widths[idx_c]
+                self.add_text(text=f"{col}", text_width=cur_w, font_size=12,
+                              has_border=False, is_filled=False, go_to_the_next_line=False,
+                              border_color=(0, 80, 180),
+                              border_width=1, text_height=5, align='L', is_multiline=True, set_y=cur_y + 5, set_x=cur_x)
+                cur_x += cur_w
+                max_y_of_multicell = max(self.get_y(), max_y_of_multicell)
+            self.ln()
+            cur_y = max_y_of_multicell
+        return
