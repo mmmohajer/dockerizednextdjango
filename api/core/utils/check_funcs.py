@@ -45,12 +45,44 @@ def create_pdf():
         ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
         ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
         ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
+        ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"],
         ["Mohammad", "Mohajer", "mmmohajer70@gmail.com", "20"]
     ]
-    # pdf.create_customizable_table(header_cols=header_cols, data=test_data, col_widths=col_widths)
     pdf.ln(3)
     pdf.create_customizable_table(header_cols=header_cols,
                                   data=test_data, max_col_widths=max_col_widths)
+    pdf.ln(3)
+    pdf.add_text(text="Test For Me \nTest For me \nTest For me \nTest For me \nTest For me \nTest For me \nTest For me \nTest For me \nTest For me \nTest For me \nTest For me", is_full_width=True, is_filled=True,
+                 text_height=10, is_in_the_middle=False, align="L",
+                 font_color=(169, 169, 169), font_style="I", font_size=12,
+                 is_multiline=True, fill_color=(151, 151, 151))
     # for i in range(1, 41):
     #     pdf.cell(0, 10, f'This is line {i} :D', ln=True, border=False)
     pdf.output(f"{settings.MEDIA_ROOT}/pdfs/pdf_1.pdf")

@@ -127,26 +127,7 @@ class PDF(FPDF):
         self.chapter_body(chapter)
         return
 
-    def create_customizable_table(self, header_cols, data, col_widths=[], max_col_widths=[]):
-        whole_w = 0
-        calculated_col_widths = [0] * len(header_cols)
-        if col_widths:
-            calculated_col_widths = col_widths
-        else:
-            for idx, col in enumerate(header_cols):
-                cur_w = self.calc_text_w(col, font_style="B", font_size=12, padding=6)
-                calculated_col_widths[idx] = cur_w
-            for idx_r, row in enumerate(data):
-                for idx_c, col in enumerate(row):
-                    cur_w = self.calc_text_w(col, font_size=12, padding=6)
-                    calculated_col_widths[idx_c] = max(calculated_col_widths[idx_c], cur_w)
-                    if max_col_widths:
-                        calculated_col_widths[idx_c] = min(
-                            calculated_col_widths[idx_c], max_col_widths[idx_c])
-
-        for w in calculated_col_widths:
-            whole_w += w
-
+    def __build_header_for_table__(self, whole_w, header_cols, calculated_col_widths):
         self.add_text(text=f" ", text_width=whole_w, font_size=12, font_style="B",
                       has_border="B", is_filled=True, go_to_the_next_line=True,
                       border_color=(151, 151, 151),
@@ -169,12 +150,41 @@ class PDF(FPDF):
                       has_border="T", is_filled=True, go_to_the_next_line=True,
                       border_color=(151, 151, 151),
                       border_width=1, align='C', text_height=0, set_y=max_y_of_multicell + 5)
+        return
+
+    def create_customizable_table(self, header_cols, data, col_widths=[], max_col_widths=[], max_height_to_break_page=240):
+        self.set_auto_page_break(False)
+        whole_w = 0
+        calculated_col_widths = [0] * len(header_cols)
+        if col_widths:
+            calculated_col_widths = col_widths
+        else:
+            for idx, col in enumerate(header_cols):
+                cur_w = self.calc_text_w(col, font_style="B", font_size=12, padding=6)
+                calculated_col_widths[idx] = cur_w
+            for idx_r, row in enumerate(data):
+                for idx_c, col in enumerate(row):
+                    cur_w = self.calc_text_w(col, font_size=12, padding=6)
+                    calculated_col_widths[idx_c] = max(calculated_col_widths[idx_c], cur_w)
+                    if max_col_widths:
+                        calculated_col_widths[idx_c] = min(
+                            calculated_col_widths[idx_c], max_col_widths[idx_c])
+
+        for w in calculated_col_widths:
+            whole_w += w
+
+        self.__build_header_for_table__(whole_w, header_cols, calculated_col_widths)
 
         cur_y = self.get_y()
         initial_cur_x = self.get_x()
         max_y_of_multicell = cur_y
         for idx_r, row in enumerate(data):
             cur_x = initial_cur_x
+            if self.get_y() >= max_height_to_break_page:
+                self.add_page()
+                self.__build_header_for_table__(whole_w, header_cols, calculated_col_widths)
+                cur_y = self.get_y()
+                max_y_of_multicell = self.get_y()
             for idx_c, col in enumerate(row):
                 cur_w = calculated_col_widths[idx_c]
                 self.add_text(text=f"{col}", text_width=cur_w, font_size=12,
@@ -185,4 +195,5 @@ class PDF(FPDF):
                 max_y_of_multicell = max(self.get_y(), max_y_of_multicell)
             self.ln()
             cur_y = max_y_of_multicell
-        return
+        self.set_auto_page_break(True, margin=15)
+        return [cur_y, whole_w]
