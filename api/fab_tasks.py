@@ -86,3 +86,7 @@ def create_customer_card():
 
 def create_pdf_test():
     create_pdf()
+
+
+def send_push_message():
+    coreUtils.send_push_message()

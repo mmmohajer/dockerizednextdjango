@@ -24,4 +24,5 @@ urlpatterns = [
     path('auth/microsoft-auth-handle-token/', views.MicrosoftAuthHandleTokenViewSet),
     path('auth/facebook-auth/', views.FacebookAuthViewSet),
     path('auth/facebook-auth-handle-token/', views.FacebookAuthHandleTokenViewSet),
+    path('expo-notification-token/', views.NotificationTokenViewSet),
 ]
