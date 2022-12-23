@@ -24,6 +24,7 @@ const BaseTemplate = ({ children }) => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.loading);
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  const profile = useSelector((state) => state.profile);
 
   const [accessToken, setAccessToken] = useState('');
   const [refreshToken, setRefreshToken] = useState('');
@@ -139,7 +140,9 @@ const BaseTemplate = ({ children }) => {
       setAccessToken(getLocalStorage('access_token'));
       setRefreshToken(getLocalStorage('refresh_token'));
       try {
-        setSendGetCurUserReq(true);
+        if (!profile?.id) {
+          setSendGetCurUserReq(true);
+        }
         setInterval(() => {
           setSendRepeatedRefreshTokenReq(true);
           setTimeout(() => {
