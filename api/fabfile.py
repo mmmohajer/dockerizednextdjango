@@ -8,4 +8,4 @@ django.setup()
 
 MANAGE_CALL = 'python manage.py'
 
-from fab_tasks import *
+from fab_commands import *
