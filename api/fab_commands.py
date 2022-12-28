@@ -90,7 +90,3 @@ def create_pdf_test():
 
 def send_push_message():
     coreUtils.send_push_message()
-
-
-def visit_google():
-    coreUtils.visit_google()

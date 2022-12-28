@@ -8,6 +8,13 @@ LABEL Developer="Mohammad Mahdi Mohajer"
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# IF useing selenium, uncomment the following part
+# --------------------------------------------------
+# RUN apt-get update -y
+# RUN apt install chromium=89.0.4389.114-1~deb10u1 -y
+# RUN apt install chromium-driver=89.0.4389.114-1~deb10u1 -y
+# -------------------------------------------------
+
 # Set the working directory
 WORKDIR /usr/src/app
 
