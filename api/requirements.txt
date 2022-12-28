@@ -29,3 +29,4 @@ channels-redis>3.0.0,<=3.4.1
 stripe>3.0.0,<=4.1.0
 fpdf2>2.2.0,<=2.5.7
 exponent_server_sdk>1.0.0,<=2.0.0
+selenium>4.0.0,<=4.7.2
