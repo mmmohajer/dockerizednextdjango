@@ -1,14 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
-import { Chart as ChartJS, CategoryScale, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import 'chartjs-plugin-datalabels';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Div } from 'basedesign-iswad';
 
 import styles from '../Chart.module.scss';
-
-ChartJS.register(CategoryScale, ArcElement, Title, Tooltip, Legend, ChartDataLabels);
 
 const PieChart = ({
   data,

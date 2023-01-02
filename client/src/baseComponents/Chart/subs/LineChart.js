@@ -1,34 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Title,
-  Tooltip,
-  Legend
-} from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import 'chartjs-plugin-datalabels';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Div } from 'basedesign-iswad';
 
 import styles from '../Chart.module.scss';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Title,
-  Tooltip,
-  Legend,
-  ChartDataLabels
-);
 
 const LineChart = ({
   data,
