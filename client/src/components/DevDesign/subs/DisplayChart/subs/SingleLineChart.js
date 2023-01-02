@@ -71,6 +71,7 @@ const SigleLineChart = () => {
         datasets: [
           {
             label: '',
+            fill: true,
             data: y,
             borderColor: 'red',
             backgroundColor: 'yellow'
@@ -89,6 +90,9 @@ const SigleLineChart = () => {
         titleText="Line Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
+        lineBorderWidth={2}
+        pointBorderWidth={1}
+        pointRadius={4}
       />
     </>
   );

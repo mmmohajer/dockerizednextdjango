@@ -59,7 +59,7 @@ const X_AXIS_OPTIONS = {
   stacked: false
 };
 
-const BarChart = () => {
+const LineAndBarChart = () => {
   const data = useMemo(() => {
     if (BAR_CHART_DATA) {
       const x = [];
@@ -74,12 +74,21 @@ const BarChart = () => {
         labels: x,
         datasets: [
           {
+            type: 'line',
             label: 'Quadratic Curve',
             data: y1,
             borderColor: 'red',
             backgroundColor: 'yellow'
           },
           {
+            type: 'bar',
+            label: 'Quadratic Curve',
+            data: y1,
+            borderColor: 'red',
+            backgroundColor: 'yellow'
+          },
+          {
+            type: 'bar',
             label: 'Linear Curve',
             data: y2,
             borderColor: 'blue',
@@ -102,9 +111,12 @@ const BarChart = () => {
         showDataLabels={false}
         barBorderWidth={2}
         indexAxis="x"
+        lineBorderWidth={2}
+        pointBorderWidth={1}
+        pointRadius={4}
       />
     </>
   );
 };
 
-export default BarChart;
+export default LineAndBarChart;

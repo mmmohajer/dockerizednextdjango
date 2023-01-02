@@ -90,6 +90,9 @@ const SigleLabeledLineChart = () => {
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
         showDataLabels={false}
+        lineBorderWidth={2}
+        pointBorderWidth={1}
+        pointRadius={4}
       />
     </>
   );

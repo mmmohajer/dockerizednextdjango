@@ -46,3 +46,15 @@ export const PIE_CHART_DATA = [
   { Zone: 'Africa', PopulationPercentage: 20 },
   { Zone: 'Australia', PopulationPercentage: 10 }
 ];
+
+export const BUBBLE_CHART_DATA = [
+  { x: 0, y: 0, r: 5 },
+  { x: 5, y: 5, r: 15 },
+  { x: 15, y: 12, r: 2 },
+  { x: 25, y: 34, r: 12 },
+  { x: 30, y: 17, r: 11 },
+  { x: 22, y: 8, r: 7 },
+  { x: 40, y: 16, r: 3 },
+  { x: 50, y: 42, r: 14 },
+  { x: 11, y: 23, r: 9 }
+];

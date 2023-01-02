@@ -34,7 +34,8 @@ const PieChart = () => {
             label: '% of population',
             data: percentages,
             borderColor: ['red', 'green', 'blue', 'yellow', 'purple'],
-            backgroundColor: ['red', 'green', 'blue', 'yellow', 'purple']
+            backgroundColor: ['red', 'green', 'blue', 'yellow', 'purple'],
+            borderWidth: 1
           }
         ]
       };

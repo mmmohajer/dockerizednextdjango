@@ -5,9 +5,12 @@ import { Div } from 'basedesign-iswad';
 import SigleLabeledLineChart from './subs/SingleLabeledLineChart';
 import SigleLineChart from './subs/SingleLineChart';
 import MultiLineChart from './subs/MultiLineChart';
+import DoubleYAxisChart from './subs/DoubleYAxisChart';
 import BarChart from './subs/BarChart';
 import StackedBarChart from './subs/StackedBarChart';
 import PieChart from './subs/PieChart';
+import LineAndBarChart from './subs/LineAndBarChart';
+import BubbleChart from './subs/BubbleChart';
 import styles from '../../DevDesign.module.scss';
 
 const DisplayChart = () => {
@@ -21,9 +24,12 @@ const DisplayChart = () => {
         <SigleLabeledLineChart />
         <SigleLineChart />
         <MultiLineChart />
+        <DoubleYAxisChart />
         <BarChart />
         <StackedBarChart />
         <PieChart />
+        <LineAndBarChart />
+        <BubbleChart />
       </Div>
     </>
   );

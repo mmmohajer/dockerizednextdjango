@@ -4,6 +4,8 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
+  PointElement,
+  LineElement,
   BarElement,
   Title,
   Tooltip,
@@ -16,7 +18,17 @@ import { Div } from 'basedesign-iswad';
 
 import styles from '../Chart.module.scss';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartDataLabels);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ChartDataLabels
+);
 
 const BarChart = ({
   data,
@@ -24,14 +36,34 @@ const BarChart = ({
   showTitle = true,
   titleText = '',
   yAxisOptions = {},
+  y2AxisOptions = { display: false },
   xAxisOptions = {},
-  showDataLabels = true
+  showDataLabels = true,
+  barBorderWidth = 1,
+  indexAxis = 'x',
+  lineBorderWidth = 2,
+  pointBorderWidth = 1,
+  pointRadius = 4
 }) => {
   const options = {
     responsive: true,
+    indexAxis,
+    elements: {
+      line: {
+        borderWidth: lineBorderWidth
+      },
+      point: {
+        borderWidth: pointBorderWidth,
+        radius: pointRadius
+      },
+      bar: {
+        borderWidth: barBorderWidth
+      }
+    },
     scales: {
       y: yAxisOptions,
-      x: xAxisOptions
+      x: xAxisOptions,
+      y2: y2AxisOptions
     },
     plugins: {
       legend: {

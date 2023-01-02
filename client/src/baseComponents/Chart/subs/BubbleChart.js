@@ -5,32 +5,20 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
-  LineElement,
-  Filler,
   Title,
   Tooltip,
   Legend
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Bubble } from 'react-chartjs-2';
 import 'chartjs-plugin-datalabels';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Div } from 'basedesign-iswad';
 
 import styles from '../Chart.module.scss';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Title,
-  Tooltip,
-  Legend,
-  ChartDataLabels
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend, ChartDataLabels);
 
-const LineChart = ({
+const BubbleChart = ({
   data,
   showLegend = true,
   showTitle = true,
@@ -39,21 +27,13 @@ const LineChart = ({
   xAxisOptions = {},
   y2AxisOptions = { display: false },
   showDataLabels = true,
-  lineBorderWidth = 2,
-  pointBorderWidth = 1,
-  pointRadius = 4
+  pointBorderWidth = 1
 }) => {
   const options = {
     responsive: true,
-    // For more information on how to style elements, visit this url:
-    // https://www.chartjs.org/docs/latest/configuration/elements.html
     elements: {
-      line: {
-        borderWidth: lineBorderWidth
-      },
       point: {
-        borderWidth: pointBorderWidth,
-        radius: pointRadius
+        borderWidth: pointBorderWidth
       }
     },
     scales: {
@@ -82,7 +62,8 @@ const LineChart = ({
         display: showDataLabels,
         align: 'end',
         padding: {
-          right: 2
+          right: 2,
+          bottom: 20
         }
       }
     }
@@ -90,9 +71,9 @@ const LineChart = ({
 
   return (
     <>
-      <Div>{data?.labels && <Line options={options} data={data} />}</Div>
+      <Div>{data?.datasets?.length > 0 && <Bubble options={options} data={data} />}</Div>
     </>
   );
 };
 
-export default LineChart;
+export default BubbleChart;

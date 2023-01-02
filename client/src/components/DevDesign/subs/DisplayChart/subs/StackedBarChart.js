@@ -99,6 +99,8 @@ const StackedBarChart = () => {
         titleText="Line Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
+        barBorderWidth={2}
+        indexAxis="x"
       />
     </>
   );
