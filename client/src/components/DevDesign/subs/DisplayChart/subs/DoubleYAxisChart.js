@@ -114,7 +114,7 @@ const DoubleYAxisChart = () => {
         type="line"
         data={data}
         showLegend={false}
-        titleText="Line Chart"
+        titleText="Double Y Axis Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         y2AxisOptions={Y2_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}

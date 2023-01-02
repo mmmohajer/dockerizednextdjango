@@ -79,7 +79,7 @@ const BubbleChart = () => {
         type="bubble"
         data={data}
         showLegend={false}
-        titleText="Line Chart"
+        titleText="Bubble Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
         pointBorderWidth={2}

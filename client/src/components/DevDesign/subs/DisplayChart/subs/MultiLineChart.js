@@ -94,7 +94,7 @@ const MultiLineChart = () => {
         type="line"
         data={data}
         showLegend={true}
-        titleText="Line Chart"
+        titleText="Multi Dataset Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
         lineBorderWidth={2}

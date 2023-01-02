@@ -86,7 +86,7 @@ const SigleLabeledLineChart = () => {
         type="line"
         data={data}
         showLegend={false}
-        titleText="Line Chart"
+        titleText="Labeled Line Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
         showDataLabels={false}

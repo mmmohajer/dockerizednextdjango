@@ -105,7 +105,7 @@ const LineAndBarChart = () => {
         type="bar"
         data={data}
         showLegend={true}
-        titleText="Line Chart"
+        titleText="Combination of Line and Bar Charts"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
         showDataLabels={false}

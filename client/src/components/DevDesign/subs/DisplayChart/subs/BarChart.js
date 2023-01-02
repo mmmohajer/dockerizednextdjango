@@ -96,7 +96,7 @@ const BarChart = () => {
         type="bar"
         data={data}
         showLegend={true}
-        titleText="Line Chart"
+        titleText="Bar Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
         showDataLabels={false}

@@ -4,7 +4,7 @@ import { Div } from 'basedesign-iswad';
 
 import Chart from '@/baseComponents/Chart';
 
-import { BAR_CHART_DATA } from '../utils';
+import { SINGLE_LINE_CHART_DATA } from '../utils';
 import styles from '../../../DevDesign.module.scss';
 
 const Y_AXIS_OPTIONS = {
@@ -25,7 +25,7 @@ const Y_AXIS_OPTIONS = {
   grid: {
     display: true,
     drawTicks: true,
-    drawOnChartArea: true,
+    drawOnChartArea: false,
     color: (context) => {
       if (context.tick.value >= 3) {
         return 'green';
@@ -34,8 +34,7 @@ const Y_AXIS_OPTIONS = {
       }
       return 'black';
     }
-  },
-  stacked: true
+  }
 };
 
 const X_AXIS_OPTIONS = {
@@ -55,55 +54,48 @@ const X_AXIS_OPTIONS = {
     drawTicks: true,
     drawOnChartArea: false,
     color: 'black'
-  },
-  stacked: true
+  }
 };
 
-const StackedBarChart = () => {
+const AreaChart = () => {
   const data = useMemo(() => {
-    if (BAR_CHART_DATA) {
+    if (SINGLE_LINE_CHART_DATA) {
       const x = [];
-      const y1 = [];
-      const y2 = [];
-      BAR_CHART_DATA.forEach((d) => {
+      const y = [];
+      SINGLE_LINE_CHART_DATA.forEach((d) => {
         x.push(d['x']);
-        y1.push(d['y1']);
-        y2.push(d['y2']);
+        y.push(d['y']);
       });
       const localData = {
         labels: x,
         datasets: [
           {
-            label: 'Quadratic Curve',
-            data: y1,
+            label: '',
+            fill: true,
+            data: y,
             borderColor: 'red',
             backgroundColor: 'yellow'
-          },
-          {
-            label: 'Linear Curve',
-            data: y2,
-            borderColor: 'blue',
-            backgroundColor: 'green'
           }
         ]
       };
       return localData;
     }
-  }, [BAR_CHART_DATA]);
+  }, [SINGLE_LINE_CHART_DATA]);
   return (
     <>
       <Chart
-        type="bar"
+        type="line"
         data={data}
-        showLegend={true}
-        titleText="Stacked Bar Chart"
+        showLegend={false}
+        titleText="Area Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
-        barBorderWidth={2}
-        indexAxis="x"
+        lineBorderWidth={2}
+        pointBorderWidth={1}
+        pointRadius={4}
       />
     </>
   );
 };
 
-export default StackedBarChart;
+export default AreaChart;

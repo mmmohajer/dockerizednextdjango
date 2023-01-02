@@ -48,7 +48,7 @@ const PieChart = () => {
         type="pie"
         data={data}
         showLegend={true}
-        titleText="Line Chart"
+        titleText="Pie Chart"
         showDataLabel={true}
         dataLabelFormatter={DATA_LABEL_FORMATER}
       />

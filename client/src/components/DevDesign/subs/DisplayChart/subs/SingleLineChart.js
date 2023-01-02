@@ -71,7 +71,7 @@ const SigleLineChart = () => {
         datasets: [
           {
             label: '',
-            fill: true,
+            fill: false,
             data: y,
             borderColor: 'red',
             backgroundColor: 'yellow'
