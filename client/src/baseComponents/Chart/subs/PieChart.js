@@ -1,38 +1,25 @@
 import React from 'react';
 import cx from 'classnames';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, ArcElement, Title, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
 import 'chartjs-plugin-datalabels';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { Bar } from 'react-chartjs-2';
 import { Div } from 'basedesign-iswad';
 
 import styles from '../Chart.module.scss';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartDataLabels);
+ChartJS.register(CategoryScale, ArcElement, Title, Tooltip, Legend, ChartDataLabels);
 
-const BarChart = ({
+const PieChart = ({
   data,
   showLegend = true,
   showTitle = true,
   titleText = '',
-  yAxisOptions = {},
-  xAxisOptions = {},
-  showDataLabels = true
+  showDataLabel = true,
+  dataLabelFormatter = null
 }) => {
   const options = {
     responsive: true,
-    scales: {
-      y: yAxisOptions,
-      x: xAxisOptions
-    },
     plugins: {
       legend: {
         display: showLegend,
@@ -51,20 +38,22 @@ const BarChart = ({
         }
       },
       datalabels: {
-        display: showDataLabels,
+        display: showDataLabel,
+        formatter: dataLabelFormatter,
         align: 'center',
         padding: {
           right: 0
-        }
+        },
+        color: 'black'
       }
     }
   };
 
   return (
     <>
-      <Div>{data?.labels && <Bar options={options} data={data} />}</Div>
+      <Div>{data?.labels && <Doughnut options={options} data={data} />}</Div>
     </>
   );
 };
 
-export default BarChart;
+export default PieChart;

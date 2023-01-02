@@ -11,11 +11,22 @@ import {
   Legend
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import 'chartjs-plugin-datalabels';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Div } from 'basedesign-iswad';
 
 import styles from '../Chart.module.scss';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  ChartDataLabels
+);
 
 const LineChart = ({
   data,
@@ -23,7 +34,8 @@ const LineChart = ({
   showTitle = true,
   titleText = '',
   yAxisOptions = {},
-  xAxisOptions = {}
+  xAxisOptions = {},
+  showDataLabels = true
 }) => {
   const options = {
     responsive: true,
@@ -46,6 +58,13 @@ const LineChart = ({
         text: titleText,
         font: {
           size: 14
+        }
+      },
+      datalabels: {
+        display: showDataLabels,
+        align: 'end',
+        padding: {
+          right: 2
         }
       }
     }

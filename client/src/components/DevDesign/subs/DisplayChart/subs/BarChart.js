@@ -34,7 +34,8 @@ const Y_AXIS_OPTIONS = {
       }
       return 'black';
     }
-  }
+  },
+  stacked: false
 };
 
 const X_AXIS_OPTIONS = {
@@ -54,7 +55,8 @@ const X_AXIS_OPTIONS = {
     drawTicks: true,
     drawOnChartArea: false,
     color: 'black'
-  }
+  },
+  stacked: false
 };
 
 const BarChart = () => {
@@ -97,6 +99,7 @@ const BarChart = () => {
         titleText="Line Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
+        showDataLabels={false}
       />
     </>
   );

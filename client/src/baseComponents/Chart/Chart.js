@@ -4,6 +4,7 @@ import { Div } from 'basedesign-iswad';
 
 import LineChart from './subs/LineChart';
 import BarChart from './subs/BarChart';
+import PieChart from './subs/PieChart';
 import styles from './Chart.module.scss';
 
 const Chart = ({ type = 'line', ...props }) => {
@@ -12,6 +13,7 @@ const Chart = ({ type = 'line', ...props }) => {
       <Div className="w-per-100">
         {type === 'line' && <LineChart {...props} />}
         {type === 'bar' && <BarChart {...props} />}
+        {type === 'pie' && <PieChart {...props} />}
       </Div>
     </>
   );

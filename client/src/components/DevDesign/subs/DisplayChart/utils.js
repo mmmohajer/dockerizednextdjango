@@ -38,3 +38,11 @@ export const BAR_CHART_DATA = [
   { x: 'W6', y1: 4, y2: 6 },
   { x: 'W7', y1: 2, y2: 2 }
 ];
+
+export const PIE_CHART_DATA = [
+  { Zone: 'Asia', PopulationPercentage: 25 },
+  { Zone: 'Europe', PopulationPercentage: 15 },
+  { Zone: 'America', PopulationPercentage: 30 },
+  { Zone: 'Africa', PopulationPercentage: 20 },
+  { Zone: 'Australia', PopulationPercentage: 10 }
+];

@@ -6,6 +6,8 @@ import SigleLabeledLineChart from './subs/SingleLabeledLineChart';
 import SigleLineChart from './subs/SingleLineChart';
 import MultiLineChart from './subs/MultiLineChart';
 import BarChart from './subs/BarChart';
+import StackedBarChart from './subs/StackedBarChart';
+import PieChart from './subs/PieChart';
 import styles from '../../DevDesign.module.scss';
 
 const DisplayChart = () => {
@@ -20,6 +22,8 @@ const DisplayChart = () => {
         <SigleLineChart />
         <MultiLineChart />
         <BarChart />
+        <StackedBarChart />
+        <PieChart />
       </Div>
     </>
   );

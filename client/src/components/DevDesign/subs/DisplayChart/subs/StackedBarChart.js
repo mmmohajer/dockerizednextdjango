@@ -4,7 +4,7 @@ import { Div } from 'basedesign-iswad';
 
 import Chart from '@/baseComponents/Chart';
 
-import { SINGLE_LABELED_LINE_CHART_DATA } from '../utils';
+import { BAR_CHART_DATA } from '../utils';
 import styles from '../../../DevDesign.module.scss';
 
 const Y_AXIS_OPTIONS = {
@@ -34,7 +34,8 @@ const Y_AXIS_OPTIONS = {
       }
       return 'black';
     }
-  }
+  },
+  stacked: true
 };
 
 const X_AXIS_OPTIONS = {
@@ -52,47 +53,55 @@ const X_AXIS_OPTIONS = {
   grid: {
     display: true,
     drawTicks: true,
-    drawOnChartArea: true,
+    drawOnChartArea: false,
     color: 'black'
-  }
+  },
+  stacked: true
 };
 
-const SigleLabeledLineChart = () => {
+const StackedBarChart = () => {
   const data = useMemo(() => {
-    if (SINGLE_LABELED_LINE_CHART_DATA) {
+    if (BAR_CHART_DATA) {
       const x = [];
-      const y = [];
-      SINGLE_LABELED_LINE_CHART_DATA.forEach((d) => {
+      const y1 = [];
+      const y2 = [];
+      BAR_CHART_DATA.forEach((d) => {
         x.push(d['x']);
-        y.push(d['y']);
+        y1.push(d['y1']);
+        y2.push(d['y2']);
       });
       const localData = {
         labels: x,
         datasets: [
           {
-            label: '',
-            data: y,
+            label: 'Quadratic Curve',
+            data: y1,
             borderColor: 'red',
             backgroundColor: 'yellow'
+          },
+          {
+            label: 'Linear Curve',
+            data: y2,
+            borderColor: 'blue',
+            backgroundColor: 'green'
           }
         ]
       };
       return localData;
     }
-  }, [SINGLE_LABELED_LINE_CHART_DATA]);
+  }, [BAR_CHART_DATA]);
   return (
     <>
       <Chart
-        type="line"
+        type="bar"
         data={data}
-        showLegend={false}
+        showLegend={true}
         titleText="Line Chart"
         yAxisOptions={Y_AXIS_OPTIONS}
         xAxisOptions={X_AXIS_OPTIONS}
-        showDataLabels={false}
       />
     </>
   );
 };
 
-export default SigleLabeledLineChart;
+export default StackedBarChart;
