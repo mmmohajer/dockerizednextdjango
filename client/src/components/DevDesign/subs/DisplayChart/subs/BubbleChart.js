@@ -14,7 +14,7 @@ const Y_AXIS_OPTIONS = {
     },
     beginAtZero: true,
     color: 'purple',
-    stepSize: 1
+    stepSize: 10
   },
   title: {
     display: true,
