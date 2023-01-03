@@ -13,7 +13,8 @@ const Y_AXIS_OPTIONS = {
       return parseFloat(value).toFixed(2);
     },
     beginAtZero: true,
-    color: 'purple'
+    color: 'purple',
+    stepSize: 1
   },
   title: {
     display: true,
