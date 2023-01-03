@@ -35,6 +35,7 @@ const AppAdminRoute = ({ children }) => {
           setIsChecked(true);
         } else {
           setIsAppAdmin(false);
+          setIsChecked(true);
         }
         dispatch(isLoaded());
       }

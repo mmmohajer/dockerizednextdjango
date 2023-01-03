@@ -35,6 +35,7 @@ const SubscriberRoute = ({ children }) => {
           setIsChecked(true);
         } else {
           setIsSubscriber(false);
+          setIsChecked(true);
         }
         dispatch(isLoaded());
       }
