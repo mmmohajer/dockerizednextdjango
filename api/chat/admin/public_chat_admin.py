@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 from django.core.cache import cache
 from django.db import models
 
-from websocket.models import PublicChatRoomModel, PublicChatRoomMessageModel
+from chat.models import PublicChatRoomModel, PublicChatRoomMessageModel
 
 
 class PublicChatRoomAdmin(admin.ModelAdmin):

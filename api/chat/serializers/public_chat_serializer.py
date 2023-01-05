@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from websocket.models import PublicChatRoomModel, PublicChatRoomMessageModel
+from chat.models import PublicChatRoomModel, PublicChatRoomMessageModel
 
 
 class PublicChatRoomSerializer(serializers.ModelSerializer):

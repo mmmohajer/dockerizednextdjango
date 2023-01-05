@@ -25,6 +25,7 @@ LOCAL_APPS = [
     'app',
     'like',
     'websocket',
+    'chat',
     'stripe_payment'
 ]
 

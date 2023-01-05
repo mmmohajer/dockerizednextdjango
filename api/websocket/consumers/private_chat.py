@@ -9,8 +9,8 @@ from urllib.parse import parse_qs
 import jwt
 
 from core.models import ProfileModel
-from websocket.models import PrivateChatRoomModel, PrivateChatRoomMessageModel
-from websocket.serializers import PrivateChatRoomSerializer, PrivateChatRoomMessageSerializer
+from chat.models import PrivateChatRoomModel, PrivateChatRoomMessageModel
+from chat.serializers import PrivateChatRoomSerializer, PrivateChatRoomMessageSerializer
 
 User = get_user_model()
 
@@ -29,7 +29,7 @@ class PrivateChatConsumer(AsyncJsonWebsocketConsumer):
             if self.current_profile:
                 await self.accept()
 
-    async def disconnect(self):
+    async def disconnect(self, code):
         try:
             if self.room:
                 await self.leave_room()

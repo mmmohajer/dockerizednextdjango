@@ -7,12 +7,17 @@ import { getLocalStorage, setLocalStorage, removeLocalStorage } from '@/utils/au
 import { authenticated, notAuthenticated } from '@/services/auth';
 import { getProfile } from '@/services/profile';
 import useApiCalls from '@/hooks/useApiCalls';
+import { setPublicChatSocket, setPrivateChatSocket } from '@/reducers/general/chatSocket';
 import { ACCESS_TOKEN_CHEANGE_TIME } from '@/constants/vars';
 import {
   REFRESH_TOKEN_API_ROUTE,
   MY_PROFILE_API_ROUTE,
-  AUTHENTICATE_USER_API_ROUTE
+  AUTHENTICATE_USER_API_ROUTE,
+  WEBSOCKET_CHAT_API_ROUTE,
+  WEBSOCKET_PRIVATE_CHAT_API_ROUTE
 } from '@/constants/apiRoutes';
+import { websocketApiRoute } from '@/utils/helpers';
+import { chatSocketEventHandler } from '@/utils/chatSocket';
 
 import Loading from '@/baseComponents/Loading';
 import Alert from '@/baseComponents/Alert';
@@ -25,6 +30,7 @@ const BaseTemplate = ({ children }) => {
   const loading = useSelector((state) => state.loading);
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
   const profile = useSelector((state) => state.profile);
+  const chatSocket = useSelector((state) => state.chatSocket);
 
   const [accessToken, setAccessToken] = useState('');
   const [refreshToken, setRefreshToken] = useState('');
@@ -95,6 +101,33 @@ const BaseTemplate = ({ children }) => {
       setAccessToken(refreshData['access']);
     }
   }, [refreshData]);
+
+  useEffect(() => {
+    if (chatSocket.usePublicChat && accessToken) {
+      const publicChatSocket = new WebSocket(
+        `${websocketApiRoute(WEBSOCKET_CHAT_API_ROUTE)}?token=${accessToken}`
+      );
+      dispatch(setPublicChatSocket(publicChatSocket));
+    }
+  }, [chatSocket.usePublicChat, accessToken]);
+
+  useEffect(() => {
+    if (chatSocket?.usePrivateChat && accessToken) {
+      const privateChatSocket = new WebSocket(
+        `${websocketApiRoute(WEBSOCKET_PRIVATE_CHAT_API_ROUTE)}?token=${refreshData['access']}`
+      );
+      dispatch(setPrivateChatSocket(privateChatSocket));
+    }
+  }, [chatSocket.usePrivateChat, accessToken]);
+
+  useEffect(() => {
+    if (chatSocket?.publicChatSocket) {
+      chatSocketEventHandler(chatSocket.publicChatSocket);
+    }
+    if (chatSocket?.privateChatSocket) {
+      chatSocketEventHandler(chatSocket.privateChatSocket);
+    }
+  }, [chatSocket]);
 
   useEffect(() => {
     if (repeatedRefreshData) {

@@ -7,6 +7,7 @@ import activeMenu from './general/activeMenu';
 import modalType from './general/modalType';
 import modalProps from './general/modalProps';
 import mobileNavIsActive from './general/mobileNavIsActive';
+import chatSocket from './general/chatSocket';
 
 import isAuthenticated from './apiCalls/isAuthenticated';
 import profile from './apiCalls/profile';
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   modalType,
   modalProps,
   mobileNavIsActive,
+  chatSocket,
   isAuthenticated,
   profile
 });

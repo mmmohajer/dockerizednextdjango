@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/', include('core.urls')),
     path('api/', include('stripe_payment.urls')),
     path('api/', include('like.urls')),
+    path('api/', include('chat.urls')),
     path('api/swagger/', schema_view),
 ]
 
