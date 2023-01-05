@@ -55,7 +55,7 @@ const slice = createSlice({
   initialState: {
     publicChatSocket: null,
     privateChatSocket: null,
-    usePublicChat: true,
+    usePublicChat: false,
     usePrivateChat: false
   },
   reducers: reducerObject
