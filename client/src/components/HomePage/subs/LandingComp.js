@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { Div, Row, Column, Triangle } from 'basedesign-iswad';
 
+import Icon from '@/baseComponents/Icon';
+
 import {
   LANDING_TRIANGLE_CSS_CONFIG,
   LANDING_TRIANGLE_CSS_CONTAINER_UID,
   ARRAY_OF_MY_SKILLS
 } from '../constants';
 import { textAnimator } from '../utils';
+
 import styles from '../HomePage.module.scss';
 
 const LandingComp = () => {
@@ -32,6 +35,9 @@ const LandingComp = () => {
                 containerUID={LANDING_TRIANGLE_CSS_CONTAINER_UID}
                 cssConfig={LANDING_TRIANGLE_CSS_CONFIG}
               />
+              <Div className={cx('pos-abs', styles.landingSectionArrowDownContainer)}>
+                <Icon type="arrow-down" color="white" />
+              </Div>
             </Div>
           </Column>
           <Column

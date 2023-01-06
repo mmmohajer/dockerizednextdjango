@@ -13,13 +13,6 @@
 .activeDesktopNavItem {
   color: $themeOne;
 }
-
-.mobileNavItem {
-  &:hover {
-    background-color: $themeFour;
-  }
-}
-
 .activeMobileNavItem {
   background-color: $themeOne !important;
 }

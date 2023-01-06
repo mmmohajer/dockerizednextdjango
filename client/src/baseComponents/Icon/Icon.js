@@ -21,7 +21,11 @@ import {
   faSearch,
   faMinus,
   faFileUpload,
-  faSave
+  faSave,
+  faArrowDown,
+  faEnvelope,
+  faPhone,
+  faLocationDot
 } from '@fortawesome/free-solid-svg-icons';
 
 import Dashboard from '@/images/js-Images/icons/svg/dashboard.svg';
@@ -91,6 +95,21 @@ function Icon({ type, color, width, scale, className, ...props }) {
     ),
     'file-upload': (
       <FontAwesomeIcon icon={faFileUpload} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'arrow-down': (
+      <FontAwesomeIcon icon={faArrowDown} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    envelope: (
+      <FontAwesomeIcon icon={faEnvelope} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'location-fill': (
+      <FontAwesomeIcon
+        icon={faLocationDot}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'phone-fill': (
+      <FontAwesomeIcon icon={faPhone} style={{ color, width, transform: `scale(${scale})` }} />
     ),
     save: <FontAwesomeIcon icon={faSave} style={{ color, width, transform: `scale(${scale})` }} />
   };

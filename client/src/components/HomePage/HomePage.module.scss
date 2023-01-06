@@ -5,6 +5,17 @@
   min-height: calc(100vh - $HeaderHeight);
 }
 
+@keyframes arrowDownMoveAnimation {
+  from {
+    top: 0;
+    transform: (translate(-50%, 0));
+  }
+  to {
+    top: 100%;
+    transform: (translate(-50%, -100%));
+  }
+}
+
 .landingSection {
   @extend %heightCalculator;
 
@@ -46,5 +57,13 @@
     @include atMedium {
       font-size: 2rem;
     }
+  }
+
+  &ArrowDownContainer {
+    left: 0;
+    top: 50%;
+    animation-name: arrowDownMoveAnimation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
   }
 }
