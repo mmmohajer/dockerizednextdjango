@@ -24,7 +24,7 @@ const PageContainer = ({ pageIdentifier, hasHeader = true, hasFooter = true, chi
       <Div className={cx('flex flex--dir--col min-height-vh-full flex--jc--between')}>
         <Div>
           {hasHeader && <Header />}
-          <Div type="flex" direction="vertical" className={cx('p2', styles.mainContainer)}>
+          <Div type="flex" direction="vertical" className={cx(styles.mainContainer)}>
             {children}
           </Div>
         </Div>

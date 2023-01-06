@@ -23,14 +23,14 @@ const MobileNav = () => {
       <MobNav
         type="flex"
         className={cx(
-          'w-px-300 text-center bgPrimary boxShadowType1 transition1 HeaderMobNavContainerZIndex'
+          'w-px-300 text-center bgThemeFour boxShadowType1 transition1 HeaderMobNavContainerZIndex'
         )}
         isActive={mobileNavIsActive}>
         {MENU_ITEMS?.map((item, idx) => (
           <Anchor href={item.to} key={idx} anchorType={0}>
             <MobNavItem
               isActive={activeMenu === item.identifier}
-              className="p2 mouse-hand textWhite hover-bg-themeThree boxShaodwType1"
+              className={cx('p2 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
               activeClassName={cx(styles.activeMobileNavItem)}
               onClick={() => {
                 dispatch(setActiveMenu(item.identifier));

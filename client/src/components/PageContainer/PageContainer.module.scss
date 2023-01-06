@@ -1,5 +1,10 @@
 @import '@/styles/base/_variables';
+@import '@/styles/base/_mixins';
 
 .mainContainer {
-  min-height: calc(100vh - $HeaderHeight - $footerHeight);
+  min-height: calc(100vh - $HeaderHeight - $footerHeightInMobile);
+
+  @include atMedium {
+    min-height: calc(100vh - $HeaderHeight - $footerHeightInDesktop);
+  }
 }

@@ -35,7 +35,7 @@ export const smDesignSize = ['xs', 'sm'];
 // ---------------------------------------------------------------------------
 
 export const COLORS = {
-  primary: '#0275d8',
+  primary: '#0a2647',
   faded: '#f7f7f7',
   info: '#5bc0de',
   inverse: '#292b2c',
@@ -44,10 +44,10 @@ export const COLORS = {
   danger: '#d9534f',
   grayBright: '#ebebeb',
   grayDark: '#777',
-  themeOne: '#d2e4ff',
-  themeTwo: '#4359d4',
-  themeThree: '#0c1261',
-  themeFour: '#f8986c'
+  themeOne: '#144272',
+  themeTwo: '#205295',
+  themeThree: '#2c74b3',
+  themeFour: '#5271ff'
 };
 
 // ---------------------------------------------------------------------------

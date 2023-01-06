@@ -1,3 +1,5 @@
+import { COLORS } from '@/constants/vars';
+
 export const HAMBURGER_CONFIG = {
   hamburgerMenuContainerBgColor: 'transparent',
   hamburgerMenuContainerBorder: 'none',
@@ -6,7 +8,7 @@ export const HAMBURGER_CONFIG = {
   hamburgerMenuMiddleWidth: 35,
   hamburgerMenuBottomWidth: 35,
   hamburgerMenuHeight: 4,
-  hamburgerMenuBgColor: 'white',
+  hamburgerMenuBgColor: COLORS.themeOne,
   hamburgerMenuSpace: 10,
   hamburgerMenuBorderRadius: 5,
   hamburgerMenuClosedIconWidth: 25,

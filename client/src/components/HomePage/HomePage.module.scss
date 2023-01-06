@@ -1,0 +1,50 @@
+@import '@/styles/base/_variables';
+@import '@/styles/base/_mixins';
+
+%heightCalculator {
+  min-height: calc(100vh - $HeaderHeight);
+}
+
+.landingSection {
+  @extend %heightCalculator;
+
+  &LeftSide {
+    @extend %heightCalculator;
+  }
+
+  &RightSide {
+    @extend %heightCalculator;
+  }
+
+  &TriangleContainer {
+    // @extend %heightCalculator;
+    right: -50px;
+    bottom: 70px;
+  }
+
+  &ContentContainer {
+    @extend %heightCalculator;
+  }
+
+  &Pen {
+    height: 30px;
+    width: 5px;
+    background-color: #ccc;
+  }
+
+  &NameContainer {
+    font-size: 2rem;
+
+    @include atMedium {
+      font-size: 4rem;
+    }
+  }
+
+  &SkillContainer {
+    font-size: 1rem;
+
+    @include atMedium {
+      font-size: 2rem;
+    }
+  }
+}
