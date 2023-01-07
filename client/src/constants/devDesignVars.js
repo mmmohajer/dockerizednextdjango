@@ -9,6 +9,7 @@ export const LIST_OF_ICONS = [
   'certificate',
   'check-mark',
   'close',
+  'css',
   'dashboard',
   'envelope',
   'eye',
@@ -16,10 +17,12 @@ export const LIST_OF_ICONS = [
   'flag',
   'image-upload',
   'instagram',
+  'java-script',
   'location',
   'location-fill',
   'mail',
   'minus',
+  'pdf-file',
   'person',
   'person-fill',
   'phone',
@@ -39,4 +42,4 @@ export const ALERT_TYPES = ['success', 'error', 'warning'];
 
 export const MODAL_TYPES = ['data_submitted_successfully'];
 
-export const CARD_TYPES = ['service', 'project'];
+export const CARD_TYPES = ['service', 'project', 'skill'];

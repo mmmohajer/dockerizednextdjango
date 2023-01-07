@@ -18,6 +18,7 @@ import {
 } from '@/constants/apiRoutes';
 import { websocketApiRoute } from '@/utils/helpers';
 import { chatSocketEventHandler } from '@/utils/chatSocket';
+import { setScrollPosition } from '@/reducers/general/scrollPosition';
 
 import Loading from '@/baseComponents/Loading';
 import Alert from '@/baseComponents/Alert';
@@ -38,6 +39,14 @@ const BaseTemplate = ({ children }) => {
   const [sendAuthenticatedReq, setSendAuthenticatedReq] = useState(false);
   const [sendrefreshTokenReq, setSendRefreshTokenReq] = useState(false);
   const [sendRepeatedrefreshTokenReq, setSendRepeatedRefreshTokenReq] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      setTimeout(() => {
+        dispatch(setScrollPosition(window.scrollY));
+      }, 200);
+    });
+  }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

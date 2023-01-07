@@ -17,18 +17,40 @@ function DisplayModals() {
         hAlign="center"
         vAlign="center"
         className={cx('p1 w-per-90 flex--wrap', styles.card)}>
-        {CARD_TYPES.map((item, idx) => (
-          <Div
-            key={idx}
-            direction="vertical"
-            type="flex"
-            hAlign="center"
-            vAlign="center"
-            className="mb4">
-            <Div className="mb1">Type: {item}</Div>
-            <Card type={item} />
-          </Div>
-        ))}
+        {CARD_TYPES.map((item, idx) => {
+          if (item === 'skill') {
+            return (
+              <Div
+                key={idx}
+                direction="vertical"
+                type="flex"
+                hAlign="center"
+                vAlign="center"
+                className="mb4">
+                <Div className="mb1">Type: {item}</Div>
+                <Card
+                  type={item}
+                  skill="React/Redux"
+                  proficiencyPercentage={80}
+                  yearsOfExperience={4}
+                />
+              </Div>
+            );
+          } else {
+            return (
+              <Div
+                key={idx}
+                direction="vertical"
+                type="flex"
+                hAlign="center"
+                vAlign="center"
+                className="mb4">
+                <Div className="mb1">Type: {item}</Div>
+                <Card type={item} />
+              </Div>
+            );
+          }
+        })}
       </Div>
     </>
   );

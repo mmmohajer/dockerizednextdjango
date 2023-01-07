@@ -10,6 +10,7 @@ import PersonalInfo from './PersonalInfo';
 import styles from '../HomePage.module.scss';
 
 import MyPhoto from '@/images/js-Images/general/me.jpg';
+import { COLORS } from '@/constants/vars';
 
 const AboutSection = () => {
   return (
@@ -20,13 +21,13 @@ const AboutSection = () => {
             <Image src={MyPhoto} objectFit="cover" />
           </Div>
         </Column>
-        <Column xs={12} sm={12} md={6} lg={6} className="p3">
+        <Column xs={12} sm={12} md={6} lg={6} className="pt3 pl3 pr3">
           <Div type="flex" direction="vertical" distributedBetween>
             <Div>
               <Heading type={2}>About Me</Heading>
               <Div className={cx('mt2')}>{ABOUT_ME(Paragraph)}</Div>
             </Div>
-            <Div>
+            <Div type="flex" direction="vertical" vAlign="eng" className="">
               <PersonalInfo />
             </Div>
           </Div>

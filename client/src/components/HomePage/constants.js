@@ -37,3 +37,27 @@ export const My_PERSONAL_INFO = [
   { iconType: 'phone-fill', value: '+1(226)977-0855' },
   { iconType: 'location-fill', value: 'Ottawa, ON, Canada' }
 ];
+
+export const TOP_SKILLS = [
+  {
+    skill: 'Front End Development',
+    proficiencyPercentage: 90,
+    yearsOfExperience: 4,
+    tools: 'Html5 | Css3 | JS | React | Redux | Nextjs',
+    progressBarUID: 'frontEndID'
+  },
+  {
+    skill: 'API Development',
+    proficiencyPercentage: 80,
+    yearsOfExperience: 2,
+    tools: 'Django Rest Framework | Flask | Nodejs',
+    progressBarUID: 'APIID'
+  },
+  {
+    skill: 'Data Analytics',
+    proficiencyPercentage: 65,
+    yearsOfExperience: 1.5,
+    tools: 'Numpy | Pandas | ScikitLearn | MatplotLib',
+    progressBarUID: 'AIUID'
+  }
+];
