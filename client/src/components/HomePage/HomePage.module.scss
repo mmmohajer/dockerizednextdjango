@@ -73,5 +73,13 @@
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1rem;
   justify-items: center;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.experienceContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  align-items: flex-start;
 }

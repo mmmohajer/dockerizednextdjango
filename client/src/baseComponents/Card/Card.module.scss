@@ -1,0 +1,17 @@
+.experienceDetailContainer {
+  max-height: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.experienceDetailContainerActive {
+  max-height: 1000px;
+}
+
+.otherSkillsContainer {
+  max-height: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.otherSkillsContainerActive {
+  max-height: 1000px;
+}

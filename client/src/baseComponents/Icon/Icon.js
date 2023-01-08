@@ -27,7 +27,9 @@ import {
   faEnvelope,
   faPhone,
   faLocationDot,
-  faFilePdf
+  faFilePdf,
+  faPlusCircle,
+  faMinusCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
@@ -124,6 +126,15 @@ function Icon({ type, color, width, scale, className, ...props }) {
     ),
     'pdf-file': (
       <FontAwesomeIcon icon={faFilePdf} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'plus-circle': (
+      <FontAwesomeIcon icon={faPlusCircle} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'minus-circle': (
+      <FontAwesomeIcon
+        icon={faMinusCircle}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
     ),
     'java-script': (
       <FontAwesomeIcon

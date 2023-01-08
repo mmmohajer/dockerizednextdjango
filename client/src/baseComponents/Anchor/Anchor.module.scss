@@ -7,6 +7,7 @@
 .anchor1 {
   text-decoration: underline;
   color: $themeOne;
+  cursor: pointer;
 
   &:hover {
     color: $themeFour;

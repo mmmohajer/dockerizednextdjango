@@ -1,5 +1,9 @@
 import { COLORS } from '@/constants/vars';
 
+import TroopLogo from '@/images/js-Images/general/troop.png';
+import ISWADLogo from '@/images/js-Images/general/iswad.png';
+import CanStartCoLogo from '@/images/js-Images/general/canstartco.jpeg';
+
 export const LANDING_TRIANGLE_CSS_CONFIG = {
   size: 50,
   color: COLORS.themeThree,
@@ -43,21 +47,81 @@ export const TOP_SKILLS = [
     skill: 'Front End Development',
     proficiencyPercentage: 90,
     yearsOfExperience: 4,
-    tools: 'Html5 | Css3 | JS | React | Redux | Nextjs',
+    listOfSkills: [
+      { title: 'Html', percentage: 85 },
+      { title: 'Sass & Css', percentage: 80 },
+      { title: 'Java Script', percentage: 75 },
+      { title: 'React & Redux', percentage: 80 },
+      { title: 'Next.js', percentage: 70 }
+    ],
     progressBarUID: 'frontEndID'
   },
   {
     skill: 'API Development',
     proficiencyPercentage: 80,
     yearsOfExperience: 2,
-    tools: 'Django Rest Framework | Flask | Nodejs',
+    listOfSkills: [
+      { title: 'Django Rest Framework', percentage: 80 },
+      { title: 'Flask Rest API', percentage: 75 },
+      { title: 'Node.js-Express', percentage: 65 },
+      { title: 'Postman', percentage: 85 }
+    ],
     progressBarUID: 'APIID'
   },
   {
     skill: 'Data Analytics',
     proficiencyPercentage: 65,
     yearsOfExperience: 1.5,
-    tools: 'Numpy | Pandas | ScikitLearn | MatplotLib',
+    listOfSkills: [
+      { title: 'Numpy', percentage: 70 },
+      { title: 'Pandas', percentage: 75 },
+      { title: 'scikit-learn', percentage: 50 },
+      { title: 'Matplotlib', percentage: 60 },
+      { title: 'seaborn', percentage: 75 }
+    ],
     progressBarUID: 'AIUID'
+  }
+];
+
+export const EXPERIENCE = [
+  {
+    logo: TroopLogo,
+    company: 'Troop Impact Inc.',
+    companyWebsite: 'https://hitroop.com',
+    role: 'Lead Software Developer',
+    detailsList: [
+      'Working as a full stack Django-react app developer in an agile environment',
+      'Development of a slack bot and integrate it via Troop App from scratch, in less than one month that could increase the participation rate of employees.',
+      'Constantly bug fixing and features improvement to the business/admin dashboard and making the dashboard looks much handier.',
+      'Leading some of sprint plan meeting and distributing tasks among all existing developers.',
+      'Stripe integration with Troop application for online purchases that could generate that could generate more revenues for business.',
+      'Management of JIRA tickets, creating some backlogs, and prioritizing tasks based on the performance and time needed to complete a task.'
+    ],
+    period: 'Dec 2021 - Current'
+  },
+  {
+    logo: ISWADLogo,
+    company: 'ISWAD Inc.',
+    companyWebsite: 'https://iswad.tech',
+    role: 'Founder',
+    detailsList: [
+      'Development of Robo-Reader application that will help users to find the most relevant information about any topics in a time-saving manner.',
+      'Development of a clean and highly scalable base design react repository that can be integrated with any new projects to make coding much faster. This repository consists of multiple reusable components that are fully flexible and can be easily modified project by project.',
+      'Development of a fully scalable dockerized react-django application that can help us to complete a project in a much faster way. This project is used as a fundamental platform for our team to work on any new projects and it is enormously help us to have the same language and same pattern on the development of a new feature.'
+    ],
+    period: 'Dec 2021 - Current'
+  },
+  {
+    logo: CanStartCoLogo,
+    company: 'Canada Startup Company',
+    companyWebsite: 'https://canstartco.com',
+    role: 'Junior Software Developer',
+    detailsList: [
+      'Development of well-written pieces of code in VSCode to build a MERN Stack application in an agile environment',
+      'Using react.js and Bootstrap to develop a fully responsive graphical user interface',
+      'Using asymmetric cryptographic algorithm for secure data transmission.',
+      'Development of third-party login/registration and using SendGrid SMTP services to send emails to the users.'
+    ],
+    period: 'Dec 2021 - Current'
   }
 ];

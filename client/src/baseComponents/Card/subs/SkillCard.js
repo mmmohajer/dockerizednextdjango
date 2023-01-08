@@ -5,6 +5,8 @@ import { Div, Card, CardHeader, CardBody, CardFooter, Heading } from 'basedesign
 import Image from 'next/image';
 
 import CircularProgressBar from '@/baseComponents/CircularProgressBar';
+import ProgressiveBar from '@/baseComponents/ProgressiveBar';
+import Icon from '@/baseComponents/Icon';
 
 import { COLORS } from '@/constants/vars';
 
@@ -15,38 +17,30 @@ const SkillCard = ({
   proficiencyPercentage,
   yearsOfExperience,
   progressBarUID,
-  tools = '',
+  listOfSkills,
   className,
   ...props
 }) => {
-  const scrollPosition = useSelector((state) => state.scrollPosition);
-  const barRef = useRef();
-
-  const [showAnimation, setShowAnimation] = useState(false);
-  const [skillPercentage, setSkillPercentage] = useState(0);
+  const [topSkills, setTopSkills] = useState([]);
+  const [otherSkills, setOtherSkills] = useState([]);
+  const [showOtherSkills, setShowOtherSkills] = useState(false);
 
   useEffect(() => {
-    if (barRef?.current) {
-      if (
-        barRef.current.getBoundingClientRect().bottom - window.innerHeight <= 0 &&
-        !showAnimation
-      ) {
-        setShowAnimation(true);
-      }
+    if (listOfSkills) {
+      setTopSkills(listOfSkills.slice(0, 3));
     }
-  }, [scrollPosition, barRef]);
+  }, [listOfSkills]);
 
   useEffect(() => {
-    if (skillPercentage < proficiencyPercentage && showAnimation) {
-      if (skillPercentage >= 10) {
-        setTimeout(() => {
-          setSkillPercentage(skillPercentage + 1);
-        }, 10);
-      } else {
-        setSkillPercentage(skillPercentage + 1);
-      }
+    if (showOtherSkills) {
+      setOtherSkills(listOfSkills.slice(3));
+    } else {
+      setTimeout(() => {
+        setOtherSkills([]);
+      }, 300);
     }
-  }, [skillPercentage, proficiencyPercentage, showAnimation]);
+  }, [listOfSkills, showOtherSkills]);
+
   return (
     <>
       <Card
@@ -57,20 +51,50 @@ const SkillCard = ({
             {skill}
           </Heading>
         </CardHeader>
-        <CardBody
-          className="w-per-100 flex flex--jc--center flex--ai--center flex--dir--col my2"
-          ref={(el) => (barRef.current = el)}>
+        <CardBody className="w-per-100 flex flex--jc--center flex--ai--center flex--dir--col my2">
           <CircularProgressBar
             outerCircleSize={140}
             innerCircleSize={125}
-            percentage={skillPercentage}
+            percentage={proficiencyPercentage}
             filledBgColor={COLORS.themeOne}
             emptyBgColor={COLORS.themeFour}
             containerUID={progressBarUID}
           />
-          <Div className="mt2 text-center">{tools}</Div>
+          <Div className="mt2 w-per-100">
+            {topSkills?.map((skill, idx) => (
+              <ProgressiveBar
+                key={idx}
+                percentage={skill.percentage}
+                title={skill.title}
+                className={'mb2'}
+              />
+            ))}
+            <Div
+              className={cx(
+                styles.otherSkillsContainer,
+                showOtherSkills && styles.otherSkillsContainerActive
+              )}>
+              {otherSkills?.map((skill, idx) => (
+                <ProgressiveBar
+                  key={idx}
+                  percentage={skill.percentage}
+                  title={skill.title}
+                  className={'mb2'}
+                />
+              ))}
+            </Div>
+            <Div type="flex" hAlign="center" className="">
+              <Div className="mouse-hand" onClick={() => setShowOtherSkills(!showOtherSkills)}>
+                <Icon
+                  type={showOtherSkills ? 'minus-circle' : 'plus-circle'}
+                  scale={1.5}
+                  color={COLORS.themeFour}
+                />
+              </Div>
+            </Div>
+          </Div>
         </CardBody>
-        <CardFooter className="p1 text-center">Years of Experience: {yearsOfExperience}</CardFooter>
+        <CardFooter className="py1 textBlack">Years of Experience: {yearsOfExperience}</CardFooter>
       </Card>
     </>
   );

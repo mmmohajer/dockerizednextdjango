@@ -22,11 +22,13 @@ export const LIST_OF_ICONS = [
   'location-fill',
   'mail',
   'minus',
+  'minus-circle',
   'pdf-file',
   'person',
   'person-fill',
   'phone',
   'phone-fill',
+  'plus-circle',
   'quoteLeft',
   'rotate',
   'save',
@@ -42,4 +44,4 @@ export const ALERT_TYPES = ['success', 'error', 'warning'];
 
 export const MODAL_TYPES = ['data_submitted_successfully'];
 
-export const CARD_TYPES = ['service', 'project', 'skill'];
+export const CARD_TYPES = ['service', 'project', 'skill', 'experience'];

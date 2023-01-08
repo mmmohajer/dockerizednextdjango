@@ -19,7 +19,7 @@ const SkillsSection = () => {
             proficiencyPercentage={skillObj.proficiencyPercentage}
             yearsOfExperience={skillObj.yearsOfExperience}
             progressBarUID={skillObj.progressBarUID}
-            tools={skillObj.tools}
+            listOfSkills={skillObj.listOfSkills}
             className="m2"
           />
         ))}
