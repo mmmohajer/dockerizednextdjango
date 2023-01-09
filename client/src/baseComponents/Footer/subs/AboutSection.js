@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 import { Div, Row, Column, Heading } from 'basedesign-iswad';
 
@@ -10,6 +10,7 @@ import { COLORS } from '@/constants/vars';
 import styles from '../Footer.module.scss';
 
 const AboutSection = () => {
+  const [activeSocialIcon, setActiveSocialIcon] = useState('');
   return (
     <>
       <Heading type={3} className="pt2">
@@ -25,8 +26,13 @@ const AboutSection = () => {
             type="flex"
             hAlign="center"
             vAlign="center"
-            className="mr2 br-rad-per-50 of-hidden w-px-40 height-px-40 bgRed boxShadowType1 bgThemeFive mouse-hand">
-            <Icon type="linkedin" scale={1.5} color={COLORS.themeOne} />
+            className={cx(
+              'br-rad-per-50 of-hidden w-px-40 height-px-40 mouse-hand',
+              activeSocialIcon === 'linkedin' && 'bgThemeOne'
+            )}
+            onMouseEnter={() => setActiveSocialIcon('linkedin')}
+            onMouseLeave={() => setActiveSocialIcon('')}>
+            <Icon type="linkedin" scale={1.5} color={'white'} />
           </Div>
         </Anchor>
         <Anchor to="https://www.instagram.com/mohammadmohajer7091/" internal={false}>
@@ -34,8 +40,13 @@ const AboutSection = () => {
             type="flex"
             hAlign="center"
             vAlign="center"
-            className="br-rad-per-50 of-hidden w-px-40 height-px-40 bgRed boxShadowType1 bgThemeFive mouse-hand">
-            <Icon type="instagram-fill" scale={1.5} color={COLORS.themeOne} />
+            className={cx(
+              'br-rad-per-50 of-hidden w-px-40 height-px-40 mouse-hand',
+              activeSocialIcon === 'instagram' && 'bgThemeOne'
+            )}
+            onMouseEnter={() => setActiveSocialIcon('instagram')}
+            onMouseLeave={() => setActiveSocialIcon('')}>
+            <Icon type="instagram-fill" scale={1.5} color={'white'} />
           </Div>
         </Anchor>
       </Div>

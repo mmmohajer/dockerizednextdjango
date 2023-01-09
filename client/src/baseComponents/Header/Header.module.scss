@@ -6,12 +6,12 @@
 
 .desktopNavItem {
   &:hover {
-    border-bottom: solid 1px $themeFour;
+    border-bottom: solid 1px $themeFive;
   }
 }
 
 .activeDesktopNavItem {
-  color: $themeOne;
+  color: $themeFive;
 }
 .activeMobileNavItem {
   background-color: $themeOne !important;

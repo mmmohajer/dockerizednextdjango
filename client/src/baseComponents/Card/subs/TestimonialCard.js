@@ -22,7 +22,7 @@ const TestimonialCard = ({ quote, photo, name, email, career, className, ...prop
         <CardHeader className="px2 my2 w-per-100">
           <Div type="flex" className="w-per-100">
             <Div>
-              <Icon type="quoteLeft" scale={1.5} color={'yellow'} />
+              <Icon type="quoteLeft" scale={1.5} color={'white'} />
             </Div>
           </Div>
         </CardHeader>

@@ -23,7 +23,7 @@ const DesktopNav = ({ changesThePage = true }) => {
               <Anchor href={item.to} key={idx} anchorType={0}>
                 <NavItem
                   isActive={activeMenu === item.identifier}
-                  className={cx('p1 mouse-hand textThemeFour', styles.desktopNavItem)}
+                  className={cx('p1 mouse-hand textWhite', styles.desktopNavItem)}
                   activeClassName={cx(styles.activeDesktopNavItem)}
                   onClick={() => dispatch(setActiveMenu(item.identifier))}>
                   {item.title}
@@ -34,7 +34,7 @@ const DesktopNav = ({ changesThePage = true }) => {
               <NavItem
                 key={idx}
                 isActive={activeMenu === item.identifier}
-                className={cx('p1 mouse-hand textThemeFour', styles.desktopNavItem)}
+                className={cx('p1 mouse-hand textWhite', styles.desktopNavItem)}
                 activeClassName={cx(styles.activeDesktopNavItem)}
                 onClick={() =>
                   homePageElements[item.identifier].scrollIntoView({

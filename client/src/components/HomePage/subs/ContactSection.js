@@ -24,12 +24,7 @@ const ContactSection = () => {
         <Column xs={0} sm={0} md={6} lg={6}>
           <Image src={ContactAnimation} />
         </Column>
-        <Column
-          xs={12}
-          sm={12}
-          md={6}
-          lg={6}
-          className={cx('bgGrayBright', styles.contactFormContainer)}>
+        <Column xs={12} sm={12} md={6} lg={6} className={cx('', styles.contactFormContainer)}>
           <Div type="flex" hAlign="center" vAlign="center" className="w-per-100">
             <Form
               className={cx('w-per-90 p2 br-rad-px-10')}
