@@ -5,7 +5,7 @@ git add .
 git commit -m "$commitMsg"
 git push origin master
 eval "$(ssh-agent -s)"
-ssh-add ../../.ssh/github_rsa
+ssh-add /Users/mohammadmohajer/Desktop/SoftwareDevelopment/personalprojects/myportfolio/web/.ssh/github_rsa
 local script=$( cat << EOF
 cd /var/www/app;
 git pull origin master;
