@@ -46,7 +46,7 @@ const HomePage = () => {
           contact: contactRef.current
         })
       );
-      if (aboutRef.current.getBoundingClientRect().top > 0) {
+      if (aboutRef.current.getBoundingClientRect().top - window.innerHeight > 0) {
         dispatch(setActiveMenu('home'));
       }
       if (

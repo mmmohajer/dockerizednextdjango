@@ -4,7 +4,7 @@ import MobileWebPhoto from '@/images/js-Images/general/mobile-web-app.jpg';
 import ApiPhoto from '@/images/js-Images/general/api.jpg';
 import DataPhoto from '@/images/js-Images/general/data-analytics.jpg';
 import TroopLogo from '@/images/js-Images/general/troop.png';
-import ISWADLogo from '@/images/js-Images/general/iswad.png';
+import ISWADLogo from '@/images/js-Images/general/ISWAD.png';
 import CanStartCoLogo from '@/images/js-Images/general/canstartco.jpeg';
 import BaseDesignProject from '@/images/js-Images/general/basedesign-project.jpg';
 import DockerizedProject from '@/images/js-Images/general/dockerized-project.jpg';
