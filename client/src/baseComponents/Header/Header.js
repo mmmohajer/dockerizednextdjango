@@ -15,7 +15,7 @@ import styles from './Header.module.scss';
 
 import Logo from '@/images/js-Images/general/Mohammad-colored-logo.png';
 
-const Header = () => {
+const Header = ({ hasStickyHeader, changesThePage = true }) => {
   const dispatch = useDispatch();
   const mobileNavIsActive = useSelector((state) => state.mobileNavIsActive);
 
@@ -32,12 +32,24 @@ const Header = () => {
         type="flex"
         distributedBetween
         vAlign="center"
-        className={cx('w-per-100 textWhite p2', styles.headerContainer)}>
-        <Div className="mouse-hand" onClick={() => Router.push('/')}>
+        className={cx(
+          'w-per-100 bgThemeSix p2',
+          hasStickyHeader && 'pos-fix pos-fix--lt headerZIndex',
+          styles.headerContainer
+        )}>
+        <Div
+          className="mouse-hand"
+          onClick={() => {
+            if (changesThePage) {
+              Router.push('/');
+            } else {
+              window.scrollTo(0, 0);
+            }
+          }}>
           <Image src={Logo} width={80} height={80} />
         </Div>
         <Div type="flex" showIn={lgDesignSize}>
-          <DesktopNav />
+          <DesktopNav changesThePage={changesThePage} />
         </Div>
         <Div type="flex" showIn={smDesignSize}>
           {showHamburgerIcon && (
@@ -49,7 +61,7 @@ const Header = () => {
               containerUID="HamburgerInHeaderID"
             />
           )}
-          <MobileNav />
+          <MobileNav changesThePage={changesThePage} />
         </Div>
       </Div>
     </>

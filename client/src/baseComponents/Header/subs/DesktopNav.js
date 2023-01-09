@@ -10,24 +10,42 @@ import Anchor from '@/baseComponents/Anchor';
 
 import styles from '../Header.module.scss';
 
-const DesktopNav = () => {
+const DesktopNav = ({ changesThePage = true }) => {
   const dispatch = useDispatch();
   const activeMenu = useSelector((state) => state.activeMenu);
+  const homePageElements = useSelector((state) => state.homePageElements);
 
   return (
     <>
       <NavBar type="flex" className={cx('text-center transition1 HeaderMobNavContainerZIndex')}>
-        {MENU_ITEMS?.map((item, idx) => (
-          <Anchor href={item.to} key={idx} anchorType={0}>
-            <NavItem
-              isActive={activeMenu === item.identifier}
-              className={cx('p1 mouse-hand textThemeFour', styles.desktopNavItem)}
-              activeClassName={cx(styles.activeDesktopNavItem)}
-              onClick={() => dispatch(setActiveMenu(item.identifier))}>
-              {item.title}
-            </NavItem>
-          </Anchor>
-        ))}
+        {changesThePage
+          ? MENU_ITEMS?.map((item, idx) => (
+              <Anchor href={item.to} key={idx} anchorType={0}>
+                <NavItem
+                  isActive={activeMenu === item.identifier}
+                  className={cx('p1 mouse-hand textThemeFour', styles.desktopNavItem)}
+                  activeClassName={cx(styles.activeDesktopNavItem)}
+                  onClick={() => dispatch(setActiveMenu(item.identifier))}>
+                  {item.title}
+                </NavItem>
+              </Anchor>
+            ))
+          : MENU_ITEMS?.map((item, idx) => (
+              <NavItem
+                key={idx}
+                isActive={activeMenu === item.identifier}
+                className={cx('p1 mouse-hand textThemeFour', styles.desktopNavItem)}
+                activeClassName={cx(styles.activeDesktopNavItem)}
+                onClick={() =>
+                  homePageElements[item.identifier].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'end',
+                    inline: 'nearest'
+                  })
+                }>
+                {item.title}
+              </NavItem>
+            ))}
       </NavBar>
     </>
   );

@@ -10,7 +10,14 @@ import Footer from '@/baseComponents/Footer';
 
 import styles from './PageContainer.module.scss';
 
-const PageContainer = ({ pageIdentifier, hasHeader = true, hasFooter = true, children }) => {
+const PageContainer = ({
+  pageIdentifier,
+  hasHeader = true,
+  hasFooter = true,
+  hasStickyHeader = false,
+  changesThePage = true,
+  children
+}) => {
   const dispatch = useDispatch();
   const headerRef = useRef();
   const footerRef = useRef();
@@ -24,8 +31,8 @@ const PageContainer = ({ pageIdentifier, hasHeader = true, hasFooter = true, chi
   }, [pageIdentifier]);
 
   useEffect(() => {
-    if (document?.querySelector('body')?.clientHeight) {
-      let bodyHeight = document.querySelector('body').clientHeight || 0;
+    if (window?.innerHeight) {
+      let bodyHeight = window.innerHeight || 0;
       if (headerRef?.current && footerRef?.current) {
         setMinHeight(
           bodyHeight - headerRef?.current?.clientHeight - footerRef?.current?.clientHeight
@@ -40,20 +47,16 @@ const PageContainer = ({ pageIdentifier, hasHeader = true, hasFooter = true, chi
     }
   }, [headerRef?.current?.clientHeight, footerRef?.current?.clientHeight]);
 
-  useEffect(() => {
-    console.log(minHeight);
-  }, [minHeight]);
-
   return (
     <>
       <Div className={cx('flex flex--dir--col min-height-vh-full flex--jc--between')}>
         <Div className="flex--gr--1">
           {hasHeader && (
             <Div ref={(el) => (headerRef.current = el)}>
-              <Header />
+              <Header hasStickyHeader={hasStickyHeader} changesThePage={changesThePage} />
             </Div>
           )}
-          <Div className={cx('')} style={{ minHeight }}>
+          <Div className={cx(hasStickyHeader && styles.mainContentContainer)} style={{ minHeight }}>
             {children}
           </Div>
         </Div>

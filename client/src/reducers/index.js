@@ -9,6 +9,7 @@ import modalProps from './general/modalProps';
 import mobileNavIsActive from './general/mobileNavIsActive';
 import chatSocket from './general/chatSocket';
 import scrollPosition from './general/scrollPosition';
+import homePageElements from './general/homePageElements';
 
 import isAuthenticated from './apiCalls/isAuthenticated';
 import profile from './apiCalls/profile';
@@ -23,6 +24,7 @@ const reducer = combineReducers({
   mobileNavIsActive,
   chatSocket,
   scrollPosition,
+  homePageElements,
   isAuthenticated,
   profile
 });

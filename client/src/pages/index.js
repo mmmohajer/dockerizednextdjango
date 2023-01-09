@@ -14,7 +14,7 @@ const Index = () => {
   return (
     <PublicRoute>
       <Seo title="Home | App">
-        <PageContainer pageIdentifier="home">
+        <PageContainer pageIdentifier="home" hasStickyHeader={true} changesThePage={false}>
           <HomePage />
           {/* <Div>Hello</Div> */}
           {/* <Logout /> */}
