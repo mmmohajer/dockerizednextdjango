@@ -1,8 +1,16 @@
 import { COLORS } from '@/constants/vars';
 
+import MobileWebPhoto from '@/images/js-Images/general/mobile-web-app.jpg';
+import ApiPhoto from '@/images/js-Images/general/api.jpg';
+import DataPhoto from '@/images/js-Images/general/data-analytics.jpg';
 import TroopLogo from '@/images/js-Images/general/troop.png';
 import ISWADLogo from '@/images/js-Images/general/iswad.png';
 import CanStartCoLogo from '@/images/js-Images/general/canstartco.jpeg';
+import BaseDesignProject from '@/images/js-Images/general/basedesign-project.jpg';
+import DockerizedProject from '@/images/js-Images/general/dockerized-project.jpg';
+import TroopProject from '@/images/js-Images/general/troop-project.jpg';
+import CryptoCheckProject from '@/images/js-Images/general/crypto-check-app.jpeg';
+import MyPhoto from '@/images/js-Images/general/myProfilePhoto.jpg';
 
 export const LANDING_TRIANGLE_CSS_CONFIG = {
   size: 50,
@@ -44,7 +52,8 @@ export const My_PERSONAL_INFO = [
 
 export const TOP_SKILLS = [
   {
-    skill: 'Front End Development',
+    photo: MobileWebPhoto,
+    skill: 'Web/Mobile App Development',
     proficiencyPercentage: 90,
     yearsOfExperience: 4,
     listOfSkills: [
@@ -57,6 +66,7 @@ export const TOP_SKILLS = [
     progressBarUID: 'frontEndID'
   },
   {
+    photo: ApiPhoto,
     skill: 'API Development',
     proficiencyPercentage: 80,
     yearsOfExperience: 2,
@@ -69,6 +79,7 @@ export const TOP_SKILLS = [
     progressBarUID: 'APIID'
   },
   {
+    photo: DataPhoto,
     skill: 'Data Analytics',
     proficiencyPercentage: 65,
     yearsOfExperience: 1.5,
@@ -103,7 +114,7 @@ export const EXPERIENCE = [
     logo: ISWADLogo,
     company: 'ISWAD Inc.',
     companyWebsite: 'https://iswad.tech',
-    role: 'Founder',
+    role: 'Principal CEO',
     detailsList: [
       'Development of Robo-Reader application that will help users to find the most relevant information about any topics in a time-saving manner.',
       'Development of a clean and highly scalable base design react repository that can be integrated with any new projects to make coding much faster. This repository consists of multiple reusable components that are fully flexible and can be easily modified project by project.',
@@ -123,5 +134,58 @@ export const EXPERIENCE = [
       'Development of third-party login/registration and using SendGrid SMTP services to send emails to the users.'
     ],
     period: 'Dec 2021 - Current'
+  }
+];
+
+export const PROJECTS = [
+  {
+    photo: BaseDesignProject,
+    title: 'Base Design',
+    codeLink: 'https://github.com/mmmohajer/baseDesign'
+  },
+  { photo: TroopProject, title: 'Troop', themeLink: 'https://app.hitroop.com/login' },
+  {
+    photo: DockerizedProject,
+    title: 'Automated Structure',
+    codeLink: 'https://github.com/mmmohajer/dockerizednextdjango'
+  },
+  { photo: CryptoCheckProject, title: 'Crypto Check', themeLink: 'https://canstartco.com/project' }
+];
+
+export const TESTIMONIALS = [
+  {
+    quote: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    photo: MyPhoto,
+    name: 'Mohammad Mohajer',
+    career: 'Software Developer',
+    email: 'mmmohajer70@gmail.com'
+  },
+  {
+    quote: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    photo: MyPhoto,
+    name: 'Mohammad Mohajer',
+    career: 'Software Developer',
+    email: 'mmmohajer70@gmail.com'
+  },
+  {
+    quote: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    photo: MyPhoto,
+    name: 'Mohammad Mohajer',
+    career: 'Software Developer',
+    email: 'mmmohajer70@gmail.com'
+  },
+  {
+    quote: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    photo: MyPhoto,
+    name: 'Mohammad Mohajer',
+    career: 'Software Developer',
+    email: 'mmmohajer70@gmail.com'
+  },
+  {
+    quote: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    photo: MyPhoto,
+    name: 'Mohammad Mohajer',
+    career: 'Software Developer',
+    email: 'mmmohajer70@gmail.com'
   }
 ];

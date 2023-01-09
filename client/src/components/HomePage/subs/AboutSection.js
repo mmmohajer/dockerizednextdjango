@@ -27,7 +27,7 @@ const AboutSection = () => {
               <Heading type={2}>About Me</Heading>
               <Div className={cx('mt2')}>{ABOUT_ME(Paragraph)}</Div>
             </Div>
-            <Div type="flex" direction="vertical" vAlign="eng" className="">
+            <Div type="flex" direction="vertical" vAlign="end" className="">
               <PersonalInfo />
             </Div>
           </Div>

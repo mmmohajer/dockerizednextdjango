@@ -18,6 +18,7 @@ export const LIST_OF_ICONS = [
   'image-upload',
   'instagram',
   'java-script',
+  'link',
   'location',
   'location-fill',
   'mail',
@@ -33,6 +34,7 @@ export const LIST_OF_ICONS = [
   'rotate',
   'save',
   'search',
+  'source-code',
   'youtube'
 ];
 
@@ -44,4 +46,4 @@ export const ALERT_TYPES = ['success', 'error', 'warning'];
 
 export const MODAL_TYPES = ['data_submitted_successfully'];
 
-export const CARD_TYPES = ['service', 'project', 'skill', 'experience'];
+export const CARD_TYPES = ['service', 'project', 'skill', 'experience', 'testimonial'];

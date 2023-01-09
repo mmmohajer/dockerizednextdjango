@@ -11,10 +11,11 @@ const SkillsSection = () => {
   return (
     <>
       <Div className={cx('px2', styles.topSkillsContainer)}>
-        {TOP_SKILLS.map((skillObj, idx) => (
+        {TOP_SKILLS?.map((skillObj, idx) => (
           <Card
             key={idx}
             type="skill"
+            photo={skillObj.photo}
             skill={skillObj.skill}
             proficiencyPercentage={skillObj.proficiencyPercentage}
             yearsOfExperience={skillObj.yearsOfExperience}

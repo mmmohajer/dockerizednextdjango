@@ -29,7 +29,9 @@ import {
   faLocationDot,
   faFilePdf,
   faPlusCircle,
-  faMinusCircle
+  faMinusCircle,
+  faCode,
+  faLink
 } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
@@ -45,7 +47,7 @@ import PersonFill from '@/images/js-Images/icons/svg/person-fill.svg';
 library.add(fab);
 
 import { LIST_OF_ICONS } from '@/constants/devDesignVars';
-function Icon({ type, color, width, scale, className, ...props }) {
+function Icon({ type, color, width, scale, isBlock = true, className, ...props }) {
   const [showIcon, setShowIcon] = useState(false);
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -136,6 +138,10 @@ function Icon({ type, color, width, scale, className, ...props }) {
         style={{ color, width, transform: `scale(${scale})` }}
       />
     ),
+    'source-code': (
+      <FontAwesomeIcon icon={faCode} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    link: <FontAwesomeIcon icon={faLink} style={{ color, width, transform: `scale(${scale})` }} />,
     'java-script': (
       <FontAwesomeIcon
         icon={['fab', 'fa-js']}
@@ -200,9 +206,12 @@ function Icon({ type, color, width, scale, className, ...props }) {
 
   return (
     <>
-      <Div type="flex" hAlign="center" vAlign="center" className={cx(className)} {...props}>
-        {showIcon && iconTypes[type]}
-      </Div>
+      {isBlock && (
+        <Div type="flex" hAlign="center" vAlign="center" className={cx(className)} {...props}>
+          {showIcon && iconTypes[type]}
+        </Div>
+      )}
+      {!isBlock && showIcon ? iconTypes[type] : ''}
     </>
   );
 }

@@ -13,6 +13,7 @@ import { COLORS } from '@/constants/vars';
 import styles from '../Card.module.scss';
 
 const SkillCard = ({
+  photo,
   skill,
   proficiencyPercentage,
   yearsOfExperience,
@@ -45,13 +46,12 @@ const SkillCard = ({
     <>
       <Card
         {...props}
-        className={cx('boxShadowType1 bgWhite br-rad-px-10 of-hidden p2 w-px-350', className)}>
+        className={cx('boxShadowType1 bgWhite br-rad-px-10 of-hidden w-px-350', className)}>
         <CardHeader className="">
-          <Heading type={3} className="text-center">
-            {skill}
-          </Heading>
+          <Image src={photo} width={350} height={200} />
+          <Div className="text-center p2 fs-px-24 f-b">{skill}</Div>
         </CardHeader>
-        <CardBody className="w-per-100 flex flex--jc--center flex--ai--center flex--dir--col my2">
+        <CardBody className="w-per-100 flex flex--jc--center flex--ai--center flex--dir--col my2 px2">
           <CircularProgressBar
             outerCircleSize={140}
             innerCircleSize={125}
@@ -94,7 +94,9 @@ const SkillCard = ({
             </Div>
           </Div>
         </CardBody>
-        <CardFooter className="py1 textBlack">Years of Experience: {yearsOfExperience}</CardFooter>
+        <CardFooter className="py1 textBlack p2">
+          Years of Experience: {yearsOfExperience}
+        </CardFooter>
       </Card>
     </>
   );

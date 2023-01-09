@@ -83,3 +83,18 @@
   justify-items: center;
   align-items: flex-start;
 }
+
+.projectsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  justify-items: center;
+  align-items: flex-start;
+}
+
+.projectCardItem {
+  margin-bottom: 1rem;
+
+  @include atMedium {
+    margin-bottom: 0;
+  }
+}

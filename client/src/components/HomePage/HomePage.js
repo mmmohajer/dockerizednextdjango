@@ -9,6 +9,8 @@ import LandingComp from './subs/LandingComp';
 import AboutSection from './subs/AboutSection';
 import SkillsSection from './subs/SkillsSection';
 import ExperienceSection from './subs/ExperienceSection';
+import ProjectSection from './subs/ProjectSection';
+import TestimonialSection from './subs/TestimonialSection';
 import styles from './HomePage.module.scss';
 
 const HomePage = () => {
@@ -28,6 +30,11 @@ const HomePage = () => {
       <SkillsSection />
       <SectionSeparator title="Experience" />
       <ExperienceSection />
+      <SectionSeparator title="Projects" />
+      <ProjectSection />
+      <SectionSeparator title="Testimonials" />
+      <TestimonialSection />
+      <SectionSeparator title="Contact" />
     </>
   );
 };
