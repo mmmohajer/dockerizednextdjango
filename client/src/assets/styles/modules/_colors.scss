@@ -42,6 +42,18 @@
   &ThemeFour {
     color: $themeFour;
   }
+
+  &ThemeFive {
+    color: $themeFive;
+  }
+
+  &grayBright {
+    color: $appGrayBrightColor;
+  }
+
+  &grayDark {
+    color: $appGrayDarkColor;
+  }
 }
 
 .bg {
@@ -87,5 +99,17 @@
 
   &ThemeFour {
     background-color: $themeFour;
+  }
+
+  &ThemeFive {
+    background-color: $themeFive;
+  }
+
+  &GrayBright {
+    background-color: $appGrayBrightColor;
+  }
+
+  &GrayDark {
+    background-color: $appGrayDarkColor;
   }
 }

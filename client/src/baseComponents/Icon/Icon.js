@@ -24,6 +24,9 @@ import {
   faFileUpload,
   faSave,
   faArrowDown,
+  faArrowLeft,
+  faArrowRight,
+  faArrowUp,
   faEnvelope,
   faPhone,
   faLocationDot,
@@ -114,6 +117,15 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
     'arrow-down': (
       <FontAwesomeIcon icon={faArrowDown} style={{ color, width, transform: `scale(${scale})` }} />
     ),
+    'arrow-left': (
+      <FontAwesomeIcon icon={faArrowLeft} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'arrow-right': (
+      <FontAwesomeIcon icon={faArrowRight} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'arrow-up': (
+      <FontAwesomeIcon icon={faArrowUp} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
     envelope: (
       <FontAwesomeIcon icon={faEnvelope} style={{ color, width, transform: `scale(${scale})` }} />
     ),
@@ -151,6 +163,18 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
     css: (
       <FontAwesomeIcon
         icon={['fab', 'fa-css3-alt']}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    linkedin: (
+      <FontAwesomeIcon
+        icon={['fab', 'fa-linkedin']}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'instagram-fill': (
+      <FontAwesomeIcon
+        icon={['fab', 'fa-square-instagram']}
         style={{ color, width, transform: `scale(${scale})` }}
       />
     ),

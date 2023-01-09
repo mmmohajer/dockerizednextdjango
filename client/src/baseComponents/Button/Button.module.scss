@@ -3,16 +3,16 @@
 .btn1 {
   outline: none;
   border: solid 1px;
-  border-radius: 10px;
+  border-radius: 4px;
   box-shadow: $boxShadow1;
   padding: 10px 1rem;
-  background-color: $primaryColor;
+  background-color: $themeOne;
   border-color: $primaryColor;
   color: white;
 
   &:hover {
-    background-color: $inverseColor;
-    border-color: $inverseColor;
+    background-color: $themeFour;
+    border-color: $themeFour;
   }
 }
 

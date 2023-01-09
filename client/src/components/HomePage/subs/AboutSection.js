@@ -4,9 +4,9 @@ import { Div, Row, Column, Heading } from 'basedesign-iswad';
 import Image from 'next/image';
 
 import Paragraph from '@/baseComponents/Paragraph';
+import PersonalInfo from '@/baseComponents/PersonalInfo';
 
 import { ABOUT_ME } from '../constants';
-import PersonalInfo from './PersonalInfo';
 import styles from '../HomePage.module.scss';
 
 import MyPhoto from '@/images/js-Images/general/me.jpg';

@@ -98,3 +98,14 @@
     margin-bottom: 0;
   }
 }
+
+.contactFormContainer {
+  font-size: 1.6rem;
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  border: 8px solid;
+  padding: 1rem;
+  border-width: 10px;
+  border-image: repeating-linear-gradient(45deg, rgb(127, 200, 236), rgb(73, 19, 199) 4%) 1;
+}

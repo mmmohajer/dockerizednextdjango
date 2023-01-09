@@ -11,6 +11,7 @@ import SkillsSection from './subs/SkillsSection';
 import ExperienceSection from './subs/ExperienceSection';
 import ProjectSection from './subs/ProjectSection';
 import TestimonialSection from './subs/TestimonialSection';
+import ContactSection from './subs/ContactSection';
 import styles from './HomePage.module.scss';
 
 const HomePage = () => {
@@ -34,7 +35,8 @@ const HomePage = () => {
       <ProjectSection />
       <SectionSeparator title="Testimonials" />
       <TestimonialSection />
-      <SectionSeparator title="Contact" />
+      <SectionSeparator title="Contact" hasMargin={false} />
+      <ContactSection />
     </>
   );
 };

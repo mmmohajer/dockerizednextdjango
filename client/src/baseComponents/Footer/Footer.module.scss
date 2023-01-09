@@ -1,18 +1,10 @@
 @import '@/styles/base/_variables';
 @import '@/styles/base/mixins';
 
-.footerContainer {
-  height: $footerHeightInMobile;
-
-  @include atMedium {
-    height: $footerHeightInDesktop;
-  }
-}
-
 .copyRightContainer {
-  height: $copyRightHeightInMobile;
+  height: 60px;
 
   @include atMedium {
-    height: $copyRightHeightInDesktop;
+    height: 40px;
   }
 }
