@@ -1,77 +1,117 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import cx from 'classnames';
 import { Div, Text as BaseText } from 'basedesign-iswad';
 
+import Icon from '@/baseComponents/Icon';
+
+import { COLORS } from '@/constants/vars';
+
 import styles from './Text.module.scss';
 
-const Text = ({ textMessage, className, summerized_max_length = 100, ...props }) => {
-  const [curText, setCurText] = useState('');
-  const [showAbstractText, setshowAbstractText] = useState(true);
-  const [displayShowMore, setDisplayShowMore] = useState(false);
-  const [displayShowLess, setDisplayShowLess] = useState(false);
-  const [noNeedToAbstract, setNoNeedToAbstract] = useState(false);
+const Text = ({
+  textMessage,
+  initialCount = 1,
+  countJump = 1,
+  initialTextContainerHeight = '100px',
+  iconColor = COLORS.themeFour,
+  className,
+  ...props
+}) => {
+  const textRef = useRef();
+
+  const [isTruncated, setIsTruncated] = useState(true);
+  const [mustBeTruncated, setMustBeTruncated] = useState(true);
+  const [arrayOfVocabs, setArrayOfVocabs] = useState([]);
+  const [count, setCount] = useState(initialCount);
+  const [shownText, setShownText] = useState('');
+  const [textContainerHeight, setTextContainerHeight] = useState(initialTextContainerHeight);
 
   useEffect(() => {
-    setCurText('');
-    setshowAbstractText(true);
-    setDisplayShowMore(false);
-    setDisplayShowLess(false);
-    setNoNeedToAbstract(false);
+    if (textMessage) {
+      setArrayOfVocabs(textMessage.split(' '));
+    }
   }, [textMessage]);
 
   useEffect(() => {
-    if (textMessage?.length <= summerized_max_length) {
-      setNoNeedToAbstract(true);
+    if (
+      count === arrayOfVocabs.length &&
+      textRef.current.scrollHeight <= textRef.current.clientHeight
+    ) {
+      setShownText(arrayOfVocabs.join(' '));
+      setMustBeTruncated(false);
     } else {
-      if (textMessage?.length > summerized_max_length) {
-        setDisplayShowMore(true);
-      }
-
-      if (textMessage?.length > summerized_max_length && showAbstractText) {
-        setCurText(textMessage.slice(0, summerized_max_length));
-      }
-
-      if (!showAbstractText) {
-        setCurText(textMessage.slice(0));
+      setShownText(arrayOfVocabs.slice(0, count).join(' '));
+      if (textRef.current.scrollHeight > textRef.current.clientHeight) {
+        setMustBeTruncated(true);
+        setShownText(arrayOfVocabs.slice(0, count - 2 * countJump).join(' '));
+        setIsTruncated(true);
+      } else {
+        if (count + countJump < arrayOfVocabs.length) {
+          setCount(count + countJump);
+        } else {
+          setCount(arrayOfVocabs.length);
+        }
       }
     }
-  }, [textMessage, showAbstractText]);
+  }, [arrayOfVocabs, count, textRef?.current?.clientWidth]);
+
+  useEffect(() => {
+    if (textRef?.current) {
+      if (textRef.current.scrollHeight > textRef.current.clientHeight) {
+        setIsTruncated(true);
+      }
+    }
+  }, [textRef?.current?.clientWidth]);
+
+  useEffect(() => {
+    if (isTruncated) {
+      setTextContainerHeight(initialTextContainerHeight);
+    } else {
+      setTextContainerHeight('100vh');
+    }
+  }, [isTruncated]);
 
   return (
     <>
-      {displayShowMore && showAbstractText ? (
-        <Div className={cx(styles.text, className)} {...props}>
-          {curText}
-          <BaseText
-            className="mouse-hand fs-px-12"
-            onClick={() => {
-              setshowAbstractText(false);
-              setDisplayShowLess(true);
-              setDisplayShowMore(false);
-            }}>
-            {'(+)'}
-          </BaseText>
-        </Div>
-      ) : (
-        ''
-      )}
-      {displayShowLess && !showAbstractText ? (
-        <Div className={cx(styles.text, className)} {...props}>
-          {curText}
-          <BaseText
-            className="mouse-hand fs-px-12"
-            onClick={() => {
-              setshowAbstractText(true);
-              setDisplayShowLess(false);
-              setDisplayShowMore(true);
-            }}>
-            {'(-)'}
-          </BaseText>
-        </Div>
-      ) : (
-        ''
-      )}
-      {noNeedToAbstract && <BaseText>{textMessage}</BaseText>}
+      <Div
+        ref={(el) => (textRef.current = el)}
+        style={{ maxHeight: textContainerHeight }}
+        className={cx('pos-rel w-per-100', styles.textContainer)}
+        {...props}>
+        {shownText}
+        {mustBeTruncated && isTruncated ? (
+          <>
+            ...{' '}
+            <span
+              className="mouse-hand w-px-20 height-px-20 ml1"
+              onClick={() => {
+                setIsTruncated(false);
+                setShownText(arrayOfVocabs.join(' '));
+              }}>
+              <Icon isBlock={false} type="plus-circle" color={iconColor} scale={1.2} />
+            </span>
+          </>
+        ) : (
+          ''
+        )}
+
+        {mustBeTruncated && !isTruncated ? (
+          <>
+            <span
+              className="mouse-hand ml1"
+              onClick={() => {
+                setIsTruncated(true);
+                setTimeout(() => {
+                  setShownText(arrayOfVocabs.slice(0, count - 2 * countJump).join(' '));
+                }, 100);
+              }}>
+              <Icon isBlock={false} type="minus-circle" color={iconColor} scale={1.2} />
+            </span>
+          </>
+        ) : (
+          ''
+        )}
+      </Div>
     </>
   );
 };

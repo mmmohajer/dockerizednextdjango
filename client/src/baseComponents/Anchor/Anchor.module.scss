@@ -6,10 +6,11 @@
 
 .anchor1 {
   text-decoration: underline;
-  color: blue;
+  color: $themeOne;
+  cursor: pointer;
 
   &:hover {
-    color: red;
+    color: $themeFour;
   }
 }
 

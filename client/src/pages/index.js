@@ -12,7 +12,7 @@ import styles from './index.module.scss';
 const Index = () => {
   return (
     <PublicRoute>
-      <Seo title="Home | App">
+      <Seo title="Mohammad Mohajer">
         <PageContainer pageIdentifier="home">
           <Div>Hello</Div>
           <Logout />

@@ -19,9 +19,10 @@ const Seo = ({ title, keywords, description, children }) => {
 };
 
 Seo.defaultProps = {
-  title: 'Pokemon App',
-  description: 'This app is designed by Mohammad Mohajer only for test purposes as an assessment',
-  keywords: 'Pokemon, Doctalk, Mohammad Mohajer, Assessment'
+  title: 'Mohammad Mohajer',
+  description: `A passionate software developer with a strong analytical mindset who really enjoys dealing with different challenges in the world of computer science and information technology.`,
+  keywords:
+    'Mohammad Mohajer, Mohammad Mahdi Mohajer, Software Developer, Full Stack Developer, MVP Developer, App Developer, Mobile App Developer, Web App Developer, Progressive App Developer, Machine Learning, Data Analysis, Data Analytics, Artificial Intelligence, ISWAD, AI'
 };
 
 export default Seo;

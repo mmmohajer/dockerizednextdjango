@@ -4,12 +4,15 @@
   height: $HeaderHeight;
 }
 
-.activeDesktopNavItem {
-  background-color: blue;
-  box-shadow: $boxShadow1;
+.desktopNavItem {
+  &:hover {
+    border-bottom: solid 1px $themeFour;
+  }
 }
 
+.activeDesktopNavItem {
+  color: $themeOne;
+}
 .activeMobileNavItem {
-  background-color: blue;
-  box-shadow: $boxShadow1;
+  background-color: $themeOne !important;
 }

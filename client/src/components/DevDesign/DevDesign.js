@@ -18,6 +18,7 @@ import DisplayText from './subs/DisplayText';
 import DisplayParagraph from './subs/DisplayParagraph';
 import DisplayDraggableFileUploader from './subs/DisplayDraggableFileUploader';
 import DisplayChart from './subs/DisplayChart';
+import DisplayList from './subs/DisplayList';
 
 import styles from './DevDesign.module.scss';
 
@@ -58,6 +59,8 @@ const DevDesign = () => {
       <DisplayParagraph />
       <Heading className="flex flex--jc--center flex--ai--center my1">Charts</Heading>
       <DisplayChart />
+      <Heading className="flex flex--jc--center flex--ai--center my1">List</Heading>
+      <DisplayList />
     </>
   );
 };

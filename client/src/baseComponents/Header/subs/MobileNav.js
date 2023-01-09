@@ -12,10 +12,11 @@ import AllPageClickable from '@/baseComponents/AllPageClickable';
 
 import styles from '../Header.module.scss';
 
-const MobileNav = () => {
+const MobileNav = ({ changesThePage = true }) => {
   const dispatch = useDispatch();
   const mobileNavIsActive = useSelector((state) => state.mobileNavIsActive);
   const activeMenu = useSelector((state) => state.activeMenu);
+  const homePageElements = useSelector((state) => state.homePageElements);
 
   return (
     <>
@@ -23,23 +24,41 @@ const MobileNav = () => {
       <MobNav
         type="flex"
         className={cx(
-          'w-px-300 text-center bgPrimary boxShadowType1 transition1 HeaderMobNavContainerZIndex'
+          'w-px-300 text-center bgThemeFour boxShadowType1 transition1 HeaderMobNavContainerZIndex'
         )}
         isActive={mobileNavIsActive}>
-        {MENU_ITEMS?.map((item, idx) => (
-          <Anchor href={item.to} key={idx} anchorType={0}>
-            <MobNavItem
-              isActive={activeMenu === item.identifier}
-              className="p2 mouse-hand textWhite hover-bg-themeThree boxShaodwType1"
-              activeClassName={cx(styles.activeMobileNavItem)}
-              onClick={() => {
-                dispatch(setActiveMenu(item.identifier));
-                dispatch(hideMobileNav());
-              }}>
-              {item.title}
-            </MobNavItem>
-          </Anchor>
-        ))}
+        {changesThePage
+          ? MENU_ITEMS?.map((item, idx) => (
+              <Anchor href={item.to} key={idx} anchorType={0}>
+                <MobNavItem
+                  isActive={activeMenu === item.identifier}
+                  className={cx('p2 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
+                  activeClassName={cx(styles.activeMobileNavItem)}
+                  onClick={() => {
+                    dispatch(setActiveMenu(item.identifier));
+                    dispatch(hideMobileNav());
+                  }}>
+                  {item.title}
+                </MobNavItem>
+              </Anchor>
+            ))
+          : MENU_ITEMS?.map((item, idx) => (
+              <MobNavItem
+                key={idx}
+                isActive={activeMenu === item.identifier}
+                className={cx('p2 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
+                activeClassName={cx(styles.activeMobileNavItem)}
+                onClick={() => {
+                  homePageElements[item.identifier].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'end',
+                    inline: 'nearest'
+                  });
+                  dispatch(hideMobileNav());
+                }}>
+                {item.title}
+              </MobNavItem>
+            ))}
       </MobNav>
     </>
   );

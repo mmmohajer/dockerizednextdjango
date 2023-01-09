@@ -125,13 +125,25 @@ So, you can run docker commands without the need of sudo <br>
 `sudo git config --global user.email "OWNER_OF_GITHUB_REPO_EMAIL"` <br>
 `git config --global user.email "OWNER_OF_GITHUB_REPO_EMAIL"` <br>
 
+Build a new pair of ssh keys for github access <br>
+`ssh-keygen -t rsa -b 4096 -C "Comment for the file"` <br>
+Copy the private key somewhere to your server (.ssh folder) <br>
+Add the public key to the github account <br>
+Add the following part to .ssh/config file in the server<br>
+
+`User GIT_USER_NAME` <br>
+`Hostname github.com` <br>
+`IdentityFile PATH_TO_KEY_FILE (Ex: ~/.ssh/github_rsa)` <br>
+
 **Clone the repo to server**
 `cd /var` <br>
 `mkdir www` <br>
 `cd www` <br>
 `mkdir app` <br>
+In order to change the owner of folder app and all its subfolders: <br>
+`chown -R USERNAME:GROUPNAME /PATH/TO/FILE`<br>
 `cd app` <br>
-`git clone REPO_URL` <br>
+`git clone SSH_REPO_URL .` <br>
 
 **Run Application**
 Create the following subfolders: <br>
