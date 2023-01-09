@@ -46,11 +46,11 @@ const HomePage = () => {
           contact: contactRef.current
         })
       );
-      if (aboutRef.current.getBoundingClientRect().top - window.innerHeight > 0) {
+      if (aboutRef.current.getBoundingClientRect().top - window.innerHeight === 0) {
         dispatch(setActiveMenu('home'));
       }
       if (
-        aboutRef.current.getBoundingClientRect().top - window.innerHeight <= 0 &&
+        aboutRef.current.getBoundingClientRect().top - window.innerHeight < 0 &&
         servicesRef?.current.getBoundingClientRect().top - window.innerHeight > 0
       ) {
         dispatch(setActiveMenu('about'));
