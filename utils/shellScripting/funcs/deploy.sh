@@ -9,10 +9,6 @@ ssh-add ../../.ssh/github_rsa
 local script=$( cat << EOF
 cd /var/www/app;
 git pull origin master;
-docker container rm -f $(docker container ls -a -q)
-docker image rm -f $(docker image ls -a -q)
-docker-compose -f docker-compose-prod-ssl.yml down;
-docker-compose -f docker-compose-prod-ssl.yml up --build -d;
 EOF
 )
 ssh $SERVER_ALIAS "$script" 
