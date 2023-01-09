@@ -53,7 +53,7 @@ export const My_PERSONAL_INFO = [
 export const TOP_SKILLS = [
   {
     photo: MobileWebPhoto,
-    skill: 'Web/Mobile App Development',
+    skill: 'App Development',
     proficiencyPercentage: 90,
     yearsOfExperience: 4,
     listOfSkills: [
