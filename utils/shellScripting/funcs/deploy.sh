@@ -4,9 +4,9 @@ buildClient
 git add .
 git commit -m "$commitMsg"
 git push origin master
-local script=$( cat << EOF
 eval "$(ssh-agent -s)"
-ssh-add ~/github_rsa
+ssh-add ../../.ssh/github_rsa
+local script=$( cat << EOF
 cd /var/www/app;
 git pull origin master;
 docker container rm -f $(docker container ls -a -q)
