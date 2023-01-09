@@ -130,7 +130,10 @@ So, you can run docker commands without the need of sudo <br>
 `mkdir www` <br>
 `cd www` <br>
 `mkdir app` <br>
+In order to change the owner of folder app and all its subfolders: <br>
+`chown -R USERNAME:GROUPNAME /PATH/TO/FILE`<br>
 `cd app` <br>
+View this instruction to clone the git repository: `https://www.linkedin.com/pulse/how-fix-githubs-support-password-authentication-removed-chapuma/` <br>
 `git clone REPO_URL` <br>
 
 **Run Application**
