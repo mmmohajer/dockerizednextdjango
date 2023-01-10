@@ -171,4 +171,11 @@ Run `docker image rm -f $(docker image ls -a -q)` <br>
 Run `docker volume prune` <br>
 Then go to nginx folder and change ownership of certbot folder and all its subfolders to USER_NAME:docker `chown -R USER_NAME:docker certbot` <br>
 Now everything is ready for your app to be served: <br>
-Run `docker-compose -f docker-compose-prod-ssl.yml up --build -d`
+Run `docker-compose -f docker-compose-prod-ssl.yml up --build -d` <br>
+
+In order to automatcally renew ssl certificate add the followings to crontab:
+`sudo crontab -e` <br>
+
+`0 0 1 * * /var/www/app/init-letsencrypt.sh` <br>
+`0 0 15 * * /var/www/app/init-letsencrypt.sh` <br>
+`0 1 * * * chown -R USERNAME:docker /var/www/app/nginx/certbot`<br>
