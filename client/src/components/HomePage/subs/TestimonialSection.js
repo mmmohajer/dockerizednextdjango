@@ -33,8 +33,7 @@ const TestimonialSection = () => {
 
   return (
     <>
-      <Div
-        className={cx('w-per-100 ml-auto mr-auto p2 boxShadowType1', styles.testimonialContainer)}>
+      <Div className={cx('w-per-100 ml-auto mr-auto py2', styles.testimonialContainer)}>
         <LimitedSwipableSlider
           moveRight={moveRight}
           setMoveRight={setMoveRight}

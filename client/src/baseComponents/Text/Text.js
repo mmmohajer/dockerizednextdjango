@@ -76,14 +76,14 @@ const Text = ({
       <Div
         ref={(el) => (textRef.current = el)}
         style={{ maxHeight: textContainerHeight }}
-        className={cx('pos-rel w-per-100', styles.textContainer)}
+        className={cx('pos-rel w-per-100', styles.textContainer, className)}
         {...props}>
         {shownText}
         {mustBeTruncated && isTruncated ? (
           <>
             ...{' '}
             <span
-              className="mouse-hand w-px-20 height-px-20 ml1"
+              className="mouse-hand w-px-20 height-px-20 ml1 mr1"
               onClick={() => {
                 setIsTruncated(false);
                 setShownText(arrayOfVocabs.join(' '));

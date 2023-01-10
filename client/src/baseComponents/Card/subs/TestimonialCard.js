@@ -16,22 +16,24 @@ const TestimonialCard = ({ quote, photo, name, email, career, className, ...prop
       <Card
         {...props}
         className={cx(
-          'boxShadowType1 w-per-100 bgThemeThree textWhite br-rad-px-10 of-y-hidden of-x-hidden',
+          'boxShadowType1 w-per-100 bgThemeThree br-rad-px-10 of-y-hidden of-x-hidden',
+          styles.testimonialCardContainer,
           className
         )}>
         <CardHeader className="px2 my2 w-per-100">
           <Div type="flex" className="w-per-100">
             <Div>
-              <Icon type="quoteLeft" scale={1.5} color={'white'} />
+              <Icon type="quoteLeft" scale={1.5} color={COLORS.themeOne} />
             </Div>
           </Div>
         </CardHeader>
         <CardBody className="px2 w-per-100">
           <Text
             textMessage={quote}
-            iconColor="white"
+            iconColor={COLORS.themeOne}
             initialTextContainerHeight="100px"
             countJump={1}
+            className="z-100000"
           />
         </CardBody>
         <CardFooter className="px2 my2">
