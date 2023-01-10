@@ -13,7 +13,7 @@ const ContactSection = () => {
         <Heading type={3} className="pt2">
           Have a Question?
         </Heading>
-        <PersonalInfo />
+        <PersonalInfo isInFooter={true} />
       </Div>
     </>
   );

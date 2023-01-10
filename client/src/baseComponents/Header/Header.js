@@ -13,7 +13,7 @@ import DesktopNav from './subs/DesktopNav';
 import MobileNav from './subs/MobileNav';
 import styles from './Header.module.scss';
 
-import Logo from '@/images/js-Images/general/Mohammad-colored-logo.png';
+import Logo from '@/images/js-Images/general/Mohammad-white-logo.png';
 
 const Header = ({ hasStickyHeader, changesThePage = true }) => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const Header = ({ hasStickyHeader, changesThePage = true }) => {
         distributedBetween
         vAlign="center"
         className={cx(
-          'w-per-100 bgThemeSix p2',
+          'w-per-100 bgThemeOne p2',
           hasStickyHeader && 'pos-fix pos-fix--lt headerZIndex',
           styles.headerContainer
         )}>

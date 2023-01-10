@@ -51,8 +51,13 @@
 
 %inputField {
   border: none;
-  box-shadow: $boxShadow1;
-  border: solid 1px $appGrayBrightColor;
+  // box-shadow: $boxShadow1;
+  border: solid 2px $themeFive;
+  border-radius: 5px;
+
+  &:focus {
+    border: solid 2px $themeOne;
+  }
 
   &Container {
     position: relative;

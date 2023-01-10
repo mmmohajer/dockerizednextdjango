@@ -10,7 +10,7 @@ import { COLORS } from '@/constants/vars';
 import { My_PERSONAL_INFO } from './constants';
 import styles from './PersonalInfo.module.scss';
 
-const PersonalInfo = (isInFooter = false) => {
+const PersonalInfo = ({ isInFooter = false }) => {
   const [pdfIconColor, setPdfIconColor] = useState(COLORS.themeOne);
 
   return (

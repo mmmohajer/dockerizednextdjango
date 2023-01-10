@@ -11,12 +11,16 @@ data_path="./nginx/certbot"
 email="mmmohajer70@gmail.com" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
-if [ -d "$data_path" ]; then
-  read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
-  if [ "$decision" != "Y" ] && [ "$decision" != "y" ]; then
-    exit
-  fi
-fi
+# This section is used to get confirmation before replacing new certificates
+# You can uncomment the below part if you want to have this confimation being asked
+# ------------------------------------------------
+# if [ -d "$data_path" ]; then
+#   read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
+#   if [ "$decision" != "Y" ] && [ "$decision" != "y" ]; then
+#     exit
+#   fi
+# fi
+# ------------------------------------------------
 
 
 if [ ! -e "$data_path/conf/options-ssl-nginx.conf" ] || [ ! -e "$data_path/conf/ssl-dhparams.pem" ]; then
