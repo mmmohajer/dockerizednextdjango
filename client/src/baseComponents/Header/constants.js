@@ -8,7 +8,7 @@ export const HAMBURGER_CONFIG = {
   hamburgerMenuMiddleWidth: 35,
   hamburgerMenuBottomWidth: 35,
   hamburgerMenuHeight: 4,
-  hamburgerMenuBgColor: COLORS.themeOne,
+  hamburgerMenuBgColor: 'white',
   hamburgerMenuSpace: 10,
   hamburgerMenuBorderRadius: 5,
   hamburgerMenuClosedIconWidth: 25,
