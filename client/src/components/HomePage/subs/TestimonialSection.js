@@ -44,7 +44,8 @@ const TestimonialSection = () => {
           transitionDuration={0.25}
           transition_timing_function="ease-in"
           sliderContainerWidthMultiplier={4.5}
-          containerUID="testsample">
+          containerUID="testsample"
+          isVerticallyCenterAligned={false}>
           {TESTIMONIALS?.map((testimonialObj, idx, row) => (
             <LimitedSwipableSliderItem key={idx} className={cx('w-per-100 mr1')}>
               <Div className="w-per-100">
