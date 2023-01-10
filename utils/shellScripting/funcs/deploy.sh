@@ -29,6 +29,7 @@ docker container rm -f $(docker container ls -a -q)
 docker image rm -f $(docker image ls -a -q)
 docker-compose -f docker-compose-prod-ssl.yml down;
 docker-compose -f docker-compose-prod-ssl.yml up --build -d;
+docker volume prune -f
 EOF
 )
 ssh $SERVER_ALIAS "$script" 
