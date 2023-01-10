@@ -74,6 +74,9 @@
   gap: 1rem;
   justify-items: center;
   align-items: flex-start;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .experienceContainer {
@@ -82,6 +85,9 @@
   gap: 1rem;
   justify-items: center;
   align-items: flex-start;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projectsContainer {
@@ -97,6 +103,15 @@
   @include atMedium {
     margin-bottom: 0;
   }
+}
+
+.testimonialContainer {
+  max-width: 800px;
+  margin-bottom: 1rem;
+  background-color: $themeFive;
+  border: 8px solid;
+  border-width: 3px;
+  border-image: repeating-linear-gradient(45deg, rgb(127, 200, 236), rgb(73, 19, 199) 4%) 1;
 }
 
 // .contactFormContainer {
