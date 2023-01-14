@@ -31,7 +31,7 @@ class CreateStripeCustomerViewSet(views.APIView):
                     stripe_customer_qs[0].stripe_customer_id)
             return response.Response(status=status.HTTP_200_OK, data={"payload": current_customer})
         except Exception as e:
-            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Product id is a required field"})
+            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": str(e)})
 
 
 class RetrieveStripeCustomerViewSet(views.APIView):

@@ -1,0 +1,15 @@
+@import '@/styles/base/_variables';
+
+.modalContainer {
+  border-width: 10px;
+  border: 8px solid;
+  border-image: repeating-linear-gradient(45deg, $themeOne, $themeFour 4%) 1;
+  max-height: 90vh;
+  width: 90%;
+  min-width: 350px;
+  max-width: 700px;
+}
+
+.writeTestimonialContainer {
+  max-height: 90vh;
+}

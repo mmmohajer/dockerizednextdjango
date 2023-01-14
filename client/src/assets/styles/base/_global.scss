@@ -71,3 +71,10 @@ ul {
 .tranistion1 {
   transition: $transition1;
 }
+
+.noTransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}

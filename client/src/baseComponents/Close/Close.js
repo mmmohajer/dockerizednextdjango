@@ -4,19 +4,33 @@ import { Div } from 'basedesign-iswad';
 
 import Icon from '@/baseComponents/Icon';
 
+import { COLORS } from '@/constants/vars';
+
 import styles from './Close.module.scss';
 
-const Close = ({ className, ...props }) => {
+const Close = ({ type = 1, className, ...props }) => {
   return (
     <>
-      <Div
-        type="flex"
-        hAlign="center"
-        vAlign="center"
-        className={cx('pos-abs mouse-hand w-px-20 height-px-20', styles.close, className)}
-        {...props}>
-        <Icon type="close" />
-      </Div>
+      {type === 1 && (
+        <Div
+          type="flex"
+          hAlign="center"
+          vAlign="center"
+          className={cx('pos-abs mouse-hand br-rad-per-50', styles.close, className)}
+          {...props}>
+          <Icon type="close" scale={0.6} color={COLORS.themeOne} />
+        </Div>
+      )}
+      {type === 2 && (
+        <Div
+          type="flex"
+          hAlign="center"
+          vAlign="center"
+          className={cx('pos-abs mouse-hand br-rad-per-50', styles.close2, className)}
+          {...props}>
+          <Icon type="close" scale={0.5} color={COLORS.themeOne} />
+        </Div>
+      )}
     </>
   );
 };

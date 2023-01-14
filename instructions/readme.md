@@ -176,6 +176,5 @@ Run `docker-compose -f docker-compose-prod-ssl.yml up --build -d` <br>
 In order to automatcally renew ssl certificate add the followings to crontab:
 `sudo crontab -e` <br>
 
-`0 0 1 * * /var/www/app/init-letsencrypt.sh` <br>
-`0 0 15 * * /var/www/app/init-letsencrypt.sh` <br>
-`0 1 * * * chown -R USERNAME:docker /var/www/app/nginx/certbot`<br>
+`0 0 1 * * /var/www/app/init-letsencrypt.sh && chown -R USERNAME:docker /var/www/app/nginx/certbot && echo -e "SSL certicate upadted successfully on: \t $(date) \n" >> /home/USER_NAME/cron_commands_logs` <br>
+`0 0 15 * * /var/www/app/init-letsencrypt.sh && chown -R USERNAME:docker /var/www/app/nginx/certbot && echo -e "SSL certicate upadted successfully on: \t $(date) \n" >> /home/USER_NAME/cron_commands_logs` <br>

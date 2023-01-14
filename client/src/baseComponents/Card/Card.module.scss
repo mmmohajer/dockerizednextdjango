@@ -1,4 +1,5 @@
 @import '@/styles/base/_variables';
+@import '@/styles/base/mixins';
 
 .experienceDetailContainer {
   max-height: 0;
@@ -47,6 +48,11 @@
 }
 
 .testimonialCardContainer {
+  width: 300px;
+
+  @include atMedium {
+    width: 500px;
+  }
   background-color: $themeFive;
   border: solid 5vmin #eee;
   border-bottom-color: #fff;
@@ -58,8 +64,8 @@
   box-sizing: border-box;
   // display: inline-block;
   // margin: 10vh 10vw;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
   margin-bottom: 1rem;
   // padding: 8vmin;
   position: relative;
@@ -84,4 +90,22 @@
     right: -2.5vmin;
     top: -2.5vmin;
   }
+}
+
+@keyframes draggableAnimation {
+  from {
+    top: 0;
+    transform: (rotate(-30deg));
+  }
+  to {
+    top: 100%;
+    transform: (rotate(30deg));
+  }
+}
+
+.draggableIcon {
+  animation-name: draggableAnimation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }

@@ -14,10 +14,12 @@ export const LIST_OF_ICONS = [
   'close',
   'css',
   'dashboard',
+  'drag',
   'envelope',
   'eye',
   'file-upload',
   'flag',
+  'hand-pointer',
   'image-upload',
   'instagram',
   'instagram-fill',
@@ -49,6 +51,6 @@ export const BUTTON_TYPES = [1, 2, 3];
 
 export const ALERT_TYPES = ['success', 'error', 'warning'];
 
-export const MODAL_TYPES = ['data_submitted_successfully'];
+export const MODAL_TYPES = ['data_submitted_successfully', 'write_testimonial'];
 
 export const CARD_TYPES = ['service', 'project', 'skill', 'experience', 'testimonial'];

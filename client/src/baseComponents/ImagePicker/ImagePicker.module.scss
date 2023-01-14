@@ -24,15 +24,21 @@
 
 .imagePreviewContainer {
   box-shadow: $boxShadow1;
-  padding: 1rem;
+  // padding: 1rem;
   background-color: white;
   overflow: hidden;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 
   & img {
     border-radius: 10px;
   }
+}
+
+.previewerContainer {
+  border: dotted 1px $themeOne;
+  border-radius: 5px;
 }
 
 .cropperContainer {

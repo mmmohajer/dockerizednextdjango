@@ -9,6 +9,7 @@ const Scroll = ({
   SCROLLABLE_CONTENT_ID,
   containerClassName,
   scrollContainerClassName,
+  scrollClassName,
   scrollAxis = 'x',
   children,
   ...props
@@ -18,10 +19,10 @@ const Scroll = ({
       <BaseScroll
         containerClassName={containerClassName}
         scrollContainerClassName={cx(
-          'of-x-hidden of-y-hidden br-rad-px-10 bgInverse my1',
+          'of-x-hidden of-y-hidden br-rad-px-5 bgThemeFour',
           scrollContainerClassName
         )}
-        scrollClassName="bgThemeOne height-px-20 br-rad-px-10"
+        scrollClassName={cx('bgThemeOne br-rad-px-5', scrollClassName)}
         scrollableElementId={SCROLLABLE_ELEMENT_ID}
         scrollableContentId={SCROLLABLE_CONTENT_ID}
         scrollAxis={scrollAxis}

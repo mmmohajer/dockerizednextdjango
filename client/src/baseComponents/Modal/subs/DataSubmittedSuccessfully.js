@@ -16,7 +16,7 @@ const DataSubmittedSuccessfully = () => {
   return (
     <>
       <Div type="flex" direction="vertical" hAlign="start" className="">
-        <Close onClick={() => dispatch(clearModalType())} />
+        <Close onClick={() => clearModal(dispatch)} />
         <Div className="mb2">Your data has been submitted successfully!</Div>
         <Div>
           <Button className={'w-px-100'} onClick={() => clearModal(dispatch)}>

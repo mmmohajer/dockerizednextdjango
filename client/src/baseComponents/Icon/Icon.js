@@ -34,7 +34,8 @@ import {
   faPlusCircle,
   faMinusCircle,
   faCode,
-  faLink
+  faLink,
+  faHandPointer
 } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
@@ -46,6 +47,7 @@ import Mail from '@/images/js-Images/icons/svg/mail.svg';
 import Youtube from '@/images/js-Images/icons/svg/youtube.svg';
 import Person from '@/images/js-Images/icons/svg/person.svg';
 import PersonFill from '@/images/js-Images/icons/svg/person-fill.svg';
+import Drag from '@/images/js-Images/icons/svg/drag.svg';
 
 library.add(fab);
 
@@ -141,6 +143,12 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
     'pdf-file': (
       <FontAwesomeIcon icon={faFilePdf} style={{ color, width, transform: `scale(${scale})` }} />
     ),
+    'hand-pointer': (
+      <FontAwesomeIcon
+        icon={faHandPointer}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
     'plus-circle': (
       <FontAwesomeIcon icon={faPlusCircle} style={{ color, width, transform: `scale(${scale})` }} />
     ),
@@ -227,6 +235,8 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
   iconTypes['person-fill'] = (
     <PersonFill fill={color} stroke={color} style={{ transform: `scale(${scale})` }} />
   );
+
+  iconTypes['drag'] = <Drag fill={color} stroke={color} style={{ transform: `scale(${scale})` }} />;
 
   return (
     <>

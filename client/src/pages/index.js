@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <PublicRoute>
       <Seo title="Mohammad Mohajer">
-        <PageContainer pageIdentifier="home">
+        <PageContainer pageIdentifier="home" hasStickyHeader={true} changesThePage={false}>
           <Div>Hello</Div>
           <Logout />
         </PageContainer>

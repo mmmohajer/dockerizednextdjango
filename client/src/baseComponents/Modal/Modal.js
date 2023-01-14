@@ -3,8 +3,10 @@ import cx from 'classnames';
 import { useSelector } from 'react-redux';
 import { Div, Modal as BaseModal } from 'basedesign-iswad';
 
-import DataSubmittedSuccessfully from './subs/DataSubmittedSuccessfully';
+import Scroll from '@/baseComponents/Scroll';
 
+import DataSubmittedSuccessfully from './subs/DataSubmittedSuccessfully';
+import WriteTestimonial from './subs/WriteTestimonial';
 import styles from './Modal.module.scss';
 
 const Modal = () => {
@@ -17,9 +19,19 @@ const Modal = () => {
         <BaseModal
           fullHeightclassName="op-50 bgBlack ModalMainClickableZIndex"
           className={cx(
-            'pos-rel baxShadowType1 bgWhite p2 w-per-80 min-w-px-300 max-w-px-600 br-all-solid-1 br-rad-px-10 br-color-inverse ModalContainerZIndex'
+            'pos-rel baxShadowType1 bgWhite p2 br-all-solid-1 br-rad-px-10 br-color-inverse ModalContainerZIndex'
           )}>
           <DataSubmittedSuccessfully {...modalProps} />
+        </BaseModal>
+      )}
+      {modalType === 'write_testimonial' && (
+        <BaseModal
+          fullHeightclassName="op-50 bgBlack ModalMainClickableZIndex"
+          className={cx(
+            'pos-rel bgWhite p2 w-per-80 min-w-px-300 max-w-px-600 ModalContainerZIndex of-y-auto scrollType1',
+            styles.modalContainer
+          )}>
+          <WriteTestimonial {...modalProps} />
         </BaseModal>
       )}
     </>

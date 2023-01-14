@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
-import { Div, Image } from 'basedesign-iswad';
+import { Div } from 'basedesign-iswad';
+import Image from 'next/image';
 
 import Close from '@/baseComponents/Close';
 
@@ -14,9 +15,16 @@ const ImagePreview = ({ src, setFile, setSrc, setFileName, inputFileField }) => 
           type="flex"
           hAlign="center"
           vAlign="center"
-          className={cx('ml1 pos-rel mouse-hand', styles.imagePreviewContainer)}>
-          <Image src={src} height={20} className="max-height-px-70 max-w-px-70" />
+          className={cx('pos-rel w-px-100 height-px-100 ml1', styles.previewerContainer)}>
+          <Div
+            type="flex"
+            hAlign="center"
+            vAlign="center"
+            className={cx('ml1 pos-rel mouse-hand of-hidden', styles.imagePreviewContainer)}>
+            <Image width={60} height={60} src={src} objectFit="cover" />
+          </Div>
           <Close
+            type={2}
             className=""
             onClick={() => {
               setFile('');
