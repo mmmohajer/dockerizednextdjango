@@ -1,15 +1,36 @@
 @import '@/styles/base/_variables';
 
+$closeContainerHeight: 50px;
+
 .modalContainer {
-  border-width: 10px;
-  border: 8px solid;
-  border-image: repeating-linear-gradient(45deg, $themeOne, $themeFour 4%) 1;
-  max-height: 90vh;
-  width: 90%;
-  min-width: 350px;
+  // border: solid 3px $themeFour;
+  // border-top: none;
   max-width: 700px;
+  min-width: 350px;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.closeContainer {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: $closeContainerHeight;
+}
+
+.mainContentContainer {
+  max-height: calc(90vh - $closeContainerHeight);
 }
 
 .writeTestimonialContainer {
   max-height: 90vh;
 }
+
+// .celeberationBg {
+//   background-image: url('../../assets/images/js-Images/general/celeberation.png');
+//   filter: blur(1px);
+//   -webkit-filter: blur(1px);
+//   height: 100%;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
