@@ -8,8 +8,6 @@ import Close from '@/baseComponents/Close';
 import { clearModal } from '@/utils/modal';
 
 import DataSubmittedSuccessfully from './subs/DataSubmittedSuccessfully';
-import WriteTestimonial from './subs/WriteTestimonial';
-import ContactFormSentSuccessfully from './subs/ContactFormSentSuccessfully';
 import { HAS_CCELEBERATION_BG_TYPES } from './constans';
 import styles from './Modal.module.scss';
 
@@ -44,8 +42,6 @@ const Modal = () => {
               {modalType === 'data_submitted_successfully' && (
                 <DataSubmittedSuccessfully {...modalProps} />
               )}
-              {modalType === 'write_testimonial' && <WriteTestimonial {...modalProps} />}
-              {modalType === 'contact_form_sent' && <ContactFormSentSuccessfully {...modalProps} />}
             </Div>
           </Div>
         </BaseModal>
