@@ -37,7 +37,8 @@ import {
   faLink,
   faHandPointer
 } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faSquareInstagram, faJs, faCss3Alt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+// import { far } from '@fortawesome/free-regular-svg-icons';
 
 import Dashboard from '@/images/js-Images/icons/svg/dashboard.svg';
 import Instagram from '@/images/js-Images/icons/svg/instagram.svg';
@@ -49,7 +50,7 @@ import Person from '@/images/js-Images/icons/svg/person.svg';
 import PersonFill from '@/images/js-Images/icons/svg/person-fill.svg';
 import Drag from '@/images/js-Images/icons/svg/drag.svg';
 
-library.add(fab);
+// library.add(fab);
 
 import { LIST_OF_ICONS } from '@/constants/devDesignVars';
 function Icon({ type, color, width, scale, isBlock = true, className, ...props }) {
@@ -163,26 +164,17 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
     ),
     link: <FontAwesomeIcon icon={faLink} style={{ color, width, transform: `scale(${scale})` }} />,
     'java-script': (
-      <FontAwesomeIcon
-        icon={['fab', 'fa-js']}
-        style={{ color, width, transform: `scale(${scale})` }}
-      />
+      <FontAwesomeIcon icon={faJs} style={{ color, width, transform: `scale(${scale})` }} />
     ),
     css: (
-      <FontAwesomeIcon
-        icon={['fab', 'fa-css3-alt']}
-        style={{ color, width, transform: `scale(${scale})` }}
-      />
+      <FontAwesomeIcon icon={faCss3Alt} style={{ color, width, transform: `scale(${scale})` }} />
     ),
     linkedin: (
-      <FontAwesomeIcon
-        icon={['fab', 'fa-linkedin']}
-        style={{ color, width, transform: `scale(${scale})` }}
-      />
+      <FontAwesomeIcon icon={faLinkedin} style={{ color, width, transform: `scale(${scale})` }} />
     ),
     'instagram-fill': (
       <FontAwesomeIcon
-        icon={['fab', 'fa-square-instagram']}
+        icon={faSquareInstagram}
         style={{ color, width, transform: `scale(${scale})` }}
       />
     ),
