@@ -162,7 +162,7 @@ Create following subfolders: <br>
 Add A records to the DNS settings of relevant domain pointing to the server IP address. <br>
 **Note: www also must be referring to the server ip address** <br>
 And then change domains and email in `init-letsencrypt.sh` <br>
-Then run `./init-letsencrypt.sh` <br>
+Then run `sudo ./init-letsencrypt.sh` <br>
 
 Now your app is ready to be run on server:
 To do so, first clear all volumes, images, and containersof docker, useing the following 3 commands: <br>
@@ -176,5 +176,5 @@ Run `docker-compose -f docker-compose-prod-ssl.yml up --build -d` <br>
 In order to automatcally renew ssl certificate add the followings to crontab:
 `sudo crontab -e` <br>
 
-`0 0 1 * * /var/www/app/init-letsencrypt.sh && chown -R USERNAME:docker /var/www/app/nginx/certbot && echo -e "SSL certicate upadted successfully on: \t $(date) \n" >> /home/USER_NAME/cron_commands_logs` <br>
-`0 0 15 * * /var/www/app/init-letsencrypt.sh && chown -R USERNAME:docker /var/www/app/nginx/certbot && echo -e "SSL certicate upadted successfully on: \t $(date) \n" >> /home/USER_NAME/cron_commands_logs` <br>
+`0 0 1 * * /var/www/app/init-letsencrypt.sh` <br>
+`0 0 15 * * /var/www/app/init-letsencrypt.sh` <br>
