@@ -142,6 +142,8 @@ Add the following part to .ssh/config file in the server<br>
 `mkdir app` <br>
 In order to change the owner of folder app and all its subfolders: <br>
 `chown -R USERNAME:GROUPNAME /PATH/TO/FILE`<br>
+Here we have: <br>
+`sudo chown USERNAME:USERNAME /var/www/app`
 `cd app` <br>
 `git clone SSH_REPO_URL .` <br>
 
