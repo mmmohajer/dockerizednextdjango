@@ -8,6 +8,8 @@ Setup:
 
    1. Got to **root folder** and run `./automation.sh` in terminal<br>
    2. Choose Option `1` --> `Make initial setup on Mac/Linux`<br>
+   3. Go to nginx folder and run --> `htpasswd -c htpasswd user` <br>
+      Choose `password` as the password of this user
 
    - SETUP ON WINDOWS:
 
