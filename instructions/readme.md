@@ -24,6 +24,8 @@ Currently that non-root user login works good, we can setup public/private key
 authentication to the system instead of password login. <br>
 
 So, in your local system <br>
+`mkdir .ssh` <br>
+`cd .ssh` <br>
 
 1. `ssh-keygen -t rsa -b 4096 -C "Comment for the file"` --> In order to create public and private keys <br>
 2. Copy the public key file to your server:
