@@ -29,7 +29,7 @@ So, in your local system <br>
 
 1. `ssh-keygen -t rsa -b 4096 -C "Comment for the file"` --> In order to create public and private keys <br>
 2. Copy the public key file to your server:
-   scp `.ssh/PUB_SSH_KEY_NAME.pub USER_NAME@IP_ADDRESS:/home/USER_NAME`
+   `scp .ssh/PUB_SSH_KEY_NAME.pub USER_NAME@IP_ADDRESS:/home/USER_NAME`
 3. Login to the server with the usename credentials: <br>
    Inside the server: `mv PUB_SSH_KEY_NAME.pub authorized_keys` --> change the name of the pub key file in the server to authorized_keys
 4. `mkdir .ssh` --> Create .ssh folder under user directory <br>
