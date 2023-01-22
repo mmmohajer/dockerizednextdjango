@@ -19,6 +19,7 @@ import DisplayParagraph from './subs/DisplayParagraph';
 import DisplayDraggableFileUploader from './subs/DisplayDraggableFileUploader';
 import DisplayChart from './subs/DisplayChart';
 import DisplayList from './subs/DisplayList';
+import DisplayEmailTemplates from './subs/DisplayEmailTemplates';
 
 import styles from './DevDesign.module.scss';
 
@@ -61,6 +62,8 @@ const DevDesign = () => {
       <DisplayChart />
       <Heading className="flex flex--jc--center flex--ai--center my1">List</Heading>
       <DisplayList />
+      <Heading className="flex flex--jc--center flex--ai--center my1">Email Templates</Heading>
+      <DisplayEmailTemplates />
     </>
   );
 };

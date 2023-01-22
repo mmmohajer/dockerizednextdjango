@@ -76,9 +76,7 @@ Then, you can simply login with the following command: <br>
 `sudo ufw allow http` --> Open http port or `sudp ufw allow 80` <br>
 `sudo ufw allow https` --> Open https port or `sudp ufw allow 443` <br>
 For our app: <br>
-`sudo ufw allow 5555` --> Celery flower port <br>
 `sudo ufw allow 5432` --> DB port<br>
-`sudo ufw allow 8001` --> Websockets port<br>
 `sudo ufw enable` --> Enable all firewall rules <br>
 `sudo reboot` --> Reboot the server <br>
 
@@ -153,6 +151,12 @@ Copy all the environment variables in server: <br>
 `./automation.sh` --> 7 <br>
 Run `nano .env` --> change .env variables <br>
 Also change the redis password in `redis/redis.conf` file. Seach for `requirepass` and then determine the password for it. Also, in django env variables, you must set the exact same value for `REDIS_USER_PASS` <br>
+Then run `sudo apt-get install apache2-utils` <br>
+Then go to folder nginx <br>
+`cd nginx` <br>
+and run <br>  
+`htpasswd -c htpasswd CELERY_FLOWER_USER` <br>
+Then use `CELERY_FLOWER_PASSWORD` you defined in the env variables. <br>
 Then you need to add ssl config to your domain, so take the following steps: <br>
 
 Create following subfolders: <br>

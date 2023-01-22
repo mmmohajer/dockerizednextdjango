@@ -4,6 +4,7 @@ import ReactCrop from 'react-image-crop';
 import { Div, Image as BaseImage } from 'basedesign-iswad';
 
 import Button from '@/baseComponents/Button';
+import Close from '@/baseComponents/Close';
 
 import 'react-image-crop/dist/ReactCrop.css';
 
@@ -23,6 +24,7 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
   const [crop, setCrop] = useState();
   const [widthScale, setWidthScale] = useState(1);
   const [heightScale, setHeightScale] = useState(1);
+  const [showSubmit, setShowSubmit] = useState(false);
 
   const doCrop = () => {
     return new Promise(function (resolve, reject) {
@@ -39,10 +41,12 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
 
   const cropHandler = (e) => {
     e.preventDefault();
-    doCrop().then(() => {
-      setFile(getCroppedImg(setSrc, fileName));
-      setShowCropper(false);
-    });
+    if (crop?.width) {
+      doCrop().then(() => {
+        setFile(getCroppedImg(setSrc, fileName));
+        setShowCropper(false);
+      });
+    }
   };
 
   const getScaledVal = () => {
@@ -69,26 +73,57 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
         hAlign="center"
         vAlign="center"
         className={cx(
-          'pos-fix pos-fix--center p2 bgWhite ImagePickerCropperContainerZIndex',
+          'pos-fix pos-fix--center bgWhite z-100000 br-rad-px-10',
           styles.cropperContainer
         )}
         id={CROPPER_ID}>
-        <ReactCrop
-          aspect={aspect}
-          minWidth={minWidth * widthScale}
-          minHeight={minHeight * heightScale}
-          maxWidth={maxWidth * widthScale}
-          maxHeight={maxHeight * heightScale}
-          crop={crop}
-          onChange={(c) => setCrop(c)}
-          className={styles.reactCropper}>
+        <Close barHeight="30px" onClick={() => setShowCropper(false)} />
+        {showSubmit && (
+          <ReactCrop
+            aspect={aspect}
+            minWidth={minWidth * widthScale}
+            minHeight={minHeight * heightScale}
+            maxWidth={maxWidth * widthScale}
+            maxHeight={maxHeight * heightScale}
+            crop={crop}
+            onChange={(c) => {
+              setCrop(c);
+            }}
+            className={styles.reactCropper}>
+            <Div type="flex" hAlign="center" vAlign="center" className={cx(styles.cropper)}>
+              <BaseImage src={src} id={IMAGE_CROPPER_ID} />
+            </Div>
+          </ReactCrop>
+        )}
+        {!showSubmit && (
           <Div type="flex" hAlign="center" vAlign="center" className={cx(styles.cropper)}>
             <BaseImage src={src} id={IMAGE_CROPPER_ID} />
           </Div>
-        </ReactCrop>
+        )}
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">
-          <Button onClick={cropHandler}>Crop Image</Button>
-          <Div className={cx('ImagePickerCanvasContainerZIndex', styles.canvasContainer)}>
+          {!showSubmit && (
+            <Button
+              className={cx('mb2')}
+              onClick={(e) => {
+                e.preventDefault();
+                setCrop({
+                  width: minWidth,
+                  height: minWidth / aspect,
+                  x: 0,
+                  y: 0,
+                  unit: 'px'
+                });
+                setShowSubmit(true);
+              }}>
+              Crop
+            </Button>
+          )}
+          {showSubmit && (
+            <Button isDisabled={!crop?.width} className={cx('mb2')} onClick={cropHandler}>
+              Submit
+            </Button>
+          )}
+          <Div className={cx(styles.canvasContainer)}>
             <canvas id={CANVAS_ID} className=""></canvas>
           </Div>
         </Div>

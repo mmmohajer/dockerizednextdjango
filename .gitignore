@@ -257,3 +257,5 @@ nginx/certbot
 sudoPassword.txt
 
 redis.conf
+
+nginx/htpasswd

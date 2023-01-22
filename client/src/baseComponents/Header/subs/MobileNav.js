@@ -6,6 +6,7 @@ import { Div, MobNav, MobNavItem } from 'basedesign-iswad';
 import { MENU_ITEMS } from '@/constants/menuItems';
 import { setActiveMenu } from '@/reducers/general/activeMenu';
 import { hideMobileNav } from '@/reducers/general/mobileNavIsActive';
+import { AUTO_SCROLL_BEHAVIOR } from '@/constants/vars';
 
 import Anchor from '@/baseComponents/Anchor';
 import AllPageClickable from '@/baseComponents/AllPageClickable';
@@ -49,11 +50,7 @@ const MobileNav = ({ changesThePage = true }) => {
                 className={cx('p2 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
                 activeClassName={cx(styles.activeMobileNavItem)}
                 onClick={() => {
-                  homePageElements[item.identifier].scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'end',
-                    inline: 'nearest'
-                  });
+                  homePageElements[item.identifier].scrollIntoView(AUTO_SCROLL_BEHAVIOR);
                   dispatch(hideMobileNav());
                 }}>
                 {item.title}

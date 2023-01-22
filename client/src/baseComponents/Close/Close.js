@@ -8,27 +8,37 @@ import { COLORS } from '@/constants/vars';
 
 import styles from './Close.module.scss';
 
-const Close = ({ type = 1, className, ...props }) => {
+const Close = ({
+  type = 1,
+  barColor = COLORS.themeThree,
+  iconColor = 'white',
+  iconBgColor = COLORS.danger,
+  barHeight = '50px',
+  iconScale = 0.6,
+  iconCircleSize = 20,
+  className,
+  ...props
+}) => {
   return (
     <>
       {type === 1 && (
         <Div
-          type="flex"
-          hAlign="center"
-          vAlign="center"
-          className={cx('pos-abs mouse-hand br-rad-per-50', styles.close, className)}
-          {...props}>
-          <Icon type="close" scale={0.6} color={COLORS.themeOne} />
-        </Div>
-      )}
-      {type === 2 && (
-        <Div
-          type="flex"
-          hAlign="center"
-          vAlign="center"
-          className={cx('pos-abs mouse-hand br-rad-per-50', styles.close2, className)}
-          {...props}>
-          <Icon type="close" scale={0.5} color={COLORS.themeOne} />
+          className={cx('pos-rel w-per-100')}
+          style={{ backgroundColor: barColor, height: barHeight }}>
+          <Div
+            type="flex"
+            hAlign="center"
+            vAlign="center"
+            className={cx('pos-abs mouse-hand br-rad-per-50', styles.close, className)}
+            style={{
+              backgroundColor: iconBgColor,
+              width: iconCircleSize,
+              height: iconCircleSize,
+              borderColor: iconBgColor
+            }}
+            {...props}>
+            <Icon type="close" scale={iconScale} color={iconColor} />
+          </Div>
         </Div>
       )}
     </>

@@ -1,5 +1,13 @@
 @import '@/styles/base/_variables';
 
+.disableBtn {
+  padding: 10px 1rem;
+  background-color: #ccc;
+  outline: none;
+  border: solid 1px #ccc;
+  color: white;
+}
+
 .btn1 {
   outline: none;
   border: solid 1px;

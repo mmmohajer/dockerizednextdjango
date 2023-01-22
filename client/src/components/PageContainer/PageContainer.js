@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import cx from 'classnames';
 import { useDispatch } from 'react-redux';
 import { Div } from 'basedesign-iswad';
+import Script from 'next/script';
 
 import { setActiveMenu } from '@/reducers/general/activeMenu';
 
@@ -9,6 +10,7 @@ import Header from '@/baseComponents/Header';
 import Footer from '@/baseComponents/Footer';
 
 import styles from './PageContainer.module.scss';
+import { USE_GOOGLE_ANALYTICS, GOOGLE_ANALYTICS_ID } from 'config';
 
 const PageContainer = ({
   pageIdentifier,
@@ -49,6 +51,24 @@ const PageContainer = ({
 
   return (
     <>
+      {USE_GOOGLE_ANALYTICS && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${GOOGLE_ANALYTICS_ID}');
+        `}
+          </Script>
+        </>
+      )}
+
       <Div className={cx('flex flex--dir--col min-height-vh-full flex--jc--between')}>
         <Div className="flex--gr--1">
           {hasHeader && (

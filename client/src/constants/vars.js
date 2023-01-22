@@ -9,6 +9,13 @@ export const TOKEN_SPACE_WORD = 'JWT';
 
 export const AUTOMATIC_REMOVE_ALERT_TIME_IN_SECONDS = 10;
 
+export const AUTO_SCROLL_BEHAVIOR = {
+  behavior: 'smooth',
+  block: 'start',
+  inline: 'nearest',
+  alignToTop: true
+};
+
 // ------------------------- Google Auth -------------------------
 const GOOGLE_AUTH_BASE_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
 export const GOOGLE_AUTH_SCOPE_PROFILE_URL = 'https://www.googleapis.com/auth/userinfo.profile';

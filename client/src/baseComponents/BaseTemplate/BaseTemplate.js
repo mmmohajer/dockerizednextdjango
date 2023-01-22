@@ -112,6 +112,14 @@ const BaseTemplate = ({ children }) => {
   }, [refreshData]);
 
   useEffect(() => {
+    if (refreshError) {
+      console.log('Hello');
+      removeLocalStorage('access_token');
+      removeLocalStorage('refresh_token');
+    }
+  }, [refreshError]);
+
+  useEffect(() => {
     if (chatSocket.usePublicChat && accessToken) {
       const publicChatSocket = new WebSocket(
         `${websocketApiRoute(WEBSOCKET_CHAT_API_ROUTE)}?token=${accessToken}`

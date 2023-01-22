@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { Div, Card, CardHeader, CardBody, CardFooter, Heading } from 'basedesign-iswad';
-import Image from 'next/image';
 
+import AppImage from '@/baseComponents/AppImage';
 import Anchor from '@/baseComponents/Anchor';
 import Paragraph from '@/baseComponents/Paragraph';
 import List from '@/baseComponents/List';
@@ -41,9 +41,9 @@ const ExperienceCard = ({
           'boxShadowType1 bgWhite br-rad-px-10 of-y-hidden of-x-hidden w-px-350',
           className
         )}>
-        <CardHeader className="p1">
-          <Div type="flex" hAlign="center" className="height-px-200">
-            <Image src={logo} objectFit="cover" height={200} width={200} />
+        <CardHeader className="pb1">
+          <Div type="flex" hAlign="center" className="height-px-200 pos-rel">
+            <AppImage src={logo} objectFit="cover" height={200} width={200} />
           </Div>
         </CardHeader>
         <CardBody className="px2">

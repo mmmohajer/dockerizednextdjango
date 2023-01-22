@@ -5,6 +5,7 @@ import { Div, NavBar, NavItem } from 'basedesign-iswad';
 
 import { MENU_ITEMS } from '@/constants/menuItems';
 import { setActiveMenu } from '@/reducers/general/activeMenu';
+import { AUTO_SCROLL_BEHAVIOR } from '@/constants/vars';
 
 import Anchor from '@/baseComponents/Anchor';
 
@@ -37,11 +38,7 @@ const DesktopNav = ({ changesThePage = true }) => {
                 className={cx('p1 mouse-hand textWhite', styles.desktopNavItem)}
                 activeClassName={cx(styles.activeDesktopNavItem)}
                 onClick={() =>
-                  homePageElements[item.identifier].scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'end',
-                    inline: 'nearest'
-                  })
+                  homePageElements[item.identifier].scrollIntoView(AUTO_SCROLL_BEHAVIOR)
                 }>
                 {item.title}
               </NavItem>

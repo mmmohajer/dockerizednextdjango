@@ -23,8 +23,6 @@
 }
 
 .imagePreviewContainer {
-  box-shadow: $boxShadow1;
-  // padding: 1rem;
   background-color: white;
   overflow: hidden;
   width: 60px;
@@ -36,8 +34,8 @@
   }
 }
 
-.previewerContainer {
-  border: dotted 1px $themeOne;
+.previewContainer {
+  border: solid 1px $themeThree;
   border-radius: 5px;
 }
 

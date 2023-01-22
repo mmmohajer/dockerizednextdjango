@@ -6,6 +6,9 @@ export const WITHOUT_DOCKER = !publicRuntimeConfig.PRODUCTION
   ? publicRuntimeConfig.WITHOUT_DOCKER
   : 0;
 export const APP_DOMAIN = !publicRuntimeConfig.PRODUCTION ? 'localhost' : process.env.APP_DOMAIN;
+export const APP_DOMAIN_FOR_SERVER_SIDE_PROPS = !publicRuntimeConfig.PRODUCTION
+  ? 'https://makeclient.ngrok.io'
+  : `https://${process.env.APP_DOMAIN}`;
 export const FRONT_END_URL = !publicRuntimeConfig.PRODUCTION
   ? 'http://localhost'
   : `https://${process.env.APP_DOMAIN}`;
@@ -22,3 +25,9 @@ export const MICROSOFT_AUTH_CLIENT_ID = !publicRuntimeConfig.PRODUCTION
 export const FACEBOOK_AUTH_CLIENT_ID = !publicRuntimeConfig.PRODUCTION
   ? process.env.FACEBOOK_AUTH_CLIENT_ID_DEVELOPMENT
   : process.env.FACEBOOK_AUTH_CLIENT_ID_PRODUCTION;
+export const GOOGLE_ANALYTICS_ID = !publicRuntimeConfig.PRODUCTION
+  ? process.env.GOOGLE_ANALYTICS_ID_DEVELOPMENT
+  : process.env.GOOGLE_ANALYTICS_ID_PRODUCTION;
+export const USE_GOOGLE_ANALYTICS = !publicRuntimeConfig.PRODUCTION
+  ? process.env.USE_GOOGLE_ANALYTICS_IN_DEVELOPMENT
+  : process.env.USE_GOOGLE_ANALYTICS_IN_PRODUCTION;

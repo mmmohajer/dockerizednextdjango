@@ -1,8 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 import { Div, Card, CardHeader, CardBody, CardFooter } from 'basedesign-iswad';
-import Image from 'next/image';
 
+import AppImage from '@/baseComponents/AppImage';
 import Icon from '@/baseComponents/Icon';
 import Text from '@/baseComponents/Text';
 
@@ -42,7 +42,7 @@ const TestimonialCard = ({
             )}
           </Div>
         </CardHeader>
-        <CardBody className="px2 w-per-100">
+        <CardBody className="px2 w-per-100 min-height-px-100">
           {!isPreview ? (
             <Text
               textMessage={quote}
@@ -58,14 +58,24 @@ const TestimonialCard = ({
         <CardFooter className="px2 my2">
           <Div type="flex" vAlign="start">
             {photo && (
-              <Div className="w-px-50 height-px-50 br-rad-per-50 of-hidden">
-                <Image src={photo} width={50} height={50} />
+              <Div className="w-px-50 height-px-50 br-rad-per-50 of-hidden pos-rel">
+                <AppImage type={2} src={photo} width={50} height={50} />
               </Div>
             )}
             <Div type="flex" direction="vertical" hAlign="start" className={cx(photo && 'ml1')}>
-              <Div className="fs-px-14 f-b text-ltr">{name}</Div>
-              {career && <Div className="fs-px-12 text-ltr">{career}</Div>}
-              {email && <Div className="fs-px-12 text-ltr">{email}</Div>}
+              <Div className={cx('fs-px-14 f-b text-ltr oneLine', styles.testimonialInfo)}>
+                {name}
+              </Div>
+              {career && (
+                <Div className={cx('fs-px-12 text-ltr oneLine', styles.testimonialInfo)}>
+                  {career}
+                </Div>
+              )}
+              {email && (
+                <Div className={cx('fs-px-12 text-ltr oneLine', styles.testimonialInfo)}>
+                  {email}
+                </Div>
+              )}
             </Div>
           </Div>
         </CardFooter>

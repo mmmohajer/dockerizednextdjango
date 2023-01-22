@@ -1,36 +1,43 @@
 @import '@/styles/base/_variables';
+@import '@/styles/base/_mixins';
 
-$closeContainerHeight: 50px;
+$closeContainerHeight: 40px;
 
 .modalContainer {
   // border: solid 3px $themeFour;
   // border-top: none;
   max-width: 700px;
   min-width: 350px;
-  max-height: 90vh;
+  max-height: 85vh;
   overflow: hidden;
-}
 
-.closeContainer {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  height: $closeContainerHeight;
+  @include atMedium {
+    max-height: 90vh;
+  }
 }
 
 .mainContentContainer {
-  max-height: calc(90vh - $closeContainerHeight);
+  max-height: calc(85vh - $closeContainerHeight);
+
+  @include atMedium {
+    max-height: calc(90vh - $closeContainerHeight);
+  }
 }
 
 .writeTestimonialContainer {
   max-height: 90vh;
 }
 
-// .celeberationBg {
-//   background-image: url('../../assets/images/js-Images/general/celeberation.png');
-//   filter: blur(1px);
-//   -webkit-filter: blur(1px);
-//   height: 100%;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }
+.celeberationBg {
+  /* The image used */
+  background-image: url('../../assets/images/js-Images/general/celeberation.png');
+  /* Add the blur effect */
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -34,16 +34,42 @@ const cleaningError = (err) => {
 
 export const showErrorAPIAlert = (error, dispatch) => {
   if (error && error?.data) {
-    Object.keys(error.data).forEach((key) => {
-      if (error.data[key]) {
-        if (Array.isArray(error.data[key])) {
-          error.data[key].forEach((err) => {
-            addAlertItem(dispatch, err, 'error');
-          });
-        } else {
-          addAlertItem(dispatch, error.data[key], 'error');
+    if (typeof error.data === 'object') {
+      Object.keys(error.data).forEach((key) => {
+        if (error.data[key]) {
+          if (Array.isArray(error.data[key])) {
+            error.data[key].forEach((err) => {
+              if (typeof err === 'string') {
+                addAlertItem(dispatch, err, 'error');
+              } else if (err?.message) {
+                if (typeof err.message === 'string') {
+                  addAlertItem(dispatch, err.message, 'error');
+                }
+              } else {
+                console.log(e);
+              }
+            });
+          } else {
+            addAlertItem(dispatch, error.data[key], 'error');
+          }
         }
+      });
+    } else if (typeof error.data === 'string') {
+      if (Array.isArray(error.data)) {
+        error.data.forEach((err) => {
+          if (typeof err === 'string') {
+            addAlertItem(dispatch, err, 'error');
+          } else if (err?.message) {
+            if (typeof err.message === 'string') {
+              addAlertItem(dispatch, err.message, 'error');
+            }
+          } else {
+            console.log(e);
+          }
+        });
+      } else {
+        addAlertItem(dispatch, error.data, 'error');
       }
-    });
+    }
   }
 };

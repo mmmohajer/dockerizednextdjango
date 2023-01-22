@@ -21,14 +21,19 @@ const Alert = () => {
             key={notif.key}
             isActive={notif.isActive}
             className={cx(
-              'm1 p1',
-              notif?.type === 'success' && 'bgSuccess',
-              notif?.type === 'error' && 'bgDanger',
-              notif?.type === 'warning' && 'bgWarning'
+              'm1 boxShadowType1 br-rad-px-5',
+              notif?.type === 'success' && styles.success,
+              notif?.type === 'error' && styles.error,
+              notif?.type === 'warning' && styles.warning
             )}>
-            <Div className="w-per-100" type="flex" direction="horizontal" distributedBetween>
-              <Paragraph className="p1">{notif.message}</Paragraph>
-              <Close onClick={() => removeAlertItem(dispatch, notif.key)} />
+            <Div className="w-per-100" direction="vertical" type="flex">
+              <Close
+                barHeight="30px"
+                barColor="transparent"
+                iconScale={0.6}
+                onClick={() => removeAlertItem(dispatch, notif.key)}
+              />
+              <Paragraph className="pb2 pl2 pr2">{notif.message}</Paragraph>
             </Div>
           </AlertItem>
         ))}

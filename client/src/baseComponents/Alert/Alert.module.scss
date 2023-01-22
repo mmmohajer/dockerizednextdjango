@@ -1,0 +1,21 @@
+@import '@/styles/base/_variables';
+
+%alertItem {
+  border: solid 3px;
+  background-color: white;
+}
+
+.success {
+  @extend %alertItem;
+  border-color: $successColor;
+}
+
+.error {
+  @extend %alertItem;
+  border-color: $dangerColor;
+}
+
+.warning {
+  @extend %alertItem;
+  border-color: $warningColor;
+}

@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import cx from 'classnames';
 import { Div, Card, CardHeader, CardBody, CardFooter, Heading } from 'basedesign-iswad';
-import Image from 'next/image';
 
+import AppImage from '@/baseComponents/AppImage';
 import CircularProgressBar from '@/baseComponents/CircularProgressBar';
 import ProgressiveBar from '@/baseComponents/ProgressiveBar';
 import Icon from '@/baseComponents/Icon';
@@ -47,11 +47,11 @@ const SkillCard = ({
       <Card
         {...props}
         className={cx('boxShadowType1 bgWhite br-rad-px-10 of-hidden w-px-350', className)}>
-        <CardHeader className="">
-          <Image src={photo} width={350} height={200} />
-          <Div className="text-center p2 fs-px-24 f-b">{skill}</Div>
+        <CardHeader className="pos-rel">
+          <AppImage src={photo} width={350} height={200} />
         </CardHeader>
         <CardBody className="w-per-100 flex flex--jc--center flex--ai--center flex--dir--col my2 px2">
+          <Div className="text-center mb2 fs-px-24 f-b">{skill}</Div>
           <CircularProgressBar
             outerCircleSize={140}
             innerCircleSize={125}

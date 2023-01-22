@@ -38,6 +38,11 @@
   aspect-ratio: 4 / 3;
 }
 
+.projectCardParagraphContainer {
+  font-size: 12px;
+  height: 150px;
+}
+
 .projectBtn {
   background-color: rgba(78, 156, 194, 0.5);
   color: rgb(78, 156, 194);
@@ -48,47 +53,12 @@
 }
 
 .testimonialCardContainer {
-  width: 300px;
+  width: 350px;
+  border: solid 1px $themeOne;
+  border-width: 2px;
 
   @include atMedium {
     width: 500px;
-  }
-  background-color: $themeFive;
-  border: solid 5vmin #eee;
-  border-bottom-color: #fff;
-  border-left-color: #eee;
-  border-radius: 2px;
-  border-right-color: #eee;
-  border-top-color: #ddd;
-  // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset, 0 5px 10px 5px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  // display: inline-block;
-  // margin: 10vh 10vw;
-  // margin-left: auto;
-  // margin-right: auto;
-  margin-bottom: 1rem;
-  // padding: 8vmin;
-  position: relative;
-  text-align: center;
-  &:before {
-    border-radius: 2px;
-    bottom: -2vmin;
-    // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
-    content: '';
-    left: -2vmin;
-    position: absolute;
-    right: -2vmin;
-    top: -2vmin;
-  }
-  &:after {
-    border-radius: 2px;
-    bottom: -2.5vmin;
-    // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-    content: '';
-    left: -2.5vmin;
-    position: absolute;
-    right: -2.5vmin;
-    top: -2.5vmin;
   }
 }
 
@@ -108,4 +78,12 @@
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+.testimonialInfo {
+  max-width: 250px;
+
+  @include atMedium {
+    max-width: 350px;
+  }
 }

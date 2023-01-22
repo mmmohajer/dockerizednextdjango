@@ -38,6 +38,9 @@ function DisplayModals() {
                     type={item}
                     photo={BaseDesignPhoto}
                     title="Base Design"
+                    info="Developed a collection of over 15 reusable components and more than 500 CSS
+                    classes using SCSS that improve developer productivity and code cleanliness.
+                    These components are flexible and can be used in any React/Next.js projects."
                     codeLink="https://github.com/mmmohajer/baseDesign"
                     themeLink="https://github.com/mmmohajer/baseDesign"
                   />

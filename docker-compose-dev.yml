@@ -10,9 +10,12 @@ services:
       - "80:80"
     volumes:
       - ./api/vol:/vol/static
+      - ./nginx/htpasswd:/etc/nginx/.htpasswd
     depends_on:
       - client
       - api
+      - channels
+      - celery-flower
 
   client:
     build:
@@ -22,8 +25,6 @@ services:
       - /client/node_modules
       - ./client:/usr/src/app
     command: npm run dev
-    ports:
-      - "3000:3000"
     environment:
       - CHOKIDAR_USEPOLLING=true
     depends_on:
@@ -38,8 +39,6 @@ services:
     volumes:
       - ./api:/usr/src/app
     command: ./docker-entrypoint-dev.sh
-    ports:
-      - "8000:8000"
     depends_on:
       - db
       - smtp4dev
@@ -81,9 +80,7 @@ services:
       - ./config/envFiles/django/develop/.env
     volumes:
       - ./api:/usr/src/app
-    command: celery -A config flower --basic_auth=user:password
-    ports:
-      - "5555:5555"
+    command: celery -A config flower --url_prefix=/flower --basic_auth=user:password
     depends_on:
       - db
       - smtp4dev
@@ -97,8 +94,6 @@ services:
       - ./config/envFiles/django/develop/.env
     volumes:
       - ./api:/usr/src/app
-    ports:
-      - "8001:8001"
     command: daphne -b 0.0.0.0 -p 8001 config.asgi:application
     depends_on:
       - db
@@ -144,8 +139,6 @@ services:
     volumes:
       - ./redis/redis-sample.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf
-    ports:
-      - "6379:6379"
 
 volumes:
   pgdata:

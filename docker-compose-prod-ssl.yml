@@ -15,8 +15,12 @@ services:
       - static-data:/vol/static
       - ./nginx/certbot/conf:/etc/letsencrypt
       - ./nginx/certbot/www:/var/www/certbot
+      - ./nginx/htpasswd:/etc/nginx/.htpasswd
     depends_on:
+      - client
       - api
+      - channels
+      - celery-flower
 
   certbot:
     image: certbot/certbot
@@ -32,8 +36,6 @@ services:
       dockerfile: Dockerfile
       context: ./client
     command: npm start
-    ports:
-      - "3000:3000"
     environment:
       - CHOKIDAR_USEPOLLING=true
     depends_on:
@@ -49,8 +51,6 @@ services:
     command: ./docker-entrypoint-prod.sh
     volumes:
       - static-data:/usr/src/app/vol
-    ports:
-      - "8000:8000"
     depends_on:
       - db
 
@@ -91,9 +91,7 @@ services:
       - ./config/envFiles/django/prod/.env
     volumes:
       - static-data:/usr/src/app/vol
-    command: celery -A config flower --basic_auth=${CELERY_FLOWER_USER}:${CELERY_FLOWER_PASSWORD}
-    ports:
-      - "5555:5555"
+    command: celery -A config flower --url_prefix=/flower --basic_auth=${CELERY_FLOWER_USER}:${CELERY_FLOWER_PASSWORD}
     depends_on:
       - db
       - redis
@@ -105,8 +103,6 @@ services:
       context: ./api
     env_file:
       - ./config/envFiles/django/prod/.env
-    ports:
-      - "8001:8001"
     command: daphne -b 0.0.0.0 -p 8001 config.asgi:application
     depends_on:
       - db
@@ -128,8 +124,6 @@ services:
     volumes:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf
-    ports:
-      - "6379:6379"
 
 volumes:
   pgdata:
