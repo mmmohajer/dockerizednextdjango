@@ -17,7 +17,7 @@ Login to the server with `root` user <br>
 7. Exit the file (ctrl + x) and then `systemctl restart ssh` <br>
    **Login as nonroot user**
    `ssh USERNAME@IP_ADDRESS` <br>
-
+8. Remember that whenever you wanna to switch to the root user when logged in as nonroot user with sudo previledges you can type `sudo -s`
 <hr>
 
 Currently that non-root user login works good, we can setup public/private key
