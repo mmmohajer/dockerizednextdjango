@@ -22,6 +22,8 @@ Setup:
    - Go to **client folder** and run `npm install` <br>
    - Go to **root folder** and run `./automation.sh` in terminal<br>
    - Choose Option `2` --> `Make initial setup on Windows`<br>
+   - If usig docker, go to nginx folder and run --> `htpasswd -c htpasswd user` <br>
+     Choose `password` as the password of this user
 
    Then, Do the following part, in ordet to be able to use docker in your development environment:
 
