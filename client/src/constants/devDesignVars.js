@@ -51,13 +51,8 @@ export const BUTTON_TYPES = [1, 2, 3];
 
 export const ALERT_TYPES = ['success', 'error', 'warning'];
 
-export const MODAL_TYPES = [
-  'data_submitted_successfully',
-  'write_testimonial',
-  'contact_form_sent',
-  'testimonial_submitted'
-];
+export const MODAL_TYPES = ['data_submitted_successfully'];
 
-export const CARD_TYPES = ['service', 'project', 'skill', 'experience', 'testimonial'];
+export const CARD_TYPES = ['service'];
 
 export const EMAIL_TEMPLATES = ['contact_form_sent', 'contact_form_received'];

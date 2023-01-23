@@ -13,8 +13,6 @@ import DesktopNav from './subs/DesktopNav';
 import MobileNav from './subs/MobileNav';
 import styles from './Header.module.scss';
 
-import Logo from '@/images/js-Images/general/Mohammad-white-logo.png';
-
 const Header = ({ hasStickyHeader, changesThePage = true }) => {
   const dispatch = useDispatch();
   const mobileNavIsActive = useSelector((state) => state.mobileNavIsActive);
@@ -46,7 +44,7 @@ const Header = ({ hasStickyHeader, changesThePage = true }) => {
               window.scrollTo(0, 0);
             }
           }}>
-          <Image src={Logo} width={80} height={80} />
+          <Div className="textWhite">Logo</Div>
         </Div>
         <Div type="flex" showIn={lgDesignSize}>
           <DesktopNav changesThePage={changesThePage} />

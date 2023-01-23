@@ -8,9 +8,6 @@ import Close from '@/baseComponents/Close';
 import { clearModal } from '@/utils/modal';
 
 import DataSubmittedSuccessfully from './subs/DataSubmittedSuccessfully';
-import WriteTestimonial from './subs/WriteTestimonial';
-import ContactFormSentSuccessfully from './subs/ContactFormSentSuccessfully';
-import TestimonialSubmittedSuccessfully from './subs/TestimonialSubmittedSuccessfully';
 import { HAS_CCELEBERATION_BG_TYPES } from './constans';
 import styles from './Modal.module.scss';
 import { COLORS } from '@/constants/vars';
@@ -48,11 +45,6 @@ const Modal = () => {
               className={cx('of-y-auto scrollType1 p2', styles.mainContentContainer)}>
               {modalType === 'data_submitted_successfully' && (
                 <DataSubmittedSuccessfully {...modalProps} />
-              )}
-              {modalType === 'write_testimonial' && <WriteTestimonial {...modalProps} />}
-              {modalType === 'contact_form_sent' && <ContactFormSentSuccessfully {...modalProps} />}
-              {modalType === 'testimonial_submitted' && (
-                <TestimonialSubmittedSuccessfully {...modalProps} />
               )}
             </Div>
           </Div>
