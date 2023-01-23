@@ -180,4 +180,4 @@ In order to automatcally renew ssl certificate add the followings to crontab:
 `0 0 1 * * /var/www/app/init-letsencrypt.sh` <br>
 `0 0 15 * * /var/www/app/init-letsencrypt.sh` <br>
 
-Just in order to automatic deploy go to the `utils/constants.sh` and change the server alias
+Just in order to automatic deploy go to the `utils/constants/constants.sh` and change the server alias
