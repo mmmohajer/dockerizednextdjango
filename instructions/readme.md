@@ -172,17 +172,12 @@ Add A records to the DNS settings of relevant domain pointing to the server IP a
 And then change domains and email in `init-letsencrypt.sh` <br>
 Then run `sudo ./init-letsencrypt.sh` <br>
 
-Now your app is ready to be run on server:
-To do so, first clear all volumes, images, and containersof docker, useing the following 3 commands: <br>
-Run `docker container rm -f $(docker container ls -a -q)` <br>
-Run `docker image rm -f $(docker image ls -a -q)` <br>
-Run `docker volume prune` <br>
-Then go to nginx folder and change ownership of certbot folder and all its subfolders to USER_NAME:docker `chown -R USER_NAME:docker certbot` <br>
-Now everything is ready for your app to be served: <br>
-Run `docker-compose -f docker-compose-prod-ssl.yml up --build -d` <br>
+Now your app must be ready on server <br>
 
 In order to automatcally renew ssl certificate add the followings to crontab:
 `sudo crontab -e` <br>
 
 `0 0 1 * * /var/www/app/init-letsencrypt.sh` <br>
 `0 0 15 * * /var/www/app/init-letsencrypt.sh` <br>
+
+Just in order to automatic deploy go to the `utils/constants.sh` and change the server alias
