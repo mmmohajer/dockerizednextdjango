@@ -14,7 +14,7 @@ import styles from './Footer.module.scss';
 const Footer = () => {
   return (
     <>
-      <Div className={cx('bgThemeThree boxShadowType1')}>
+      <Div className={cx('bgThemeThree boxShadowType1 of-hidden')}>
         <Div className="mb1">
           <Row>
             <Column xs={12} sm={12} md={6} lg={3} className="textWhite px2">
