@@ -27,6 +27,13 @@ const DivMinFullHeight = ({ style = {}, children, ...props }) => {
       }
     }
   }, [elementsHeightStore?.headerHeight, elementsHeightStore?.footerHeight]);
+
+  useEffect(() => {
+    if (minHeight < 0) {
+      setMinHeight(0);
+    }
+  }, [minHeight]);
+
   return (
     <>
       <Div style={{ ...style, minHeight }} {...props}>
