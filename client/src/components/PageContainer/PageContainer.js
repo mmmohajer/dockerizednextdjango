@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import cx from 'classnames';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Div } from 'basedesign-iswad';
 import Script from 'next/script';
 
 import { setActiveMenu } from '@/reducers/general/activeMenu';
+import { setElementsHeightStore } from '@/reducers/general/elementsHeightStore';
 
 import Header from '@/baseComponents/Header';
 import Footer from '@/baseComponents/Footer';
+import DivMinFullHeight from '@/baseComponents/DivMinFullHeight';
 
 import styles from './PageContainer.module.scss';
 import { USE_GOOGLE_ANALYTICS, GOOGLE_ANALYTICS_ID } from 'config';
@@ -23,8 +25,7 @@ const PageContainer = ({
   const dispatch = useDispatch();
   const headerRef = useRef();
   const footerRef = useRef();
-
-  const [minHeight, setMinHeight] = useState(0);
+  const elementsHeightStore = useSelector((state) => state.elementsHeightStore);
 
   useEffect(() => {
     if (pageIdentifier) {
@@ -33,20 +34,14 @@ const PageContainer = ({
   }, [pageIdentifier]);
 
   useEffect(() => {
-    if (window?.innerHeight) {
-      let bodyHeight = window.innerHeight || 0;
-      if (headerRef?.current && footerRef?.current) {
-        setMinHeight(
-          bodyHeight - headerRef?.current?.clientHeight - footerRef?.current?.clientHeight
-        );
-      } else if (headerRef?.current && !footerRef?.current) {
-        setMinHeight(bodyHeight - headerRef?.current?.clientHeight);
-      } else if (!headerRef?.current && footerRef?.current) {
-        setMinHeight(bodyHeight - footerRef?.current?.clientHeight);
-      } else if (!headerRef?.current && !footerRef?.current) {
-        setMinHeight(bodyHeight);
-      }
+    const localElementsHeightStore = { ...elementsHeightStore };
+    if (headerRef?.current?.clientHeight) {
+      localElementsHeightStore['headerHeight'] = headerRef.current.clientHeight;
     }
+    if (footerRef?.current?.clientHeight) {
+      localElementsHeightStore['footerHeight'] = footerRef.current.clientHeight;
+    }
+    dispatch(setElementsHeightStore(localElementsHeightStore));
   }, [headerRef?.current?.clientHeight, footerRef?.current?.clientHeight]);
 
   return (
@@ -76,9 +71,9 @@ const PageContainer = ({
               <Header hasStickyHeader={hasStickyHeader} changesThePage={changesThePage} />
             </Div>
           )}
-          <Div className={cx(hasStickyHeader && styles.mainContentContainer)} style={{ minHeight }}>
+          <DivMinFullHeight className={cx(hasStickyHeader && styles.mainContentContainer)}>
             {children}
-          </Div>
+          </DivMinFullHeight>
         </Div>
         {hasFooter && (
           <Div ref={(el) => (footerRef.current = el)}>

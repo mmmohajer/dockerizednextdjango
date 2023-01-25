@@ -10,10 +10,10 @@ import mobileNavIsActive from './general/mobileNavIsActive';
 import chatSocket from './general/chatSocket';
 import scrollPosition from './general/scrollPosition';
 import homePageElements from './general/homePageElements';
+import elementsHeightStore from './general/elementsHeightStore';
 
 import isAuthenticated from './apiCalls/isAuthenticated';
 import profile from './apiCalls/profile';
-import testimonials from './apiCalls/testimonials';
 
 const reducer = combineReducers({
   loading,
@@ -26,9 +26,9 @@ const reducer = combineReducers({
   chatSocket,
   scrollPosition,
   homePageElements,
+  elementsHeightStore,
   isAuthenticated,
-  profile,
-  testimonials
+  profile
 });
 
 export default reducer;
