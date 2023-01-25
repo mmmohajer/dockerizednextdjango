@@ -41,6 +41,12 @@ const PageContainer = ({
     if (footerRef?.current?.clientHeight) {
       localElementsHeightStore['footerHeight'] = footerRef.current.clientHeight;
     }
+    if (!headerRef?.current?.clientHeight) {
+      localElementsHeightStore['headerHeight'] = 0;
+    }
+    if (!footerRef?.current?.clientHeight) {
+      localElementsHeightStore['footerHeight'] = 0;
+    }
     dispatch(setElementsHeightStore(localElementsHeightStore));
   }, [headerRef?.current?.clientHeight, footerRef?.current?.clientHeight]);
 
