@@ -9,18 +9,10 @@ import PublicRoute from '@/components/PublicRoute';
 import Seo from '@/components/Seo';
 import PageContainer from '@/components/PageContainer';
 
-import { setTestimonials } from '@/services/testimonials';
-import { TESTIMONIAL_API_ROUTE } from '@/constants/apiRoutes';
-import { APP_DOMAIN_FOR_SERVER_SIDE_PROPS } from '@/root/config';
-
 import styles from './index.module.scss';
 
-const Index = ({ testimonials }) => {
+const Index = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    setTestimonials(dispatch, testimonials);
-  }, [testimonials]);
 
   return (
     <PublicRoute>
