@@ -11,7 +11,6 @@ const DivMinFullHeight = ({ style = {}, children, ...props }) => {
   const [minHeight, setMinHeight] = useState(0);
 
   useEffect(() => {
-    console.log(elementsHeightStore?.headerHeight);
     if (window?.innerHeight) {
       let bodyHeight = window.innerHeight || 0;
       if (elementsHeightStore?.headerHeight && elementsHeightStore?.footerHeight) {
