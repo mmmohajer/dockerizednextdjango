@@ -13,8 +13,9 @@ Setup:
 
    - SETUP ON WINDOWS:
 
-   1. Create a python virtual env: `python -m venv venv` <br>
-   2. Activate virtual environment --> `venv\Scripts\activate` <br>
+   1. In the root folder create a folder called `db_backups`
+   2. Create a python virtual env: `python -m venv venv` <br>
+   3. Activate virtual environment --> `venv\Scripts\activate` <br>
 
    - `pip install --upgrade pip` <br>
    - `pip install -r api/requirements-windows-local.txt` <br>

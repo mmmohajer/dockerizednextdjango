@@ -259,3 +259,5 @@ sudoPassword.txt
 redis.conf
 
 nginx/htpasswd
+
+db_backups
