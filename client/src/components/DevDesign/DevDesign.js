@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 import { Div, Heading } from 'basedesign-iswad';
 
@@ -21,49 +21,139 @@ import DisplayChart from './subs/DisplayChart';
 import DisplayList from './subs/DisplayList';
 import DisplayEmailTemplates from './subs/DisplayEmailTemplates';
 
+import DevSection from './subs/DevSection';
 import styles from './DevDesign.module.scss';
 
 const DevDesign = () => {
+  const [activeElements, setActiveElements] = useState('');
+
   return (
     <>
-      <Heading className="flex flex--jc--center flex--ai--center my1">Headings</Heading>
-      <DisplayHeadings />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Colors</Heading>
-      <DisplayColors />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Icons</Heading>
-      <DisplayIcons />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Anchors</Heading>
-      <DisplayAnchor />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Buttons</Heading>
-      <DisplayButtons />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Form Components</Heading>
-      <DisplayForm />
-      <Heading className="flex flex--jc--center flex--ai--center my1">
-        Draggable File Uploader
-      </Heading>
-      <DisplayDraggableFileUploader />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Alerts</Heading>
-      <DisplayAlert />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Modals</Heading>
-      <DisplayModals />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Loadings</Heading>
-      <DisplayLoading />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Cards</Heading>
-      <DisplayCards />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Pagination</Heading>
-      <DisplayPagination />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Table</Heading>
-      <DisplayTable />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Text</Heading>
-      <DisplayText />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Paragraph</Heading>
-      <DisplayParagraph />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Charts</Heading>
-      <DisplayChart />
-      <Heading className="flex flex--jc--center flex--ai--center my1">List</Heading>
-      <DisplayList />
-      <Heading className="flex flex--jc--center flex--ai--center my1">Email Templates</Heading>
-      <DisplayEmailTemplates />
+      <DevSection
+        title="Alerts"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayAlert />
+      </DevSection>
+
+      <DevSection
+        title="Anchors"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayAnchor />
+      </DevSection>
+
+      <DevSection
+        title="Buttons"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayButtons />
+      </DevSection>
+
+      <DevSection
+        title="Cards"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayCards />
+      </DevSection>
+
+      <DevSection
+        title="Charts"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayChart />
+      </DevSection>
+
+      <DevSection
+        title="Colors"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayColors />
+      </DevSection>
+
+      <DevSection
+        title="Draggable File Uploader"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayDraggableFileUploader />
+      </DevSection>
+
+      <DevSection
+        title="Email Templates"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayEmailTemplates />
+      </DevSection>
+
+      <DevSection
+        title="Form Components"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayForm />
+      </DevSection>
+
+      <DevSection
+        title="Headings"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayHeadings />
+      </DevSection>
+
+      <DevSection
+        title="Icons"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayIcons />
+      </DevSection>
+
+      <DevSection
+        title="List"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayList />
+      </DevSection>
+
+      <DevSection
+        title="Loadings"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayLoading />
+      </DevSection>
+
+      <DevSection
+        title="Modals"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayModals />
+      </DevSection>
+
+      <DevSection
+        title="Pagination"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayPagination />
+      </DevSection>
+
+      <DevSection
+        title="Paragraphs"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayParagraph />
+      </DevSection>
+
+      <DevSection
+        title="Table"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayTable />
+      </DevSection>
+
+      <DevSection
+        title="Text"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayText />
+      </DevSection>
     </>
   );
 };

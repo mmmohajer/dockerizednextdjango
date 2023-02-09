@@ -1,5 +1,16 @@
 @import '@/styles/base/_variables';
 
+.elementContainer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 2s linear;
+
+  &Active {
+    max-height: 5000px;
+    height: auto;
+  }
+}
+
 .iconsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));

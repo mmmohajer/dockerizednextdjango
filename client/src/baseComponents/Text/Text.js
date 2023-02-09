@@ -67,7 +67,7 @@ const Text = ({
     if (isTruncated) {
       setTextContainerHeight(initialTextContainerHeight);
     } else {
-      setTextContainerHeight('100vh');
+      setTextContainerHeight(textRef?.current?.scrollHeight);
     }
   }, [isTruncated]);
 
@@ -75,8 +75,8 @@ const Text = ({
     <>
       <Div
         ref={(el) => (textRef.current = el)}
-        style={{ maxHeight: textContainerHeight }}
-        className={cx('pos-rel w-per-100', styles.textContainer, className)}
+        style={{ height: textContainerHeight }}
+        className={cx('pos-rel w-per-100 pos-rel', styles.textContainer, className)}
         {...props}>
         {shownText}
         {mustBeTruncated && isTruncated ? (
@@ -103,7 +103,7 @@ const Text = ({
                 setIsTruncated(true);
                 setTimeout(() => {
                   setShownText(arrayOfVocabs.slice(0, count - 2 * countJump).join(' '));
-                }, 100);
+                }, 300);
               }}>
               <Icon isBlock={false} type="minus-circle" color={iconColor} scale={1.2} />
             </span>
