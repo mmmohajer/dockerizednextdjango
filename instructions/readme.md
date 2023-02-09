@@ -184,6 +184,9 @@ In order to automatically create a backup of the database, you must run:
 `sudo chown -R USERNAME:docker /var/www/app/db_backups`<br>
 
 `sudo crontab -e`<br>
-`0 0 * * * docker exec app_db_1 pg_dump DB_NAME -U DB_USER > /var/www/app/db_backups/db_backup_$(date +%Y-%m-%d_%H-%M-%S).sql`
+`0 0 * * * docker exec app_db_1 pg_dump DB_NAME -U DB_USER > /var/www/app/db_backups/db_backup_$(date +%Y-%m-%d_%H-%M-%S).sql` <br>
+
+Note that in order to restore a database you can use the following command:
+`docker exec app_db_1 psql DB_NAME < BACKUP_FILE`
 
 Just in order to automatic deploy go to the `utils/constants/constants.sh` and change the server alias
