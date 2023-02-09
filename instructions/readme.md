@@ -180,4 +180,10 @@ In order to automatcally renew ssl certificate add the followings to crontab:
 `0 0 1 * * /var/www/app/init-letsencrypt.sh` <br>
 `0 0 15 * * /var/www/app/init-letsencrypt.sh` <br>
 
+In order to automatically create a backup of the database, you must run:
+`sudo chown -R USERNAME:docker /var/www/app/db_backups`<br>
+
+`sudo crontab -e`<br>
+`0 0 * * * docker exec app_db_1 pg_dump DB_NAME -U DB_USER > /var/www/app/db_backups/db_backup_$(date +%Y-%m-%d_%H-%M-%S).sql`
+
 Just in order to automatic deploy go to the `utils/constants/constants.sh` and change the server alias
