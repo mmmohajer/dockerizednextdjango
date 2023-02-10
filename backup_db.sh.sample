@@ -1,0 +1,6 @@
+#!/bin/bash
+
+docker exec app_db_1 pg_dump DB_NAME -U DB_USER > /var/www/app/db_backups/db_backup_$(date +%Y-%m-%d_%H-%M-%S).sql
+
+echo "Create a log"
+echo "Successfuly made a bckup from db on: $(date)" >> /home/USER_NAME/cron_commands.log

@@ -261,3 +261,4 @@ redis.conf
 nginx/htpasswd
 
 db_backups
+backup_db.sh
