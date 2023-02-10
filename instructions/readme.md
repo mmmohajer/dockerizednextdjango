@@ -193,4 +193,7 @@ Go to the `/home/USER_NAME` folder and create a new folder called `db_backups` <
 Note that in order to restore a database you can use the following command:
 `docker exec app_db_1 psql DB_NAME < BACKUP_FILE`
 
-Just in order to automatic deploy go to the `utils/constants/constants.sh` and change the server alias
+Just in order to automatic deploy go to the `utils/constants/constants.sh` and change the server alias <br>
+
+Note that in order to remove backup files older than for example 7 days ago, you can use the following command: <br>
+`find /path/to/folder -type f -mtime +7 -delete`
