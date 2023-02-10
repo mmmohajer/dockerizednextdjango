@@ -154,6 +154,8 @@ Create the following subfolders: <br>
 Copy all the environment variables in server: <br>
 `./automation.sh` --> 7 <br>
 Run `nano .env` --> change .env variables <br>
+Change DB_NAME, DB_USER in backup_db.sh, USER_NAME, domains in init-letsencrypt.sh <br>
+Run `sudo chmod +x ./init-letsencrypt.sh`, `sudo chmod +x ./backup_db.sh` <br>
 Also change the redis password in `redis/redis.conf` file. Seach for `requirepass` and then determine the password for it. Also, in django env variables, you must set the exact same value for `REDIS_USER_PASS` <br>
 Then run `sudo apt-get install apache2-utils` <br>
 Then go to folder nginx <br>
@@ -184,7 +186,7 @@ In order to automatically create a backup of the database, you must run:
 `sudo chown -R USERNAME:docker /var/www/app/db_backups`<br>
 
 `sudo crontab -e`<br>
-`0 0 * * * docker exec app_db_1 pg_dump DB_NAME -U DB_USER > /var/www/app/db_backups/db_backup_$(date +%Y-%m-%d_%H-%M-%S).sql` <br>
+`0 1 * * * /var/www/app/backup_db.sh` <br>
 
 Note that in order to restore a database you can use the following command:
 `docker exec app_db_1 psql DB_NAME < BACKUP_FILE`
