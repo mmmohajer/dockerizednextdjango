@@ -185,6 +185,8 @@ In order to automatcally renew ssl certificate add the followings to crontab:
 In order to automatically create a backup of the database, you must run:
 `sudo chown -R USERNAME:docker /var/www/app/db_backups`<br>
 
+Go to the `/home/USER_NAME` folder and create a new folder called `db_backups` <br>
+
 `sudo crontab -e`<br>
 `0 1 * * * /var/www/app/backup_db.sh` <br>
 
