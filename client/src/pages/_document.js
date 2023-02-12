@@ -11,6 +11,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
           />
+          {/* In order to download minified js and css files for code of 
+          rich text editor --> https://prismjs.com/download.html#themes=prism */}
+          <link rel="stylesheet" type="text/css" href="/styles/prism.css"></link>
+          <script src="/js/prism.js"></script>
         </Head>
         <body>
           <Main />

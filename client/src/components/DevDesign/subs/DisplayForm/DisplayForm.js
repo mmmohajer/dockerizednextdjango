@@ -11,7 +11,10 @@ import TextArea from '@/baseComponents/TextArea';
 import FormCheckBox from '@/baseComponents/FormCheckBox';
 import SingleCheckBox from '@/baseComponents/SingleCheckBox';
 import FormRadioButton from '@/baseComponents/FormRadioButton';
+import RichTextBox from '@/baseComponents/RichTextBox';
 import Button from '@/baseComponents/Button';
+
+import DivConvertTextToHtml from '@/baseComponents/DivConvertTextToHtml';
 
 import { passwordValidators } from './validators';
 
@@ -28,6 +31,7 @@ const DisplayForm = () => {
   const [favoriteSports, setFavoriteSports] = useState([]);
   const [termsApproval, setTermsApproval] = useState(false);
   const [favoriteHobbey, setFavoriteHobbey] = useState('');
+  const [richText, setRichText] = useState('');
 
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
   const [provinceErrorMessage, setProvinceErrorMessage] = useState('');
@@ -37,6 +41,7 @@ const DisplayForm = () => {
   const [favoriteSportsErrorMessage, setFavoriteSportsErrorMessage] = useState('');
   const [termsApprovalErrorMessage, setTermsApprovalErrorMessage] = useState('');
   const [favoriteHobbeyErrorMessage, setFavoriteHobbeyErrorMessage] = useState('');
+  const [richTextErrorMessage, setRichTextErrorMessage] = useState('');
 
   const toBeValidatedFields = [
     {
@@ -83,6 +88,11 @@ const DisplayForm = () => {
       validated = false;
     }
 
+    if (!richText) {
+      setRichTextErrorMessage('You must write a text');
+      validated = false;
+    }
+
     return validated;
   };
 
@@ -93,6 +103,7 @@ const DisplayForm = () => {
       console.log(birthDate);
       console.log(profilePhoto);
       console.log(message);
+      console.log(richText);
     }
   };
 
@@ -100,7 +111,7 @@ const DisplayForm = () => {
     <>
       <Div className={cx('p1 w-per-90 flex--wrap', styles.card)}>
         <Form
-          className={cx('w-per-50 bgWhite ml-auto mr-auto br-all-solid-1 p2 br-rad-px-10')}
+          className={cx('w-per-100 bgWhite ml-auto mr-auto br-all-solid-1 p2 br-rad-px-10')}
           onSubmit={submitHandler}
           toBeValidatedFields={toBeValidatedFields}
           id="testForm">
@@ -182,10 +193,21 @@ const DisplayForm = () => {
             errorMessage={favoriteHobbeyErrorMessage}
             errorHandler={setFavoriteHobbeyErrorMessage}
           />
+          <RichTextBox
+            setText={setRichText}
+            errorMessage={richTextErrorMessage}
+            setErrorMessage={setRichTextErrorMessage}
+            id="TestDevDesignRichText"
+          />
+
           <Button type="submit" id="testFormSubmit">
             Submit
           </Button>
         </Form>
+        <DivConvertTextToHtml
+          className="w-per-100 height-px-400 of-auto bgWhite"
+          text={richText || 'Preview of Rich Text'}
+        />
       </Div>
     </>
   );

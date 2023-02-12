@@ -10,28 +10,29 @@ const HeightTransitionEffect = ({
   onClick,
   children,
   style = {},
+  initialHeight = 0,
   ...props
 }) => {
   const parentRef = useRef();
 
-  const [height, setHeight] = useState(0);
+  const [height, setHeight] = useState(initialHeight);
   const [updateHeight, setUpdateHeight] = useState(false);
 
   useEffect(() => {
     if (isActive) {
       setHeight(parentRef.current.scrollHeight);
     } else {
-      setHeight(0);
+      setHeight(initialHeight);
     }
-  }, [parentRef?.current?.scrollHeight, isActive]);
+  }, [initialHeight, parentRef?.current?.scrollHeight, isActive]);
 
   useEffect(() => {
     if (isActive) {
       setHeight(parentRef.current.scrollHeight);
     } else {
-      setHeight(0);
+      setHeight(initialHeight);
     }
-  }, [updateHeight, isActive]);
+  }, [initialHeight, updateHeight, isActive]);
 
   return (
     <>

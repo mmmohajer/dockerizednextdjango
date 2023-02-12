@@ -31,3 +31,6 @@ export const GOOGLE_ANALYTICS_ID = !publicRuntimeConfig.PRODUCTION
 export const USE_GOOGLE_ANALYTICS = !publicRuntimeConfig.PRODUCTION
   ? process.env.USE_GOOGLE_ANALYTICS_IN_DEVELOPMENT
   : process.env.USE_GOOGLE_ANALYTICS_IN_PRODUCTION;
+export const TINY_CME_API_KEY = !publicRuntimeConfig.PRODUCTION
+  ? process.env.TINY_CME_API_KEY_DEVELOPMENT
+  : process.env.TINY_CME_API_KEY_PRODUCTION;
