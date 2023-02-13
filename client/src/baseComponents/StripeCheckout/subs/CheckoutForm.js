@@ -23,14 +23,14 @@ const CheckoutForm = ({ use_for_future_payment }) => {
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: `${FRONT_END_URL}/payment-completed`
+          return_url: `${FRONT_END_URL}/test-pages/payment-completed`
         }
       });
     } else {
       const { error } = await stripe.confirmSetup({
         elements,
         confirmParams: {
-          return_url: `${FRONT_END_URL}/payment-completed`
+          return_url: `${FRONT_END_URL}/test-pages/payment-completed`
         }
       });
     }

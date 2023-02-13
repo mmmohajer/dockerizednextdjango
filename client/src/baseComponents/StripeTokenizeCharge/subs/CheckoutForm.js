@@ -37,7 +37,7 @@ const CheckoutForm = () => {
   useEffect(() => {
     if (data) {
       addAlertItem(dispatch, 'Thanks, we successfully added your card.', 'success');
-      router.push('/stripe-customer-active-sources');
+      router.push('/test-pages/stripe-customer-active-sources');
     }
   }, [data]);
 

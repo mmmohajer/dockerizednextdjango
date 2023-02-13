@@ -1,4 +1,5 @@
 export const USER_GROUPS = {
   APP_ADMIN: 'Admin',
-  SUBSCRIBER: 'Subscriber'
+  SUBSCRIBER: 'Subscriber',
+  DEVELOPER: 'Developer'
 };

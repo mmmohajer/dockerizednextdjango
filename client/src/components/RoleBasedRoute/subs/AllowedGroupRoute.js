@@ -9,18 +9,18 @@ import { isLoading, isLoaded } from '@/reducers/general/loading';
 
 import styles from '../RoleBasedRoute.module.scss';
 
-const AppAdminRoute = ({ children }) => {
+const AllowedGroupRoute = ({ allowedGroup, children }) => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
-  const [isAppAdmin, setIsAppAdmin] = useState(false);
+  const [isAllowedUser, setIsAllowedUser] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [time, setTime] = useState(5);
 
   useEffect(() => {
     if (isAuthenticated?.isChecked && !isAuthenticated?.authenticated) {
-      setIsAppAdmin(false);
+      setIsAllowedUser(false);
       setIsChecked(true);
       dispatch(isLoaded());
     }
@@ -30,11 +30,11 @@ const AppAdminRoute = ({ children }) => {
     if (profile) {
       dispatch(isLoading());
       if (profile?.user?.groups) {
-        if (profile.user.groups?.includes(USER_GROUPS.APP_ADMIN)) {
-          setIsAppAdmin(true);
+        if (profile.user.groups.some((item) => allowedGroup.includes(item))) {
+          setIsAllowedUser(true);
           setIsChecked(true);
         } else {
-          setIsAppAdmin(false);
+          setIsAllowedUser(false);
           setIsChecked(true);
         }
         dispatch(isLoaded());
@@ -43,7 +43,7 @@ const AppAdminRoute = ({ children }) => {
   }, [profile]);
 
   useEffect(() => {
-    if (isChecked && !isAppAdmin) {
+    if (isChecked && !isAllowedUser) {
       let currentTime = time;
       if (time > 0) {
         setTimeout(() => {
@@ -55,12 +55,12 @@ const AppAdminRoute = ({ children }) => {
         Router.push('/');
       }
     }
-  }, [isChecked, isAppAdmin, time]);
+  }, [isChecked, isAllowedUser, time]);
 
   return (
     <>
-      {isChecked && isAppAdmin ? children : ''}
-      {isChecked && !isAppAdmin ? (
+      {isChecked && isAllowedUser ? children : ''}
+      {isChecked && !isAllowedUser ? (
         <Div>
           <Paragraph> The content of this page is private</Paragraph>
           <Paragraph>You will be redirected to home page in {time}s</Paragraph>
@@ -72,4 +72,4 @@ const AppAdminRoute = ({ children }) => {
   );
 };
 
-export default AppAdminRoute;
+export default AllowedGroupRoute;

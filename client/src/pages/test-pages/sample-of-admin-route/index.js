@@ -12,7 +12,7 @@ import styles from './Index.module.scss';
 
 const Index = () => {
   return (
-    <RoleBasedRoute hasAccessRole={USER_GROUPS.APP_ADMIN}>
+    <RoleBasedRoute hasAccessRole={[USER_GROUPS.APP_ADMIN]}>
       <Seo>
         <PageContainer>
           <Div>This is a sample of an admin page</Div>
