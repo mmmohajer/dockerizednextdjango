@@ -14,6 +14,7 @@ const RichTextBox = ({
   setErrorMessage,
   isRequired,
   id,
+  initialValue,
   placeHolder = '',
   className
 }) => {
@@ -31,9 +32,11 @@ const RichTextBox = ({
           <Editor
             id={id}
             onInit={(evt, editor) => (editorRef.current = editor)}
-            initialValue={`<div><span style="color: gray; font-size: 12px;">${placeHolder}</span></div>`}
+            // initialValue={`<div><span style="color: gray; font-size: 12px;">${placeHolder}</span></div>`}
+            initialValue={initialValue}
             apiKey={TINY_CME_API_KEY}
             init={{
+              placeholder: placeHolder,
               height: 500,
               menubar: false,
               plugins: [

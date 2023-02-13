@@ -198,6 +198,8 @@ const DisplayForm = () => {
             errorMessage={richTextErrorMessage}
             setErrorMessage={setRichTextErrorMessage}
             id="TestDevDesignRichText"
+            // initialValue={""}
+            placeHolder="Type Something..."
           />
 
           <Button type="submit" id="testFormSubmit">

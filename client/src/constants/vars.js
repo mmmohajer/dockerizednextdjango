@@ -54,7 +54,9 @@ export const COLORS = {
   themeOne: '#144272',
   themeTwo: '#205295',
   themeThree: '#2c74b3',
-  themeFour: '#4e9cc2'
+  themeFour: '#4e9cc2',
+  themeFive: '#98dcf7',
+  themeSix: '#acffec'
 };
 
 // ---------------------------------------------------------------------------

@@ -42,6 +42,14 @@
   color: $themeFour;
 }
 
+.hover-text-themeFive:hover {
+  color: $themeFive;
+}
+
+.hover-text-themeSix:hover {
+  color: $themeSix;
+}
+
 .hover-bg-primary:hover {
   background-color: $primaryColor;
 }
@@ -84,4 +92,12 @@
 
 .hover-bg-themeFour:hover {
   background-color: $themeFour;
+}
+
+.hover-bg-themeFive:hover {
+  background-color: $themeFive;
+}
+
+.hover-bg-themeSix:hover {
+  background-color: $themeSix;
 }
