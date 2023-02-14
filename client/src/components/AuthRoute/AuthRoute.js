@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Div, Paragraph } from 'basedesign-iswad';
 import Router from 'next/router';
 
+import DivMinFullHeight from '@/baseComponents/DivMinFullHeight';
+
 import styles from './AuthRoute.module.scss';
 
 const AuthRoute = ({ children }) => {
@@ -45,10 +47,17 @@ const AuthRoute = ({ children }) => {
     <>
       {isChecked && isAuthUser ? children : ''}
       {isChecked && !isAuthUser ? (
-        <Div>
-          <Paragraph> The content of this page is private</Paragraph>
-          <Paragraph>You will be redirected to home page in {time}s</Paragraph>
-        </Div>
+        <DivMinFullHeight
+          direction="vertical"
+          type="flex"
+          hAlign="center"
+          vAlign="center"
+          className="">
+          <Div className="p4 bgRed textWhite br-rad-px-10">
+            <Paragraph className="mb2"> The content of this page is private</Paragraph>
+            <Paragraph>You will be redirected to home page in {time}s</Paragraph>
+          </Div>
+        </DivMinFullHeight>
       ) : (
         ''
       )}

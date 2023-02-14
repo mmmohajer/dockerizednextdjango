@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Div, Paragraph } from 'basedesign-iswad';
 import Router from 'next/router';
 
+import DivMinFullHeight from '@/baseComponents/DivMinFullHeight';
+
 import { USER_GROUPS } from '@/constants/userGroups';
 import { isLoading, isLoaded } from '@/reducers/general/loading';
 
@@ -61,10 +63,17 @@ const AllowedGroupRoute = ({ allowedGroup, children }) => {
     <>
       {isChecked && isAllowedUser ? children : ''}
       {isChecked && !isAllowedUser ? (
-        <Div>
-          <Paragraph> The content of this page is private</Paragraph>
-          <Paragraph>You will be redirected to home page in {time}s</Paragraph>
-        </Div>
+        <DivMinFullHeight
+          direction="vertical"
+          type="flex"
+          hAlign="center"
+          vAlign="center"
+          className="">
+          <Div className="p4 bgRed textWhite br-rad-px-10">
+            <Paragraph className="mb2"> The content of this page is private</Paragraph>
+            <Paragraph>You will be redirected to home page in {time}s</Paragraph>
+          </Div>
+        </DivMinFullHeight>
       ) : (
         ''
       )}

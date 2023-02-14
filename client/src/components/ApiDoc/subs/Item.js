@@ -61,6 +61,7 @@ const Item = ({ category, endpoints }) => {
                     {item?.method}
                   </Div>
                   <Div>{item?.url}</Div>
+                  <Div>Authorized Groups: {JSON.stringify(item?.authorizedGroups, null, 2)}</Div>
                 </Div>
                 <HeightTransitionEffect isActive={activeSubItems[idx]}>
                   {item?.bodyParams?.length >= 1 && (
@@ -74,8 +75,8 @@ const Item = ({ category, endpoints }) => {
                                 {param?.name}
                               </span>
                               <span className="ml2">{`<${param?.type}>`}</span>
+                              <span className="ml2 fs-px-14">{param?.description}</span>
                             </Div>
-                            <Div className="ml2 fs-px-14 mt1">{param?.description}</Div>
                           </Div>
                         ))}
                       </Div>
@@ -93,8 +94,8 @@ const Item = ({ category, endpoints }) => {
                                 {param?.name}
                               </span>
                               <span className="ml2">{`<${param?.type}>`}</span>
+                              <span className="ml2 fs-px-14">{param?.description}</span>
                             </Div>
-                            <Div className="ml2 fs-px-14 mt1">{param?.description}</Div>
                           </Div>
                         ))}
                       </Div>

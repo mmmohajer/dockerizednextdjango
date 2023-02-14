@@ -5,6 +5,7 @@ export const SAMPLE_APIS = [
       {
         method: 'GET',
         url: '/api/sample-api/',
+        authorizedGroups: ['Anyone'],
         queryParams: [
           { name: 'text', type: 'string', isRequired: true, description: 'Text Field' },
           { name: 'text', type: 'string', isRequired: true, description: 'Text Field' },
@@ -31,6 +32,7 @@ export const SAMPLE_APIS = [
       {
         method: 'POST',
         url: '/api/sample-api/',
+        authorizedGroups: ['Anyone'],
         bodyParams: [
           { name: 'text', type: 'string', isRequired: true, description: 'Text Field' },
           { name: 'text', type: 'string', isRequired: true, description: 'Text Field' },
@@ -63,6 +65,7 @@ export const SAMPLE_APIS = [
       {
         method: 'PUT',
         url: '/api/sample-api/<int:id>/',
+        authorizedGroups: ['Admin'],
         bodyParams: [
           { name: 'text', type: 'string', isRequired: true, description: 'Text Field' },
           { name: 'text', type: 'string', isRequired: true, description: 'Text Field' },
@@ -95,6 +98,7 @@ export const SAMPLE_APIS = [
       {
         method: 'DELETE',
         url: '/api/sample-api/<int:id>/',
+        authorizedGroups: ['Admin'],
         bodyParams: [
           { name: 'text', type: 'string', isRequired: true, description: 'Text Field' },
           { name: 'text', type: 'string', isRequired: true, description: 'Text Field' },

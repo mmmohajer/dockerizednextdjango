@@ -15,7 +15,7 @@ const Index = () => {
       <Seo>
         <PageContainer>
           <DivMinFullHeight type="flex" hAlign="center" vAlign="center" className="fs-r-2">
-            <Div className="p4 bgThemeOne textWhite br-rad-px-10">Page Not Found!</Div>
+            <Div className="p4 bgRed textWhite br-rad-px-10">Page Not Found!</Div>
           </DivMinFullHeight>
         </PageContainer>
       </Seo>
