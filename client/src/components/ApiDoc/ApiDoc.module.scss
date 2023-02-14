@@ -1,0 +1,79 @@
+.item {
+  &Container {
+    background-color: #e8e8e8;
+  }
+
+  &GET {
+    &Container {
+      border: solid 3px;
+      border-color: rgb(112, 238, 127);
+    }
+
+    &CategoryContainer {
+      background-color: rgb(112, 238, 127);
+    }
+
+    &Btn {
+      background-color: rgb(112, 238, 127);
+    }
+  }
+
+  &POST {
+    &Container {
+      border: solid 3px;
+      border-color: rgb(231, 223, 157);
+    }
+
+    &CategoryContainer {
+      background-color: rgb(231, 223, 157);
+    }
+
+    &Btn {
+      background-color: rgb(231, 223, 157);
+    }
+  }
+
+  &PUT {
+    &Container {
+      border: solid 3px;
+      border-color: rgb(177, 166, 238);
+    }
+
+    &CategoryContainer {
+      background-color: rgb(177, 166, 238);
+    }
+
+    &Btn {
+      background-color: rgb(177, 166, 238);
+    }
+  }
+
+  &DELETE {
+    &Container {
+      border: solid 3px;
+      border-color: rgb(226, 174, 174);
+    }
+
+    &CategoryContainer {
+      background-color: rgb(226, 174, 174);
+    }
+
+    &Btn {
+      background-color: rgb(226, 174, 174);
+    }
+  }
+
+  &Response {
+    &Success {
+      &Container {
+        background-color: rgb(177, 234, 177);
+      }
+    }
+
+    &Error {
+      &Container {
+        background-color: rgb(234, 159, 159);
+      }
+    }
+  }
+}
