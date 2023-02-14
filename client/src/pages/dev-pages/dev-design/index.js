@@ -14,7 +14,7 @@ import styles from './Index.module.scss';
 
 const Index = () => {
   return (
-    <RoleBasedRoute hasAccessRole={[USER_GROUPS.DEVELOPER, USER_GROUPS.APP_ADMIN]}>
+    <RoleBasedRoute hasAccessRole={[USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER]}>
       <Seo>
         <PageContainer>
           <DevDesign />
