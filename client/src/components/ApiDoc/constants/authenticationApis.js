@@ -168,7 +168,7 @@ export const AUTHENTICATION_APIS = [
       // ---------------------------------------
 
       {
-        title: 'Logout user',
+        title: 'Logout a user',
         method: 'POST',
         url: '/api/logout/',
         authorizedGroups: ['Authenticated user'],
@@ -196,6 +196,257 @@ export const AUTHENTICATION_APIS = [
             type: 'error',
             code: 400,
             ex: { success: false, message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'Update access token',
+        method: 'POST',
+        url: '/api/auth/jwt/refresh/',
+        authorizedGroups: ['Authenticated user'],
+        bodyParams: [
+          {
+            name: 'refresh',
+            type: 'string',
+            isRequired: true,
+            description: 'Refresh token'
+          }
+        ],
+        description:
+          'It will update access token. Remember that you need to update access token before it expires.',
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              access: 'ACCESS_TOKEN'
+            },
+            description: 'Gives you the updated access token.'
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'Resend activation email',
+        method: 'POST',
+        url: '/api/resend-activation-email/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'email',
+            type: 'string',
+            isRequired: true,
+            description: 'User email address'
+          }
+        ],
+        description: "It will send a new activation email to user's email address",
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              email_sent: true,
+              message: 'Email has been successfully sent!'
+            },
+            description: "Email with the activation link will be sent to the user's email address"
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { email_sent: false, message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'Send reset password email',
+        method: 'POST',
+        url: '/api/send-reset-password-email/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'email',
+            type: 'string',
+            isRequired: true,
+            description: 'User email address'
+          }
+        ],
+        description: "It will send an email with a link to reset user's password",
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              email_sent: true,
+              message: 'Please check your inbox to reset your password!'
+            },
+            description: "Email with the activation link will be sent to the user's email address"
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { email_sent: false, message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: "Reset user's password (When forgot the password)",
+        method: 'POST',
+        url: '/api/reset-password/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'userId',
+            type: 'integer',
+            isRequired: true,
+            description: 'The id of the user'
+          },
+          {
+            name: 'token',
+            type: 'string',
+            isRequired: true,
+            description: 'Token drawn out from the link in the email being sent.'
+          },
+          {
+            name: 'password',
+            type: 'string',
+            isRequired: true,
+            description: 'New password'
+          }
+        ],
+        description: "It will update the user's password.",
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              password_reset: true,
+              message: 'Pasword has been reset successfully!'
+            },
+            description: "User's password will be updated."
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { password_reset: false, message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'Authenticate the user',
+        method: 'POST',
+        url: '/api/auth/authenticate-user/',
+        authorizedGroups: ['Authenticated user'],
+        description: 'It will authenticate the user.',
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              Authenticated: true
+            },
+            description:
+              'Authenticated is a boolean value determining whether or not the user has authenticated successfully.'
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'Google auth ahthorization data',
+        method: 'POST',
+        url: '/api/auth/google-auth/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'code',
+            type: 'string',
+            isRequired: true,
+            description: 'The code comes from the returned url after user logs in via google button'
+          }
+        ],
+        description:
+          "It will return the 'Authorization Data' from Google API, which includes access_token, id_token, etc.",
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              'Authorization Data': 'Object of data'
+            },
+            description:
+              'Using the returned info you can retrieve the user email address and google profile information.'
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'login/register with Google',
+        method: 'POST',
+        url: '/api/auth/google-auth-handle-token/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'id_token',
+            type: 'string',
+            isRequired: true,
+            description: 'The id_token returned from the Google API.'
+          }
+        ],
+        description:
+          'If the user already exists, it will build access and refresh tokens to login the user, otherwise it will register the new user and will assign a profile to the newly registered user and then it will build access and refresh tokens to login the user.',
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              access: 'ACCESS_TOKEN',
+              refresh: 'REFRESH_TOKEN'
+            },
+            description: 'Using the returned access and refresh tokens user can login.'
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { message: 'Error Message' },
             description: ''
           }
         ]
