@@ -44,7 +44,22 @@
     }
 
     &Btn {
-      background-color: rgb(177, 166, 238);
+      background-color: rgb(185, 139, 197);
+    }
+  }
+
+  &PATCH {
+    &Container {
+      border: solid 3px;
+      border-color: rgb(211, 205, 244);
+    }
+
+    &CategoryContainer {
+      background-color: rgb(211, 205, 244);
+    }
+
+    &Btn {
+      background-color: rgb(211, 205, 244);
     }
   }
 

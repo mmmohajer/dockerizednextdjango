@@ -171,7 +171,7 @@ export const AUTHENTICATION_APIS = [
         title: 'Logout a user',
         method: 'POST',
         url: '/api/logout/',
-        authorizedGroups: ['Authenticated user'],
+        authorizedGroups: ['Anyone'],
         bodyParams: [
           {
             name: 'refresh',
@@ -207,7 +207,7 @@ export const AUTHENTICATION_APIS = [
         title: 'Update access token',
         method: 'POST',
         url: '/api/auth/jwt/refresh/',
-        authorizedGroups: ['Authenticated user'],
+        authorizedGroups: ['Anyone'],
         bodyParams: [
           {
             name: 'refresh',
@@ -359,7 +359,7 @@ export const AUTHENTICATION_APIS = [
         title: 'Authenticate the user',
         method: 'POST',
         url: '/api/auth/authenticate-user/',
-        authorizedGroups: ['Authenticated user'],
+        authorizedGroups: ['Anyone'],
         description: 'It will authenticate the user.',
         responses: [
           {
@@ -442,6 +442,185 @@ export const AUTHENTICATION_APIS = [
               refresh: 'REFRESH_TOKEN'
             },
             description: 'Using the returned access and refresh tokens user can login.'
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'Microsoft auth ahthorization data',
+        method: 'POST',
+        url: '/api/auth/microsoft-auth/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'code',
+            type: 'string',
+            isRequired: true,
+            description:
+              'The code comes from the returned url after user logs in via Microsoft button'
+          }
+        ],
+        description:
+          "It will return the 'Authorization Data' from Microsoft API, which includes access_token, id_token, etc.",
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              'Authorization Data': 'Object of data'
+            },
+            description:
+              'Using the returned info you can retrieve the user email address and Microsoft profile information.'
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'login/register with Microsoft',
+        method: 'POST',
+        url: '/api/auth/microsoft-auth-handle-token/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'id_token',
+            type: 'string',
+            isRequired: true,
+            description: 'The id_token returned from the Microsoft API.'
+          }
+        ],
+        description:
+          'If the user already exists, it will build access and refresh tokens to login the user, otherwise it will register the new user and will assign a profile to the newly registered user and then it will build access and refresh tokens to login the user.',
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              access: 'ACCESS_TOKEN',
+              refresh: 'REFRESH_TOKEN'
+            },
+            description: 'Using the returned access and refresh tokens user can login.'
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'Facebook auth ahthorization data',
+        method: 'POST',
+        url: '/api/auth/facebook-auth/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'code',
+            type: 'string',
+            isRequired: true,
+            description:
+              'The code comes from the returned url after user logs in via Facebook button'
+          }
+        ],
+        description:
+          "It will return the 'Authorization Data' from Facebook API, which includes access_token, id_token, etc.",
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              'Authorization Data': 'Object of data'
+            },
+            description:
+              'Using the returned info you can retrieve the user email address and Facebook profile information.'
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'login/register with Facebook',
+        method: 'POST',
+        url: '/api/auth/facebook-auth-handle-token/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'id_token',
+            type: 'string',
+            isRequired: true,
+            description: 'The id_token returned from the Facebook API.'
+          }
+        ],
+        description:
+          'If the user already exists, it will build access and refresh tokens to login the user, otherwise it will register the new user and will assign a profile to the newly registered user and then it will build access and refresh tokens to login the user.',
+        responses: [
+          {
+            type: 'success',
+            code: 200,
+            ex: {
+              access: 'ACCESS_TOKEN',
+              refresh: 'REFRESH_TOKEN'
+            },
+            description: 'Using the returned access and refresh tokens user can login.'
+          },
+          {
+            type: 'error',
+            code: 400,
+            ex: { message: 'Error Message' },
+            description: ''
+          }
+        ]
+      },
+
+      // ---------------------------------------
+
+      {
+        title: 'Delete a user',
+        method: 'DELETE',
+        url: '/api/auth/delete-users/<int:id>/',
+        authorizedGroups: ['Anyone'],
+        bodyParams: [
+          {
+            name: 'password',
+            type: 'string',
+            isRequired: true,
+            description:
+              'This is the password of the user you want to delete. Remember that the password field can be bypassed only if the user belongs to the "Admin" group. Admin of the app can delete a user without knowing their password.'
+          }
+        ],
+        description: 'id in the url is the id of the user that you want to delete.',
+        responses: [
+          {
+            type: 'success',
+            code: 204,
+            ex: {},
+            description: 'Return nothing as the response.'
           },
           {
             type: 'error',

@@ -24,7 +24,7 @@ const Item = ({ category, endpoints }) => {
     <>
       <Div className={cx('w-per-100 textBlack', styles.itemContainer)}>
         <Div
-          className={cx('p2 bgBlue textWhite mouse-hand f-b')}
+          className={cx('p2 bgBlue textWhite mouse-hand f-b text-title')}
           onClick={() => setCategoryIsActive(!categoryIsActive)}>
           {category}
         </Div>
@@ -47,7 +47,7 @@ const Item = ({ category, endpoints }) => {
                   distributedBetween
                   vAlign="center"
                   className={cx(
-                    'flex--wrap',
+                    'flex--wrap text-title',
                     styles[`item${item?.method?.toUpperCase()}Container`]
                   )}>
                   <Div className="f-b">{item?.title}</Div>
@@ -64,6 +64,25 @@ const Item = ({ category, endpoints }) => {
                     <span className="f-b mr2">Authorized Groups</span>{' '}
                     {JSON.stringify(item?.authorizedGroups, null, 2)}
                   </Div>
+                  {item?.headerParams?.length >= 1 && (
+                    <Div className={'br-bottom-solid-3'}>
+                      <Div className="my2 f-b">Header Params</Div>
+                      <Div className="ml2">
+                        {item?.headerParams?.map((param, idx) => (
+                          <Div key={idx} className="mb2">
+                            <Div>
+                              <span className={cx('f-b', param?.isRequired && 'required')}>
+                                {param?.name}
+                              </span>
+                              <span className="ml2">{`<${param?.type}>`}</span>
+                            </Div>
+                            <Div className="mt1 ml2 fs-px-14">{param?.description}</Div>
+                          </Div>
+                        ))}
+                      </Div>
+                    </Div>
+                  )}
+
                   {item?.bodyParams?.length >= 1 && (
                     <Div className={'br-bottom-solid-3'}>
                       <Div className="my2 f-b">Body Params</Div>
