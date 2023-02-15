@@ -1,8 +1,9 @@
 export const SAMPLE_APIS = [
   {
-    category: 'Sample API',
+    category: 'Authentication',
     endpoints: [
       {
+        title: 'Register a new user',
         method: 'GET',
         url: '/api/sample-api/',
         authorizedGroups: ['Anyone'],
@@ -29,7 +30,10 @@ export const SAMPLE_APIS = [
         ]
       },
 
+      // ---------------------------------------
+
       {
+        title: 'Register a new user',
         method: 'POST',
         url: '/api/sample-api/',
         authorizedGroups: ['Anyone'],
@@ -62,7 +66,10 @@ export const SAMPLE_APIS = [
         ]
       },
 
+      // ---------------------------------------
+
       {
+        title: 'Register a new user',
         method: 'PUT',
         url: '/api/sample-api/<int:id>/',
         authorizedGroups: ['Admin'],
@@ -95,7 +102,10 @@ export const SAMPLE_APIS = [
         ]
       },
 
+      // ---------------------------------------
+
       {
+        title: 'Register a new user',
         method: 'DELETE',
         url: '/api/sample-api/<int:id>/',
         authorizedGroups: ['Admin'],

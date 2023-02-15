@@ -9,7 +9,7 @@ import styles from './ApiDoc.module.scss';
 const ApiDoc = () => {
   return (
     <>
-      <Div className="m2">
+      <Div className="p2">
         {APIS?.map((api, idx) => (
           <Div key={idx} className="mb2">
             {api?.map((item, subIdx) => (

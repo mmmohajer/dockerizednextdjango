@@ -50,22 +50,22 @@ const Item = ({ category, endpoints }) => {
                     'flex--wrap',
                     styles[`item${item?.method?.toUpperCase()}Container`]
                   )}>
-                  <Div
-                    type="flex"
-                    hAlign="start"
-                    vAlign="center"
-                    className={cx(
-                      'height-px-40 w-px-100 br-rad-px-10 text-uppercase',
-                      styles[`item${item?.method?.toUpperCase()}Btn`]
-                    )}>
-                    {item?.method}
-                  </Div>
-                  <Div>{item?.url}</Div>
-                  <Div>Authorized Groups: {JSON.stringify(item?.authorizedGroups, null, 2)}</Div>
+                  <Div className="f-b">{item?.title}</Div>
                 </Div>
-                <HeightTransitionEffect isActive={activeSubItems[idx]}>
+                <HeightTransitionEffect isActive={activeSubItems[idx]} className="">
+                  <Div className="my2 br-bottom-solid-3 br-top-solid-3 py2">
+                    <span className="f-b mr2">Method</span> {item?.method}
+                  </Div>
+                  <Div className="mb2 br-bottom-solid-3 py2">
+                    <span className="f-b mr2">URL</span> {item?.url}
+                  </Div>
+
+                  <Div className="mb2 br-bottom-solid-3 py2">
+                    <span className="f-b mr2">Authorized Groups</span>{' '}
+                    {JSON.stringify(item?.authorizedGroups, null, 2)}
+                  </Div>
                   {item?.bodyParams?.length >= 1 && (
-                    <>
+                    <Div className={'br-bottom-solid-3'}>
                       <Div className="my2 f-b">Body Params</Div>
                       <Div className="ml2">
                         {item?.bodyParams?.map((param, idx) => (
@@ -75,16 +75,16 @@ const Item = ({ category, endpoints }) => {
                                 {param?.name}
                               </span>
                               <span className="ml2">{`<${param?.type}>`}</span>
-                              <span className="ml2 fs-px-14">{param?.description}</span>
                             </Div>
+                            <Div className="mt1 ml2 fs-px-14">{param?.description}</Div>
                           </Div>
                         ))}
                       </Div>
-                    </>
+                    </Div>
                   )}
 
                   {item?.queryParams?.length >= 1 && (
-                    <>
+                    <Div className={'br-bottom-solid-3'}>
                       <Div className="my2 f-b">Query Params</Div>
                       <Div className="ml2">
                         {item?.queryParams?.map((param, idx) => (
@@ -94,18 +94,18 @@ const Item = ({ category, endpoints }) => {
                                 {param?.name}
                               </span>
                               <span className="ml2">{`<${param?.type}>`}</span>
-                              <span className="ml2 fs-px-14">{param?.description}</span>
                             </Div>
+                            <Div className="mt1 ml2 fs-px-14">{param?.description}</Div>
                           </Div>
                         ))}
                       </Div>
-                    </>
+                    </Div>
                   )}
                   {item?.description && (
-                    <>
+                    <Div className={'br-bottom-solid-3 pb2'}>
                       <Div className="my2 f-b">Description</Div>
                       <Div className="ml2">{item?.description}</Div>
-                    </>
+                    </Div>
                   )}
                   <Div className="my2 f-b">Responses</Div>
                   {item?.responses?.map((response, idx) => (
@@ -122,6 +122,7 @@ const Item = ({ category, endpoints }) => {
                       <Div>
                         <Div className="mb2">Response Sample:</Div>
                         <pre>{JSON.stringify(response?.ex || {}, null, 2)}</pre>
+                        <Div className="my2">{response?.description}</Div>
                       </Div>
                     </Div>
                   ))}

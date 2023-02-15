@@ -64,7 +64,7 @@ const ActivateUser = () => {
           'Sorry, we are unable to activate your registration. That might be because your token has been expired.',
           'error'
         );
-        Router.push('/register');
+        Router.push('/test-pages/register');
       }
     }
   }, [token]);
