@@ -50,7 +50,7 @@ const MobileNav = ({ changesThePage = true }) => {
                 className={cx('p2 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
                 activeClassName={cx(styles.activeMobileNavItem)}
                 onClick={() => {
-                  homePageElements[item.identifier].scrollIntoView(AUTO_SCROLL_BEHAVIOR);
+                  homePageElements[item.identifier]?.scrollIntoView(AUTO_SCROLL_BEHAVIOR);
                   dispatch(hideMobileNav());
                 }}>
                 {item.title}

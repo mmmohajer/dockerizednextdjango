@@ -38,7 +38,7 @@ const DesktopNav = ({ changesThePage = true }) => {
                 className={cx('p1 mouse-hand textWhite', styles.desktopNavItem)}
                 activeClassName={cx(styles.activeDesktopNavItem)}
                 onClick={() =>
-                  homePageElements[item.identifier].scrollIntoView(AUTO_SCROLL_BEHAVIOR)
+                  homePageElements[item.identifier]?.scrollIntoView(AUTO_SCROLL_BEHAVIOR)
                 }>
                 {item.title}
               </NavItem>
