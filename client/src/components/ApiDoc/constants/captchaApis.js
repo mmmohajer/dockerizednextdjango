@@ -1,6 +1,7 @@
 export const CAPTCHA_APIS = [
   {
     category: 'Captcha',
+    info: ``,
     endpoints: [
       {
         title: 'Show all Captchas',

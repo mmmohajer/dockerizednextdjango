@@ -1,6 +1,7 @@
 export const CHAT_APIS = [
   {
     category: 'Chat',
+    info: ``,
     endpoints: [
       {
         title: 'Show all Public rooms',
