@@ -92,3 +92,37 @@
     }
   }
 }
+
+@import '@/styles/base/_variables';
+@import '@/styles/base/_mixins';
+
+$closeContainerHeight: 40px;
+
+.modal {
+  &Container {
+    max-width: 700px;
+    min-width: 350px;
+    max-height: 85vh;
+    overflow: hidden;
+
+    @include atMedium {
+      max-height: 90vh;
+    }
+  }
+
+  &MainContentContainer {
+    max-height: calc(85vh - $closeContainerHeight);
+
+    @include atMedium {
+      max-height: calc(90vh - $closeContainerHeight);
+    }
+  }
+
+  &InfoTextContainer {
+    line-height: 2rem;
+
+    & p {
+      margin-bottom: 2rem;
+    }
+  }
+}

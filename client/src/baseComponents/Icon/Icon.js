@@ -35,7 +35,8 @@ import {
   faMinusCircle,
   faCode,
   faLink,
-  faHandPointer
+  faHandPointer,
+  faQuestionCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { faSquareInstagram, faJs, faCss3Alt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 // import { far } from '@fortawesome/free-regular-svg-icons';
@@ -178,7 +179,13 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
         style={{ color, width, transform: `scale(${scale})` }}
       />
     ),
-    save: <FontAwesomeIcon icon={faSave} style={{ color, width, transform: `scale(${scale})` }} />
+    save: <FontAwesomeIcon icon={faSave} style={{ color, width, transform: `scale(${scale})` }} />,
+    'question-circle': (
+      <FontAwesomeIcon
+        icon={faQuestionCircle}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    )
   };
 
   iconTypes['dashboard'] = (

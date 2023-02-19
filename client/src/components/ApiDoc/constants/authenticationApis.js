@@ -1,6 +1,8 @@
 export const AUTHENTICATION_APIS = [
   {
     category: 'Authentication',
+    info: `<p>For registering a new user we need to send a request to get a captcha code, and we need to send captcha_uuid and user_captcha code along with the post request to verify if a human is sending the request. </p>
+    <p>As soon as user successfully registers to the app, an email will be sent to the user's email address with an activation link, in which there is a token which expires after 15 minutes. </p>`,
     endpoints: [
       {
         title: 'Register a new user',

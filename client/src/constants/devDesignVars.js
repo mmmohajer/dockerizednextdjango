@@ -37,6 +37,7 @@ export const LIST_OF_ICONS = [
   'phone',
   'phone-fill',
   'plus-circle',
+  'question-circle',
   'quoteLeft',
   'rotate',
   'save',

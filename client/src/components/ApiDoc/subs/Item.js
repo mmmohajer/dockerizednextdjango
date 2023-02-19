@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { Div } from 'basedesign-iswad';
 
+import Icon from '@/baseComponents/Icon';
+
 import HeightTransitionEffect from '@/baseComponents/HeightTransitionEffect';
 
+import InfoModal from './InfoModal';
 import styles from '../ApiDoc.module.scss';
 
-const Item = ({ category, endpoints }) => {
+const Item = ({ category, endpoints, info, setInfoModalContext }) => {
   const [categoryIsActive, setCategoryIsActive] = useState(false);
   const [activeSubItems, setActiveSubItems] = useState({});
 
@@ -24,9 +27,22 @@ const Item = ({ category, endpoints }) => {
     <>
       <Div className={cx('w-per-100 textBlack', styles.itemContainer)}>
         <Div
+          type="flex"
+          distributedBetween
+          vAlign="center"
           className={cx('p2 bgBlue textWhite mouse-hand f-b text-title')}
           onClick={() => setCategoryIsActive(!categoryIsActive)}>
-          {category}
+          <Div>{category}</Div>
+          {info && (
+            <Div
+              type="flex"
+              hAlign="center"
+              vAlign="center"
+              className={'mouse-hand z-10 w-px-30 height-px-30'}
+              onClick={() => setInfoModalContext(info)}>
+              <Icon type="question-circle" color="white" scale={1.5} />
+            </Div>
+          )}
         </Div>
         <HeightTransitionEffect isActive={categoryIsActive}>
           <Div>

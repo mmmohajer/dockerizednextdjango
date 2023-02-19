@@ -1,6 +1,6 @@
 export const PROFILE_APIS = [
   {
-    category: 'Proflie',
+    category: 'Profile',
     endpoints: [
       {
         title: 'Show all profiles to Admin',
