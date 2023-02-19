@@ -4,6 +4,7 @@ import { Div } from 'basedesign-iswad';
 
 import Icon from '@/baseComponents/Icon';
 import Anchor from '@/baseComponents/Anchor';
+import DivConvertTextToHtml from '../DivConvertTextToHtml';
 
 import { COLORS } from '@/constants/vars';
 import useApiCalls from '@/hooks/useApiCalls';
@@ -40,37 +41,13 @@ const PersonalInfo = ({ isInFooter = false }) => {
   return (
     <>
       {My_PERSONAL_INFO?.map((info, idx) => (
-        <Div type="flex" hAlign="start" vAlign="center" key={idx} className="my2">
-          <Icon type={info.iconType} color={!isInFooter ? COLORS.themeOne : ''} scale={1.1} />
-          <Div className="ml2">{info.value}</Div>
+        <Div type="flex" hAlign="start" vAlign="start" key={idx} className="my2">
+          <Div>
+            <Icon type={info.iconType} color={!isInFooter ? COLORS.themeOne : ''} scale={1.25} />
+          </Div>
+          <DivConvertTextToHtml className="ml2" text={info.value} />
         </Div>
       ))}
-      {!isInFooter && resume?.file ? (
-        <Div type="flex" className="mt2">
-          <Div
-            onClick={() => {
-              gtag('event', 'click_download_cv_link', {
-                event_category: 'Link',
-                event_label: 'Download CV'
-              });
-            }}>
-            <Anchor to={`${APP_DOMAIN_FOR_SERVER_SIDE_PROPS}${resume?.file}`} internal={false}>
-              <Div
-                type="flex"
-                hAlign="start"
-                vAlign="center"
-                className=""
-                onMouseEnter={() => setPdfIconColor(COLORS.themeFour)}
-                onMouseLeave={() => setPdfIconColor(COLORS.themeOne)}>
-                <Icon type={'pdf-file'} color={pdfIconColor} scale={1.1} />
-                <Div className="ml2">Downlad CV</Div>
-              </Div>
-            </Anchor>
-          </Div>
-        </Div>
-      ) : (
-        ''
-      )}
     </>
   );
 };
