@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import cx from 'classnames';
-import { useDispatch } from 'react-redux';
-import axios from 'axios';
 import { Div } from 'basedesign-iswad';
 
 import Logout from '@/baseComponents/Logout';
@@ -12,8 +10,6 @@ import PageContainer from '@/components/PageContainer';
 import styles from './index.module.scss';
 
 const Index = () => {
-  const dispatch = useDispatch();
-
   return (
     <PublicRoute>
       <Seo title="Mohammad Mohajer">
