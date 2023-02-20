@@ -37,7 +37,7 @@ const MobileNav = ({ changesThePage = true }) => {
           <MobNavItem
             key={idx}
             isActive={activeMenu === item.identifier}
-            className={cx('p2 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
+            className={cx('p1 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
             activeClassName={cx('textThemeFive')}
             onClick={() => {
               if (!item?.hasSubMenu) {
@@ -62,14 +62,16 @@ const MobileNav = ({ changesThePage = true }) => {
                 setHoveredSubMenu(localHoveredSubMenu);
               }
             }}>
-            <Div>{item.title}</Div>
+            <Div type="flex">
+              <Div className={cx(styles.mobNavItemTitle)}>{item.title}</Div>
+            </Div>
             {item?.hasSubMenu && (
               <HeightTransitionEffect
                 isActive={hoveredSubMenu?.includes(item.identifier)}
                 className="px4">
                 {SUB_MENU_ITEMS[item.identifier]?.map((subItem, subIdx) => (
                   <MobSubNavItem
-                    className="mt4 textWhite"
+                    className="mt2 textWhite"
                     activeClassName={cx('textThemeFive')}
                     isActive={
                       activeMenu === item.identifier && activeSubMenu === subItem.identifier
@@ -86,7 +88,9 @@ const MobileNav = ({ changesThePage = true }) => {
                         homePageElements[subItem.identifier]?.scrollIntoView(AUTO_SCROLL_BEHAVIOR);
                       }
                     }}>
-                    {subItem.title}
+                    <Div type="flex">
+                      <Div className={cx(styles.mobNavItemSubNavItemTitle)}>{subItem.title}</Div>
+                    </Div>
                   </MobSubNavItem>
                 ))}
               </HeightTransitionEffect>

@@ -44,6 +44,34 @@
 }
 
 .mobNav {
+  &Item {
+    &Title {
+      padding: 6px 0;
+      background: linear-gradient($themeFive 0 0) center bottom / 100% 2px no-repeat;
+      background-size: 0% 2px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-size: 100% 2px;
+      }
+    }
+
+    &SubNav {
+      &Item {
+        &Title {
+          padding: 6px 0;
+          background: linear-gradient($themeFive 0 0) center bottom / 100% 2px no-repeat;
+          background-size: 0% 2px;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            background-size: 100% 2px;
+          }
+        }
+      }
+    }
+  }
+
   &SubNav {
     &Container {
       &IsActive {

@@ -6,6 +6,7 @@ import { Div, HamburgerIcon } from 'basedesign-iswad';
 
 import { setActiveMenu } from '@/reducers/general/activeMenu';
 import { setActiveSubMenu } from '@/reducers/general/activeSubMenu';
+import { toggleMobileNav } from '@/reducers/general/mobileNavIsActive';
 
 import { HAMBURGER_CONFIG } from '../../constants';
 import UserManager from '../UserManager';
