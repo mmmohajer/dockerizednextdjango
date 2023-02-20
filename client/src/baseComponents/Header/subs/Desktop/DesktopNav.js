@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { Div, NavBar, NavItem, SubNavContainer, SubNavItem } from 'basedesign-iswad';
 
+import HeightTransitionEffect from '@/baseComponents/HeightTransitionEffect';
+
 import { MENU_ITEMS, SUB_MENU_ITEMS } from '@/constants/menuItems';
 import { setActiveMenu } from '@/reducers/general/activeMenu';
 import { setActiveSubMenu } from '@/reducers/general/activeSubMenu';
@@ -48,9 +50,9 @@ const DesktopNav = ({ changesThePage = true }) => {
             onMouseLeave={() => setHoveredSubMenu('')}>
             <Div className={cx(styles.desktopNavItemTitle)}>{item.title}</Div>
             {item?.hasSubMenu ? (
-              <SubNavContainer
+              <HeightTransitionEffect
                 isActive={hoveredSubMenu === item.identifier}
-                className={cx('px1', styles.desktopNavItemSubNavContainer)}
+                className={cx('px1 pos-abs', styles.desktopNavItemSubNavContainer)}
                 style={{
                   left: `${item?.submenuTranslteX}` || '0px',
                   width: `${item?.subMenuWidth}` || '300px'
@@ -90,7 +92,7 @@ const DesktopNav = ({ changesThePage = true }) => {
                     </SubNavItem>
                   ))}
                 </Div>
-              </SubNavContainer>
+              </HeightTransitionEffect>
             ) : (
               ''
             )}
