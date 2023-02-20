@@ -7,7 +7,7 @@ import Icon from '@/baseComponents/Icon';
 const CheckBox = ({ checked = false, onBoxClick }) => {
   return (
     <>
-      <Div type="flex" hAlign="center" vAlign="center" className="w-per-100">
+      <Div type="flex" hAlign="start" vAlign="center" className="w-per-100">
         <Div
           type="flex"
           hAlign="center"
