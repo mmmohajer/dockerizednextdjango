@@ -42,6 +42,7 @@ export const LIST_OF_ICONS = [
   'rotate',
   'save',
   'search',
+  'signout',
   'source-code',
   'youtube'
 ];

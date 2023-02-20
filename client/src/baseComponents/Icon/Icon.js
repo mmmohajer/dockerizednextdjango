@@ -36,7 +36,8 @@ import {
   faCode,
   faLink,
   faHandPointer,
-  faQuestionCircle
+  faQuestionCircle,
+  faSignOut
 } from '@fortawesome/free-solid-svg-icons';
 import { faSquareInstagram, faJs, faCss3Alt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 // import { far } from '@fortawesome/free-regular-svg-icons';
@@ -185,6 +186,9 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
         icon={faQuestionCircle}
         style={{ color, width, transform: `scale(${scale})` }}
       />
+    ),
+    signout: (
+      <FontAwesomeIcon icon={faSignOut} style={{ color, width, transform: `scale(${scale})` }} />
     )
   };
 

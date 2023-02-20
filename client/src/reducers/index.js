@@ -4,6 +4,7 @@ import loading from './general/loading';
 import notifications from './general/notifications';
 import language from './general/language';
 import activeMenu from './general/activeMenu';
+import activeSubMenu from './general/activeSubMenu';
 import modalType from './general/modalType';
 import modalProps from './general/modalProps';
 import mobileNavIsActive from './general/mobileNavIsActive';
@@ -20,6 +21,7 @@ const reducer = combineReducers({
   notifications,
   language,
   activeMenu,
+  activeSubMenu,
   modalType,
   modalProps,
   mobileNavIsActive,

@@ -2,11 +2,11 @@
   overflow: hidden;
   position: fixed;
   top: calc($HeaderHeight + 2px);
-  right: 0.5rem;
+  left: 0.5rem;
   transition: $transition1;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
-  transform: translateX(150%);
+  transform: translateX(-150%);
   &_active {
     transform: translateX(0);
   }

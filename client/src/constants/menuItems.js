@@ -1,21 +1,46 @@
 export const MENU_ITEMS = [
-  // { identifier: 'home', title: 'Home', to: '/', showInHeader: true },
-  { identifier: 'about', title: 'About', to: '/', showInHeader: true, showInFooter: true },
-  { identifier: 'services', title: 'Services', to: '/', showInHeader: true, showInFooter: true },
+  { identifier: 'about', title: 'About', to: '/test-pages/test-about', hasSubMenu: false },
+  {
+    identifier: 'services',
+    title: 'Services',
+    to: '/',
+    hasSubMenu: true,
+    submenuTranslteX: '-100px',
+    subMenuWidth: '300px'
+  },
   {
     identifier: 'experience',
     title: 'Experience',
     to: '/',
-    showInHeader: true,
-    showInFooter: true
+    hasSubMenu: false
   },
-  { identifier: 'projects', title: 'Projects', to: '/', showInHeader: true, showInFooter: true },
+  { identifier: 'projects', title: 'Projects', to: '/', hasSubMenu: false },
   {
     identifier: 'testimonials',
     title: 'Testimonials',
     to: '/',
-    showInHeader: true,
-    showInFooter: true
+    hasSubMenu: false
   },
-  { identifier: 'contact', title: 'Contact', to: '/', showInHeader: true, showInFooter: true }
+  { identifier: 'contact', title: 'Contact', to: '/', hasSubMenu: false }
 ];
+
+export const SUB_MENU_ITEMS = {
+  services: [
+    {
+      identifier: 'web-development',
+      title: 'Web Development',
+      to: '/'
+    },
+
+    {
+      identifier: 'mvp-development',
+      title: 'MVP Development',
+      to: '/'
+    },
+    {
+      identifier: 'api-development',
+      title: 'API Development',
+      to: '/'
+    }
+  ]
+};

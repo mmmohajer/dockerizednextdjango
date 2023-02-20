@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 import { Div } from 'basedesign-iswad';
 
 import { getLocalStorage, removeLocalStorage } from '@/utils/auth';
@@ -10,10 +11,18 @@ import useApiCalls from '@/hooks/useApiCalls';
 
 import styles from './Logout.module.scss';
 
-const Logout = () => {
+const Logout = ({ className, children, ...props }) => {
+  const router = useRouter();
   const dispatch = useDispatch();
 
   const [refreshToken, setRefreshToken] = useState(false);
+
+  const logoutHandler = async () => {
+    await removeLocalStorage('access_token');
+    await removeLocalStorage('refresh_token');
+    addAlertItem(dispatch, 'You have successfully logged out.', 'success');
+    router.reload(window?.location?.hostname);
+  };
 
   const [sendLogoutReq, setSendLogoutReq] = useState(false);
   const bodyData = {
@@ -29,9 +38,7 @@ const Logout = () => {
   useEffect(() => {
     if (data) {
       if (data?.success) {
-        removeLocalStorage('access_token');
-        removeLocalStorage('refresh_token');
-        addAlertItem(dispatch, 'You have successfully logged out.', 'success');
+        logoutHandler();
       }
     }
   }, [data]);
@@ -45,12 +52,12 @@ const Logout = () => {
   return (
     <>
       <Div
-        type="flex"
-        hAlign="center"
-        vAlign="center"
-        className="mouse-hand w-px-100 height-px-100 bgYellow my4"
-        onClick={() => setRefreshToken(getLocalStorage('refresh_token'))}>
-        Logout
+        className={cx(className)}
+        onClick={() => {
+          setRefreshToken(getLocalStorage('refresh_token'));
+        }}
+        {...props}>
+        {children}
       </Div>
     </>
   );

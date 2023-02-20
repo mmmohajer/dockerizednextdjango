@@ -6,18 +6,14 @@ import PublicRoute from '@/components/PublicRoute';
 import Seo from '@/components/Seo';
 import PageContainer from '@/components/PageContainer';
 
-import styles from './index.module.scss';
+import styles from './Index.module.scss';
 
 const Index = () => {
   return (
     <PublicRoute>
-      <Seo title="Mohammad Mohajer">
-        <PageContainer
-          pageIdentifier="home"
-          // pageSubNavIdentifier=""
-          hasStickyHeader={true}
-          changesThePage={false}>
-          <Div>Hello</Div>
+      <Seo>
+        <PageContainer pageIdentifier="about">
+          <Div>Index</Div>
         </PageContainer>
       </Seo>
     </PublicRoute>

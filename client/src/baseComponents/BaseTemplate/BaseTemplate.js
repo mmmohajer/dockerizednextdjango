@@ -113,7 +113,6 @@ const BaseTemplate = ({ children }) => {
 
   useEffect(() => {
     if (refreshError) {
-      console.log('Hello');
       removeLocalStorage('access_token');
       removeLocalStorage('refresh_token');
     }
