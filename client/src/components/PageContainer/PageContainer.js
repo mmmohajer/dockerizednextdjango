@@ -84,7 +84,7 @@ const PageContainer = ({
             </Div>
           )}
           <DivMinFullHeight className={cx(hasStickyHeader && styles.mainContentContainer)}>
-            {children}
+            <Div className="">{children}</Div>
           </DivMinFullHeight>
         </Div>
         {hasFooter && (

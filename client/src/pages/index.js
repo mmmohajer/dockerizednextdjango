@@ -17,7 +17,7 @@ const Index = () => {
           // pageSubNavIdentifier=""
           hasStickyHeader={true}
           changesThePage={false}>
-          <Div>Hello</Div>
+          <Div className="">Home Page</Div>
         </PageContainer>
       </Seo>
     </PublicRoute>
