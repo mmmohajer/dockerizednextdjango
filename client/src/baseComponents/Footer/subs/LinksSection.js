@@ -27,7 +27,7 @@ const LinksSection = () => {
               vAlign="center"
               className="mt1 mouse-hand"
               onClick={() =>
-                homePageElements[item.identifier].scrollIntoView(AUTO_SCROLL_BEHAVIOR)
+                homePageElements[item.identifier]?.scrollIntoView(AUTO_SCROLL_BEHAVIOR)
               }>
               <Div className="mr1">
                 <Icon type="arrow-right" color="white" scale={0.75} />
