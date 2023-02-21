@@ -1,4 +1,7 @@
 #!/bin/bash
 
-docker exec app_db_1 pg_dump DB_NAME -U UAER_NAME > /var/www/app/db_backups/db_backup_$(date +%Y-%m-%d_%H-%M-%S).sql
+docker exec app_db_1 pg_dump db -U USER_NAME > /var/www/app/db_backups/db_backup_$(date +%Y-%m-%d_%H-%M-%S).sql
 cp -R /var/www/app/db_backups /home/USER_NAME/db_backups/db_backup_$(date +%Y-%m-%d_%H-%M-%S)
+find /var/www/app/db_backups -type f -mmin +1200 -delete
+find /home/USER_NAME/db_backups -type f -mtime +15 -delete
+find /home/USER_NAME/db_backups -type d -empty -delete

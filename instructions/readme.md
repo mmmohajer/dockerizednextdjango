@@ -196,4 +196,6 @@ Note that in order to restore a database you can use the following command:
 Just in order to automatic deploy go to the `utils/constants/constants.sh` and change the server alias <br>
 
 Note that in order to remove backup files older than for example 7 days ago, you can use the following command: <br>
-`find /path/to/folder -type f -mtime +7 -delete`
+`find /path/to/folder -type f -mtime +7 -delete` <br>
+To remove all empty folders inside a folder, you can type <br>
+`find /path/to/folder -type d -empty -delete`
