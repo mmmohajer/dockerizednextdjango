@@ -21,6 +21,7 @@ import DisplayChart from './subs/DisplayChart';
 import DisplayList from './subs/DisplayList';
 import DisplayEmailTemplates from './subs/DisplayEmailTemplates';
 import DisplayAnimationOnScroll from './subs/DisplayAnimationOnScroll';
+import DisplayResponsiveSwipeableSlider from './subs/DisplayResponsiveSwipeableSlider';
 
 import DevSection from './subs/DevSection';
 import styles from './DevDesign.module.scss';
@@ -157,11 +158,18 @@ const DevDesign = () => {
       </DevSection>
 
       <DevSection
-        title="AnimatedOnScroll"
+        title="Animate on scroll"
         activeElements={activeElements}
         setActiveElements={setActiveElements}
         isAlwaysActive={true}>
         <DisplayAnimationOnScroll />
+      </DevSection>
+
+      <DevSection
+        title="Responsive Swaipeable Slider"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayResponsiveSwipeableSlider />
       </DevSection>
     </>
   );
