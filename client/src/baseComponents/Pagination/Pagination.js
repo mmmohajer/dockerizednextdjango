@@ -9,8 +9,8 @@ import styles from './Pagination.module.scss';
 const Pagination = ({ currentPage, setCurrentPage, numberOfTotalPages, ...props }) => {
   const firstPageComp = () => <Icon type="angleDoubleLeft" />;
   const lastPageComp = () => <Icon type="angleDoubleRight" />;
-  const prevComp = () => <Icon type="angleLeft" scale={0.57} />;
-  const nextComp = () => <Icon type="angleRight" scale={0.57} />;
+  const prevComp = () => <Icon type="angleLeft" scale={0.9} />;
+  const nextComp = () => <Icon type="angleRight" scale={0.9} />;
   return (
     <>
       {numberOfTotalPages > 1 && (

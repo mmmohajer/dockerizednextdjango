@@ -18,15 +18,20 @@ const Search = React.forwardRef(
 
     return (
       <>
-        <Div className={cx('flex', activeSearch && 'ml1')}>
+        <Div className={cx('flex')}>
           <Div
             className={cx(
-              'min-height-px-30 min-w-px-30 br-rad-px-50 bgWhite flex flex--jc--center flex--ai--center iswad_search_container',
+              'min-height-px-30 min-w-px-30 br-rad-px-50 bgWhite flex flex--jc--center flex--ai--center iswad_search_container ml1',
               containerClassName
             )}>
             {closable ? (
-              <Div onClick={() => setActiveSearch(!activeSearch)} className="mouse-hand">
-                <Icon type="search" scale={0.8} color="gray" />
+              <Div
+                type="flex"
+                hAlign="center"
+                vAlign="center"
+                onClick={() => setActiveSearch(!activeSearch)}
+                className="mouse-hand w-px-30 height-px-30 br-rad-px-50 bgGrayBright">
+                <Icon type={activeSearch ? 'close' : 'search'} scale={0.8} color="gray" />
               </Div>
             ) : (
               <Div className="mouse-hand">
@@ -39,7 +44,7 @@ const Search = React.forwardRef(
               </Div>
             )}
             <input
-              type="search"
+              type="text"
               className={cx(
                 'iswad_search_input',
                 activeSearch && 'iswad_search_input_active',
