@@ -20,6 +20,7 @@ import DisplayDraggableFileUploader from './subs/DisplayDraggableFileUploader';
 import DisplayChart from './subs/DisplayChart';
 import DisplayList from './subs/DisplayList';
 import DisplayEmailTemplates from './subs/DisplayEmailTemplates';
+import DisplayAnimationOnScroll from './subs/DisplayAnimationOnScroll';
 
 import DevSection from './subs/DevSection';
 import styles from './DevDesign.module.scss';
@@ -153,6 +154,14 @@ const DevDesign = () => {
         activeElements={activeElements}
         setActiveElements={setActiveElements}>
         <DisplayText />
+      </DevSection>
+
+      <DevSection
+        title="AnimatedOnScroll"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}
+        isAlwaysActive={true}>
+        <DisplayAnimationOnScroll />
       </DevSection>
     </>
   );

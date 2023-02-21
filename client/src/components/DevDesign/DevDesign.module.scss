@@ -23,3 +23,11 @@
   padding: 1rem;
   background: rgba($color: #000000, $alpha: 0.2);
 }
+
+.animatedOnScroll {
+  transition: all 0.3s ease-in-out;
+
+  &IsActive {
+    transform: translateX(100px);
+  }
+}

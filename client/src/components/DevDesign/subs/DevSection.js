@@ -6,7 +6,13 @@ import HeightTransitionEffect from '@/baseComponents/HeightTransitionEffect';
 
 import styles from '../DevDesign.module.scss';
 
-const DevSection = ({ title, activeElements, setActiveElements, children }) => {
+const DevSection = ({
+  title,
+  activeElements,
+  setActiveElements,
+  isAlwaysActive = false,
+  children
+}) => {
   const headingOnClick = () => {
     let localActiveElements = [...activeElements];
     if (localActiveElements.includes(title)) {
@@ -24,7 +30,7 @@ const DevSection = ({ title, activeElements, setActiveElements, children }) => {
         onClick={headingOnClick}>
         {title}
       </Div>
-      <HeightTransitionEffect isActive={activeElements.includes(title)}>
+      <HeightTransitionEffect isActive={isAlwaysActive || activeElements.includes(title)}>
         {children}
       </HeightTransitionEffect>
     </>
