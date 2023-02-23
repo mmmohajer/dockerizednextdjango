@@ -34,3 +34,9 @@ export const USE_GOOGLE_ANALYTICS = !publicRuntimeConfig.PRODUCTION
 export const TINY_CME_API_KEY = !publicRuntimeConfig.PRODUCTION
   ? process.env.TINY_CME_API_KEY_DEVELOPMENT
   : process.env.TINY_CME_API_KEY_PRODUCTION;
+export const IP_INFO_TOKEN = !publicRuntimeConfig.PRODUCTION
+  ? process.env.IP_INFO_TOKEN_DEVELOPMENT
+  : process.env.IP_INFO_TOKEN_PRODUCTION;
+export const USE_GET_IP_INFO_TOKEN = !publicRuntimeConfig.PRODUCTION
+  ? process.env.USE_GET_IP_INFO_TOKEN_DEVELOPMENT
+  : process.env.USE_GET_IP_INFO_TOKEN_PRODUCTION;

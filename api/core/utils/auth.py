@@ -9,7 +9,6 @@ from core.models import ProfileModel
 User = get_user_model()
 
 
-
 def isAdmin(user):
     user_groups_queryset = user.groups.all()
     cur_user_groups = [group.name for group in list(user_groups_queryset)]
@@ -58,3 +57,12 @@ def oauthHandleToken(request, authGetProfileUrl, first_name_key="given_name", la
         return (True, {"access": str(cur_user_access_token), "refresh": str(cur_user_refresh_token)})
     except Exception as e:
         return (False, {"Error": str(e)})
+
+
+def get_current_profile(req):
+    if req.user and req.user.id:
+        cur_profile = ProfileModel.objects.filter(user_id=req.user.id).first()
+        if cur_profile.id:
+            return cur_profile
+        return None
+    return None

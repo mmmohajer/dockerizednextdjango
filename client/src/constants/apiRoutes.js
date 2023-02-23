@@ -1,3 +1,5 @@
+import { IP_INFO_TOKEN } from 'config';
+
 // INTERNAL API ROUTES
 export const REGISTER_API_ROUTE = '/api/auth/users/';
 export const LOGIN_API_ROUTE = '/api/create-token/';
@@ -29,4 +31,4 @@ export const WEBSOCKET_CHAT_API_ROUTE = `/wss/public-chat/`;
 export const WEBSOCKET_PRIVATE_CHAT_API_ROUTE = `/wss/private-chat/`;
 
 // EXTERNAL API ROUTES
-export const GET_IP_INFO_ROUTE = 'https://geolocation-db.com/json/';
+export const GET_IP_INFO_ROUTE = `https://ipinfo.io/json?token=${IP_INFO_TOKEN}`;

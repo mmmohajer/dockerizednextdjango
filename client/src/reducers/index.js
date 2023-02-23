@@ -12,6 +12,7 @@ import chatSocket from './general/chatSocket';
 import scrollPosition from './general/scrollPosition';
 import homePageElements from './general/homePageElements';
 import elementsHeightStore from './general/elementsHeightStore';
+import userIPInfo from './general/userIPInfo';
 
 import isAuthenticated from './apiCalls/isAuthenticated';
 import profile from './apiCalls/profile';
@@ -29,6 +30,7 @@ const reducer = combineReducers({
   scrollPosition,
   homePageElements,
   elementsHeightStore,
+  userIPInfo,
   isAuthenticated,
   profile
 });

@@ -14,11 +14,14 @@ import {
   MY_PROFILE_API_ROUTE,
   AUTHENTICATE_USER_API_ROUTE,
   WEBSOCKET_CHAT_API_ROUTE,
-  WEBSOCKET_PRIVATE_CHAT_API_ROUTE
+  WEBSOCKET_PRIVATE_CHAT_API_ROUTE,
+  GET_IP_INFO_ROUTE
 } from '@/constants/apiRoutes';
+import { USE_GET_IP_INFO_TOKEN } from 'config';
 import { websocketApiRoute } from '@/utils/helpers';
 import { chatSocketEventHandler } from '@/utils/chatSocket';
 import { setScrollPosition } from '@/reducers/general/scrollPosition';
+import { setUserIPInfo } from '@/reducers/general/userIPInfo';
 
 import Loading from '@/baseComponents/Loading';
 import Alert from '@/baseComponents/Alert';
@@ -35,6 +38,7 @@ const BaseTemplate = ({ children }) => {
 
   const [accessToken, setAccessToken] = useState('');
   const [refreshToken, setRefreshToken] = useState('');
+  const [sendGetIPReq, setSendGetIPReq] = useState(false);
   const [sendGetCurUserReq, setSendGetCurUserReq] = useState(false);
   const [sendAuthenticatedReq, setSendAuthenticatedReq] = useState(false);
   const [sendrefreshTokenReq, setSendRefreshTokenReq] = useState(false);
@@ -59,6 +63,26 @@ const BaseTemplate = ({ children }) => {
       }
     }
   }, []);
+
+  const { data: ipData, error: ipError } = useApiCalls({
+    sendReq: sendGetIPReq,
+    setSendReq: setSendGetIPReq,
+    method: 'GET',
+    url: GET_IP_INFO_ROUTE,
+    useDefaultHeaders: false,
+    showLoading: false,
+    showErrorMessage: false
+  });
+  useEffect(() => {
+    if (USE_GET_IP_INFO_TOKEN) {
+      setSendGetIPReq(true);
+    }
+  }, [USE_GET_IP_INFO_TOKEN]);
+  useEffect(() => {
+    if (ipData) {
+      dispatch(setUserIPInfo(ipData));
+    }
+  }, [ipData]);
 
   const { data: refreshData, error: refreshError } = useApiCalls({
     sendReq: sendrefreshTokenReq,
