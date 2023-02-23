@@ -1,4 +1,4 @@
-from . import profile_view, general_view, user_view, captcha_view, expo_notification_view
+from . import profile_view, general_view, user_view, captcha_view, expo_notification_view, user_event_view
 
 ProtectedCRUDViewSet = general_view.ProtectedCRUDViewSet
 
@@ -22,3 +22,5 @@ MicrosoftAuthHandleTokenViewSet = user_view.MicrosoftAuthHandleTokenViewSet.as_v
 FacebookAuthViewSet = user_view.FacebookAuthViewSet.as_view()
 FacebookAuthHandleTokenViewSet = user_view.FacebookAuthHandleTokenViewSet.as_view()
 NotificationTokenViewSet = expo_notification_view.NotificationTokenViewSet.as_view()
+UserEventViewSet = user_event_view.UserEventViewSet.as_view()
+SingleUserEventViewSet = user_event_view.SingleUserEventViewSet.as_view()

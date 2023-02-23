@@ -24,7 +24,8 @@ export const STRIPE_CREATE_SETUP_INTENT_API_ROUTE = '/api/create-setup-intent/';
 export const STRIPE_RETRIEVE_SETUP_INTENT_API_ROUTE = '/api/retrieve-setup-intent/';
 export const STRIPE_ADD_ACTIVE_CARD_FOR_CUSTOMER = '/api/add-active-card-to-stripe-customer/';
 export const STRIPE_CUSTOMER_SOURCE_HANDLER = '/api/stripe-customer-source-handler/';
-export const PUBLIC_CAHT_ROOM_API_ROUTE = 'api/public-chat-room/';
+export const PUBLIC_CAHT_ROOM_API_ROUTE = '/api/public-chat-room/';
+export const USER_EVENT_API_ROUTE = '/api/user-event/';
 
 // WEBSOCKET API ROUTES
 export const WEBSOCKET_CHAT_API_ROUTE = `/wss/public-chat/`;

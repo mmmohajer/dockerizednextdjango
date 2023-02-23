@@ -11,8 +11,8 @@ EVENT_CHOICES = [
 
 
 class UserEvent(TimeStampedUUIDModel):
-    profile = models.ForeignKey(Profile,
-                                on_delete=models.CASCADE, related_name='user_event', null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE, related_name='user_event', null=True, blank=True)
     ip_address = models.CharField(max_length=256, null=True, blank=True)
     city = models.CharField(max_length=256, null=True, blank=True)
     region = models.CharField(max_length=256, null=True, blank=True)

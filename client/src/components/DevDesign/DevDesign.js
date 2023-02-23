@@ -22,6 +22,7 @@ import DisplayList from './subs/DisplayList';
 import DisplayEmailTemplates from './subs/DisplayEmailTemplates';
 import DisplayAnimationOnScroll from './subs/DisplayAnimationOnScroll';
 import DisplayResponsiveSwipeableSlider from './subs/DisplayResponsiveSwipeableSlider';
+import DisplayUserEvent from './subs/DisplayUserEvent';
 
 import DevSection from './subs/DevSection';
 import styles from './DevDesign.module.scss';
@@ -170,6 +171,13 @@ const DevDesign = () => {
         activeElements={activeElements}
         setActiveElements={setActiveElements}>
         <DisplayResponsiveSwipeableSlider />
+      </DevSection>
+
+      <DevSection
+        title="User Event"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayUserEvent />
       </DevSection>
     </>
   );

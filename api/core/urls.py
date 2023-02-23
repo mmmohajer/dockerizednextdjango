@@ -25,4 +25,6 @@ urlpatterns = [
     path('auth/facebook-auth/', views.FacebookAuthViewSet),
     path('auth/facebook-auth-handle-token/', views.FacebookAuthHandleTokenViewSet),
     path('expo-notification-token/', views.NotificationTokenViewSet),
+    path('user-event/', views.UserEventViewSet),
+    path('user-event/<int:id>/', views.SingleUserEventViewSet),
 ]
