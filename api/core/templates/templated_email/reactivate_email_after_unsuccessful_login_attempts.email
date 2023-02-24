@@ -1,0 +1,15 @@
+{% block subject %}Reactivate your email {{ first_name }}{% endblock %}
+
+{% block plain %}
+Hi {{ first_name }},
+Due to suspecios login attempts with your email address. we currently deactivated your account. In order to reactivate your account please
+open the link below:
+http:localhost/activate-your-email?token={{ code }}  
+{% endblock %}
+
+{% block html %}
+<h1>Hi {{ first_name }},</h1>
+<p>Due to suspecios login attempts with your email address. we currently deactivated your account. In order to reactivate your account please
+open the link below:<p>
+<a href="http://localhost/test-pages/activate-user?token={{ code }}"><span style="color:red">Click here!</span></a>
+{% endblock %}

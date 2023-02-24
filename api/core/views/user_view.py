@@ -14,7 +14,7 @@ import json
 from core.permissions import *
 from core.models import *
 from core.serializers import *
-from core.tasks import send_activation_email, send_reset_password_email
+from core.tasks import send_activation_email, send_reset_password_email, send_reactivate_email_after_unsuccessful_login_attempts
 from core.utils import isAdmin, oauthHandleToken
 from core.token import OneDayAccessToken, ThirtyDaysAccessToken, OneDayRefreshToken, ThirtyDaysRefreshToken
 
@@ -61,7 +61,8 @@ class CreateTokenViewSet(views.APIView):
                                 user.last_activate_email_sent = datetime.now()
                                 user.save(update_fields=["register_token",
                                           "last_activate_email_sent"])
-                                send_activation_email.delay(user.first_name, user.email, user_token)
+                                send_reactivate_email_after_unsuccessful_login_attempts.delay(
+                                    user.first_name, user.email, user_token)
                             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "You have made more than 5 unsuccessful attempts in the last 24 hours. So, we deactivated your account, please check your email in order to reactivate your account."})
                 return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email or password is incorrect."})
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email and password are required fields."})

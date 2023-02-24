@@ -38,8 +38,11 @@ const $compName = () => {
   return (
     <PublicRoute>
       <Seo>
-        <PageContainer>
-          <Div>$compName</Div>
+        <PageContainer
+          pageIdentifier=\"home\"
+          // pageSubNavIdentifier=\"\"
+        >
+          <Div className=\"\">$compName</Div>
         </PageContainer>
       </Seo>
     </PublicRoute>

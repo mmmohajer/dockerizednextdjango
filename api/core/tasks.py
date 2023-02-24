@@ -63,6 +63,22 @@ def send_reset_password_email(first_name, email, code):
         pass
     return
 
+
+@shared_task
+def send_reactivate_email_after_unsuccessful_login_attempts(first_name, email, code):
+    try:
+        send_templated_mail(
+            template_name='reactivate_email_after_unsuccessful_login_attempts',
+            from_email='mmmohajer70@gmail.com',
+            recipient_list=[email],
+            context={
+                'first_name': first_name,
+                'code': code,
+            },
+        )
+    except BadHeaderError:
+        pass
+    return
 # ----------------------------------------------
 # ----------------------------------------------
 # ----------------------------------------------
