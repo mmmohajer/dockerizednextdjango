@@ -1,4 +1,3 @@
-from datetime import datetime, timedelta
 from django.utils import timezone
 
 from core.models import UnsucessfulLoggedInAttemptModel
