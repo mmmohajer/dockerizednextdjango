@@ -21,5 +21,9 @@ CELERY_BEAT_SCHEDULE = {
     'remove_old_captcha_periodic_task': {
         'task': 'core.tasks.remove_old_captcha_periodic_task',
         'schedule': crontab(minute=0, hour=0)
+    },
+    'remove_old_unsuccessful_login_attempts_periodic_task': {
+        'task': 'core.tasks.remove_old_unsuccessful_login_attempts_periodic_task',
+        'schedule': crontab(minute=30, hour=0)
     }
 }

@@ -41,6 +41,7 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     register_token = models.CharField(max_length=256, blank=True, null=True)
     reset_password_token = models.CharField(max_length=256, blank=True, null=True)
+    last_activate_email_sent = models.DateTimeField(blank=True, null=True)
 
     class Meta(AbstractUser.Meta):
         ordering = ('email',)

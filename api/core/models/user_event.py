@@ -19,6 +19,7 @@ class UserEvent(TimeStampedUUIDModel):
     country = models.CharField(max_length=256, null=True, blank=True)
     timezone = models.CharField(max_length=256, null=True, blank=True)
     event = models.CharField(max_length=256, choices=EVENT_CHOICES)
+    success = models.BooleanField(default=True)
 
     def __str__(self):
         return self.event
@@ -26,3 +27,14 @@ class UserEvent(TimeStampedUUIDModel):
     class Meta:
         verbose_name_plural = "User Events"
         ordering = ('-created_at',)
+
+
+class UnsucessfulLoggedInAttempt(TimeStampedUUIDModel):
+    username = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        verbose_name_plural = 'Unsucessful Logged In Attempts'
+        ordering = ('-created_at', 'username')

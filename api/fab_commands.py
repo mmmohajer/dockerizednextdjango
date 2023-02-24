@@ -15,6 +15,10 @@ def remove_old_captcha():
     coreUtils.remove_old_captcha()
 
 
+def remove_old_unsuccessful_login_attempts():
+    coreUtils.remove_old_unsuccessful_login_attempts()
+
+
 def get_automatic_payment_for_subscribers():
     payment_methods = stripe.PaymentMethod.list(customer="cus_MjaTP9lSZXxH5L", type="card")
     print(payment_methods)

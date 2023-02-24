@@ -2,7 +2,7 @@ from celery import shared_task
 from templated_email import send_templated_mail
 from django.core.mail import BadHeaderError
 
-from core.utils import remove_old_captcha
+from core.utils import remove_old_captcha, remove_old_unsuccessful_login_attempts
 
 # ----------------------------------------------
 # Periodic Tasks
@@ -17,6 +17,12 @@ from core.utils import remove_old_captcha
 @shared_task
 def remove_old_captcha_periodic_task():
     remove_old_captcha()
+    return
+
+
+@shared_task
+def remove_old_unsuccessful_login_attempts_periodic_task():
+    remove_old_unsuccessful_login_attempts()
     return
 
 # ----------------------------------------------

@@ -22,7 +22,8 @@ class UserEventViewSet(views.APIView):
                 else:
                     user_event_qs = UserEventModel.objects.all().select_related("user").order_by("-created_at")
                 serializer = UserEventSerializer(user_event_qs, many=True)
-                return response.Response(status=status.HTTP_200_OK, data=serializer.data)
+                count = UserEventModel.objects.all().count()
+                return response.Response(status=status.HTTP_200_OK, data={"data": serializer.data, "count": count})
             except Exception as e:
                 return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": f"{str(e)}"})
         else:
@@ -36,6 +37,7 @@ class UserEventViewSet(views.APIView):
                 if request.user and request.user.id:
                     cur_event_model.user = request.user
                 cur_event_model.event = event
+                cur_event_model.success = request.data.get("success", True)
                 cur_event_model.ip_address = request.data.get("ip_address", None)
                 cur_event_model.city = request.data.get("city", None)
                 cur_event_model.region = request.data.get("region", None)
@@ -68,7 +70,7 @@ class SingleUserEventViewSet(views.APIView):
         try:
             user_event_qs = UserEventModel.objects.filter(id=id).select_related("user")
             if user_event_qs:
-                updatable_fields = ["ip_address", "city", "region", "country", "event"]
+                updatable_fields = ["ip_address", "city", "region", "country", "event", "success"]
                 update_kwargs = {}
                 for attr in request.data:
                     if (attr in updatable_fields):

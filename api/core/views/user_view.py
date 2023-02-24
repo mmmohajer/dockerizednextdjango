@@ -6,6 +6,8 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from rest_framework_simplejwt.tokens import RefreshToken
 import django.contrib.auth.password_validation as validators
+from django.utils import timezone
+from datetime import datetime, timedelta
 import requests
 import json
 
@@ -25,21 +27,42 @@ class CreateTokenViewSet(views.APIView):
         email = request.data.get("email", "")
         password = request.data.get("password", "")
         keep_logged_in = request.data.get("keep_logged_in", False)
+        UNSUCCESS_TIME_THRESHOLD = 24 * 60 * 60
+        SEND_ACTIVATE_EMAIL_TIME_THRESHOLD = 24 * 60 * 60
         try:
             if email and password:
                 user = get_object_or_404(User, email=email.lower())
                 if user:
-                    if user.check_password(password):
-                        if user.is_active:
-                            if keep_logged_in:
-                                access_token = str(ThirtyDaysAccessToken.for_user(user))
-                                refresh_token = str(ThirtyDaysRefreshToken.for_user(user))
-                            else:
-                                access_token = str(OneDayAccessToken.for_user(user))
-                                refresh_token = str(OneDayRefreshToken.for_user(user))
-                            return response.Response(status=status.HTTP_200_OK, data={"access": access_token, "refresh": refresh_token})
-                        return response.Response(status=status.HTTP_405_METHOD_NOT_ALLOWED, data={"message": f"There is no active account with your email {email}"})
-                    return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email or password is incorrect."})
+                    time_threshold = datetime.now() - timedelta(seconds=UNSUCCESS_TIME_THRESHOLD)
+                    number_of_recent_false_attempts = UnsucessfulLoggedInAttemptModel.objects.filter(
+                        username=email, created_at__gte=time_threshold).count()
+                    if number_of_recent_false_attempts < 5:
+                        if user.check_password(password):
+                            if user.is_active:
+                                if keep_logged_in:
+                                    access_token = str(ThirtyDaysAccessToken.for_user(user))
+                                    refresh_token = str(ThirtyDaysRefreshToken.for_user(user))
+                                else:
+                                    access_token = str(OneDayAccessToken.for_user(user))
+                                    refresh_token = str(OneDayRefreshToken.for_user(user))
+                                return response.Response(status=status.HTTP_200_OK, data={"access": access_token, "refresh": refresh_token})
+                            return response.Response(status=status.HTTP_405_METHOD_NOT_ALLOWED, data={"message": f"There is no active account with your email {email}"})
+                        cur_unsuccess_attempt = UnsucessfulLoggedInAttemptModel()
+                        cur_unsuccess_attempt.username = email
+                        cur_unsuccess_attempt.save()
+                        return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email or password is incorrect."})
+                    else:
+                        if settings.SEND_ACTIVATION_EMAIL:
+                            user.is_active = False
+                            user.save()
+                            if not user.last_activate_email_sent or timezone.now() - timezone.timedelta(seconds=SEND_ACTIVATE_EMAIL_TIME_THRESHOLD) > user.last_activate_email_sent:
+                                user_token = str(OneDayAccessToken.for_user(user))
+                                user.register_token = user_token
+                                user.last_activate_email_sent = datetime.now()
+                                user.save(update_fields=["register_token",
+                                          "last_activate_email_sent"])
+                                send_activation_email.delay(user.first_name, user.email, user_token)
+                            return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "You have made more than 5 unsuccessful attempts in the last 24 hours. So, we deactivated your account, please check your email in order to reactivate your account."})
                 return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email or password is incorrect."})
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data={"message": "Email and password are required fields."})
         except Exception as e:
@@ -83,6 +106,10 @@ class ActivateUserViewSet(views.APIView):
         if user:
             register_token = request.data.get("token")
             if user.register_token == register_token:
+                cur_user_unsuccess_attempts = UnsucessfulLoggedInAttemptModel.objects.filter(
+                    username=user.email)
+                for item in cur_user_unsuccess_attempts:
+                    item.delete()
                 user.is_active = True
                 user.save(update_fields=["is_active"])
                 access_token = str(OneDayAccessToken.for_user(user))

@@ -1,6 +1,7 @@
-from datetime import datetime, timedelta
+from django.utils import timezone
 
 from core.models import CaptchaModel
+
 
 def check_captcha(request):
     captcha_uuid = request.data.get("captcha_uuid", "")
@@ -24,12 +25,11 @@ def check_captcha(request):
 
 def remove_old_captcha():
     try:
-        three_days_ago = datetime.now() - timedelta(hours=72)
+        three_days_ago = timezone.now() - timezone.timedelta(seconds=72 * 60 * 60)
         count = 0
         captcha_queryset = CaptchaModel.objects.filter(created_at__lt=three_days_ago)
         if captcha_queryset.count():
             for item in captcha_queryset:
-                print(item)
                 item.delete()
                 count += 1
         print(f"Remove old captcha task was successfully done and {count} items removed!")

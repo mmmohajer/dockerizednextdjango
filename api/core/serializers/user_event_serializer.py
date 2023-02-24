@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from core.models import UserEventModel
-from core.serializers.profile_serializer import ProfileSerializer
+from core.models import UserEventModel, UnsucessfulLoggedInAttemptModel
 
 
 class UserEventSerializer(serializers.ModelSerializer):
@@ -12,4 +11,11 @@ class UserEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserEventModel
         fields = ['id', 'uuid', 'user', 'user_email', 'ip_address', 'city',
-                  'region', 'country', 'event', 'timezone', 'created_at', 'updated_at']
+                  'region', 'country', 'event', 'success', 'timezone', 'created_at', 'updated_at']
+
+
+class UnsucessfulLoggedInAttemptSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = UnsucessfulLoggedInAttemptModel
+        fields = ['id', 'uuid', 'username', 'created_at', 'updated_at']

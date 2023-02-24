@@ -6,3 +6,4 @@ ProfileSerializer = profile_serializer.ProfileSerializer
 CaptchaSerializer = captcha_serializer.CaptchaSerializer
 NotificationTokenSerializer = expo_notification_serializer.NotificationTokenSerializer
 UserEventSerializer = user_event_serializer.UserEventSerializer
+UnsucessfulLoggedInAttemptSerializer = user_event_serializer.UnsucessfulLoggedInAttemptSerializer
