@@ -15,7 +15,7 @@ from core.permissions import *
 from core.models import *
 from core.serializers import *
 from core.tasks import send_activation_email, send_reset_password_email, send_reactivate_email_after_unsuccessful_login_attempts
-from core.utils import isAdmin, oauthHandleToken
+from core.utils import isAdmin, oauthHandleToken, is_access_token_valid
 from core.token import OneDayAccessToken, ThirtyDaysAccessToken, OneDayRefreshToken, ThirtyDaysRefreshToken
 
 User = get_user_model()
@@ -106,7 +106,7 @@ class ActivateUserViewSet(views.APIView):
         user = get_object_or_404(User, id=request.data.get("userId"))
         if user:
             register_token = request.data.get("token")
-            if user.register_token == register_token:
+            if user.register_token == register_token and is_access_token_valid(register_token):
                 cur_user_unsuccess_attempts = UnsucessfulLoggedInAttemptModel.objects.filter(
                     username=user.email)
                 for item in cur_user_unsuccess_attempts:
@@ -151,7 +151,7 @@ class ResetPasswordViewSet(views.APIView):
         user = get_object_or_404(User, id=request.data.get("userId"))
         if user:
             reset_password_token = request.data.get("token")
-            if user.reset_password_token == reset_password_token:
+            if user.reset_password_token == reset_password_token and is_access_token_valid(reset_password_token):
                 password = request.data.get("password")
                 try:
                     validators.validate_password(password=password, user=user)

@@ -1,8 +1,10 @@
 from django.contrib.auth.models import Group
+from django.contrib.auth import get_user_model
+from datetime import datetime, timezone
 import requests
 import json
-from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 
 from core.models import ProfileModel
 
@@ -66,3 +68,29 @@ def get_current_profile(req):
             return cur_profile
         return None
     return None
+
+
+def is_access_token_valid(token):
+    try:
+        access_token = AccessToken(token)
+        expiration_timestamp = access_token.payload['exp']
+        expiration_datetime_utc = datetime.fromtimestamp(expiration_timestamp, timezone.utc)
+        if expiration_datetime_utc >= datetime.now(timezone.utc):
+            return True
+        else:
+            return False
+    except (TokenError, InvalidToken):
+        return False
+
+
+def is_refresh_token_valid(token):
+    try:
+        refresh_token = RefreshToken(token)
+        expiration_timestamp = refresh_token.payload['exp']
+        expiration_datetime_utc = datetime.fromtimestamp(expiration_timestamp, timezone.utc)
+        if expiration_datetime_utc >= datetime.now(timezone.utc):
+            return True
+        else:
+            return False
+    except (TokenError, InvalidToken):
+        return False

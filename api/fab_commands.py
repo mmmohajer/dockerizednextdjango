@@ -94,3 +94,15 @@ def create_pdf_test():
 
 def send_push_message():
     coreUtils.send_push_message()
+
+
+def is_access_token_valid():
+    res = coreUtils.is_access_token_valid(
+        token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NDc0NDU3LCJqdGkiOiI5MjdmZmM5M2QxMTE0ODEyYWZiMWUzZTEzMDQ0MGQwMyIsInVzZXJfaWQiOjF9.7jj6v0AXyb1Ia9-4agz1iEe7xwJg8eHMQuSDLAMgR7U")
+    print(res)
+
+
+def is_refresh_token_valid():
+    res = coreUtils.is_refresh_token_valid(
+        token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3OTk3NzY1MSwianRpIjoiMDlkYzRmODA3Njc5NDJiYmI5MGYzOGFmZTliZDA1YTUiLCJ1c2VyX2lkIjoxfQ.RIs9nLZxMSTGSH_Aqsx346DVjJy5tyWqBnGL-2dM0MQ")
+    print(res)
