@@ -4,6 +4,5 @@ UserModel = user.User
 ProfileModel = profile.Profile
 CaptchaModel = captcha.Captcha
 UserEventModel = user_event.UserEvent
-UnsucessfulLoggedInAttemptModel = user_event.UnsucessfulLoggedInAttempt
 NotificationTokenModel = expo_notification.NotificationToken
 TimeStampedUUIDModel = general.TimeStampedUUIDModel

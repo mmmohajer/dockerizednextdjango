@@ -8,9 +8,3 @@ class UserEventAdmin(admin.ModelAdmin):
     list_select_related = ['user']
     search_fields = ['email']
     list_filter = ['event']
-
-
-class UnsucessfulLoggedInAttemptAdmin(admin.ModelAdmin):
-    list_display = ['username']
-    list_per_page = 10
-    search_fields = ['username']

@@ -35,6 +35,13 @@ export const AUTHENTICATION_APIS = [
             description: 'There are some rules to not allow the user to register a simple password.'
           },
           {
+            name: 'ip_address',
+            type: 'string',
+            isRequired: false,
+            description:
+              'If you send ip address along with the request, it will increase the security of logging in to the application, such that if someone makes more than 5 unsuccessful login attempts within 24 hours, the associated ip address will be banned to send a new login request.'
+          },
+          {
             name: 'captcha_uuid',
             type: 'string',
             isRequired: true,

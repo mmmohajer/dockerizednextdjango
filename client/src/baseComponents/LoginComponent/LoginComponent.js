@@ -18,6 +18,7 @@ import styles from './LoginComponent.module.scss';
 const LoginComponent = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  const userIPInfo = useSelector((state) => state.userIPInfo);
 
   const [email, setEmail] = useState('');
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
@@ -50,7 +51,8 @@ const LoginComponent = () => {
   const bodyData = {
     email: email.toLowerCase(),
     password,
-    keep_logged_in: keepLoggedIn
+    keep_logged_in: keepLoggedIn,
+    ip_address: userIPInfo['ip']
   };
   const { data, error } = useApiCalls({
     sendReq: sendLoginReq,

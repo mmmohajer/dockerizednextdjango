@@ -201,7 +201,7 @@ export const USER_EVENT_APIS = [
 
       {
         title: 'Update a user event',
-        method: 'POST',
+        method: 'PUT',
         url: '/api/user-event/<int:id>',
         authorizedGroups: ['Admin'],
         headerParams: [
@@ -289,9 +289,9 @@ export const USER_EVENT_APIS = [
       // ---------------------------------------
 
       {
-        title: 'Delete a captcha',
+        title: 'Delete a user event',
         method: 'DELETE',
-        url: '/api/captcha/<int:id>',
+        url: '/api/user-event/<int:id>',
         authorizedGroups: ['Admin'],
         headerParams: [
           {

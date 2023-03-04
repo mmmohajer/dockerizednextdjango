@@ -27,14 +27,3 @@ class UserEvent(TimeStampedUUIDModel):
     class Meta:
         verbose_name_plural = "User Events"
         ordering = ('-created_at',)
-
-
-class UnsucessfulLoggedInAttempt(TimeStampedUUIDModel):
-    username = models.CharField(max_length=256)
-
-    def __str__(self):
-        return self.username
-
-    class Meta:
-        verbose_name_plural = 'Unsucessful Logged In Attempts'
-        ordering = ('-created_at', 'username')
