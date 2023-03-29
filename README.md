@@ -88,5 +88,5 @@ Setup:
 
 Run ngrok: <br>
 ngrok http -hostname=makeclient.ngrok.io 80 <br>
-OR
+OR <br>
 ngrok http -host-header=makeclient.ngrok.io 80 <br>
