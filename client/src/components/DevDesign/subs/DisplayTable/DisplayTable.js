@@ -63,8 +63,9 @@ function DisplayTable() {
         direction="vertical"
         hAlign="center"
         vAlign="center"
-        className={cx('p1 w-per-90 flex--wrap of-x-auto scrollType1', styles.card)}>
+        className={cx('w-per-90 flex--wrap', styles.card)}>
         <Table
+          className="scrollType1 pb2"
           headLines={headLines}
           data={data}
           //   colWidth={400}
@@ -77,6 +78,7 @@ function DisplayTable() {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           numberOfShownPages={5}
+          isFullWidth={true}
         />
         <Button onClick={() => setCurrentPage(currentPage + 1)}>Next Page</Button>
       </Div>
