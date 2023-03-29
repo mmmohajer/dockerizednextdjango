@@ -9,7 +9,7 @@ import SelectableComp from './subs/SelectableComp';
 
 import styles from './Table.module.scss';
 
-const Table = ({ ...props }) => {
+const Table = ({ className, ...props }) => {
   const paginationComponent = (props) => <Pagination {...props} />;
   const sortIcon = (props) => <SortIcon {...props} />;
   const search = (props) => <Search {...props} />;
@@ -17,6 +17,7 @@ const Table = ({ ...props }) => {
   return (
     <>
       <BaseTable
+        className={cx('scrollType1 pb2', className)}
         showDefaultPagination={false}
         paginationComponent={paginationComponent}
         showDefaultSortIcon={false}

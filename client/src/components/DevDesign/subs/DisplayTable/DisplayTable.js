@@ -65,7 +65,6 @@ function DisplayTable() {
         vAlign="center"
         className={cx('w-per-90 flex--wrap', styles.card)}>
         <Table
-          className="scrollType1 pb2"
           headLines={headLines}
           data={data}
           //   colWidth={400}
