@@ -84,4 +84,9 @@ Setup:
    3. Run `docker volume prune` <br>
 
    - Now everything is ready for your app to be served: <br>
-     Run `docker-compose -f docker-compose-prod-ssl.yml up --build -d`
+     Run `docker-compose -f docker-compose-prod-ssl.yml up --build -d` <br>
+
+Run ngrok: <br>
+ngrok http -hostname=makeclient.ngrok.io 80 <br>
+OR
+ngrok http -host-header=makeclient.ngrok.io 80 <br>
