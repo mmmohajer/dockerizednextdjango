@@ -22,6 +22,7 @@ class UserCreateSerializer(BaseUserCreateSerializer):
 
     def create(self, validated_data):
         captcha_verified = check_captcha(self.context["request"])
+        group_names = self.context["request"].data.get("group_names", [])
         if captcha_verified.get("success"):
             try:
                 validated_data["email"] = validated_data["email"].lower()
@@ -29,9 +30,10 @@ class UserCreateSerializer(BaseUserCreateSerializer):
                 profile = ProfileModel()
                 profile.user = user
                 profile.save()
-                subscriber_group = Group.objects.filter(name="Subscriber").first()
-                if subscriber_group:
-                    subscriber_group.user_set.add(user)
+                for group_name in group_names:
+                    user_group = Group.objects.filter(name=group_name).first()
+                    if user_group:
+                        user_group.user_set.add(user)
                 return user
             except IntegrityError:
                 self.fail("cannot_create_user")

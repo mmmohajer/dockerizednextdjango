@@ -35,6 +35,13 @@ export const AUTHENTICATION_APIS = [
             description: 'There are some rules to not allow the user to register a simple password.'
           },
           {
+            name: 'group_name',
+            type: 'array',
+            isRequired: false,
+            description:
+              'List of the groups that will be assigned to the user, for example, we can assign Admin, or Developer group to the user.'
+          },
+          {
             name: 'ip_address',
             type: 'string',
             isRequired: false,

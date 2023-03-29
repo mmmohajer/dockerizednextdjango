@@ -6,6 +6,7 @@ import Router from 'next/router';
 
 import useApiCalls from '@/hooks/useApiCalls';
 import { REGISTER_API_ROUTE, RESEND_ACTIVATE_EMAIL_API_ROUTE } from '@/constants/apiRoutes';
+import { USER_GROUPS } from '@/constants/userGroups';
 import { addAlertItem } from '@/utils/notifications';
 
 import TextBox from '@/baseComponents/TextBox';
@@ -80,6 +81,7 @@ const RegisterComponent = () => {
     last_name: lastName,
     email: email.toLowerCase(),
     password,
+    group_names: [USER_GROUPS.SUBSCRIBER],
     captcha_uuid: captchaUUID,
     user_captcha_code: userCaptchaCode
   };
