@@ -13,6 +13,7 @@ const Text = ({
   initialCount = 1,
   countJump = 1,
   initialTextContainerHeight = '100px',
+  showViewAll = true,
   iconColor = COLORS.themeFour,
   className,
   ...props
@@ -79,7 +80,7 @@ const Text = ({
         className={cx('pos-rel w-per-100 pos-rel', styles.textContainer, className)}
         {...props}>
         {shownText}
-        {mustBeTruncated && isTruncated ? (
+        {mustBeTruncated && isTruncated && showViewAll ? (
           <>
             ...{' '}
             <span
@@ -95,7 +96,7 @@ const Text = ({
           ''
         )}
 
-        {mustBeTruncated && !isTruncated ? (
+        {mustBeTruncated && !isTruncated && showViewAll ? (
           <>
             <span
               className="mouse-hand ml1"

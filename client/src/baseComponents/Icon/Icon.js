@@ -37,7 +37,9 @@ import {
   faLink,
   faHandPointer,
   faQuestionCircle,
-  faSignOut
+  faSignOut,
+  faSliders,
+  faGear
 } from '@fortawesome/free-solid-svg-icons';
 import { faSquareInstagram, faJs, faCss3Alt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 // import { far } from '@fortawesome/free-regular-svg-icons';
@@ -189,7 +191,11 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
     ),
     signout: (
       <FontAwesomeIcon icon={faSignOut} style={{ color, width, transform: `scale(${scale})` }} />
-    )
+    ),
+    slider: (
+      <FontAwesomeIcon icon={faSliders} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    gear: <FontAwesomeIcon icon={faGear} style={{ color, width, transform: `scale(${scale})` }} />
   };
 
   iconTypes['dashboard'] = (

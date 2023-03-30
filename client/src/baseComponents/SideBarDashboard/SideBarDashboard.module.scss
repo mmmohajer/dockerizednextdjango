@@ -3,9 +3,16 @@
 
 .dashboard {
   transition: $transition1;
-  transform: translateX(-300px);
+  width: $sideBarClosedWidth;
+  // transform: translateX(-$sideBarOpenedWidth);
 
   &IsActive {
-    transform: translateX(0);
+    width: $sideBarOpenedWidth;
+    // transform: translateX(0);
+  }
+
+  &Breaker {
+    height: 5px;
+    border-radius: 5px;
   }
 }

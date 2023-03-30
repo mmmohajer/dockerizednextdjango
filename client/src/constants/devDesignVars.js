@@ -19,6 +19,7 @@ export const LIST_OF_ICONS = [
   'eye',
   'file-upload',
   'flag',
+  'gear',
   'hand-pointer',
   'image-upload',
   'instagram',
@@ -43,6 +44,7 @@ export const LIST_OF_ICONS = [
   'save',
   'search',
   'signout',
+  'slider',
   'source-code',
   'youtube'
 ];

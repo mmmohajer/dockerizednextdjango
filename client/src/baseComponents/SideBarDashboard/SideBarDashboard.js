@@ -3,25 +3,39 @@ import cx from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { Div, ActivableElement } from 'basedesign-iswad';
 
-import { hideSideBarDashboard } from '@/reducers/general/sidebarDashboardIsActive';
+import { SIDE_BAR_DASHBOARD_ITEMS } from '@/constants/sideBarDashboardItems';
 
+import Header from './subs/Header';
+import MenuItem from './subs/MenuItem';
+import Toggler from './subs/Toggler';
+import Separator from './subs/Separator';
 import styles from './SideBarDashboard.module.scss';
 
 const SideBarDashboard = () => {
-  const dispatch = useDispatch();
   const sideBarDashboardIsActive = useSelector((state) => state.sideBarDashboardIsActive);
 
   return (
     <>
       <ActivableElement
         className={cx(
-          'pos-fix pos-fix--lt w-px-300 height-vh-full of-y-auto bgRed',
+          'pos-fix pos-fix--lt height-vh-full of-y-auto bgGrayBright flex flex--dir--col flex--jc--between py2',
           styles.dashboard
         )}
         activeClassName={cx(styles.dashboardIsActive)}
-        isActive={sideBarDashboardIsActive}
-        onClick={() => dispatch(hideSideBarDashboard())}>
-        SideBarDashboard
+        isActive={sideBarDashboardIsActive}>
+        <Div>
+          <Header />
+          <Separator />
+          <Div className="px2">
+            {SIDE_BAR_DASHBOARD_ITEMS?.map((item, identifier) => (
+              <Div className="mb1" key={identifier}>
+                <MenuItem menu={item} />
+              </Div>
+            ))}
+          </Div>
+        </Div>
+        {/* <Separator /> */}
+        <Toggler />
       </ActivableElement>
     </>
   );

@@ -6,6 +6,7 @@ import Script from 'next/script';
 
 import { setActiveMenu } from '@/reducers/general/activeMenu';
 import { setActiveSubMenu } from '@/reducers/general/activeSubMenu';
+import { setActiveDashboardMenu } from '@/reducers/general/activeDashboardMenu';
 import { setElementsHeightStore } from '@/reducers/general/elementsHeightStore';
 
 import Header from '@/baseComponents/Header';
@@ -17,8 +18,9 @@ import styles from './PageContainer.module.scss';
 import { USE_GOOGLE_ANALYTICS, GOOGLE_ANALYTICS_ID } from 'config';
 
 const PageContainer = ({
-  pageIdentifier,
-  pageSubNavIdentifier,
+  pageIdentifier = '',
+  pageSubNavIdentifier = '',
+  pageDashboardIdentifier = '',
   hasHeader = true,
   hasFooter = true,
   hasStickyHeader = false,
@@ -32,16 +34,19 @@ const PageContainer = ({
   const footerRef = useRef();
   const elementsHeightStore = useSelector((state) => state.elementsHeightStore);
   const sideBarDashboardIsActive = useSelector((state) => state.sideBarDashboardIsActive);
+  const profile = useSelector((state) => state.profile);
 
   useEffect(() => {
-    if (pageIdentifier) {
-      dispatch(setActiveMenu(pageIdentifier));
-    }
+    dispatch(setActiveMenu(pageIdentifier));
+  }, [pageIdentifier]);
 
-    if (pageSubNavIdentifier) {
-      dispatch(setActiveSubMenu(pageSubNavIdentifier));
-    }
-  }, [pageIdentifier, pageSubNavIdentifier]);
+  useEffect(() => {
+    dispatch(setActiveSubMenu(pageSubNavIdentifier));
+  }, [pageSubNavIdentifier]);
+
+  useEffect(() => {
+    dispatch(setActiveDashboardMenu(pageDashboardIdentifier));
+  }, [pageDashboardIdentifier]);
 
   useEffect(() => {
     const localElementsHeightStore = { ...elementsHeightStore };
@@ -83,8 +88,8 @@ const PageContainer = ({
       <Div
         className={cx(
           'flex flex--dir--col min-height-vh-full flex--jc--between',
-          styles.container,
-          hasSideBarDashboard && sideBarDashboardIsActive
+          hasSideBarDashboard && profile?.id ? styles.container : '',
+          hasSideBarDashboard && sideBarDashboardIsActive && profile?.id
             ? styles.containerWhenDashboardIsActive
             : ''
         )}>
@@ -117,7 +122,7 @@ const PageContainer = ({
           </Div>
         )}
       </Div>
-      {hasSideBarDashboard && <SideBarDashboard />}
+      {hasSideBarDashboard && profile?.id ? <SideBarDashboard /> : ''}
     </>
   );
 };

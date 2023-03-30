@@ -81,7 +81,7 @@ const RegisterComponent = () => {
     last_name: lastName,
     email: email.toLowerCase(),
     password,
-    group_names: [USER_GROUPS.SUBSCRIBER],
+    group_names: [USER_GROUPS.APP_ADMIN],
     captcha_uuid: captchaUUID,
     user_captcha_code: userCaptchaCode
   };

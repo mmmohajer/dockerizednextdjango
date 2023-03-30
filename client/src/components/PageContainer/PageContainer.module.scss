@@ -3,11 +3,11 @@
 
 .container {
   transition: $transition1;
-  margin-left: 0;
+  margin-left: $sideBarClosedWidth;
 
   &WhenDashboardIsActive {
     @include atMedium {
-      margin-left: 300px;
+      margin-left: $sideBarOpenedWidth;
     }
   }
 }

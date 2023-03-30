@@ -15,11 +15,12 @@ const Index = () => {
         <PageContainer
           pageIdentifier="home"
           // pageSubNavIdentifier=""
+          // pageDashboardIdentifier=""
           hasHeader={true}
           hasFooter={true}
           hasStickyHeader={false}
           hasStickyFooter={false}
-          hasSideBarDashboard={false}
+          hasSideBarDashboard={true}
           changesThePage={false}>
           <Div className="">Home Page</Div>
         </PageContainer>
