@@ -21,7 +21,8 @@ const PageContainer = ({
   hasHeader = true,
   hasFooter = true,
   hasStickyHeader = false,
-  changesThePage = true,
+  hasStickyFooter = false,
+  changesThePage = false,
   children
 }) => {
   const dispatch = useDispatch();
@@ -78,12 +79,25 @@ const PageContainer = ({
 
       <Div className={cx('flex flex--dir--col min-height-vh-full flex--jc--between')}>
         <Div className="flex--gr--1">
-          {hasHeader && (
+          {hasHeader && !hasStickyFooter ? (
             <Div ref={(el) => (headerRef.current = el)}>
               <Header hasStickyHeader={hasStickyHeader} changesThePage={changesThePage} />
             </Div>
+          ) : hasHeader && hasStickyFooter && hasStickyHeader ? (
+            <Div ref={(el) => (headerRef.current = el)}>
+              <Header hasStickyHeader={hasStickyHeader} changesThePage={changesThePage} />
+            </Div>
+          ) : (
+            ''
           )}
-          <DivMinFullHeight className={cx(hasStickyHeader && styles.mainContentContainer)}>
+          <DivMinFullHeight
+            divHeightIsConst={hasStickyFooter}
+            className={cx('of-y-auto', hasStickyHeader && styles.mainContentContainer)}>
+            {hasHeader && hasStickyFooter && !hasStickyHeader ? (
+              <Header hasStickyHeader={false} changesThePage={changesThePage} />
+            ) : (
+              ''
+            )}
             <Div className="">{children}</Div>
           </DivMinFullHeight>
         </Div>

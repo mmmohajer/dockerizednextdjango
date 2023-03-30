@@ -17,7 +17,8 @@ const Index = () => {
           // pageSubNavIdentifier=""
           hasHeader={true}
           hasFooter={true}
-          hasStickyHeader={true}
+          hasStickyHeader={false}
+          hasStickyFooter={false}
           changesThePage={false}>
           <Div className="">Home Page</Div>
         </PageContainer>
