@@ -191,7 +191,8 @@ Go to the `/home/USER_NAME` folder and create a new folder called `db_backups` <
 `0 1 * * * /var/www/app/backup_db.sh` <br>
 
 Note that in order to restore a database you can use the following command:
-`docker exec app_db_1 psql DB_NAME < BACKUP_FILE`
+`docker exec app_db_1 psql -U USER_NAME -d DB_NAME < BACKUP_FILE` <br>
+Or you can update the USER_NAME and DB_NAME, and BACKUP_FILE in use_backup_db.sh to restore a database file.
 
 Just in order to automatic deploy go to the `utils/constants/constants.sh` and change the server alias <br>
 
