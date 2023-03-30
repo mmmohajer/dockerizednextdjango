@@ -19,6 +19,7 @@ const Index = () => {
           hasFooter={true}
           hasStickyHeader={false}
           hasStickyFooter={false}
+          hasSideBarDashboard={false}
           changesThePage={false}>
           <Div className="">Home Page</Div>
         </PageContainer>

@@ -1,6 +1,17 @@
 @import '@/styles/base/_variables';
 @import '@/styles/base/_mixins';
 
+.container {
+  transition: $transition1;
+  margin-left: 0;
+
+  &WhenDashboardIsActive {
+    @include atMedium {
+      margin-left: 300px;
+    }
+  }
+}
+
 .mainContentContainer {
   padding-top: $HeaderHeight;
 }

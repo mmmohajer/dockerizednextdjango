@@ -11,6 +11,7 @@ import { setElementsHeightStore } from '@/reducers/general/elementsHeightStore';
 import Header from '@/baseComponents/Header';
 import Footer from '@/baseComponents/Footer';
 import DivMinFullHeight from '@/baseComponents/DivMinFullHeight';
+import SideBarDashboard from '@/baseComponents/SideBarDashboard';
 
 import styles from './PageContainer.module.scss';
 import { USE_GOOGLE_ANALYTICS, GOOGLE_ANALYTICS_ID } from 'config';
@@ -22,6 +23,7 @@ const PageContainer = ({
   hasFooter = true,
   hasStickyHeader = false,
   hasStickyFooter = false,
+  hasSideBarDashboard = true,
   changesThePage = false,
   children
 }) => {
@@ -29,6 +31,7 @@ const PageContainer = ({
   const headerRef = useRef();
   const footerRef = useRef();
   const elementsHeightStore = useSelector((state) => state.elementsHeightStore);
+  const sideBarDashboardIsActive = useSelector((state) => state.sideBarDashboardIsActive);
 
   useEffect(() => {
     if (pageIdentifier) {
@@ -77,7 +80,14 @@ const PageContainer = ({
         </>
       )}
 
-      <Div className={cx('flex flex--dir--col min-height-vh-full flex--jc--between')}>
+      <Div
+        className={cx(
+          'flex flex--dir--col min-height-vh-full flex--jc--between',
+          styles.container,
+          hasSideBarDashboard && sideBarDashboardIsActive
+            ? styles.containerWhenDashboardIsActive
+            : ''
+        )}>
         <Div className="flex--gr--1">
           {hasHeader && !hasStickyFooter ? (
             <Div ref={(el) => (headerRef.current = el)}>
@@ -107,6 +117,7 @@ const PageContainer = ({
           </Div>
         )}
       </Div>
+      {hasSideBarDashboard && <SideBarDashboard />}
     </>
   );
 };

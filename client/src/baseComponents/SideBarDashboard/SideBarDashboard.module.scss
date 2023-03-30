@@ -1,0 +1,11 @@
+@import '@/styles/base/_variables';
+@import '@/styles/base/_mixins';
+
+.dashboard {
+  transition: $transition1;
+  transform: translateX(-300px);
+
+  &IsActive {
+    transform: translateX(0);
+  }
+}

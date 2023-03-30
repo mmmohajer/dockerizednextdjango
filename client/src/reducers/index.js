@@ -13,6 +13,7 @@ import scrollPosition from './general/scrollPosition';
 import homePageElements from './general/homePageElements';
 import elementsHeightStore from './general/elementsHeightStore';
 import userIPInfo from './general/userIPInfo';
+import sideBarDashboardIsActive from './general/sidebarDashboardIsActive';
 
 import isAuthenticated from './apiCalls/isAuthenticated';
 import profile from './apiCalls/profile';
@@ -31,6 +32,7 @@ const reducer = combineReducers({
   homePageElements,
   elementsHeightStore,
   userIPInfo,
+  sideBarDashboardIsActive,
   isAuthenticated,
   profile
 });
