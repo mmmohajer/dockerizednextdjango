@@ -19,7 +19,12 @@ const MenuItems = ({ menu, ...props }) => {
 
   return (
     <>
-      <Div type="flex" vAlign="center" {...props} className="height-px-40">
+      <Div
+        type="flex"
+        hAlign={sideBarDashboardIsActive ? 'start' : 'center'}
+        vAlign="center"
+        {...props}
+        className="height-px-40">
         <Div
           type="flex"
           className="mouse-hand"
