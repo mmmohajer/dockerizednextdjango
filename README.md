@@ -86,6 +86,15 @@ Setup:
    - Now everything is ready for your app to be served: <br>
      Run `docker-compose -f docker-compose-prod-ssl.yml up --build -d` <br>
 
+To create a backup of the db <br>
+Go to the file `backup_db_from_local.sh` <br>
+Change the docker container name, db name and db user based on the current names, then run: <br>
+`./backup_db_from_local.sh` <br>
+
+In order to restore db from a backedup file, <br>
+Go to the `use_backup_db.sh` file and change the equivalent names, then run: <br>
+`./backup_db_from_local.sh` <br>
+
 Run ngrok: <br>
 ngrok http -hostname=makeclient.ngrok.io 80 <br>
 OR <br>
