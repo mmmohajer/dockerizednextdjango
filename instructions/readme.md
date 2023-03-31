@@ -155,7 +155,7 @@ Copy all the environment variables in server: <br>
 `./automation.sh` --> 7 <br>
 Run `nano .env` --> change .env variables <br>
 Change DB_NAME, DB_USER in backup_db.sh, USER_NAME, domains in init-letsencrypt.sh <br>
-Run `sudo chmod +x ./init-letsencrypt.sh`, `sudo chmod +x ./backup_db.sh` <br>
+Run `sudo chmod +x ./init-letsencrypt.sh`, `sudo chmod +x ./backup_db.sh`, `sudo chmod +x ./use_backup_db.sh` <br>
 Also change the redis password in `redis/redis.conf` file. Seach for `requirepass` and then determine the password for it. Also, in django env variables, you must set the exact same value for `REDIS_USER_PASS` <br>
 Then run `sudo apt-get install apache2-utils` <br>
 Then go to folder nginx <br>

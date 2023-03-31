@@ -92,8 +92,8 @@ Change the docker container name, db name and db user based on the current names
 `./backup_db_from_local.sh` <br>
 
 In order to restore db from a backedup file, <br>
-Go to the `use_backup_db.sh` file and change the equivalent names, then run: <br>
-`./backup_db_from_local.sh` <br>
+Go to the `use_backup_db_from_local.sh` file and change the equivalent names, then run: <br>
+`./use_backup_db_from_local.sh` <br>
 
 Run ngrok: <br>
 ngrok http -hostname=makeclient.ngrok.io 80 <br>

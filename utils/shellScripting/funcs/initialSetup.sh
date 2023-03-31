@@ -28,6 +28,7 @@ initialSetupInMAcOrLinux() {
 initialSetupInWindows() {
     cp ".env.sample" ".env"
     cp "backup_db.sh.sample" "backup_db.sh"
+    cp "use_backup_db.sh.sample" "use_backup_db.sh"
     cp "init-letsencrypt.sh.sample" "init-letsencrypt.sh"
     cp "config/envFiles/django/develop/.env.sample" "config/envFiles/django/develop/.env"
     cp "config/envFiles/django/prod/.env.sample" "config/envFiles/django/prod/.env"
@@ -42,6 +43,7 @@ initialSetupInWindows() {
 initialSetupInServer() {
     cp ".env.sample" ".env"
     cp "backup_db.sh.sample" "backup_db.sh"
+    cp "use_backup_db.sh.sample" "use_backup_db.sh"
     cp "init-letsencrypt.sh.sample" "init-letsencrypt.sh"
     cp "config/envFiles/django/prod/.env.sample" "config/envFiles/django/prod/.env"
     cp "config/envFiles/postgres/prod/.env.sample" "config/envFiles/postgres/prod/.env"
