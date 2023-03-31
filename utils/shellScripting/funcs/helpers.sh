@@ -74,6 +74,8 @@ cat << EOF
 6. Create a new django app.
 7. Copy environment variables in server
 8. Deploy to server
+9. Make a backup from the local db
+10. Restore local db from a file
 $(echo -en "${I_CYAN}")0. Show MenuBar
 $(echo -en "${I_RED}")Q. Exit
 EOF

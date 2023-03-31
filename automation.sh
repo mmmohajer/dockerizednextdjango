@@ -8,6 +8,7 @@ source ./utils/shellScripting/funcs/client.sh
 source ./utils/shellScripting/funcs/api.sh
 source ./utils/shellScripting/funcs/deploy.sh
 source ./utils/shellScripting/funcs/initialSetup.sh
+source ./utils/shellScripting/funcs/db_backup_local.sh
 
 cat << EOF
 This script runs to help you develop your application much faster.
@@ -33,6 +34,8 @@ run() {
             [ $selected == 6 ] && addDjangoApp
             [ $selected == 7 ] && initialSetupInServer
             [ $selected == 8 ] && deploy
+            [ $selected == 9 ] && makeBackupOfDb
+            [ $selected == 10 ] && restoreDb
         else
             run
         fi
