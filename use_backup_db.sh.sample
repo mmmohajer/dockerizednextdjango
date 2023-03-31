@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker exec app_db_1 psql -U USERNAME -c "DROP DATABASE DATABASE_NAME"
+docker exec app_db_1 psql -U USERNAME -d DATABASE_NAME -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
 docker exec app_db_1 psql -U USERNAME -d DATABASE_NAME -f ./db_backups/BACKED_UP_FILE
