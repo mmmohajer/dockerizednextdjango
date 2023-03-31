@@ -8,6 +8,7 @@ import { setActiveMenu } from '@/reducers/general/activeMenu';
 import { setActiveSubMenu } from '@/reducers/general/activeSubMenu';
 import { setActiveDashboardMenu } from '@/reducers/general/activeDashboardMenu';
 import { setElementsHeightStore } from '@/reducers/general/elementsHeightStore';
+import { smDesignSize, lgDesignSize } from '@/constants/vars';
 
 import Header from '@/baseComponents/Header';
 import Footer from '@/baseComponents/Footer';
@@ -63,7 +64,7 @@ const PageContainer = ({
       localElementsHeightStore['footerHeight'] = 0;
     }
     dispatch(setElementsHeightStore(localElementsHeightStore));
-  }, [headerRef?.current?.clientHeight, footerRef?.current?.clientHeight]);
+  }, [headerRef?.current?.clientHeight, footerRef?.current?.clientHeight, profile]);
 
   return (
     <>
@@ -116,13 +117,23 @@ const PageContainer = ({
             <Div className="">{children}</Div>
           </DivMinFullHeight>
         </Div>
-        {hasFooter && (
-          <Div ref={(el) => (footerRef.current = el)}>
-            <Footer />
-          </Div>
-        )}
+
+        <Div ref={(el) => (footerRef.current = el)}>
+          {profile?.id && (
+            <Div showIn={smDesignSize} className="bgRed p1">
+              Hello
+            </Div>
+          )}
+          {hasFooter && <Footer />}
+        </Div>
       </Div>
-      {hasSideBarDashboard && profile?.id ? <SideBarDashboard /> : ''}
+      {hasSideBarDashboard && profile?.id ? (
+        <Div showIn={lgDesignSize}>
+          <SideBarDashboard />
+        </Div>
+      ) : (
+        ''
+      )}
     </>
   );
 };

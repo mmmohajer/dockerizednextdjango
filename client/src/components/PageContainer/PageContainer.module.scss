@@ -3,7 +3,9 @@
 
 .container {
   transition: $transition1;
-  margin-left: $sideBarClosedWidth;
+  @include atMedium {
+    margin-left: $sideBarClosedWidth;
+  }
 
   &WhenDashboardIsActive {
     @include atMedium {
