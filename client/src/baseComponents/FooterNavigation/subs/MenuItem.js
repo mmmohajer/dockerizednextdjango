@@ -27,7 +27,7 @@ const MenuItem = ({ item, ...props }) => {
         {...props}
         onClick={() => {
           router.push(item?.to);
-          dispatch(setActiveDashboardMenu(menu?.identifier));
+          dispatch(setActiveDashboardMenu(item?.identifier));
         }}>
         <Icon
           type={item?.icon}
