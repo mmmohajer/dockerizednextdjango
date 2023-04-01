@@ -14,6 +14,7 @@ import Header from '@/baseComponents/Header';
 import Footer from '@/baseComponents/Footer';
 import DivMinFullHeight from '@/baseComponents/DivMinFullHeight';
 import SideBarDashboard from '@/baseComponents/SideBarDashboard';
+import FooterNavigation from '@/baseComponents/FooterNavigation/FooterNavigation';
 
 import styles from './PageContainer.module.scss';
 import { USE_GOOGLE_ANALYTICS, GOOGLE_ANALYTICS_ID } from 'config';
@@ -120,8 +121,8 @@ const PageContainer = ({
 
         <Div ref={(el) => (footerRef.current = el)}>
           {profile?.id && (
-            <Div showIn={smDesignSize} className="bgRed p1">
-              Hello
+            <Div showIn={smDesignSize}>
+              <FooterNavigation />
             </Div>
           )}
           {hasFooter && <Footer />}

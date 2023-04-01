@@ -1,0 +1,8 @@
+@import '@/styles/base/_variables';
+@import '@/styles/base/_mixins';
+
+.footer {
+  &Container {
+    border-top: solid 3px $appGrayBrightColor;
+  }
+}
