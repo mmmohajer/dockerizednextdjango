@@ -34,6 +34,14 @@ const ResponsiveSwipeableSlider = ({
   const [xStart, setXStart] = useState(0);
   const [xEnd, setXEnd] = useState(-100000);
 
+  const handleDragStart = (e) => {
+    setXStart(e.clientX);
+  };
+
+  const handleDragEnd = (e) => {
+    setXEnd(e.clientX);
+  };
+
   const moveRightHandler = () => {
     if (activeIdx < arrayOfWidths?.length - 1) {
       setTranslateX(translateX + arrayOfWidths[activeIdx]);
@@ -168,8 +176,8 @@ const ResponsiveSwipeableSlider = ({
             {children.map((item, idx) => (
               <Div key={idx}>
                 <Swipe
-                  onDragStart={(e) => setXStart(e.clientX)}
-                  onDragEnd={(e) => setXEnd(e.clientX)}
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
                   draggable={isDraggable}
                   onSwipeRight={() => {
                     setMoveLeft(true);
@@ -187,8 +195,8 @@ const ResponsiveSwipeableSlider = ({
             {children.map((item, idx) => (
               <Div key={idx} ref={(el) => childrenRefs.current.push(el)}>
                 <Swipe
-                  onDragStart={(e) => setXStart(e.clientX)}
-                  onDragEnd={(e) => setXEnd(e.clientX)}
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
                   draggable={isDraggable}
                   onSwipeRight={() => {
                     setMoveLeft(true);
@@ -206,8 +214,8 @@ const ResponsiveSwipeableSlider = ({
             {children.map((item, idx) => (
               <Div key={idx}>
                 <Swipe
-                  onDragStart={(e) => setXStart(e.clientX)}
-                  onDragEnd={(e) => setXEnd(e.clientX)}
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
                   draggable={isDraggable}
                   onSwipeRight={() => {
                     setMoveLeft(true);
