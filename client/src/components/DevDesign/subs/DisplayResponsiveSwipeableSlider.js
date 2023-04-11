@@ -24,20 +24,20 @@ const DisplayResponsiveSwipeableSlider = () => {
     }
   }, [parentRef?.current?.clientWidth]);
 
-  // useEffect(() => {
-  //   if (automaticPlay) {
-  //     setTimeout(() => {
-  //       setMoveRight(true);
-  //       setTimeout(() => {
-  //         setAutomaticPlay(false);
-  //       }, 10);
-  //     }, 5000);
-  //   } else if (!automaticPlay && !userSwiped) {
-  //     setTimeout(() => {
-  //       setAutomaticPlay(true);
-  //     }, 5000);
-  //   }
-  // }, [automaticPlay, userSwiped]);
+  useEffect(() => {
+    if (automaticPlay) {
+      setTimeout(() => {
+        setMoveRight(true);
+        setTimeout(() => {
+          setAutomaticPlay(false);
+        }, 10);
+      }, 5000);
+    } else if (!automaticPlay && !userSwiped) {
+      setTimeout(() => {
+        setAutomaticPlay(true);
+      }, 5000);
+    }
+  }, [automaticPlay, userSwiped]);
 
   return (
     <>
