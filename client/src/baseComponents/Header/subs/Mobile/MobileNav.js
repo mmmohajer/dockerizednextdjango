@@ -23,6 +23,7 @@ const MobileNav = ({ changesThePage = true }) => {
   const activeMenu = useSelector((state) => state.activeMenu);
   const activeSubMenu = useSelector((state) => state.activeSubMenu);
   const homePageElements = useSelector((state) => state.homePageElements);
+  const profile = useSelector((state) => state.profile);
 
   const [hoveredSubMenu, setHoveredSubMenu] = useState([]);
 
@@ -33,70 +34,83 @@ const MobileNav = ({ changesThePage = true }) => {
         type="flex"
         className={cx('w-px-300 bgThemeOne boxShadowType1 transition1 HeaderMobNavContainerZIndex')}
         isActive={mobileNavIsActive}>
-        {MENU_ITEMS?.map((item, idx) => (
-          <MobNavItem
-            key={idx}
-            isActive={activeMenu === item.identifier}
-            className={cx('p1 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
-            activeClassName={cx('textThemeFive')}
-            onClick={() => {
-              if (!item?.hasSubMenu) {
-                dispatch(hideMobileNav());
-                dispatch(setActiveMenu(item.identifier));
-                dispatch(setActiveSubMenu(''));
-                setHoveredSubMenu([]);
-                if (changesThePage) {
-                  router.push(item?.to);
-                } else {
-                  homePageElements[item.identifier]?.scrollIntoView(AUTO_SCROLL_BEHAVIOR);
-                }
-              } else {
-                const localHoveredSubMenu = [...hoveredSubMenu];
-                if (localHoveredSubMenu?.includes(item.identifier)) {
-                  localHoveredSubMenu = localHoveredSubMenu.filter(
-                    (menu) => menu !== item.identifier
-                  );
-                } else {
-                  localHoveredSubMenu?.push(item.identifier);
-                }
-                setHoveredSubMenu(localHoveredSubMenu);
-              }
-            }}>
-            <Div type="flex">
-              <Div className={cx(styles.mobNavItemTitle)}>{item.title}</Div>
-            </Div>
-            {item?.hasSubMenu && (
-              <HeightTransitionEffect
-                isActive={hoveredSubMenu?.includes(item.identifier)}
-                className="px4">
-                {SUB_MENU_ITEMS[item.identifier]?.map((subItem, subIdx) => (
-                  <MobSubNavItem
-                    className="mt2 textWhite"
-                    activeClassName={cx('textThemeFive')}
-                    isActive={
-                      activeMenu === item.identifier && activeSubMenu === subItem.identifier
+        {MENU_ITEMS?.map((item, idx) => {
+          if (
+            item?.showInMobile &&
+            (!item?.allowedGroups?.length ||
+              (item?.allowedGroups?.length &&
+                item?.allowedGroups?.some((group) => profile?.user?.groups?.includes(group))))
+          ) {
+            return (
+              <MobNavItem
+                key={idx}
+                isActive={activeMenu === item.identifier}
+                className={cx('p1 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
+                activeClassName={cx('textThemeFive')}
+                onClick={() => {
+                  if (!item?.hasSubMenu) {
+                    dispatch(hideMobileNav());
+                    dispatch(setActiveMenu(item.identifier));
+                    dispatch(setActiveSubMenu(''));
+                    setHoveredSubMenu([]);
+                    if (changesThePage) {
+                      router.push(item?.to);
+                    } else {
+                      homePageElements[item.identifier]?.scrollIntoView(AUTO_SCROLL_BEHAVIOR);
                     }
-                    key={subIdx}
-                    onClick={() => {
-                      dispatch(hideMobileNav());
-                      dispatch(setActiveMenu(item.identifier));
-                      dispatch(setActiveSubMenu(subItem.identifier));
-                      setHoveredSubMenu([]);
-                      if (changesThePage) {
-                        router.push(item?.to);
-                      } else {
-                        homePageElements[subItem.identifier]?.scrollIntoView(AUTO_SCROLL_BEHAVIOR);
-                      }
-                    }}>
-                    <Div type="flex">
-                      <Div className={cx(styles.mobNavItemSubNavItemTitle)}>{subItem.title}</Div>
-                    </Div>
-                  </MobSubNavItem>
-                ))}
-              </HeightTransitionEffect>
-            )}
-          </MobNavItem>
-        ))}
+                  } else {
+                    const localHoveredSubMenu = [...hoveredSubMenu];
+                    if (localHoveredSubMenu?.includes(item.identifier)) {
+                      localHoveredSubMenu = localHoveredSubMenu.filter(
+                        (menu) => menu !== item.identifier
+                      );
+                    } else {
+                      localHoveredSubMenu?.push(item.identifier);
+                    }
+                    setHoveredSubMenu(localHoveredSubMenu);
+                  }
+                }}>
+                <Div type="flex">
+                  <Div className={cx(styles.mobNavItemTitle)}>{item.title}</Div>
+                </Div>
+                {item?.hasSubMenu && (
+                  <HeightTransitionEffect
+                    isActive={hoveredSubMenu?.includes(item.identifier)}
+                    className="px4">
+                    {SUB_MENU_ITEMS[item.identifier]?.map((subItem, subIdx) => (
+                      <MobSubNavItem
+                        className="mt2 textWhite"
+                        activeClassName={cx('textThemeFive')}
+                        isActive={
+                          activeMenu === item.identifier && activeSubMenu === subItem.identifier
+                        }
+                        key={subIdx}
+                        onClick={() => {
+                          dispatch(hideMobileNav());
+                          dispatch(setActiveMenu(item.identifier));
+                          dispatch(setActiveSubMenu(subItem.identifier));
+                          setHoveredSubMenu([]);
+                          if (changesThePage) {
+                            router.push(item?.to);
+                          } else {
+                            homePageElements[subItem.identifier]?.scrollIntoView(
+                              AUTO_SCROLL_BEHAVIOR
+                            );
+                          }
+                        }}>
+                        <Div type="flex">
+                          <Div className={cx(styles.mobNavItemSubNavItemTitle)}>
+                            {subItem.title}
+                          </Div>
+                        </Div>
+                      </MobSubNavItem>
+                    ))}
+                  </HeightTransitionEffect>
+                )}
+              </MobNavItem>
+            );
+          }
+        })}
       </MobNav>
     </>
   );

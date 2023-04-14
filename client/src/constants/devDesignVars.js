@@ -14,6 +14,7 @@ export const LIST_OF_ICONS = [
   'close',
   'css',
   'dashboard',
+  'desktop',
   'drag',
   'envelope',
   'eye',

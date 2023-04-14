@@ -13,6 +13,7 @@ import styles from './SideBarDashboard.module.scss';
 
 const SideBarDashboard = () => {
   const sideBarDashboardIsActive = useSelector((state) => state.sideBarDashboardIsActive);
+  const profile = useSelector((state) => state.profile);
 
   return (
     <>
@@ -27,11 +28,19 @@ const SideBarDashboard = () => {
           <Header />
           <Separator />
           <Div className="px2">
-            {SIDE_BAR_DASHBOARD_ITEMS?.map((item, identifier) => (
-              <Div className="mb1" key={identifier}>
-                <MenuItem menu={item} />
-              </Div>
-            ))}
+            {SIDE_BAR_DASHBOARD_ITEMS?.map((item, identifier) => {
+              if (
+                !item?.allowedGroups?.length ||
+                (item?.allowedGroups?.length &&
+                  item?.allowedGroups?.some((group) => profile?.user?.groups?.includes(group)))
+              ) {
+                return (
+                  <Div className="mb1" key={identifier}>
+                    <MenuItem menu={item} />
+                  </Div>
+                );
+              }
+            })}
           </Div>
         </Div>
         {/* <Separator /> */}

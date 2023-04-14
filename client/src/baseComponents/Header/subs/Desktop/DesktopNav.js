@@ -19,43 +19,36 @@ const DesktopNav = ({ changesThePage = true }) => {
   const activeMenu = useSelector((state) => state.activeMenu);
   const activeSubMenu = useSelector((state) => state.activeSubMenu);
   const homePageElements = useSelector((state) => state.homePageElements);
+  const profile = useSelector((state) => state.profile);
 
   const [hoveredSubMenu, setHoveredSubMenu] = useState('');
 
   return (
     <>
       <NavBar type="flex" className={cx('text-center transition1 HeaderMobNavContainerZIndex')}>
-        {MENU_ITEMS?.map((item, idx) => (
-          <NavItem
-            key={idx}
-            isActive={activeMenu === item.identifier}
-            className={cx('mr2 mouse-hand textWhite pos-rel', styles.desktopNavItem)}
-            activeClassName={cx('textThemeFive')}
-            onClick={() => {
-              if (!item?.hasSubMenu) {
-                dispatch(setActiveMenu(item.identifier));
-                dispatch(setActiveSubMenu(''));
-                if (changesThePage) {
-                  router.push(item?.to);
-                } else {
-                  homePageElements[item.identifier]?.scrollIntoView(AUTO_SCROLL_BEHAVIOR);
-                }
-              }
-            }}
-            onMouseOver={() => {
-              if (item?.hasSubMenu) {
-                setHoveredSubMenu(item.identifier);
-              }
-            }}
-            onMouseLeave={() => setHoveredSubMenu('')}>
-            <Div className={cx(styles.desktopNavItemTitle)}>{item.title}</Div>
-            {item?.hasSubMenu ? (
-              <HeightTransitionEffect
-                isActive={hoveredSubMenu === item.identifier}
-                className={cx('px1 pos-abs', styles.desktopNavItemSubNavContainer)}
-                style={{
-                  left: `${item?.submenuTranslteX}` || '0px',
-                  width: `${item?.subMenuWidth}` || '300px'
+        {MENU_ITEMS?.map((item, idx) => {
+          if (
+            item?.showInDesktop &&
+            (!item?.allowedGroups?.length ||
+              (item?.allowedGroups?.length &&
+                item?.allowedGroups?.some((group) => profile?.user?.groups?.includes(group))))
+          ) {
+            return (
+              <NavItem
+                key={idx}
+                isActive={activeMenu === item.identifier}
+                className={cx('mr2 mouse-hand textWhite pos-rel', styles.desktopNavItem)}
+                activeClassName={cx('textThemeFive')}
+                onClick={() => {
+                  if (!item?.hasSubMenu) {
+                    dispatch(setActiveMenu(item.identifier));
+                    dispatch(setActiveSubMenu(''));
+                    if (changesThePage) {
+                      router.push(item?.to);
+                    } else {
+                      homePageElements[item.identifier]?.scrollIntoView(AUTO_SCROLL_BEHAVIOR);
+                    }
+                  }
                 }}
                 onMouseOver={() => {
                   if (item?.hasSubMenu) {
@@ -63,41 +56,58 @@ const DesktopNav = ({ changesThePage = true }) => {
                   }
                 }}
                 onMouseLeave={() => setHoveredSubMenu('')}>
-                <Div style={{ height: '5px' }} />
-                <Div className="bgThemeOne p2">
-                  {SUB_MENU_ITEMS[item.identifier]?.map((subItem, subIdx) => (
-                    <SubNavItem
-                      className="mouse-hand p1 flex flex--jc--center textWhite"
-                      key={subIdx}
-                      isActive={
-                        activeMenu === item.identifier && activeSubMenu === subItem.identifier
+                <Div className={cx(styles.desktopNavItemTitle)}>{item.title}</Div>
+                {item?.hasSubMenu ? (
+                  <HeightTransitionEffect
+                    isActive={hoveredSubMenu === item.identifier}
+                    className={cx('px1 pos-abs', styles.desktopNavItemSubNavContainer)}
+                    style={{
+                      left: `${item?.submenuTranslteX}` || '0px',
+                      width: `${item?.subMenuWidth}` || '300px'
+                    }}
+                    onMouseOver={() => {
+                      if (item?.hasSubMenu) {
+                        setHoveredSubMenu(item.identifier);
                       }
-                      activeClassName={cx('textThemeFive')}>
-                      <Div
-                        className={cx(styles.desktopNavItemSubNavItemTitle)}
-                        onClick={() => {
-                          dispatch(setActiveMenu(item.identifier));
-                          dispatch(setActiveSubMenu(subItem.identifier));
-                          setHoveredSubMenu('');
-                          if (changesThePage) {
-                            router.push(subItem?.to);
-                          } else {
-                            homePageElements[subItem.identifier]?.scrollIntoView(
-                              AUTO_SCROLL_BEHAVIOR
-                            );
+                    }}
+                    onMouseLeave={() => setHoveredSubMenu('')}>
+                    <Div style={{ height: '5px' }} />
+                    <Div className="bgThemeOne p2">
+                      {SUB_MENU_ITEMS[item.identifier]?.map((subItem, subIdx) => (
+                        <SubNavItem
+                          className="mouse-hand p1 flex flex--jc--center textWhite"
+                          key={subIdx}
+                          isActive={
+                            activeMenu === item.identifier && activeSubMenu === subItem.identifier
                           }
-                        }}>
-                        {subItem.title}
-                      </Div>
-                    </SubNavItem>
-                  ))}
-                </Div>
-              </HeightTransitionEffect>
-            ) : (
-              ''
-            )}
-          </NavItem>
-        ))}
+                          activeClassName={cx('textThemeFive')}>
+                          <Div
+                            className={cx(styles.desktopNavItemSubNavItemTitle)}
+                            onClick={() => {
+                              dispatch(setActiveMenu(item.identifier));
+                              dispatch(setActiveSubMenu(subItem.identifier));
+                              setHoveredSubMenu('');
+                              if (changesThePage) {
+                                router.push(subItem?.to);
+                              } else {
+                                homePageElements[subItem.identifier]?.scrollIntoView(
+                                  AUTO_SCROLL_BEHAVIOR
+                                );
+                              }
+                            }}>
+                            {subItem.title}
+                          </Div>
+                        </SubNavItem>
+                      ))}
+                    </Div>
+                  </HeightTransitionEffect>
+                ) : (
+                  ''
+                )}
+              </NavItem>
+            );
+          }
+        })}
       </NavBar>
     </>
   );

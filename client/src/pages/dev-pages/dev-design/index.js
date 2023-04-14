@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <RoleBasedRoute hasAccessRole={[USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER]}>
       <Seo>
-        <PageContainer>
+        <PageContainer pageDashboardIdentifier="dev-design">
           <DevDesign />
         </PageContainer>
       </Seo>

@@ -1,27 +1,42 @@
+import { USER_GROUPS } from '@/constants/userGroups';
+
 export const MENU_ITEMS = [
-  { identifier: 'about', title: 'About', to: '/test-pages/test-about', hasSubMenu: false },
+  {
+    identifier: 'about',
+    title: 'About',
+    to: '/test-pages/test-about',
+    hasSubMenu: false,
+    showInDesktop: true,
+    showInMobile: true
+  },
   {
     identifier: 'services',
     title: 'Services',
     to: '/',
     hasSubMenu: true,
     submenuTranslteX: '-100px',
-    subMenuWidth: '300px'
+    subMenuWidth: '300px',
+    showInDesktop: true,
+    showInMobile: true
   },
   {
-    identifier: 'experience',
-    title: 'Experience',
-    to: '/',
-    hasSubMenu: false
+    identifier: 'dev-design',
+    title: 'Dev Design',
+    to: '/dev-pages/dev-design',
+    icon: 'desktop',
+    allowedGroups: [USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER],
+    showInDesktop: false,
+    showInMobile: true
   },
-  { identifier: 'projects', title: 'Projects', to: '/', hasSubMenu: false },
   {
-    identifier: 'testimonials',
-    title: 'Testimonials',
-    to: '/',
-    hasSubMenu: false
-  },
-  { identifier: 'contact', title: 'Contact', to: '/', hasSubMenu: false }
+    identifier: 'api-doc',
+    title: 'API Doc',
+    to: '/dev-pages/api-doc',
+    icon: 'source-code',
+    allowedGroups: [USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER],
+    showInDesktop: false,
+    showInMobile: true
+  }
 ];
 
 export const SUB_MENU_ITEMS = {
