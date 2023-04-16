@@ -1,7 +1,7 @@
 import React from 'react';
 import MOCK_DATA from './MOCK_DATA.json';
 
-export const headLines = [
+export const headLines = (Div, Search, setTableData, data, setCurrentPage) => [
   {
     value: 'first_name',
     display: 'First Name',
@@ -18,9 +18,29 @@ export const headLines = [
   },
   {
     value: 'email',
-    display: 'Email',
+    display: (
+      <Div type="flex" vAlign="center">
+        <Div>Email</Div>
+        <Div>
+          <Search
+            onChange={(e) => {
+              setCurrentPage(1);
+              if (e.target.value) {
+                setTableData(
+                  data?.filter((d) =>
+                    d?.email?.toLowerCase()?.includes(e.target.value.toLowerCase())
+                  )
+                );
+              } else {
+                setTableData(data);
+              }
+            }}
+          />
+        </Div>
+      </Div>
+    ),
     width: 300,
-    hasSearch: true,
+    hasSearch: false,
     isSortable: true
   },
   {

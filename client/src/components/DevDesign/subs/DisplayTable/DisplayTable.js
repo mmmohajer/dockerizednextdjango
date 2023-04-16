@@ -5,12 +5,15 @@ import Image from 'next/image';
 
 import Button from '@/baseComponents/Button';
 import Table from '@/baseComponents/Table';
+import Search from '@/baseComponents/Table/subs/Search';
 
 import { headLines, data } from './utils';
 
 import styles from '../../DevDesign.module.scss';
 
 function DisplayTable() {
+  const [tableData, setTableData] = useState([]);
+
   const genderConverter = (gender) => {
     if (gender === 'Male') {
       return (
@@ -50,6 +53,12 @@ function DisplayTable() {
     });
   }, [data]);
 
+  useEffect(() => {
+    if (data) {
+      setTableData(data);
+    }
+  }, [data]);
+
   // useEffect(() => {
   //   console.log(selectedData);
   // }, [selectedData]);
@@ -65,8 +74,8 @@ function DisplayTable() {
         vAlign="center"
         className={cx('w-per-90 flex--wrap', styles.card)}>
         <Table
-          headLines={headLines}
-          data={data}
+          headLines={headLines(Div, Search, setTableData, data, setCurrentPage)}
+          data={tableData}
           //   colWidth={400}
           //   tableWidth={'2025px'}
           isSelectable={true}
