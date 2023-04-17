@@ -127,6 +127,7 @@ So, you can run docker commands without the need of sudo <br>
 
 Build a new pair of ssh keys for github access <br>
 `ssh-keygen -t rsa -b 4096 -C "Comment for the file"` <br>
+Remember do not set a passphrase for the file. <br>
 Copy the private key somewhere to your server (.ssh folder) <br>
 Add the public key to the github account <br>
 Add the following part to .ssh/config file in the server<br>
@@ -154,6 +155,17 @@ Create the following subfolders: <br>
 Copy all the environment variables in server: <br>
 `./automation.sh` --> 7 <br>
 Run `nano .env` --> change .env variables <br>
+Update the following files <br>
+
+- `.env`
+- `config/envFiles/django/prod/.env`
+- `config/envFiles/postgres/prod/.env`
+- `client/next.config.js`
+- `redis/redis.conf`
+- `init-letsencrypt.sh`
+- `use_backup_db.sh`
+- `backup_db.sh` <br>
+
 Change DB_NAME, DB_USER in backup_db.sh, USER_NAME, domains in init-letsencrypt.sh <br>
 Run `sudo chmod +x ./init-letsencrypt.sh`, `sudo chmod +x ./backup_db.sh`, `sudo chmod +x ./use_backup_db.sh` <br>
 Also change the redis password in `redis/redis.conf` file. Seach for `requirepass` and then determine the password for it. Also, in django env variables, you must set the exact same value for `REDIS_USER_PASS` <br>
