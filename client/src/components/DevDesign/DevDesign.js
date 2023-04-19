@@ -23,6 +23,7 @@ import DisplayEmailTemplates from './subs/DisplayEmailTemplates';
 import DisplayAnimationOnScroll from './subs/DisplayAnimationOnScroll';
 import DisplayResponsiveSwipeableSlider from './subs/DisplayResponsiveSwipeableSlider';
 import DisplayUserEvent from './subs/DisplayUserEvent';
+import DisplayPolygon from './subs/DisplayPolygon';
 
 import DevSection from './subs/DevSection';
 import styles from './DevDesign.module.scss';
@@ -178,6 +179,13 @@ const DevDesign = () => {
         activeElements={activeElements}
         setActiveElements={setActiveElements}>
         <DisplayUserEvent />
+      </DevSection>
+
+      <DevSection
+        title="Polygons"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayPolygon />
       </DevSection>
     </>
   );

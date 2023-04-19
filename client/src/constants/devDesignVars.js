@@ -60,4 +60,10 @@ export const MODAL_TYPES = ['data_submitted_successfully'];
 
 export const CARD_TYPES = ['service'];
 
+export const POLYGON_TYPES = [
+  'service-card-head',
+  'service-card-tail-left',
+  'service-card-tail-right'
+];
+
 export const EMAIL_TEMPLATES = ['contact_form_sent', 'contact_form_received'];
