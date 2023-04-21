@@ -24,6 +24,7 @@ import DisplayAnimationOnScroll from './subs/DisplayAnimationOnScroll';
 import DisplayResponsiveSwipeableSlider from './subs/DisplayResponsiveSwipeableSlider';
 import DisplayUserEvent from './subs/DisplayUserEvent';
 import DisplayPolygon from './subs/DisplayPolygon';
+import DisplayLimitedSwipeableSlider from './subs/DisplayLimitedSwipeableSlider';
 
 import DevSection from './subs/DevSection';
 import styles from './DevDesign.module.scss';
@@ -186,6 +187,13 @@ const DevDesign = () => {
         activeElements={activeElements}
         setActiveElements={setActiveElements}>
         <DisplayPolygon />
+      </DevSection>
+
+      <DevSection
+        title="Limited Swipeable Slider"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayLimitedSwipeableSlider />
       </DevSection>
     </>
   );
