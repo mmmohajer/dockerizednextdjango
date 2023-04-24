@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import { useSelector } from 'react-redux';
 import { Div } from 'basedesign-iswad';
 
 import { lgDesignSize, smDesignSize } from '@/constants/vars';
@@ -9,8 +10,24 @@ import DesktopHeader from './subs/Desktop/DesktopHeader';
 import styles from './Header.module.scss';
 
 const Header = ({ hasStickyHeader, changesThePage = true }) => {
+  const scrollPosition = useSelector((state) => state.scrollPosition);
+
   return (
     <>
+      {scrollPosition > 0 && hasStickyHeader ? (
+        <Div
+          type="flex"
+          distributedBetween
+          vAlign="center"
+          className={cx(
+            'w-per-100 pos-fix pos-fix--lt headerBgZIndex',
+            styles.headerContainer,
+            styles.headerContainerBlurryBg
+          )}
+        />
+      ) : (
+        ''
+      )}
       <Div
         type="flex"
         distributedBetween
