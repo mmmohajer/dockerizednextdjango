@@ -21,6 +21,8 @@ html {
 }
 
 body {
+  background-color: $themeTwo;
+
   @extend %fontclass;
   overflow-x: hidden;
 
@@ -62,6 +64,7 @@ ul {
   flex-direction: column;
   margin: 0 auto;
   position: relative;
+  background-color: white;
 }
 
 .maxContainerWidth {
