@@ -64,6 +64,11 @@ ul {
   position: relative;
 }
 
+.maxContainerWidth {
+  width: 100%;
+  max-width: $maxContainerWidth;
+}
+
 .captcha {
   font-family: 'Rubik Maze', cursive;
   letter-spacing: 0.5rem;

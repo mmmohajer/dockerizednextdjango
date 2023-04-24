@@ -34,7 +34,7 @@ const Header = ({ hasStickyHeader, changesThePage = true }) => {
           vAlign="center"
           distributedBetween
           showIn={lgDesignSize}
-          className="w-per-100 px2">
+          className="w-per-100 maxContainerWidth ml-auto mr-auto px2">
           <DesktopHeader changesThePage={changesThePage} />
         </Div>
       </Div>
