@@ -2,11 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import cx from 'classnames';
 import { Div, DragDropFileUpload } from 'basedesign-iswad';
 
-import { COLORS } from '@/constants/vars';
-
-import Icon from '@/baseComponents/Icon';
-import Close from '@/baseComponents/Close';
-
 import DefaultDraggableElement from './subs/DefaultDraggableElement';
 import styles from './DraggableFileUploader.module.scss';
 
