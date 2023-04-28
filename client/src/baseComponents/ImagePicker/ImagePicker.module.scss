@@ -59,3 +59,15 @@
   visibility: hidden;
   z-index: -10;
 }
+
+.joinTeam {
+  &Container {
+    border: solid 3px $themeOne;
+  }
+
+  &Previewer {
+    &Delete {
+      background: rgba($color: #fff, $alpha: 0.6);
+    }
+  }
+}

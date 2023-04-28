@@ -7,9 +7,9 @@ import Close from '@/baseComponents/Close';
 
 import { COLORS } from '@/constants/vars';
 
-import styles from '../ImagePicker.module.scss';
+import styles from '../../ImagePicker.module.scss';
 
-const ImagePreview = ({ src, setFile, setSrc, setFileName, inputFileField }) => {
+const DefaultImagePreview = ({ src, setFile, setSrc, setFileName, inputFileField }) => {
   return (
     <>
       {src && (
@@ -48,4 +48,4 @@ const ImagePreview = ({ src, setFile, setSrc, setFileName, inputFileField }) => 
   );
 };
 
-export default ImagePreview;
+export default DefaultImagePreview;
