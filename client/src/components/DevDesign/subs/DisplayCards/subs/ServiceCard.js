@@ -6,16 +6,16 @@ import Card from '@/baseComponents/Card';
 
 import styles from '../../../DevDesign.module.scss';
 
-const ServiceCard = ({ idx, ...props }) => {
+const ServiceCard = ({ ...props }) => {
   return (
     <>
       <Div
-        key={idx}
         direction="vertical"
         type="flex"
         hAlign="center"
         vAlign="center"
-        className="mb4">
+        className="mb4"
+        {...props}>
         <Div className="mb1">Type: service</Div>
         <Card type="service" />
       </Div>

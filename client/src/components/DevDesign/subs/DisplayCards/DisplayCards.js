@@ -18,7 +18,7 @@ function DisplayCards() {
         className={cx('p1 w-per-90 flex--wrap', styles.card)}>
         {CARD_TYPES.map((item, idx) => {
           if (item === 'service') {
-            return <ServiceCard idx={idx} />;
+            return <ServiceCard key={idx} />;
           }
         })}
       </Div>
