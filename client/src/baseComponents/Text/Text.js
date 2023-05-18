@@ -80,6 +80,7 @@ const Text = ({
         className={cx('pos-rel w-per-100 pos-rel', styles.textContainer, className)}
         {...props}>
         {shownText}
+        {mustBeTruncated && isTruncated && !showViewAll ? <>...</> : ''}
         {mustBeTruncated && isTruncated && showViewAll ? (
           <>
             ...{' '}
