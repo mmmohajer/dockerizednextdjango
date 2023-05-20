@@ -40,3 +40,6 @@ export const IP_INFO_TOKEN = !publicRuntimeConfig.PRODUCTION
 export const USE_GET_IP_INFO_TOKEN = !publicRuntimeConfig.PRODUCTION
   ? process.env.USE_GET_IP_INFO_TOKEN_DEVELOPMENT
   : process.env.USE_GET_IP_INFO_TOKEN_PRODUCTION;
+export const USE_HOTJAR = !publicRuntimeConfig.PRODUCTION
+  ? process.env.USE_HOTJAR_DEVELOPMENT
+  : process.env.USE_HOTJAR_PRODUCTION;

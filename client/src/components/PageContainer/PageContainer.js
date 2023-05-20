@@ -17,7 +17,7 @@ import SideBarDashboard from '@/baseComponents/SideBarDashboard';
 import FooterNavigation from '@/baseComponents/FooterNavigation/FooterNavigation';
 
 import styles from './PageContainer.module.scss';
-import { USE_GOOGLE_ANALYTICS, GOOGLE_ANALYTICS_ID } from 'config';
+import { USE_GOOGLE_ANALYTICS, GOOGLE_ANALYTICS_ID, USE_HOTJAR } from 'config';
 
 const PageContainer = ({
   pageIdentifier = '',
@@ -85,6 +85,19 @@ const PageContainer = ({
         `}
           </Script>
         </>
+      )}
+
+      {USE_HOTJAR && (
+        <Script>
+          {`(function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:3352301,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
+        </Script>
       )}
 
       <Div
