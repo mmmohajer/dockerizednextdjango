@@ -43,3 +43,6 @@ export const USE_GET_IP_INFO_TOKEN = !publicRuntimeConfig.PRODUCTION
 export const USE_HOTJAR = !publicRuntimeConfig.PRODUCTION
   ? process.env.USE_HOTJAR_DEVELOPMENT
   : process.env.USE_HOTJAR_PRODUCTION;
+export const HOTJAR_ID = !publicRuntimeConfig.PRODUCTION
+  ? process.env.HOTJAR_ID_DEVELOPMENT
+  : process.env.HOTJAR_ID_PRODUCTION;
