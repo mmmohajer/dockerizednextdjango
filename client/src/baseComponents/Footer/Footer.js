@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <>
       <Div className={cx('bgThemeThree boxShadowType1 of-hidden')}>
-        <Div className="mb1">
+        <Div className="mb1 maxContainerWidth">
           <Row>
             <Column xs={12} sm={12} md={6} lg={3} className="textWhite px2">
               <AboutSection />

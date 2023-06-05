@@ -22,7 +22,7 @@ const Index = () => {
           hasStickyFooter={false}
           hasSideBarDashboard={true}
           changesThePage={false}>
-          <Div>HomePage</Div>
+          <Div className="maxContainerWidth px2">HomePage</Div>
         </PageContainer>
       </Seo>
     </PublicRoute>
