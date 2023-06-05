@@ -188,7 +188,7 @@ Then run `sudo ./init-letsencrypt.sh` <br>
 
 Now your app must be ready on server <br>
 
-In order to automatcally renew ssl certificate add the followings to crontab:
+In order to automatcally renew ssl certificate add the followings to crontab: (Note that you can skip this cronjob, because, certbot itself will automatically renew ssl certificate)
 `sudo crontab -e` <br>
 
 `0 0 1 * * /var/www/app/init-letsencrypt.sh` <br>
