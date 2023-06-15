@@ -15,6 +15,10 @@ import Footer from '@/baseComponents/Footer';
 import DivMinFullHeight from '@/baseComponents/DivMinFullHeight';
 import SideBarDashboard from '@/baseComponents/SideBarDashboard';
 import FooterNavigation from '@/baseComponents/FooterNavigation/FooterNavigation';
+import ScrollToTop from '@/baseComponents/ScrollToTop';
+import AdminToolbar from '@/baseComponents/AdminToolbar/AdminToolbar';
+
+import { USER_GROUPS } from '@/constants/userGroups';
 
 import styles from './PageContainer.module.scss';
 import { USE_GOOGLE_ANALYTICS, GOOGLE_ANALYTICS_ID, USE_HOTJAR, HOTJAR_ID } from 'config';
@@ -29,6 +33,7 @@ const PageContainer = ({
   hasStickyFooter = false,
   hasSideBarDashboard = true,
   changesThePage = false,
+  hasScrollToTop = true,
   children
 }) => {
   const dispatch = useDispatch();
@@ -148,6 +153,18 @@ const PageContainer = ({
       ) : (
         ''
       )}
+
+      {hasScrollToTop && scrollPosition > 0 ? (
+        <Div className={cx('pos-fix', styles.scrollToTopContainer)}>
+          <ScrollToTop />
+        </Div>
+      ) : (
+        ''
+      )}
+
+      {profile?.user?.groups?.some((item) =>
+        [USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER]?.includes(item)
+      ) && <AdminToolbar />}
     </>
   );
 };
