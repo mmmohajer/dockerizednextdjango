@@ -19,6 +19,7 @@
   max-height: 200px;
   overflow-y: auto;
   background-color: white;
+  z-index: 1000;
 }
 
 .option {
@@ -35,6 +36,7 @@
   box-shadow: $boxShadow1;
   border: solid 1px $appGrayBrightColor;
   padding: 0.65rem;
+  z-index: 100;
 }
 
 .placeHolder {

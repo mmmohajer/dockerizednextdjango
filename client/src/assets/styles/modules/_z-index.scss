@@ -1,9 +1,11 @@
 .SelectMainClickableZIndex {
-  z-index: 10;
+  // z-index: 10;
+  z-index: -1;
+  // cursor: pointer;
 }
 
 .SelectOptionsContainerZIndex {
-  z-index: 100;
+  z-index: auto;
 }
 
 .AlertContainerZIndex {

@@ -27,7 +27,13 @@ const Select = ({
             <Label className={cx(isRequired && 'required', 'labelForInput')}>{labelText}</Label>
           </Div>
         )}
-        <Div className={cx('inputFieldContainer')} onClick={() => errorHandler('')}>
+        <Div
+          className={cx('inputFieldContainer')}
+          onClick={() => {
+            if (errorHandler) {
+              errorHandler('');
+            }
+          }}>
           <BaseSelect
             selectValue={val}
             setSelectValue={setVal}
@@ -49,7 +55,7 @@ const Select = ({
             isOptionsActive={isOptionsActive}
             setIsOptionsActive={setIsOptionsActive}
             selectIntialShownText={selectIntialShownText}
-            placeholder={placeHolder || 'Choose an option...'}
+            placeholder={placeHolder || ''}
           />
         </Div>
         <Div className={cx('inputErrorMessage', errorMessage && 'inputErrorMessageIsActive')}>
