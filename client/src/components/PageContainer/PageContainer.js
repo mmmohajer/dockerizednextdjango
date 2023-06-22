@@ -42,6 +42,7 @@ const PageContainer = ({
   const elementsHeightStore = useSelector((state) => state.elementsHeightStore);
   const sideBarDashboardIsActive = useSelector((state) => state.sideBarDashboardIsActive);
   const profile = useSelector((state) => state.profile);
+  const scrollPosition = useSelector((state) => state.scrollPosition);
 
   useEffect(() => {
     dispatch(setActiveMenu(pageIdentifier));
