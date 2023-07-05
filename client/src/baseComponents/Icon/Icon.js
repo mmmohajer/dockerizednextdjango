@@ -40,7 +40,10 @@ import {
   faSignOut,
   faSliders,
   faGear,
-  faDesktop
+  faDesktop,
+  faTable,
+  faCircleQuestion,
+  faHouse
 } from '@fortawesome/free-solid-svg-icons';
 import { faSquareInstagram, faJs, faCss3Alt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 // import { far } from '@fortawesome/free-regular-svg-icons';
@@ -199,7 +202,15 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
     gear: <FontAwesomeIcon icon={faGear} style={{ color, width, transform: `scale(${scale})` }} />,
     desktop: (
       <FontAwesomeIcon icon={faDesktop} style={{ color, width, transform: `scale(${scale})` }} />
-    )
+    ),
+    grid: <FontAwesomeIcon icon={faTable} style={{ color, width, transform: `scale(${scale})` }} />,
+    'circle-question': (
+      <FontAwesomeIcon
+        icon={faCircleQuestion}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    house: <FontAwesomeIcon icon={faHouse} style={{ color, width, transform: `scale(${scale})` }} />
   };
 
   iconTypes['dashboard'] = (
