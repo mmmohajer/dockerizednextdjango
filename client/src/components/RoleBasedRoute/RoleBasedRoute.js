@@ -8,7 +8,11 @@ import styles from './RoleBasedRoute.module.scss';
 const RoleBasedRoute = ({ hasAccessRole, children }) => {
   return (
     <>
-      <AllowedGroupRoute allowedGroup={hasAccessRole}>{children}</AllowedGroupRoute>
+      {hasAccessRole.includes('Public') ? (
+        <>{children}</>
+      ) : (
+        <AllowedGroupRoute allowedGroup={hasAccessRole}>{children}</AllowedGroupRoute>
+      )}
     </>
   );
 };
