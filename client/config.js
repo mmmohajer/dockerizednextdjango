@@ -46,3 +46,4 @@ export const USE_HOTJAR = !publicRuntimeConfig.PRODUCTION
 export const HOTJAR_ID = !publicRuntimeConfig.PRODUCTION
   ? process.env.HOTJAR_ID_DEVELOPMENT
   : process.env.HOTJAR_ID_PRODUCTION;
+export const IS_STAGING_ENV = !publicRuntimeConfig.PRODUCTION ? 0 : process.env.IS_STAGING_ENV;
