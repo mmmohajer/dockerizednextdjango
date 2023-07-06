@@ -14,6 +14,12 @@ const LimitedSwipeableSlider = ({
   moveStep,
   translateX,
   setTranslateX,
+  makeUnlimited = false,
+  numberOfElements,
+  curElement,
+  setCurElement,
+  goToItemWithNum,
+  setGoToItemWithNum,
   children,
   className,
   ...props
@@ -23,6 +29,7 @@ const LimitedSwipeableSlider = ({
   const [moveStepVal, setMoveStepVal] = useState(0);
   const [parentWidth, setParentWidth] = useState(0);
   const [parentScrollWidth, setParentScrollWidth] = useState(0);
+  const [transitionClassName, setTransitionClassName] = useState('tranistion1');
 
   useEffect(() => {
     if (parentRef?.current) {
@@ -41,9 +48,16 @@ const LimitedSwipeableSlider = ({
         setMustShowSlider(false);
       } else {
         setMustShowSlider(true);
+        if (makeUnlimited) {
+          setTransitionClassName('noTransition');
+          setTranslateX(-parentScrollWidth / 3);
+          setTimeout(() => {
+            setTransitionClassName('tranistion1');
+          }, 100);
+        }
       }
     }
-  }, [parentWidth, parentScrollWidth]);
+  }, [parentWidth, parentScrollWidth, makeUnlimited]);
 
   useEffect(() => {
     if (moveStep) {
@@ -58,8 +72,25 @@ const LimitedSwipeableSlider = ({
   useEffect(() => {
     if (moveLeft) {
       if (parentWidth && parentScrollWidth && mustShowSlider) {
-        if (translateX < 0) {
-          setTranslateX(translateX + moveStepVal);
+        if (!makeUnlimited) {
+          if (translateX < 0) {
+            setTranslateX(translateX + moveStepVal);
+            setCurElement(curElement - 1);
+          }
+        }
+        if (makeUnlimited) {
+          if (curElement > 0) {
+            setTranslateX(translateX + moveStepVal);
+            setCurElement(curElement - 1);
+          } else {
+            setTransitionClassName('noTransition');
+            setTranslateX(-parentScrollWidth / 3);
+            setTimeout(() => {
+              setTransitionClassName('tranistion1');
+              setTranslateX(-parentScrollWidth / 3 + moveStepVal);
+              setCurElement(numberOfElements - 1);
+            }, 100);
+          }
         }
       }
       setTimeout(() => {
@@ -71,8 +102,25 @@ const LimitedSwipeableSlider = ({
   useEffect(() => {
     if (moveRight) {
       if (parentWidth && parentScrollWidth && mustShowSlider) {
-        if (-translateX + parentWidth < parentScrollWidth) {
-          setTranslateX(translateX - moveStepVal);
+        if (!makeUnlimited) {
+          if (-translateX + parentWidth < parentScrollWidth) {
+            setTranslateX(translateX - moveStepVal);
+            setCurElement(curElement + 1);
+          }
+        }
+        if (makeUnlimited) {
+          if (curElement < numberOfElements - 1) {
+            setTranslateX(translateX - moveStepVal);
+            setCurElement(curElement + 1);
+          } else {
+            setTransitionClassName('noTransition');
+            setTranslateX(-parentScrollWidth / 3 + moveStepVal);
+            setTimeout(() => {
+              setTransitionClassName('tranistion1');
+              setTranslateX(-parentScrollWidth / 3);
+              setCurElement(0);
+            }, 100);
+          }
         }
       }
       setTimeout(() => {
@@ -81,15 +129,32 @@ const LimitedSwipeableSlider = ({
     }
   }, [moveRight, parentWidth, parentScrollWidth]);
 
+  useEffect(() => {
+    if (goToItemWithNum >= 0 && goToItemWithNum < numberOfElements - 1) {
+      let diff = goToItemWithNum * moveStep;
+      if (makeUnlimited) {
+        setTranslateX(-parentScrollWidth / 3 - diff);
+      } else {
+        setTranslateX(-diff);
+      }
+      setCurElement(goToItemWithNum);
+      setTimeout(() => {
+        setGoToItemWithNum(-1);
+      }, 100);
+    }
+  }, [goToItemWithNum, moveStep, makeUnlimited, parentScrollWidth]);
+
   return (
     <>
       <Div
         ref={(el) => (parentRef.current = el)}
         type="flex"
-        className={cx('tranistion1 w-per-100', className)}
+        className={cx('w-per-100', transitionClassName, className)}
         style={{ transform: `translateX(${translateX}px)` }}
         {...props}>
+        {makeUnlimited && mustShowSlider ? children : ''}
         {children}
+        {makeUnlimited && mustShowSlider ? children : ''}
       </Div>
     </>
   );
