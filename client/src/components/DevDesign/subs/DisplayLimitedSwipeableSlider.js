@@ -29,7 +29,7 @@ const DisplayLimitedSwipeableSlider = () => {
           moveStep={166}
           translateX={translateX}
           setTranslateX={setTranslateX}
-          makeUnlimited={false}
+          makeUnlimited={true}
           numberOfElements={10}
           curElement={curElement}
           setCurElement={setCurElement}

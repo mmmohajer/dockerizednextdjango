@@ -97,7 +97,7 @@ const LimitedSwipeableSlider = ({
         setMoveLeft(false);
       }, 10);
     }
-  }, [moveLeft, parentWidth, parentScrollWidth]);
+  }, [moveLeft, parentWidth, parentScrollWidth, moveStepVal, numberOfElements, makeUnlimited]);
 
   useEffect(() => {
     if (moveRight) {
@@ -127,11 +127,11 @@ const LimitedSwipeableSlider = ({
         setMoveRight(false);
       }, 10);
     }
-  }, [moveRight, parentWidth, parentScrollWidth]);
+  }, [moveRight, parentWidth, parentScrollWidth, moveStepVal, numberOfElements, makeUnlimited]);
 
   useEffect(() => {
     if (goToItemWithNum >= 0 && goToItemWithNum < numberOfElements - 1) {
-      let diff = goToItemWithNum * moveStep;
+      let diff = goToItemWithNum * moveStepVal;
       if (makeUnlimited) {
         setTranslateX(-parentScrollWidth / 3 - diff);
       } else {
@@ -142,7 +142,7 @@ const LimitedSwipeableSlider = ({
         setGoToItemWithNum(-1);
       }, 100);
     }
-  }, [goToItemWithNum, moveStep, makeUnlimited, parentScrollWidth]);
+  }, [goToItemWithNum, moveStepVal, makeUnlimited, parentScrollWidth]);
 
   return (
     <>
