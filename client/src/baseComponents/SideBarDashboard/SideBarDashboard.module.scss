@@ -4,6 +4,7 @@
 .dashboard {
   transition: $transition1;
   width: $sideBarClosedWidth;
+  height: calc(100vh - $HeaderHeight);
   // transform: translateX(-$sideBarOpenedWidth);
 
   &IsActive {

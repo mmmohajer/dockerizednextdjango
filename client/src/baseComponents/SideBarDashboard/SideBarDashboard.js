@@ -19,7 +19,7 @@ const SideBarDashboard = () => {
     <>
       <ActivableElement
         className={cx(
-          'pos-fix pos-fix--lt height-vh-full of-y-auto bgGrayBright flex flex--dir--col flex--jc--between py2',
+          'of-y-auto bgGrayBright flex flex--dir--col flex--jc--between py2',
           styles.dashboard
         )}
         activeClassName={cx(styles.dashboardIsActive)}
