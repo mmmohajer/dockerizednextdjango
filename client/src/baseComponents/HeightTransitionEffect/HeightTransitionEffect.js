@@ -13,22 +13,20 @@ const HeightTransitionEffect = ({
   initialHeight = 0,
   ...props
 }) => {
-  const parentRef = useRef();
-
   const [height, setHeight] = useState(initialHeight);
   const [updateHeight, setUpdateHeight] = useState(false);
 
   useEffect(() => {
     if (isActive) {
-      setHeight(parentRef.current.scrollHeight);
+      setHeight('auto');
     } else {
       setHeight(initialHeight);
     }
-  }, [initialHeight, parentRef?.current?.scrollHeight, isActive]);
+  }, [initialHeight, isActive]);
 
   useEffect(() => {
     if (isActive) {
-      setHeight(parentRef.current.scrollHeight);
+      setHeight('auto');
     } else {
       setHeight(initialHeight);
     }
@@ -40,7 +38,6 @@ const HeightTransitionEffect = ({
         className={cx('of-hidden', styles.container, className)}
         {...props}
         style={{ ...style, height }}
-        ref={(el) => (parentRef.current = el)}
         onClick={() => {
           setUpdateHeight(true);
           if (onClick) {
