@@ -7,6 +7,7 @@ import styles from './LimitedSwipeableSlider.module.scss';
 const LimitedSwipeableSlider = ({
   mustShowSlider = false,
   setMustShowSlider = null,
+  isCenteralized = true,
   moveLeft = false,
   setMoveLeft = null,
   moveRight = false,
@@ -14,14 +15,14 @@ const LimitedSwipeableSlider = ({
   moveStep,
   translateX,
   setTranslateX,
-  makeUnlimited = false,
-  numberOfElements,
-  curElement,
-  setCurElement,
-  goToItemWithNum,
-  setGoToItemWithNum,
   children,
   className,
+  makeUnlimited = false,
+  currentActiveIdx = 0,
+  setCurrentActiveIdx = null,
+  nextActiveIdx = null,
+  setNextActiveIdx = null,
+  numberOfItems = 1,
   ...props
 }) => {
   const parentRef = useRef();
@@ -30,6 +31,18 @@ const LimitedSwipeableSlider = ({
   const [parentWidth, setParentWidth] = useState(0);
   const [parentScrollWidth, setParentScrollWidth] = useState(0);
   const [transitionClassName, setTransitionClassName] = useState('tranistion1');
+
+  const determineActiveIdx = (direction) => {
+    if (currentActiveIdx === numberOfItems - 1 && direction === 'right') {
+      return 0;
+    } else if (currentActiveIdx === 0 && direction === 'left') {
+      return numberOfItems - 1;
+    } else if (direction === 'left') {
+      return currentActiveIdx - 1;
+    } else if (direction === 'right') {
+      return currentActiveIdx + 1;
+    }
+  };
 
   useEffect(() => {
     if (parentRef?.current) {
@@ -48,16 +61,9 @@ const LimitedSwipeableSlider = ({
         setMustShowSlider(false);
       } else {
         setMustShowSlider(true);
-        if (makeUnlimited) {
-          setTransitionClassName('noTransition');
-          setTranslateX(-parentScrollWidth / 3);
-          setTimeout(() => {
-            setTransitionClassName('tranistion1');
-          }, 100);
-        }
       }
     }
-  }, [parentWidth, parentScrollWidth, makeUnlimited]);
+  }, [parentWidth, parentScrollWidth]);
 
   useEffect(() => {
     if (moveStep) {
@@ -72,89 +78,70 @@ const LimitedSwipeableSlider = ({
   useEffect(() => {
     if (moveLeft) {
       if (parentWidth && parentScrollWidth && mustShowSlider) {
-        if (!makeUnlimited) {
-          if (translateX < 0) {
-            setTranslateX(translateX + moveStepVal);
-            setCurElement(curElement - 1);
-          }
-        }
-        if (makeUnlimited) {
-          if (curElement > 0) {
-            setTranslateX(translateX + moveStepVal);
-            setCurElement(curElement - 1);
-          } else {
-            setTransitionClassName('noTransition');
-            setTranslateX(-parentScrollWidth / 3);
-            setTimeout(() => {
-              setTransitionClassName('tranistion1');
-              setTranslateX(-parentScrollWidth / 3 + moveStepVal);
-              setCurElement(numberOfElements - 1);
-            }, 100);
+        if (translateX < 0) {
+          setTranslateX(translateX + moveStepVal);
+          if (setCurrentActiveIdx) {
+            setCurrentActiveIdx(determineActiveIdx('left'));
           }
         }
       }
-      setTimeout(() => {
-        setMoveLeft(false);
-      }, 10);
+      setMoveLeft(false);
     }
-  }, [moveLeft, parentWidth, parentScrollWidth, moveStepVal, numberOfElements, makeUnlimited]);
+  }, [moveLeft, parentWidth, parentScrollWidth, setCurrentActiveIdx]);
 
   useEffect(() => {
     if (moveRight) {
       if (parentWidth && parentScrollWidth && mustShowSlider) {
-        if (!makeUnlimited) {
-          if (-translateX + parentWidth < parentScrollWidth) {
-            setTranslateX(translateX - moveStepVal);
-            setCurElement(curElement + 1);
+        if (-translateX + parentWidth < parentScrollWidth) {
+          setTranslateX(translateX - moveStepVal);
+          if (setCurrentActiveIdx) {
+            setCurrentActiveIdx(determineActiveIdx('right'));
           }
-        }
-        if (makeUnlimited) {
-          if (curElement < numberOfElements - 1) {
-            setTranslateX(translateX - moveStepVal);
-            setCurElement(curElement + 1);
-          } else {
+        } else {
+          if (makeUnlimited) {
             setTransitionClassName('noTransition');
-            setTranslateX(-parentScrollWidth / 3 + moveStepVal);
+            setTranslateX(0);
+            if (setCurrentActiveIdx) {
+              setCurrentActiveIdx(0);
+            }
             setTimeout(() => {
               setTransitionClassName('tranistion1');
-              setTranslateX(-parentScrollWidth / 3);
-              setCurElement(0);
             }, 100);
           }
         }
       }
-      setTimeout(() => {
-        setMoveRight(false);
-      }, 10);
+      setMoveRight(false);
     }
-  }, [moveRight, parentWidth, parentScrollWidth, moveStepVal, numberOfElements, makeUnlimited]);
+  }, [moveRight, parentWidth, parentScrollWidth, setCurrentActiveIdx]);
 
   useEffect(() => {
-    if (goToItemWithNum >= 0 && goToItemWithNum < numberOfElements - 1) {
-      let diff = goToItemWithNum * moveStepVal;
-      if (makeUnlimited) {
-        setTranslateX(-parentScrollWidth / 3 - diff);
-      } else {
-        setTranslateX(-diff);
+    setTimeout(() => {
+      if (nextActiveIdx !== null && nextActiveIdx !== currentActiveIdx) {
+        if (currentActiveIdx < nextActiveIdx) {
+          setMoveRight(true);
+        }
+        if (currentActiveIdx > nextActiveIdx) {
+          setMoveLeft(true);
+        }
       }
-      setCurElement(goToItemWithNum);
-      setTimeout(() => {
-        setGoToItemWithNum(-1);
-      }, 100);
-    }
-  }, [goToItemWithNum, moveStepVal, makeUnlimited, parentScrollWidth]);
+      if (currentActiveIdx === nextActiveIdx) {
+        setTimeout(() => {
+          setNextActiveIdx(null);
+        }, 10);
+      }
+    }, 100);
+  }, [nextActiveIdx, currentActiveIdx]);
 
   return (
     <>
       <Div
         ref={(el) => (parentRef.current = el)}
         type="flex"
+        hAlign={!mustShowSlider && isCenteralized ? 'center' : 'start'}
         className={cx('w-per-100', transitionClassName, className)}
         style={{ transform: `translateX(${translateX}px)` }}
         {...props}>
-        {makeUnlimited && mustShowSlider ? children : ''}
         {children}
-        {makeUnlimited && mustShowSlider ? children : ''}
       </Div>
     </>
   );
