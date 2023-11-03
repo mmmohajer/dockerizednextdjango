@@ -10,6 +10,7 @@ const DraggableFileUploader = ({
   setFile,
   acceptableFileType,
   inputId = 'draggableFileUploaderId',
+  inputName = 'fileName',
   acceptableFileString = '.csv',
   iconType = 'file-upload',
   type = 'default'
