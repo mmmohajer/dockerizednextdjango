@@ -4,6 +4,7 @@ import { CAPTCHA_APIS } from './captchaApis';
 import { STRIPE_APIS } from './stripeApis';
 import { CHAT_APIS } from './chatApis';
 import { USER_EVENT_APIS } from './userEventApis';
+import { BLOG_APIS } from './blogApis';
 
 export const APIS = [
   AUTHENTICATION_APIS,
@@ -11,5 +12,6 @@ export const APIS = [
   CAPTCHA_APIS,
   STRIPE_APIS,
   CHAT_APIS,
-  USER_EVENT_APIS
+  USER_EVENT_APIS,
+  BLOG_APIS
 ];

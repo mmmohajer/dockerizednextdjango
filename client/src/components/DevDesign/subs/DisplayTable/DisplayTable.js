@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import Button from '@/baseComponents/Button';
 import Table from '@/baseComponents/Table';
-import Search from '@/baseComponents/Table/subs/Search';
+import Search from '@/baseComponents/Search';
 
 import { headLines, data } from './utils';
 

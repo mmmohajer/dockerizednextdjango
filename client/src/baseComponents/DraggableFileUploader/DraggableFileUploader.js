@@ -10,15 +10,15 @@ const DraggableFileUploader = ({
   setFile,
   acceptableFileType,
   inputId = 'draggableFileUploaderId',
-  inputName = 'fileName',
   acceptableFileString = '.csv',
   iconType = 'file-upload',
   type = 'default'
 }) => {
   const [openFileBrowser, setOpenFileBrowser] = useState();
+  const [inputName, setInputName] = useState('');
 
   const removeFileClickHandler = useCallback(() => {
-    setFile({});
+    setFile(null);
     const inputFileFiled = document.getElementById(inputId);
     inputFileFiled.value = null;
   }, []);
@@ -37,6 +37,14 @@ const DraggableFileUploader = ({
     }
   };
 
+  useEffect(() => {
+    if (file) {
+      Object.keys(file || {})?.forEach((key) => {
+        setInputName(file[key]?.name);
+      });
+    }
+  }, [file]);
+
   return (
     <>
       <DragDropFileUpload
@@ -46,13 +54,14 @@ const DraggableFileUploader = ({
         openFileBrowser={openFileBrowser}
         setOpenFileBrowser={setOpenFileBrowser}
         draggableElement={draggableElement}
-        mainContainerClassName={cx(type === 'default' && 'w-px-400 height-px-200')}
+        mainContainerClassName={cx(type === 'default' && 'w-per-100 height-px-100')}
         whileDraggingElementClassName={cx(
           type === 'default' &&
-            'pos-abs pos-abs--lt w-per-100 br-all-solid-2 br-color-themeOne br-rad-px-10 height-px-200',
+            'pos-abs pos-abs--lt w-per-100 br-all-solid-2 br-color-themeOne br-rad-px-10 height-px-100',
           type === 'default' && styles.dragIsActive
         )}
         inputId={inputId}
+        inputName={inputName}
       />
     </>
   );

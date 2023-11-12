@@ -23,7 +23,7 @@ $btnLargeSizeSmall: 160px;
 
 // Colors
 $primaryColor: #0a2647;
-$fadedColor: #f7f7f7;
+$fadedColor: #f3f3f3;
 $infoColor: #5bc0de;
 $inverseColor: #292b2c;
 $warningColor: #f0ad4e;
@@ -31,7 +31,7 @@ $successColor: #5cb85c;
 $dangerColor: #f14c4c;
 
 // Fonts
-$fontFamily: 'Signika Negative', sans-serif;
+$fontFamily: 'Poppins', sans-serif;
 $fontSize: 16px;
 $fontSmallSize: 16px;
 $fontMediumSize: 16px;
@@ -44,25 +44,25 @@ $fontHeadingWeight: bold;
 $fontH1Size: 32px;
 $fontH1SmallSize: 32px;
 $fontH1MediumSize: 40px;
-$fontH1LargeSize: 48px;
+$fontH1LargeSize: 50px;
 
-$fontH2Size: 26px;
-$fontH2SmallSize: 26px;
-$fontH2MediumSize: 32px;
-$fontH2LargeSize: 36px;
+$fontH2Size: 28px;
+$fontH2SmallSize: 28px;
+$fontH2MediumSize: 28px;
+$fontH2LargeSize: 28px;
 
-$fontH3Size: 22px;
-$fontH3SmallSize: 22px;
-$fontH3MediumSize: 24px;
-$fontH3LargeSize: 28px;
+$fontH3Size: 30px;
+$fontH3SmallSize: 30px;
+$fontH3MediumSize: 40px;
+$fontH3LargeSize: 40px;
 
 // Inputs
 $inputPaddingX: 8px;
 $inputPaddingY: 6px;
 $inputTextColor: black;
-$inputBgColor: white;
+$inputBgColor: #ffffff;
 $focusTextColor: black;
-$focusBgColor: #ccc;
+$focusBgColor: #eaeaea;
 
 // Links
 $linkColor: black;
@@ -72,29 +72,37 @@ $linkHoverBgColor: transparent;
 
 // Sizes
 $atSmall: 400px;
-$atMedium: 800px;
-$atLarge: 1200px;
+$atMedium: 1100px;
+$atLarge: 1400px;
 $maxContainerWidth: 1500px;
+$maxContainerWidthForApp: 2000px;
 
 // Box Shadows
 $boxShadow1: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+$boxShadow2: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 
 // Theme Colors
-$appGrayBrightColor: #ebebeb;
-$appGrayDarkColor: #777;
-$themeOne: #144272;
-$themeTwo: #205295;
-$themeThree: #2c74b3;
-$themeFour: #4e9cc2;
-$themeFive: #98dcf7;
-$themeSix: #acffec;
+$appGrayBrightColor: #9a9a9a;
+$appGrayDarkColor: #5c5c5c;
+$appBrightOrangeColor: rgb(255, 246, 228);
+$themeOne: #666dff;
+$themeTwo: #f5891f;
+$themeThree: #00ff7f;
+$themeFour: #26335d;
+$themeFive: #ffe5d0;
+$themeSix: #feba13;
 
 // Heights
 $HeaderHeight: 60px;
+$appHeaderHeight: 60px;
 
 // Generals
 $transition1: all 0.3s ease-in-out;
 
 //
 $sideBarClosedWidth: 60px;
-$sideBarOpenedWidth: 200px;
+$sideBarOpenedWidth: 180px;
+
+.biggerLineHeight {
+  line-height: 80px;
+}

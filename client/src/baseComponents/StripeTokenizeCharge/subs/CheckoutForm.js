@@ -15,7 +15,7 @@ import Button from '@/baseComponents/Button';
 import { options } from '../utils';
 import styles from '../StripeTokenizeCharge.module.scss';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ cardAddedFunc, onCancelClick, isCenteralized }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const stripe = useStripe();
@@ -37,7 +37,9 @@ const CheckoutForm = () => {
   useEffect(() => {
     if (data) {
       addAlertItem(dispatch, 'Thanks, we successfully added your card.', 'success');
-      router.push('/test-pages/stripe-customer-active-sources');
+      if (cardAddedFunc) {
+        cardAddedFunc();
+      }
     }
   }, [data]);
 
@@ -76,8 +78,25 @@ const CheckoutForm = () => {
             <CardElement id="card-element" options={options} />
           </Div>
           {stripe && elements ? (
-            <Div className="mt2 w-per-100">
-              <Button className={cx('w-per-100')}>Submit</Button>
+            <Div type="flex" hAlign={isCenteralized ? 'center' : 'start'} className="mt2 w-per-100">
+              <Div>
+                <Button btnType={2} className={cx('w-px-200 mr2')}>
+                  Submit
+                </Button>
+              </Div>
+              <Div>
+                <Button
+                  type="button"
+                  btnType={3}
+                  className={cx('w-px-100')}
+                  onClick={() => {
+                    if (onCancelClick) {
+                      onCancelClick();
+                    }
+                  }}>
+                  Cancel
+                </Button>
+              </Div>
             </Div>
           ) : (
             ''

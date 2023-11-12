@@ -12,10 +12,11 @@ const Close = ({
   type = 1,
   barColor = COLORS.themeThree,
   iconColor = 'white',
-  iconBgColor = COLORS.danger,
-  barHeight = '50px',
-  iconScale = 0.6,
+  iconBgColor = 'transparent',
+  barHeight = '40px',
+  iconScale = 1,
   iconCircleSize = 20,
+  headerText = '',
   className,
   ...props
 }) => {
@@ -23,8 +24,12 @@ const Close = ({
     <>
       {type === 1 && (
         <Div
+          type="flex"
+          vAlign="center"
           className={cx('pos-rel w-per-100')}
-          style={{ backgroundColor: barColor, height: barHeight }}>
+          style={{ backgroundColor: barColor, height: barHeight }}
+          distributedBetween>
+          <Div className="textWhite f-b ml2">{headerText}</Div>
           <Div
             type="flex"
             hAlign="center"

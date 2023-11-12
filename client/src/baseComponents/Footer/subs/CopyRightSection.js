@@ -14,7 +14,7 @@ const CopyRightSection = () => {
         type="flex"
         hAlign="center"
         vAlign="center"
-        className={cx('textWhite bgThemeTwo fs-px-14 p1', styles.copyRightContainer)}>
+        className={cx('bgThemeTwo fs-px-14 p1', styles.copyRightContainer)}>
         <Div showIn={lgDesignSize}>
           © {dayjs(new Date()).format('YYYY')} | All Rights Reserved | Powered by Mohammad Mohajer
         </Div>

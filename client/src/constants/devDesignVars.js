@@ -4,26 +4,48 @@ export const LIST_OF_ICONS = [
   'angleDown',
   'angleLeft',
   'angleRight',
+  'angles-left',
+  'angles-right',
   'angleUp',
   'arrow-down',
   'arrow-left',
   'arrow-right',
   'arrow-up',
+  'calendar',
+  'calendar-days',
+  'caret-right',
   'certificate',
+  'chart',
   'check-mark',
+  'circle-check',
+  'circle-chevron-left',
+  'circle-chevron-right',
+  'circle-exclamation',
+  'circle-info',
   'circle-question',
+  'clipboard',
+  'clock',
   'close',
   'css',
   'dashboard',
+  'dashboard2',
   'desktop',
   'drag',
   'envelope',
   'eye',
+  'file-pen',
   'file-upload',
   'flag',
   'gear',
+  'gift',
   'grid',
+  'globe',
+  'hand-holding-heart',
+  'hand-holding-dollar',
   'hand-pointer',
+  'heart',
+  'heart-empty',
+  'hour-glass',
   'house',
   'image-upload',
   'instagram',
@@ -31,35 +53,50 @@ export const LIST_OF_ICONS = [
   'java-script',
   'link',
   'linkedin',
+  'linkedin-in',
   'location',
   'location-fill',
+  'logout',
+  'magnifyer',
   'mail',
   'minus',
   'minus-circle',
+  'pdf',
   'pdf-file',
   'person',
   'person-fill',
   'phone',
   'phone-fill',
   'plus-circle',
+  'puzzle-piece',
   'question-circle',
   'quoteLeft',
+  'receipt',
   'rotate',
   'save',
   'search',
   'signout',
+  'slack',
   'slider',
   'source-code',
-  'youtube'
+  'star',
+  'teams',
+  'trash',
+  'users',
+  'user-plus',
+  'youtube',
+  'wallet',
+  'user-graduate',
+  'users'
 ];
 
 export const ANCHOR_TYPES = [0, 1, 2, 3];
 
-export const BUTTON_TYPES = [1, 2, 3];
+export const BUTTON_TYPES = [1, 2, 3, 4, 5, 6, 7];
 
 export const ALERT_TYPES = ['success', 'error', 'warning'];
 
-export const MODAL_TYPES = ['data_submitted_successfully'];
+export const MODAL_TYPES = ['data-submitted-successfully'];
 
 export const CARD_TYPES = ['service'];
 
@@ -70,3 +107,5 @@ export const POLYGON_TYPES = [
 ];
 
 export const EMAIL_TEMPLATES = ['contact_form_sent', 'contact_form_received'];
+
+export const PNG_ICON_TYPES = ['linkedin', 'instagram', 'twitter', 'facebook', 'slack', 'teams'];

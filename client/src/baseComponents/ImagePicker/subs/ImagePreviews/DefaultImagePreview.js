@@ -9,7 +9,14 @@ import { COLORS } from '@/constants/vars';
 
 import styles from '../../ImagePicker.module.scss';
 
-const DefaultImagePreview = ({ src, setFile, setSrc, setFileName, inputFileField }) => {
+const DefaultImagePreview = ({
+  src,
+  setFile,
+  setSrc,
+  setFileName,
+  inputFileField,
+  setInitialSrc
+}) => {
   return (
     <>
       {src && (
@@ -18,14 +25,17 @@ const DefaultImagePreview = ({ src, setFile, setSrc, setFileName, inputFileField
           direction="vertical"
           className={cx('ml1 of-hidden w-px-100 height-px-100', styles.previewContainer)}>
           <Close
-            barColor={COLORS.themeThree}
+            barColor={COLORS.themeOne}
             barHeight="25px"
-            iconScale={0.4}
+            iconScale={0.8}
             iconCircleSize="15px"
             onClick={() => {
               setFile('');
               setSrc('');
               setFileName('');
+              if (setInitialSrc) {
+                setInitialSrc('');
+              }
               inputFileField.current.value = null;
             }}
           />
@@ -39,7 +49,7 @@ const DefaultImagePreview = ({ src, setFile, setSrc, setFileName, inputFileField
               hAlign="center"
               vAlign="center"
               className={cx('ml1 pos-rel mouse-hand of-hidden', styles.imagePreviewContainer)}>
-              <Image width={60} height={60} src={src} objectFit="cover" />
+              <Image width={60} height={60} src={src} objectFit="contain" />
             </Div>
           </Div>
         </Div>

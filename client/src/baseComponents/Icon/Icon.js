@@ -41,12 +41,52 @@ import {
   faSliders,
   faGear,
   faDesktop,
+  faUsers,
+  faHandHoldingHeart,
+  faHandHoldingDollar,
+  faChartLine,
   faTable,
   faCircleQuestion,
-  faHouse
+  faHouse,
+  faCaretRight,
+  faCircleCheck,
+  faGift,
+  faGlobe,
+  faPuzzlePiece,
+  faHeart,
+  faMagnifyingGlass,
+  faClipboard,
+  faDashboard,
+  faCalendarDays,
+  faStar,
+  faFilePen,
+  faRightFromBracket,
+  faUserPlus,
+  faReceipt,
+  faTrash,
+  faCircleExclamation,
+  faWallet,
+  faDollarSign,
+  faUserGraduate,
+  faUser,
+  faCalendar,
+  faLocation,
+  faCircleChevronLeft,
+  faCircleChevronRight,
+  faAnglesRight,
+  faAnglesLeft,
+  faHourglassHalf,
+  faClock,
+  faCircleInfo
 } from '@fortawesome/free-solid-svg-icons';
-import { faSquareInstagram, faJs, faCss3Alt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-// import { far } from '@fortawesome/free-regular-svg-icons';
+import {
+  faSquareInstagram,
+  faJs,
+  faCss3Alt,
+  faLinkedin,
+  faLinkedinIn
+} from '@fortawesome/free-brands-svg-icons';
+import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
 
 import Dashboard from '@/images/js-Images/icons/svg/dashboard.svg';
 import Instagram from '@/images/js-Images/icons/svg/instagram.svg';
@@ -57,7 +97,9 @@ import Youtube from '@/images/js-Images/icons/svg/youtube.svg';
 import Person from '@/images/js-Images/icons/svg/person.svg';
 import PersonFill from '@/images/js-Images/icons/svg/person-fill.svg';
 import Drag from '@/images/js-Images/icons/svg/drag.svg';
-
+import Slack from '@/images/js-Images/icons/svg/slack.svg';
+import Teams from '@/images/js-Images/icons/svg/teams.svg';
+import PDF from '@/images/js-Images/icons/svg/pdf.svg';
 // library.add(fab);
 
 import { LIST_OF_ICONS } from '@/constants/devDesignVars';
@@ -69,10 +111,93 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
     }
   }, []);
   let iconTypes = {
+    'angles-right': (
+      <FontAwesomeIcon
+        icon={faAnglesRight}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'angles-left': (
+      <FontAwesomeIcon icon={faAnglesLeft} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
     flag: <FontAwesomeIcon icon={faFlag} style={{ color, width, transform: `scale(${scale})` }} />,
+    clock: (
+      <FontAwesomeIcon icon={faClock} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
     certificate: (
       <FontAwesomeIcon
         icon={faCertificate}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    dollar: (
+      <FontAwesomeIcon icon={faDollarSign} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    location: (
+      <FontAwesomeIcon icon={faLocation} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    calendar: (
+      <FontAwesomeIcon icon={faCalendar} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'circle-chevron-right': (
+      <FontAwesomeIcon
+        icon={faCircleChevronRight}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'circle-chevron-left': (
+      <FontAwesomeIcon
+        icon={faCircleChevronLeft}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    users: (
+      <FontAwesomeIcon icon={faUsers} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    heart: (
+      <FontAwesomeIcon icon={faHeart} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    user: <FontAwesomeIcon icon={faUser} style={{ color, width, transform: `scale(${scale})` }} />,
+    magnifyer: (
+      <FontAwesomeIcon
+        icon={faMagnifyingGlass}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'puzzle-piece': (
+      <FontAwesomeIcon
+        icon={faPuzzlePiece}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'user-graduate': (
+      <FontAwesomeIcon
+        icon={faUserGraduate}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'hand-holding-heart': (
+      <FontAwesomeIcon
+        icon={faHandHoldingHeart}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'hand-holding-dollar': (
+      <FontAwesomeIcon
+        icon={faHandHoldingDollar}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    chart: (
+      <FontAwesomeIcon icon={faChartLine} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    gift: <FontAwesomeIcon icon={faGift} style={{ color, width, transform: `scale(${scale})` }} />,
+    globe: (
+      <FontAwesomeIcon icon={faGlobe} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'circle-check': (
+      <FontAwesomeIcon
+        icon={faCircleCheck}
         style={{ color, width, transform: `scale(${scale})` }}
       />
     ),
@@ -180,6 +305,9 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
     linkedin: (
       <FontAwesomeIcon icon={faLinkedin} style={{ color, width, transform: `scale(${scale})` }} />
     ),
+    wallet: (
+      <FontAwesomeIcon icon={faWallet} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
     'instagram-fill': (
       <FontAwesomeIcon
         icon={faSquareInstagram}
@@ -203,6 +331,9 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
     desktop: (
       <FontAwesomeIcon icon={faDesktop} style={{ color, width, transform: `scale(${scale})` }} />
     ),
+    'heart-empty': (
+      <FontAwesomeIcon icon={emptyHeart} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
     grid: <FontAwesomeIcon icon={faTable} style={{ color, width, transform: `scale(${scale})` }} />,
     'circle-question': (
       <FontAwesomeIcon
@@ -210,7 +341,61 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
         style={{ color, width, transform: `scale(${scale})` }}
       />
     ),
-    house: <FontAwesomeIcon icon={faHouse} style={{ color, width, transform: `scale(${scale})` }} />
+    house: (
+      <FontAwesomeIcon icon={faHouse} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'caret-right': (
+      <FontAwesomeIcon icon={faCaretRight} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'linkedin-in': (
+      <FontAwesomeIcon icon={faLinkedinIn} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    clipboard: (
+      <FontAwesomeIcon icon={faClipboard} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    dashboard2: (
+      <FontAwesomeIcon icon={faDashboard} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'calendar-days': (
+      <FontAwesomeIcon
+        icon={faCalendarDays}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    star: <FontAwesomeIcon icon={faStar} style={{ color, width, transform: `scale(${scale})` }} />,
+    'file-pen': (
+      <FontAwesomeIcon icon={faFilePen} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    logout: (
+      <FontAwesomeIcon
+        icon={faRightFromBracket}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'user-plus': (
+      <FontAwesomeIcon icon={faUserPlus} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    receipt: (
+      <FontAwesomeIcon icon={faReceipt} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    trash: (
+      <FontAwesomeIcon icon={faTrash} style={{ color, width, transform: `scale(${scale})` }} />
+    ),
+    'circle-exclamation': (
+      <FontAwesomeIcon
+        icon={faCircleExclamation}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'hour-glass': (
+      <FontAwesomeIcon
+        icon={faHourglassHalf}
+        style={{ color, width, transform: `scale(${scale})` }}
+      />
+    ),
+    'circle-info': (
+      <FontAwesomeIcon icon={faCircleInfo} style={{ color, width, transform: `scale(${scale})` }} />
+    )
   };
 
   iconTypes['dashboard'] = (
@@ -261,7 +446,13 @@ function Icon({ type, color, width, scale, isBlock = true, className, ...props }
   );
 
   iconTypes['drag'] = <Drag fill={color} stroke={color} style={{ transform: `scale(${scale})` }} />;
-
+  iconTypes['slack'] = (
+    <Slack fill={color} stroke={color} style={{ transform: `scale(${scale})` }} />
+  );
+  iconTypes['teams'] = (
+    <Teams fill={color} stroke={color} style={{ transform: `scale(${scale})` }} />
+  );
+  iconTypes['pdf'] = <PDF fill={color} stroke={color} style={{ transform: `scale(${scale})` }} />;
   return (
     <>
       {isBlock && (

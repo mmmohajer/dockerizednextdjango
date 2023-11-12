@@ -22,27 +22,34 @@
 }
 
 .iswad_th {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  font-size: 12px;
   font-weight: bold;
   @extend %oneLine;
+  background-color: white;
 }
 
 .iswad_tr {
   & .iswad_td {
-    border-bottom: dotted 0.3px $inverseColor;
+    font-size: 12px;
+    border: none;
   }
 
-  // &:nth-child(odd) {
-  //   background-color: dodgerblue;
-  // }
+  &:nth-child(odd) {
+    background-color: white;
+  }
 
-  // &:nth-child(even) {
-  //   background-color: darkgoldenrod;
-  // }
+  &:nth-child(even) {
+    background-color: $appBrightOrangeColor;
+  }
 
   &:last-child {
     & .iswad_td {
       border-bottom: none;
     }
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
 }
 
@@ -51,8 +58,8 @@
   // justify-content: center;
   align-items: center;
   // border-right: solid 1px black;
-  padding: 8px 0;
-  border-bottom: dotted 0.2px $inverseColor;
+  padding: 8px;
+  border-bottom: solid 0.2px $inverseColor;
 
   &:last-child {
     border-right: none;

@@ -3,11 +3,12 @@ import cx from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { Div, Paragraph, Alert as BaseAlert, AlertItem } from 'basedesign-iswad';
 
-import styles from './Alert.module.scss';
-
 import Close from '@/baseComponents/Close';
 
+import { COLORS } from '@/constants/vars';
 import { removeAlertItem } from '@/utils/notifications';
+
+import styles from './Alert.module.scss';
 
 const Alert = () => {
   const dispatch = useDispatch();
@@ -29,8 +30,9 @@ const Alert = () => {
             <Div className="w-per-100" direction="vertical" type="flex">
               <Close
                 barHeight="30px"
-                barColor="transparent"
-                iconScale={0.6}
+                barColor=""
+                iconColor={COLORS.grayDark}
+                iconScale={0.8}
                 onClick={() => removeAlertItem(dispatch, notif.key)}
               />
               <Paragraph className="pb2 pl2 pr2">{notif.message}</Paragraph>

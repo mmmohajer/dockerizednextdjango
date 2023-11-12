@@ -1,0 +1,91 @@
+.elementor-92388 .elementor-element.elementor-element-562c6a55 {
+  --spacer-size: 50px;
+}
+.elementor-92388 .elementor-element.elementor-element-125ca305 > .elementor-container {
+  max-width: 794px;
+  min-height: 50vh;
+}
+.elementor-92388
+  .elementor-element.elementor-element-125ca305
+  > .elementor-container
+  > .elementor-row
+  > .elementor-column
+  > .elementor-column-wrap
+  > .elementor-widget-wrap {
+  align-content: center;
+  align-items: center;
+}
+.elementor-92388
+  .elementor-element.elementor-element-125ca305:not(
+    .elementor-motion-effects-element-type-background
+  ),
+.elementor-92388
+  .elementor-element.elementor-element-125ca305
+  > .elementor-motion-effects-container
+  > .elementor-motion-effects-layer {
+  background-color: #000;
+  background-image: url('https://raw.githubusercontent.com/mmmohajer/troop-wp-images/master/uploads/2021/04/person-on-laptop.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.elementor-92388 .elementor-element.elementor-element-125ca305 > .elementor-background-overlay {
+  background-color: var(--e-global-color-7ef3b61d);
+  opacity: 0.8;
+  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+.elementor-92388 .elementor-element.elementor-element-125ca305 {
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  margin-top: -15px;
+  margin-bottom: -15px;
+  padding: -4px -4px -4px -4px;
+}
+.elementor-92388 .elementor-element.elementor-element-2ad41810 {
+  text-align: center;
+}
+.elementor-92388 .elementor-element.elementor-element-2ad41810 .elementor-heading-title {
+  color: #fff;
+  font-size: 80px;
+}
+.elementor-92388 .elementor-element.elementor-element-4360d04a {
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 22px;
+}
+.elementor-92388 .elementor-element.elementor-element-4360d04a > .elementor-widget-container {
+  margin: -5px 0 0 0;
+  padding: 0;
+}
+.elementor-92388 .elementor-element.elementor-element-351b8bc {
+  --spacer-size: 50px;
+}
+:root {
+  --page-title-display: none;
+}
+@media (max-width: 1024px) {
+  .elementor-92388 .elementor-element.elementor-element-125ca305 > .elementor-container {
+    min-height: 800px;
+  }
+  .elementor-92388 .elementor-element.elementor-element-125ca305 {
+    padding: 0 25px 0 25px;
+  }
+}
+@media (max-width: 767px) {
+  .elementor-92388 .elementor-element.elementor-element-125ca305 > .elementor-container {
+    min-height: 612px;
+  }
+  .elementor-92388 .elementor-element.elementor-element-125ca305 {
+    padding: 30px 20px 80px 20px;
+  }
+  .elementor-92388 .elementor-element.elementor-element-2ad41810 .elementor-heading-title {
+    font-size: 65px;
+  }
+  .elementor-92388 .elementor-element.elementor-element-4360d04a {
+    text-align: center;
+  }
+  .elementor-92388 .elementor-element.elementor-element-4360d04a > .elementor-widget-container {
+    margin: 0;
+    padding: 0;
+  }
+}

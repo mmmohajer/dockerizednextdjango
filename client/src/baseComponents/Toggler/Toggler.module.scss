@@ -1,0 +1,13 @@
+.rollToggler {
+  &Btn {
+    transition: all 0.3s ease-in-out;
+  }
+
+  &BtnIsLeft {
+    margin-left: 0;
+  }
+
+  &BtnIsRight {
+    margin-left: 20px;
+  }
+}

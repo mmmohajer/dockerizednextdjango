@@ -5,18 +5,20 @@ import { Div, Modal as BaseModal } from 'basedesign-iswad';
 
 import Close from '@/baseComponents/Close';
 
+import { COLORS } from '@/constants/vars';
 import { clearModal } from '@/utils/modal';
 
-import DataSubmittedSuccessfully from './subs/DataSubmittedSuccessfully';
 import { HAS_CCELEBERATION_BG_TYPES } from './constans';
+import DataSubmittedSuccessfully from './subs/DataSubmittedSuccessfully';
+
 import styles from './Modal.module.scss';
-import { COLORS } from '@/constants/vars';
 
 const Modal = () => {
   const dispatch = useDispatch();
 
   const modalType = useSelector((state) => state.modalType);
   const modalProps = useSelector((state) => state.modalProps);
+  const header = useSelector((state) => state.modalHeader);
 
   return (
     <>
@@ -34,8 +36,9 @@ const Modal = () => {
           <Div type="flex" direction="vertical" hAlign="start" className="">
             <Close
               barColor={
-                HAS_CCELEBERATION_BG_TYPES.includes(modalType) ? COLORS.success : COLORS.themeThree
+                HAS_CCELEBERATION_BG_TYPES.includes(modalType) ? COLORS.success : COLORS.themeOne
               }
+              headerText={header}
               onClick={() => clearModal(dispatch)}
             />
             <Div
@@ -43,7 +46,7 @@ const Modal = () => {
               direction="vertical"
               hAlign="start"
               className={cx('of-y-auto scrollType1 p2', styles.mainContentContainer)}>
-              {modalType === 'data_submitted_successfully' && (
+              {modalType === 'data-submitted-successfully' && (
                 <DataSubmittedSuccessfully {...modalProps} />
               )}
             </Div>

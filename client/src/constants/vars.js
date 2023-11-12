@@ -43,20 +43,42 @@ export const smDesignSize = ['xs', 'sm'];
 
 export const COLORS = {
   primary: '#0a2647',
-  faded: '#f7f7f7',
+  faded: '#f3f3f3',
   info: '#5bc0de',
   inverse: '#292b2c',
   warning: '#f0ad4e',
   success: '#5cb85c',
   danger: '#d9534f',
-  grayBright: '#ebebeb',
-  grayDark: '#777',
-  themeOne: '#144272',
-  themeTwo: '#205295',
-  themeThree: '#2c74b3',
-  themeFour: '#4e9cc2',
-  themeFive: '#98dcf7',
-  themeSix: '#acffec'
+  grayBright: '#737373',
+  grayDark: '#5c5c5c',
+  themeOne: '#666dff',
+  themeTwo: '#f5891f',
+  themeThree: '#00ff7f',
+  themeFour: '#26335d',
+  themeFive: '#ffe5d0',
+  themeSix: '#FEBA13'
+};
+
+export const PAGE_ROUTES = {
+  HOME: '/',
+  DASHBOARD: '/test-pages/sample-of-admin-route'
 };
 
 // ---------------------------------------------------------------------------
+
+export const PROVINCE_CHOICES = [
+  { value: 'AB', shownText: 'Alberta' },
+  { value: 'BC', shownText: 'British Columbia' },
+  { value: 'MB', shownText: 'Manitoba' },
+  { value: 'NB', shownText: 'New Brunswick' },
+  { value: 'NL', shownText: 'Newfoundland and Labrador' },
+  { value: 'NT', shownText: 'Northwest Territories' },
+  { value: 'NS', shownText: 'Nova Scotia' },
+  { value: 'NU', shownText: 'Nunavut' },
+  { value: 'ON', shownText: 'Ontario' },
+  { value: 'PE', shownText: 'Prince Edward Island' },
+  { value: 'QC', shownText: 'Quebec' },
+  { value: 'YT', shownText: 'Yukon Territories' }
+];
+
+export const DATE_FORMAT = 'DD MMM, YYYY';

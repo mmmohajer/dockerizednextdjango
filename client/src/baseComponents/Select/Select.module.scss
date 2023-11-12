@@ -7,15 +7,18 @@
 }
 
 .defaultSelect {
-  box-shadow: $boxShadow1;
-  border: solid 1px $appGrayBrightColor;
+  // box-shadow: $boxShadow1;
+  // border: solid 1px $appGrayBrightColor;
   height: 40px;
+  border-radius: 4px;
 }
 
 .optionsContainer {
-  box-shadow: $boxShadow1;
+  // box-shadow: $boxShadow1;
+  border: solid 1px $themeOne;
+  border-radius: 5px;
   width: 100%;
-  padding: 1rem;
+  // padding: 1rem;
   max-height: 200px;
   overflow-y: auto;
   background-color: white;
@@ -23,18 +26,19 @@
 }
 
 .option {
-  padding: 1rem;
+  padding: 7px;
   cursor: pointer;
 
   &:hover {
-    background-color: $appGrayBrightColor;
+    background-color: $themeFive;
+    border-radius: 5px;
   }
 }
 
 .searchInput {
   outline: none;
   box-shadow: $boxShadow1;
-  border: solid 1px $appGrayBrightColor;
+  border: solid 1px $themeOne !important;
   padding: 0.65rem;
   z-index: 100;
 }

@@ -5,15 +5,31 @@
   transition: $transition1;
   width: $sideBarClosedWidth;
   height: calc(100vh - $HeaderHeight);
-  // transform: translateX(-$sideBarOpenedWidth);
 
   &IsActive {
     width: $sideBarOpenedWidth;
-    // transform: translateX(0);
   }
 
   &Breaker {
-    height: 5px;
+    height: 2px;
     border-radius: 5px;
+  }
+}
+
+.menuItems {
+  &:hover {
+    color: $themeTwo;
+  }
+}
+
+.toggler {
+  transition: all 0.3s ease-in-out;
+
+  &DashboardIsClose {
+    left: calc($sideBarClosedWidth - 20px);
+  }
+
+  &DashboardIsOpen {
+    left: calc($sideBarOpenedWidth - 25px);
   }
 }

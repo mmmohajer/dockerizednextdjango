@@ -10,6 +10,7 @@ export const ACTIVATE_USER_API_ROUTE = '/api/activate-user/';
 export const RESEND_ACTIVATE_EMAIL_API_ROUTE = '/api/resend-activation-email/';
 export const SEND_RESET_PASSWORD_EMAIL_API_ROUTE = '/api/send-reset-password-email/';
 export const PASSWORD_SET_API_ROUTE = '/api/reset-password/';
+export const RESET_PASSWORD_WITHOUT_EMAIL_API_ROUTE = '/api/reset-password-without-email/';
 export const AUTHENTICATE_USER_API_ROUTE = '/api/auth/authenticate-user/';
 export const GOOGLE_AUTH_TOKEN_API_ROUTE = '/api/auth/google-auth/';
 export const GOOGLE_AUTH_HANDLE_TOKEN_API_ROUTE = '/api/auth/google-auth-handle-token/';

@@ -17,8 +17,10 @@ import SideBarDashboard from '@/baseComponents/SideBarDashboard';
 import FooterNavigation from '@/baseComponents/FooterNavigation/FooterNavigation';
 import ScrollToTop from '@/baseComponents/ScrollToTop';
 import AdminToolbar from '@/baseComponents/AdminToolbar/AdminToolbar';
+import UserNav from '@/baseComponents/UserNav';
 
 import { USER_GROUPS } from '@/constants/userGroups';
+import { setCurUserGroup } from '@/reducers/general/curUserGroup';
 
 import styles from './PageContainer.module.scss';
 import { USE_GOOGLE_ANALYTICS, GOOGLE_ANALYTICS_ID, USE_HOTJAR, HOTJAR_ID } from 'config';
@@ -31,9 +33,15 @@ const PageContainer = ({
   hasFooter = true,
   hasStickyHeader = false,
   hasStickyFooter = false,
-  hasSideBarDashboard = true,
-  changesThePage = false,
+  hasSideBarDashboard = false,
+  hasFooterNavInMobile = false,
+  changesThePage = true,
   hasScrollToTop = true,
+  hasWavyShape = true,
+  footerIsColored = true,
+  headerColorType = 'light',
+  isAppPage = false,
+  usersOfThePage = '',
   children
 }) => {
   const dispatch = useDispatch();
@@ -43,6 +51,10 @@ const PageContainer = ({
   const sideBarDashboardIsActive = useSelector((state) => state.sideBarDashboardIsActive);
   const profile = useSelector((state) => state.profile);
   const scrollPosition = useSelector((state) => state.scrollPosition);
+
+  useEffect(() => {
+    window?.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     dispatch(setActiveMenu(pageIdentifier));
@@ -72,6 +84,12 @@ const PageContainer = ({
     }
     dispatch(setElementsHeightStore(localElementsHeightStore));
   }, [headerRef?.current?.clientHeight, footerRef?.current?.clientHeight, profile]);
+
+  useEffect(() => {
+    if (usersOfThePage) {
+      dispatch(setCurUserGroup(usersOfThePage));
+    }
+  }, [usersOfThePage]);
 
   return (
     <>
@@ -105,67 +123,112 @@ const PageContainer = ({
               })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
         </Script>
       )}
-
-      <Div
-        className={cx(
-          'flex flex--dir--col min-height-vh-full flex--jc--between',
-          hasSideBarDashboard && profile?.id ? styles.container : '',
-          hasSideBarDashboard && sideBarDashboardIsActive && profile?.id
-            ? styles.containerWhenDashboardIsActive
-            : ''
-        )}>
-        <Div className="flex--gr--1">
-          {hasHeader && !hasStickyFooter ? (
-            <Div ref={(el) => (headerRef.current = el)}>
-              <Header hasStickyHeader={hasStickyHeader} changesThePage={changesThePage} />
-            </Div>
-          ) : hasHeader && hasStickyFooter && hasStickyHeader ? (
-            <Div ref={(el) => (headerRef.current = el)}>
-              <Header hasStickyHeader={hasStickyHeader} changesThePage={changesThePage} />
+      <Div className={cx(isAppPage ? 'bgCyan' : 'bgWhite')}>
+        <Div
+          type="flex"
+          className={cx(hasSideBarDashboard && 'maxContainerWidthForApp pos-rel bgFaded')}>
+          {hasSideBarDashboard && profile?.id ? (
+            <Div
+              showIn={lgDesignSize}
+              className={cx('pos-abs pos-abs--lt', styles.sideBarContainer)}>
+              <SideBarDashboard />
             </Div>
           ) : (
             ''
           )}
           <DivMinFullHeight
-            divHeightIsConst={hasStickyFooter}
-            className={cx('of-y-auto', hasStickyHeader && styles.mainContentContainer)}>
-            {hasHeader && hasStickyFooter && !hasStickyHeader ? (
-              <Header hasStickyHeader={false} changesThePage={changesThePage} />
-            ) : (
-              ''
-            )}
-            <Div className="">{children}</Div>
-          </DivMinFullHeight>
-        </Div>
-
-        <Div ref={(el) => (footerRef.current = el)}>
-          {profile?.id && (
-            <Div showIn={smDesignSize}>
-              <FooterNavigation />
+            className={cx(
+              'flex flex--dir--col min-height-vh-full flex--jc--between w-per-100',
+              hasSideBarDashboard && styles.headerAndBodyContianer
+            )}>
+            <Div className="flex--gr--1">
+              {hasHeader && !hasStickyFooter ? (
+                <Div ref={(el) => (headerRef.current = el)}>
+                  <Header
+                    hasStickyHeader={hasStickyHeader}
+                    changesThePage={changesThePage}
+                    hasWavyShape={hasWavyShape}
+                    headerColorType={headerColorType}
+                    isAppPage={isAppPage}
+                  />
+                </Div>
+              ) : hasHeader && hasStickyFooter && hasStickyHeader ? (
+                <Div ref={(el) => (headerRef.current = el)}>
+                  <Header
+                    hasStickyHeader={hasStickyHeader}
+                    changesThePage={changesThePage}
+                    hasWavyShape={hasWavyShape}
+                    headerColorType={headerColorType}
+                    isAppPage={isAppPage}
+                  />
+                </Div>
+              ) : (
+                ''
+              )}
+              <DivMinFullHeight
+                divHeightIsConst={hasStickyFooter}
+                className={cx(
+                  hasStickyHeader && styles.mainContentContainer,
+                  hasSideBarDashboard && styles.headerAndBodyContianer
+                )}>
+                {hasHeader && hasStickyFooter && !hasStickyHeader ? (
+                  <Header
+                    hasStickyHeader={false}
+                    changesThePage={changesThePage}
+                    hasWavyShape={hasWavyShape}
+                    headerColorType={headerColorType}
+                    isAppPage={isAppPage}
+                  />
+                ) : (
+                  ''
+                )}
+                <Div
+                  className={cx(
+                    hasSideBarDashboard && profile?.id ? styles.container : '',
+                    hasSideBarDashboard && sideBarDashboardIsActive && profile?.id
+                      ? styles.containerWhenDashboardIsActive
+                      : ''
+                  )}>
+                  <Div
+                    className={cx(
+                      hasSideBarDashboard && styles.bodyContainer,
+                      hasSideBarDashboard && 'p2 of-x-hidden'
+                    )}>
+                    {children}
+                  </Div>
+                </Div>
+              </DivMinFullHeight>
             </Div>
+
+            <Div ref={(el) => (footerRef.current = el)}>
+              {hasFooterNavInMobile && profile?.id ? (
+                <Div showIn={smDesignSize}>
+                  <FooterNavigation />
+                </Div>
+              ) : (
+                ''
+              )}
+              {hasFooter && <Footer footerIsColored={footerIsColored} />}
+            </Div>
+          </DivMinFullHeight>
+
+          {hasScrollToTop && scrollPosition > 0 ? (
+            <Div className={cx('pos-fix', styles.scrollToTopContainer)}>
+              <ScrollToTop />
+            </Div>
+          ) : (
+            ''
           )}
-          {hasFooter && <Footer />}
+
+          {/* {profile?.user?.groups?.some((item) =>
+            [USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER]?.includes(item)
+          ) && <AdminToolbar />} */}
+
+          <Div>
+            <UserNav />
+          </Div>
         </Div>
       </Div>
-      {hasSideBarDashboard && profile?.id ? (
-        <Div showIn={lgDesignSize}>
-          <SideBarDashboard />
-        </Div>
-      ) : (
-        ''
-      )}
-
-      {hasScrollToTop && scrollPosition > 0 ? (
-        <Div className={cx('pos-fix', styles.scrollToTopContainer)}>
-          <ScrollToTop />
-        </Div>
-      ) : (
-        ''
-      )}
-
-      {profile?.user?.groups?.some((item) =>
-        [USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER]?.includes(item)
-      ) && <AdminToolbar />}
     </>
   );
 };

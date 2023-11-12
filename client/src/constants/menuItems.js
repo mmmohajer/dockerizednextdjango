@@ -1,10 +1,11 @@
 import { USER_GROUPS } from '@/constants/userGroups';
+import { PAGE_ROUTES } from './vars';
 
-export const MENU_ITEMS = [
+const generalItems = [
   {
-    identifier: 'about',
-    title: 'About',
-    to: '/test-pages/test-about',
+    identifier: 'home',
+    title: 'Home',
+    to: PAGE_ROUTES.HOME,
     hasSubMenu: false,
     showInDesktop: true,
     showInMobile: true
@@ -12,50 +13,40 @@ export const MENU_ITEMS = [
   {
     identifier: 'services',
     title: 'Services',
-    to: '/',
+    to: PAGE_ROUTES.HOME,
     hasSubMenu: true,
-    submenuTranslteX: '-100px',
-    subMenuWidth: '300px',
     showInDesktop: true,
-    showInMobile: true
-  },
+    showInMobile: true,
+    submenuTranslteX: '-100px'
+  }
+];
+
+const adminItems = [
   {
-    identifier: 'dev-design',
-    title: 'Dev Design',
-    to: '/dev-pages/dev-design',
-    icon: 'desktop',
-    allowedGroups: [USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER],
-    showInDesktop: false,
-    showInMobile: true
-  },
-  {
-    identifier: 'api-doc',
-    title: 'API Doc',
-    to: '/dev-pages/api-doc',
-    icon: 'source-code',
-    allowedGroups: [USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER],
+    identifier: 'settings',
+    title: 'Settings',
+    to: PAGE_ROUTES.DASHBOARD,
+    icon: 'gear',
+    allowedGroups: [USER_GROUPS.APP_ADMIN],
     showInDesktop: false,
     showInMobile: true
   }
 ];
 
+export const MENU_ITEMS = [...generalItems, ...adminItems];
+
 export const SUB_MENU_ITEMS = {
   services: [
     {
-      identifier: 'web-development',
-      title: 'Web Development',
-      to: '/'
+      identifier: 'business',
+      title: 'For Businesses',
+      to: PAGE_ROUTES.HOME
     },
 
     {
-      identifier: 'mvp-development',
-      title: 'MVP Development',
-      to: '/'
-    },
-    {
-      identifier: 'api-development',
-      title: 'API Development',
-      to: '/'
+      identifier: 'apps',
+      title: 'Integrations',
+      to: PAGE_ROUTES.HOME
     }
   ]
 };

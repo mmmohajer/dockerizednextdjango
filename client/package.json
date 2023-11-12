@@ -74,7 +74,7 @@
     "@stripe/stripe-js": "^1.38.1",
     "@tinymce/tinymce-react": "^4.3.0",
     "axios": "^0.26.0",
-    "basedesign-iswad": "^17.1.16",
+    "basedesign-iswad": "^17.1.17",
     "chart.js": "^4.1.1",
     "chartjs-plugin-datalabels": "^2.2.0",
     "classnames": "^2.3.1",

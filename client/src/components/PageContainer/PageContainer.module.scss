@@ -1,6 +1,27 @@
 @import '@/styles/base/_variables';
 @import '@/styles/base/_mixins';
 
+.sideBar {
+  &Container {
+    margin-top: $HeaderHeight;
+  }
+}
+
+.headerAndBodyContianer {
+  overflow-y: auto;
+
+  @include atMedium {
+    overflow-y: hidden;
+  }
+}
+
+.bodyContainer {
+  @include atMedium {
+    overflow-y: auto;
+    height: calc(100vh - $HeaderHeight);
+  }
+}
+
 .container {
   transition: $transition1;
   @include atMedium {
@@ -14,6 +35,24 @@
   }
 }
 
+.wavyHeaderContainer {
+  background-color: $themeOne;
+  height: 200px;
+  margin-top: -5px;
+
+  @include atMedium {
+    // height: calc($heroHeight - $HeaderHeight);
+    background-size: 100% 100%;
+    background-image: url('../../assets/images/js-Images/general/Header/Header-Wavy-Shape.png');
+    background-color: transparent;
+  }
+}
+
 .mainContentContainer {
   padding-top: $HeaderHeight;
+}
+
+.scrollToTopContainer {
+  bottom: 1rem;
+  right: 2rem;
 }

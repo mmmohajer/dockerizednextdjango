@@ -21,3 +21,13 @@ def createNewGroup():
 
 def code_generator(size=16, chars=string.ascii_uppercase + string.ascii_lowercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
+
+
+def find_post_fix_of_a_file(file):
+    sent_file_name = f"{file}"
+    splitted_text = sent_file_name.split(".")
+    post_fix = splitted_text.pop()
+    file_name = ""
+    for item in splitted_text:
+        file_name += item
+    return post_fix, file_name

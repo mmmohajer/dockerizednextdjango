@@ -1,11 +1,28 @@
 @import '@/styles/base/_variables';
+@import '@/styles/base/_mixins';
 
 .headerContainer {
   height: $HeaderHeight;
+  padding: 0 1rem;
 
-  &BlurryBg {
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
+  @include atMedium {
+    padding: 0 2rem;
+  }
+
+  @include atLarge {
+    padding: 0 8rem;
+  }
+
+  &HasWavyShape {
+    background-color: $themeOne;
+
+    @include atMedium {
+      background-color: transparent;
+      background-size: 100% 100%;
+      background-image: url('../../assets/images/js-Images/general/Header/Header-Wavy-Shape.png');
+      height: 200px;
+      margin-top: -5px;
+    }
   }
 }
 
@@ -15,7 +32,7 @@
 
     &Title {
       padding: 6px 0;
-      background: linear-gradient($themeFive 0 0) center bottom / 100% 2px no-repeat;
+      background: linear-gradient($themeTwo 0 0) center bottom / 100% 2px no-repeat;
       background-size: 0% 2px;
       transition: all 0.3s ease-in-out;
 
@@ -30,14 +47,20 @@
         left: 0;
         width: 300px;
         cursor: auto;
+
+        &Menu {
+          background-color: rgb(0, 0, 0); /* Fallback color */
+          background-color: rgba(0, 0, 0, 0.6); /* Black w/opacity/see-through */
+        }
       }
 
       &Item {
         &Title {
           padding: 6px 0;
-          background: linear-gradient($themeFive 0 0) center bottom / 100% 2px no-repeat;
+          background: linear-gradient($themeTwo 0 0) center bottom / 100% 2px no-repeat;
           background-size: 0% 2px;
           transition: all 0.3s ease-in-out;
+          color: white;
 
           &:hover {
             background-size: 100% 2px;
@@ -52,7 +75,7 @@
   &Item {
     &Title {
       padding: 6px 0;
-      background: linear-gradient($themeFive 0 0) center bottom / 100% 2px no-repeat;
+      background: linear-gradient($themeTwo 0 0) center bottom / 100% 2px no-repeat;
       background-size: 0% 2px;
       transition: all 0.3s ease-in-out;
 
@@ -65,7 +88,7 @@
       &Item {
         &Title {
           padding: 6px 0;
-          background: linear-gradient($themeFive 0 0) center bottom / 100% 2px no-repeat;
+          background: linear-gradient($themeTwo 0 0) center bottom / 100% 2px no-repeat;
           background-size: 0% 2px;
           transition: all 0.3s ease-in-out;
 
@@ -83,5 +106,33 @@
         display: flex !important;
       }
     }
+  }
+}
+
+.userManager {
+  &Btn {
+    font-size: 12px;
+
+    @include atSmall {
+      font-size: 14px;
+    }
+
+    @include atMedium {
+      font-size: 16px;
+    }
+  }
+}
+
+.rollToggler {
+  &Btn {
+    transition: all 0.3s ease-in-out;
+  }
+
+  &BtnIsLeft {
+    margin-left: 0;
+  }
+
+  &BtnIsRight {
+    margin-left: 20px;
   }
 }

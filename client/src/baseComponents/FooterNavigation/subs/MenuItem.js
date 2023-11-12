@@ -32,7 +32,7 @@ const MenuItem = ({ item, ...props }) => {
         <Icon
           type={item?.icon}
           scale={1.5}
-          color={activeDashboardMenu === item?.identifier ? COLORS.themeThree : COLORS.themeOne}
+          color={activeDashboardMenu === item?.identifier ? COLORS.themeTwo : COLORS.grayBright}
         />
       </Div>
     </>

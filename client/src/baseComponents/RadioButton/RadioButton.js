@@ -4,22 +4,33 @@ import { Div, Label } from 'basedesign-iswad';
 
 import styles from './RadioButton.module.scss';
 
-const RadioButton = ({ labelText, selected = false, onRadioButtonClick }) => {
+const RadioButton = ({
+  labelText,
+  selected = false,
+  hasDefaultClass = true,
+  onRadioButtonClick,
+  className
+}) => {
   return (
     <>
-      <Div type="flex" vAlign="center" className="mainInputContainer">
+      <Div
+        type="flex"
+        hAlign="start"
+        vAlign="center"
+        className={cx(hasDefaultClass && 'mainInputContainer', className)}>
         <Div
           type="flex"
           hAlign="center"
           vAlign="center"
-          className="w-px-20 height-px-20 br-rad-per-50 radioButtonField mr1"
-          onClick={onRadioButtonClick}>
-          {selected && (
-            <Div className="w-px-10 height-px-10 br-rad-per-50 radioButtonField bgBlue"></Div>
+          className={cx(
+            'w-px-20 height-px-20 br-rad-per-50 boxShadowType1 bgWhite mouse-hand',
+            labelText && 'mr1'
           )}
+          onClick={onRadioButtonClick}>
+          {selected && <Div className="w-px-10 height-px-10 br-rad-per-50 bgThemeTwo"></Div>}
         </Div>
         <Div>
-          <Label>{labelText}</Label>
+          <Label className="fs-px-14 textGrayDark">{labelText}</Label>
         </Div>
       </Div>
     </>

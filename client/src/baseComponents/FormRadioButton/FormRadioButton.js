@@ -19,7 +19,7 @@ const FormRadioButton = ({
   return (
     <>
       <>
-        <Div className={cx('mainInputContainer pos-rel', className)}>
+        <Div className={cx('pos-rel', className)}>
           {labelText && (
             <Div className={cx('labelForRadioButtonContainer')}>
               <Label className={cx(isRequired && 'required', 'labelForCheckBox')}>
@@ -31,13 +31,16 @@ const FormRadioButton = ({
             {options.map((item, idx) => (
               <RadioButton
                 selected={val === item.value}
-                className={'mr8'}
+                className={'mb1'}
                 labelText={item.shownText}
                 key={idx}
                 onRadioButtonClick={() => {
                   setVal(item.value);
-                  errorHandler('');
+                  if (errorHandler) {
+                    errorHandler('');
+                  }
                 }}
+                hasDefaultClass={false}
               />
             ))}
           </Div>

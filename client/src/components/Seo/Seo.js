@@ -1,5 +1,7 @@
 import Head from 'next/head';
 
+import { IS_STAGING_ENV } from 'config';
+
 const Seo = ({ title, keywords, description, children }) => {
   return (
     <>
@@ -8,6 +10,7 @@ const Seo = ({ title, keywords, description, children }) => {
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <meta charSet="UTF-8" />
+        {IS_STAGING_ENV && <meta name="robots" content="nofollow" />}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
@@ -19,10 +22,9 @@ const Seo = ({ title, keywords, description, children }) => {
 };
 
 Seo.defaultProps = {
-  title: 'Mohammad Mohajer',
-  description: `A passionate software developer with a strong analytical mindset who really enjoys dealing with different challenges in the world of computer science and information technology.`,
-  keywords:
-    'Mohammad Mohajer, Mohammad Mahdi Mohajer, Software Developer, Full Stack Developer, MVP Developer, App Developer, Mobile App Developer, Web App Developer, Progressive App Developer, Machine Learning, Data Analysis, Data Analytics, Artificial Intelligence, ISWAD, AI'
+  title: 'Troop',
+  description: `A social impact tool that brings together needs from local charities to help businesses do corporate social responsibility differently.`,
+  keywords: 'Troop, troop impact inc., social impact, social, impact, need, charity'
 };
 
 export default Seo;

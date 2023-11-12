@@ -24,6 +24,9 @@ const Anchor = ({
               anchorType === 1 && styles.anchor1,
               anchorType === 2 && styles.anchor2,
               anchorType === 3 && styles.anchor3,
+              anchorType === 4 && styles.anchor4,
+              anchorType === 5 && styles.anchor5,
+              anchorType === 6 && styles.anchor6,
               className
             )}>
             {children}
@@ -37,6 +40,7 @@ const Anchor = ({
             anchorType === 1 && styles.anchor1,
             anchorType === 2 && styles.anchor2,
             anchorType === 3 && styles.anchor3,
+            anchorType === 4 && styles.anchor4,
             className
           )}
           href={to}

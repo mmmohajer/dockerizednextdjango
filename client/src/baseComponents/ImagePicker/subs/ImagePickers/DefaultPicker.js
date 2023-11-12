@@ -20,6 +20,8 @@ const DefaultPicker = ({
   inputFileField,
   errorMessage,
   errorHandler,
+  setInitialSrc,
+  previewer = 'default',
   className
 }) => {
   return (
@@ -54,13 +56,18 @@ const DefaultPicker = ({
               <Icon type="image-upload" color={COLORS.grayDark} scale={4} />
             </Div>
           </Label>
-          <DefaultImagePreview
-            src={src}
-            setSrc={setSrc}
-            setFile={setFile}
-            setFileName={setFileName}
-            inputFileField={inputFileField}
-          />
+          {previewer === 'default' ? (
+            <DefaultImagePreview
+              src={src}
+              setSrc={setSrc}
+              setFile={setFile}
+              setFileName={setFileName}
+              inputFileField={inputFileField}
+              setInitialSrc={setInitialSrc}
+            />
+          ) : (
+            ''
+          )}
         </Div>
         <Div className={cx('inputErrorMessage', errorMessage && 'inputErrorMessageIsActive')}>
           {errorMessage}

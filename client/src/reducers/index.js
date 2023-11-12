@@ -7,6 +7,7 @@ import activeMenu from './general/activeMenu';
 import activeSubMenu from './general/activeSubMenu';
 import modalType from './general/modalType';
 import modalProps from './general/modalProps';
+import modalHeader from './general/modalHeader';
 import mobileNavIsActive from './general/mobileNavIsActive';
 import chatSocket from './general/chatSocket';
 import scrollPosition from './general/scrollPosition';
@@ -15,6 +16,8 @@ import elementsHeightStore from './general/elementsHeightStore';
 import userIPInfo from './general/userIPInfo';
 import sideBarDashboardIsActive from './general/sidebarDashboardIsActive';
 import activeDashboardMenu from './general/activeDashboardMenu';
+import curUserGroup from './general/curUserGroup';
+import userNavIsActive from './general/userNavIsActive';
 
 import isAuthenticated from './apiCalls/isAuthenticated';
 import profile from './apiCalls/profile';
@@ -27,6 +30,7 @@ const reducer = combineReducers({
   activeSubMenu,
   modalType,
   modalProps,
+  modalHeader,
   mobileNavIsActive,
   chatSocket,
   scrollPosition,
@@ -35,6 +39,8 @@ const reducer = combineReducers({
   userIPInfo,
   sideBarDashboardIsActive,
   activeDashboardMenu,
+  curUserGroup,
+  userNavIsActive,
   isAuthenticated,
   profile
 });

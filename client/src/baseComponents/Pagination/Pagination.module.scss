@@ -1,0 +1,15 @@
+@import '@/styles/base/_variables';
+@import '@/styles/base/mixins';
+
+.itemContainer {
+  margin-right: 3px !important;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.activeItemContainer {
+  background-color: $themeOne !important;
+  color: white !important;
+  font-weight: bold;
+}

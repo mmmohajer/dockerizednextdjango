@@ -1,0 +1,4236 @@
+.elementor-widget-heading {
+  .elementor-heading-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-image {
+  .widget-image-caption {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-text-editor {
+  color: var(--e-global-color-text);
+  font-family: var(--e-global-typography-text-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-text-font-weight);
+}
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked {
+  .elementor-drop-cap {
+    background-color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-text-editor.elementor-drop-cap-view-framed {
+  .elementor-drop-cap {
+    color: var(--e-global-color-primary);
+    border-color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-text-editor.elementor-drop-cap-view-default {
+  .elementor-drop-cap {
+    color: var(--e-global-color-primary);
+    border-color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-button {
+  .elementor-button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+    background-color: var(--e-global-color-accent);
+  }
+}
+.elementor-widget-divider {
+  --divider-color: var(--e-global-color-secondary);
+  .elementor-divider__text {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+}
+.elementor-widget-divider.elementor-view-stacked {
+  .elementor-icon {
+    background-color: var(--e-global-color-secondary);
+  }
+}
+.elementor-widget-divider.elementor-view-framed {
+  .elementor-icon {
+    color: var(--e-global-color-secondary);
+    border-color: var(--e-global-color-secondary);
+    fill: var(--e-global-color-secondary);
+  }
+}
+.elementor-widget-divider.elementor-view-default {
+  .elementor-icon {
+    color: var(--e-global-color-secondary);
+    border-color: var(--e-global-color-secondary);
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-image-box {
+  .elementor-image-box-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-image-box-description {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-icon.elementor-view-stacked {
+  .elementor-icon {
+    background-color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-icon.elementor-view-framed {
+  .elementor-icon {
+    color: var(--e-global-color-primary);
+    border-color: var(--e-global-color-primary);
+    fill: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-icon.elementor-view-default {
+  .elementor-icon {
+    color: var(--e-global-color-primary);
+    border-color: var(--e-global-color-primary);
+    svg {
+      fill: var(--e-global-color-primary);
+    }
+  }
+}
+.elementor-widget-icon-box.elementor-view-stacked {
+  .elementor-icon {
+    background-color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-icon-box.elementor-view-framed {
+  .elementor-icon {
+    fill: var(--e-global-color-primary);
+    color: var(--e-global-color-primary);
+    border-color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-icon-box.elementor-view-default {
+  .elementor-icon {
+    fill: var(--e-global-color-primary);
+    color: var(--e-global-color-primary);
+    border-color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-icon-box {
+  .elementor-icon-box-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    a {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .elementor-icon-box-description {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-star-rating {
+  .elementor-star-rating__title {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-image-gallery {
+  .gallery-item {
+    .gallery-caption {
+      font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-accent-font-weight);
+    }
+  }
+}
+.elementor-widget-icon-list {
+  .elementor-icon-list-item {
+    &:not(:last-child) {
+      &:after {
+        border-color: var(--e-global-color-text);
+      }
+    }
+    > .elementor-icon-list-text {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+    > a {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-icon-list-icon {
+    i {
+      color: var(--e-global-color-primary);
+    }
+    svg {
+      fill: var(--e-global-color-primary);
+    }
+  }
+  .elementor-icon-list-text {
+    color: var(--e-global-color-secondary);
+  }
+}
+.elementor-widget-counter {
+  .elementor-counter-number-wrapper {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-counter-title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+}
+.elementor-widget-progress {
+  .elementor-progress-wrapper {
+    .elementor-progress-bar {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .elementor-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-testimonial {
+  .elementor-testimonial-content {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-testimonial-name {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-testimonial-job {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+}
+.elementor-widget-tabs {
+  .elementor-tab-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    a {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .elementor-tab-title.elementor-active {
+    color: var(--e-global-color-accent);
+    a {
+      color: var(--e-global-color-accent);
+    }
+  }
+  .elementor-tab-content {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-accordion {
+  .elementor-accordion-icon {
+    color: var(--e-global-color-primary);
+    svg {
+      fill: var(--e-global-color-primary);
+    }
+  }
+  .elementor-accordion-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-active {
+    .elementor-accordion-icon {
+      color: var(--e-global-color-accent);
+      svg {
+        fill: var(--e-global-color-accent);
+      }
+    }
+    .elementor-accordion-title {
+      color: var(--e-global-color-accent);
+    }
+  }
+  .elementor-tab-content {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-toggle {
+  .elementor-toggle-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-toggle-icon {
+    color: var(--e-global-color-primary);
+    svg {
+      fill: var(--e-global-color-primary);
+    }
+  }
+  .elementor-tab-title.elementor-active {
+    a {
+      color: var(--e-global-color-accent);
+    }
+    .elementor-toggle-icon {
+      color: var(--e-global-color-accent);
+    }
+  }
+  .elementor-tab-content {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-alert {
+  .elementor-alert-title {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-alert-description {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-acf-form {
+  .acf_front_form_elementor-site-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    a {
+      color: var(--e-global-color-primary);
+    }
+  }
+}
+.elementor-widget-premium-behance-feed {
+  .premium-behance-container {
+    .wrap-projects {
+      li {
+        .wrap-cover {
+          .fields-in-cover {
+            > svg {
+              path {
+                fill: var(--e-global-color-primary);
+              }
+            }
+            .single {
+              color: var(--e-global-color-secondary);
+              font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+              font-weight: var(--e-global-typography-primary-font-weight);
+            }
+          }
+        }
+      }
+    }
+    .wrap-project {
+      .wrap-title-text {
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+    }
+    .wrap-label {
+      color: var(--e-global-color-secondary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    .owner-full-name {
+      a {
+        color: var(--e-global-color-secondary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      &:hover {
+        a {
+          color: var(--e-global-color-secondary);
+        }
+      }
+    }
+    .wrap-appreciations-outer {
+      .wrap-label {
+        svg {
+          g {
+            path {
+              fill: var(--e-global-color-primary);
+            }
+          }
+        }
+      }
+      .wrap-app-value {
+        color: var(--e-global-color-secondary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+    }
+    .wrap-views-outer {
+      .wrap-label {
+        svg {
+          g {
+            path {
+              fill: var(--e-global-color-primary);
+            }
+          }
+        }
+      }
+      .wrap-view-value {
+        color: var(--e-global-color-secondary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+    }
+  }
+  .wrap-projects {
+    .wrap-title-text {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .wrap-title-text {
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-behance-btn {
+    .eb-pagination-button {
+      span {
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+        color: var(--e-global-color-secondary);
+      }
+      &:hover {
+        span {
+          color: var(--e-global-color-secondary);
+        }
+      }
+    }
+  }
+}
+.elementor-widget-premium-chart {
+  .premium-chart-title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-premium-addon-content-toggle {
+  .premium-content-toggle-heading-one {
+    * {
+      color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-content-toggle-heading-two {
+    * {
+      color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-content-toggle-monthly-text {
+    color: var(--e-global-color-secondary);
+    * {
+      color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-content-toggle-yearly-text {
+    color: var(--e-global-color-secondary);
+    * {
+      color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-divider {
+  .premium-separator-icon-wrap {
+    i {
+      color: var(--e-global-color-primary);
+    }
+    svg {
+      fill: var(--e-global-color-primary);
+    }
+  }
+  .premium-separator-text-icon {
+    .premium-separator-icon-text {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-separator-container {
+    &:hover {
+      .premium-separator-icon {
+        i {
+          color: var(--e-global-color-primary);
+        }
+        svg {
+          fill: var(--e-global-color-primary);
+        }
+      }
+      .premium-separator-icon-text {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+}
+.elementor-widget-premium-facebook-feed {
+  .premium-feed-element-text {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    color: var(--e-global-color-primary);
+  }
+  .premium-feed-element-read-more {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    &:hover {
+      color: var(--e-global-color-text);
+    }
+  }
+  .premium-social-icon {
+    color: var(--e-global-color-primary);
+  }
+  .premium-feed-element-author {
+    a {
+      color: var(--e-global-color-secondary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    &:hover {
+      a {
+        color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-feed-element-date {
+    a {
+      color: var(--e-global-color-secondary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    &:hover {
+      a {
+        color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-facebook-feed-wrapper {
+    .slick-arrow {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-facebook-reviews {
+  .premium-fb-rev-rating-count {
+    span {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-page-link {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-page-rating {
+    color: var(--e-global-color-primary);
+  }
+  .premium-fb-rev-reviewer-link {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-time {
+    .premium-fb-rev-time-text {
+      color: var(--e-global-color-primary);
+      &:hover {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-fb-rev-text {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-fb-rev-readmore {
+    color: var(--e-global-color-primary);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-container {
+    .slick-arrow {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+  ul.slick-dots {
+    li {
+      color: var(--e-global-color-secondary);
+    }
+    li.slick-active {
+      color: var(--e-global-color-primary);
+    }
+  }
+}
+.elementor-widget-premium-addon-flip-box {
+  .premium-flip-front-icon {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-flip-text-wrapper {
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+  }
+  .premium-flip-front-title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-flip-front-description {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-flip-back-icon {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-flip-back-text-wrapper {
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+  }
+  .premium-flip-back-title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-flip-back-description {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-flip-box-link {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    color: var(--e-global-color-secondary);
+    &:hover {
+      color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-google-reviews {
+  .premium-fb-rev-rating-count {
+    span {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-page-link {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-page-rating {
+    color: var(--e-global-color-primary);
+  }
+  .premium-fb-rev-reviewer-link {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-time {
+    .premium-fb-rev-time-text {
+      color: var(--e-global-color-primary);
+      &:hover {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-fb-rev-text {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-fb-rev-readmore {
+    color: var(--e-global-color-primary);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-container {
+    .slick-arrow {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+  ul.slick-dots {
+    li {
+      color: var(--e-global-color-secondary);
+    }
+    li.slick-active {
+      color: var(--e-global-color-primary);
+    }
+  }
+}
+.elementor-widget-premium-addon-icon-box {
+  .premium-icon-box-icon {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-icon-box-icon-container {
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+  }
+  .premium-icon-box-container-out {
+    &:hover {
+      .premium-icon-box-icon {
+        color: var(--e-global-color-secondary);
+      }
+      svg {
+        fill: var(--e-global-color-secondary);
+      }
+      .premium-icon-box-title {
+        color: var(--e-global-color-secondary);
+      }
+      .premium-icon-box-content-wrap {
+        color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-icon-box-title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-icon-box-label {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-icon-box-content-wrap {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-icon-box-link {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    color: var(--e-global-color-secondary);
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+  }
+  .premium-icon-box-more {
+    &:hover {
+      .premium-icon-box-link {
+        color: var(--e-global-color-secondary);
+        svg {
+          fill: var(--e-global-color-secondary);
+        }
+      }
+    }
+  }
+  .premium-icon-box-big {
+    i {
+      color: var(--e-global-color-secondary);
+    }
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-addon-icon-box.premium-icon-box-whole-text-yes {
+  &:hover {
+    .premium-icon-box-link {
+      color: var(--e-global-color-secondary);
+      svg {
+        fill: var(--e-global-color-secondary);
+      }
+    }
+  }
+}
+.elementor-widget-premium-ihover {
+  .premium-ihover-icon {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-ihover-title-wrap {
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+  }
+  .premium-ihover-title {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-ihover-divider {
+    .premium-ihover-divider-line {
+      border-color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-ihover-description {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-ihover-link {
+    color: var(--e-global-color-secondary);
+    background-color: var(--e-global-color-primary);
+    &:hover {
+      color: var(--e-global-color-secondary);
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-ihover-spinner {
+    border-top-color: var(--e-global-color-primary);
+    border-left-color: var(--e-global-color-primary);
+    border-bottom-color: var(--e-global-color-secondary);
+    border-right-color: var(--e-global-color-secondary);
+  }
+  .premium-ihover-info-back {
+    background: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-premium-image-accordion {
+  .premium-accordion-section {
+    .premium-accordion-icon {
+      color: var(--e-global-color-primary);
+    }
+    .premium-accordion-title {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    .premium-accordion-description {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    .premium-accordion-item-link-title {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+      &:hover {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-accordion-content {
+    > svg {
+      fill: var(--e-global-color-primary);
+      &:hover {
+        fill: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-accordion-icon {
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+}
+.elementor-widget-premium-addon-image-comparison {
+  .premium-twentytwenty-before-label {
+    span {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-twentytwenty-after-label {
+    span {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-twentytwenty-handle {
+    background-color: var(--e-global-color-primary);
+    &:after {
+      background-color: var(--e-global-color-secondary);
+    }
+    &:before {
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-twentytwenty-left-arrow {
+    border-right-color: var(--e-global-color-secondary);
+  }
+  .premium-twentytwenty-right-arrow {
+    border-left-color: var(--e-global-color-secondary);
+  }
+  .premium-twentytwenty-down-arrow {
+    border-top-color: var(--e-global-color-secondary);
+  }
+  .premium-twentytwenty-up-arrow {
+    border-bottom-color: var(--e-global-color-secondary);
+  }
+}
+.elementor-widget-premium-addon-image-hotspots {
+  .premium-image-hotspots-main-icons {
+    .premium-image-hotspots-icon {
+      color: var(--e-global-color-secondary);
+    }
+    .premium-image-hotspots-text {
+      color: var(--e-global-color-secondary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-image-hotspots-main-icons.premium-image-hotspots-anim {
+    &::before {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+}
+.premium-image-hotspots-tooltips-text {
+  font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-primary-font-weight);
+}
+.elementor-widget-premium-addon-instagram-feed {
+  .premium-insta-heart {
+    color: var(--e-global-color-primary);
+  }
+  .premium-insta-likes {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-insta-comment {
+    color: var(--e-global-color-primary);
+  }
+  .premium-insta-comments {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-insta-image-caption {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-instafeed-container {
+    .slick-arrow {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+      &:hover {
+        color: var(--e-global-color-primary);
+        background-color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-instafeed-username {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-instafeed-bio {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-instafeed-user-activity-item {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .instafeed-v-icon {
+    color: var(--e-global-color-primary);
+  }
+  .premium-instafeed-sharer {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-instafeed-share-text {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-premium-addon-magic-section {
+  .premium-magic-section-btn {
+    span {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    color: var(--e-global-color-secondary);
+    color: var(--e-global-color-secondary);
+    background-color: var(--e-global-color-primary);
+    .premium-magic-btn-text {
+      color: var(--e-global-color-secondary);
+    }
+    .premium-magic-btn-icon {
+      color: var(--e-global-color-secondary);
+    }
+    &:hover {
+      .premium-magic-btn-text {
+        color: var(--e-global-color-secondary);
+      }
+      .premium-magic-btn-icon {
+        color: var(--e-global-color-secondary);
+      }
+      color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-magic-section-wrap {
+    .premium-magic-section-close {
+      i {
+        color: var(--e-global-color-secondary);
+      }
+      &:hover {
+        i {
+          color: var(--e-global-color-secondary);
+        }
+      }
+    }
+  }
+}
+.elementor-widget-premium-multi-scroll {
+  .premium-multiscroll-left-text {
+    color: var(--e-global-color-primary);
+    background-color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-multiscroll-right-text {
+    color: var(--e-global-color-primary);
+    background-color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .multiscroll-tooltip {
+    color: var(--e-global-color-primary);
+  }
+  .multiscroll-nav {
+    span {
+      background-color: var(--e-global-color-primary);
+      border-color: var(--e-global-color-secondary);
+    }
+    li {
+      .active {
+        span {
+          background-color: var(--e-global-color-secondary);
+        }
+      }
+    }
+    background-color: var(--e-global-color-primary);
+  }
+  .premium-scroll-nav-menu {
+    .premium-scroll-nav-item {
+      .premium-scroll-nav-link {
+        color: var(--e-global-color-primary);
+        &:hover {
+          color: var(--e-global-color-primary);
+        }
+      }
+      background-color: var(--e-global-color-secondary);
+    }
+    .premium-scroll-nav-item.active {
+      .premium-scroll-nav-link {
+        color: var(--e-global-color-secondary);
+        &:hover {
+          color: var(--e-global-color-secondary);
+        }
+      }
+      background-color: var(--e-global-color-primary);
+    }
+  }
+}
+
+.premium-notbar-icon {
+  color: var(--e-global-color-secondary);
+}
+.premium-notbar-icon-wrap {
+  svg {
+    fill: var(--e-global-color-secondary);
+  }
+}
+.premium-notbar-text {
+  color: var(--e-global-color-secondary);
+  font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-primary-font-weight);
+}
+.premium-notbar-close {
+  color: var(--e-global-color-secondary);
+  font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-primary-font-weight);
+  background-color: var(--e-global-color-primary);
+  &:hover {
+    color: var(--e-global-color-secondary);
+    background-color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-premium-addon-preview-image {
+  .premium-preview-image-trigger {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-preview-image-figure {
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+    &:hover {
+      .premium-preview-image-trigger {
+        color: var(--e-global-color-secondary);
+      }
+      svg {
+        fill: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-preview-image-figcap {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.premium-preview-image-tooltips-img {
+  background-color: var(--e-global-color-secondary);
+}
+.premium-previmg-tooltip-title {
+  color: var(--e-global-color-primary);
+  font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-primary-font-weight);
+}
+.tooltipster-content {
+  background-color: var(--e-global-color-secondary);
+}
+.elementor-widget-premium-tables-addon {
+  .premium-table {
+    .premium-table-row {
+      th.premium-table-cell {
+        &:nth-child(odd) {
+          .premium-table-text {
+            color: var(--e-global-color-primary);
+            font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+            font-weight: var(--e-global-typography-primary-font-weight);
+            &:hover {
+              color: var(--e-global-color-primary);
+            }
+            i {
+              color: var(--e-global-color-primary);
+            }
+          }
+        }
+        &:nth-child(even) {
+          .premium-table-text {
+            color: var(--e-global-color-primary);
+            font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+            font-weight: var(--e-global-typography-primary-font-weight);
+            &:hover {
+              color: var(--e-global-color-primary);
+            }
+            i {
+              color: var(--e-global-color-primary);
+            }
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:nth-of-type(odd) {
+          .premium-table-cell {
+            .premium-table-text {
+              color: var(--e-global-color-secondary);
+              font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+              font-weight: var(--e-global-typography-primary-font-weight);
+              &:hover {
+                color: var(--e-global-color-secondary);
+              }
+              i {
+                color: var(--e-global-color-secondary);
+              }
+            }
+          }
+        }
+        &:nth-of-type(even) {
+          .premium-table-cell {
+            .premium-table-text {
+              color: var(--e-global-color-secondary);
+              font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+              font-weight: var(--e-global-typography-primary-font-weight);
+              &:hover {
+                color: var(--e-global-color-secondary);
+              }
+              i {
+                color: var(--e-global-color-secondary);
+              }
+            }
+          }
+        }
+      }
+    }
+    thead {
+      .premium-table-cell {
+        .premium-table-sort-icon {
+          &:before {
+            color: var(--e-global-color-secondary);
+            background: var(--e-global-color-primary);
+          }
+        }
+        &:hover {
+          .premium-table-sort-icon {
+            &:before {
+              color: var(--e-global-color-secondary);
+            }
+          }
+        }
+      }
+    }
+  }
+  .premium-table-blur {
+    tbody {
+      &:hover {
+        tr {
+          &:nth-of-type(odd) {
+            .premium-table-text {
+              text-shadow: var(--e-global-color-secondary);
+            }
+            &:hover {
+              .premium-table-text {
+                text-shadow: var(--e-global-color-secondary);
+                color: var(--e-global-color-secondary);
+              }
+            }
+          }
+          &:nth-of-type(even) {
+            .premium-table-text {
+              text-shadow: var(--e-global-color-secondary);
+            }
+            &:hover {
+              .premium-table-text {
+                text-shadow: var(--e-global-color-secondary);
+                color: var(--e-global-color-secondary);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .premium-table-search-field {
+    color: var(--e-global-color-primary);
+  }
+  .premium-table-records-box {
+    color: var(--e-global-color-primary);
+  }
+  .premium-table-pagination {
+    ul {
+      li {
+        > .page-numbers {
+          font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-accent-font-weight);
+        }
+      }
+    }
+  }
+}
+.elementor-widget-premium-addon-tabs {
+  .premium-tabs-style-iconbox {
+    ul.premium-tabs-horizontal {
+      li {
+        &::after {
+          background-color: var(--e-global-color-text);
+        }
+      }
+    }
+    ul.premium-tabs-vertical {
+      li {
+        &::after {
+          background-color: var(--e-global-color-text);
+        }
+      }
+    }
+    .premium-tabs-nav {
+      ul {
+        li {
+          a {
+            background-color: var(--e-global-color-primary);
+            &:hover {
+              background-color: var(--e-global-color-primary);
+            }
+          }
+        }
+        li.tab-current {
+          a {
+            background-color: var(--e-global-color-text);
+          }
+        }
+      }
+      ul.premium-tabs-horizontal {
+        &:not(.premium-accordion-tabs) {
+          li.tab-current {
+            a {
+              &:hover {
+                &:after {
+                  border-top-color: var(--e-global-color-primary);
+                  border-top-color: var(--e-global-color-text);
+                }
+              }
+            }
+          }
+        }
+        li.tab-current {
+          a {
+            &::after {
+              border-top-color: var(--e-global-color-secondary);
+            }
+          }
+        }
+      }
+      ul.premium-accordion-tabs {
+        li.tab-current {
+          a {
+            &:hover {
+              &:after {
+                border-top-color: var(--e-global-color-primary);
+                border-top-color: var(--e-global-color-text);
+              }
+            }
+            &::after {
+              border-top-color: var(--e-global-color-secondary);
+            }
+          }
+        }
+      }
+      ul.premium-tabs-vertical {
+        &:not(.premium-accordion-tabs) {
+          li.tab-current {
+            a {
+              &:hover {
+                &:after {
+                  border-left-color: var(--e-global-color-text);
+                }
+              }
+              &::after {
+                border-left-color: var(--e-global-color-secondary);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .premium-tabs-style-flip {
+    ul.premium-tabs-horizontal {
+      li {
+        &::after {
+          background-color: var(--e-global-color-text);
+        }
+      }
+    }
+    ul.premium-tabs-vertical {
+      li {
+        &::after {
+          background-color: var(--e-global-color-text);
+        }
+      }
+    }
+    .premium-tabs-nav {
+      .premium-tabs-nav-list-item {
+        background-color: var(--e-global-color-primary);
+      }
+      li.tab-current {
+        a {
+          &::after {
+            background-color: var(--e-global-color-text);
+          }
+        }
+      }
+    }
+  }
+  .premium-tabs-style-circle {
+    .premium-tabs-nav {
+      ul {
+        li {
+          a {
+            background-color: var(--e-global-color-primary);
+          }
+        }
+        li.tab-current {
+          a {
+            background-color: var(--e-global-color-text);
+          }
+        }
+      }
+    }
+  }
+  .premium-tabs-style-tzoid {
+    .premium-tabs-nav {
+      ul {
+        li {
+          a {
+            &::after {
+              background-color: var(--e-global-color-primary);
+            }
+            &:hover {
+              &:after {
+                background-color: var(--e-global-color-primary);
+              }
+            }
+          }
+        }
+        li.tab-current {
+          a {
+            &::after {
+              background-color: var(--e-global-color-text);
+            }
+          }
+        }
+      }
+    }
+  }
+  .premium-tabs-nav {
+    .premium-title-icon {
+      color: var(--e-global-color-secondary);
+    }
+    .premium-tab-link {
+      > svg {
+        fill: var(--e-global-color-secondary);
+        g {
+          path {
+            fill: var(--e-global-color-secondary);
+          }
+        }
+      }
+    }
+    .premium-tabs-nav-list-item {
+      &:hover {
+        .premium-title-icon {
+          color: var(--e-global-color-secondary);
+        }
+        .premium-tab-link {
+          > svg {
+            fill: var(--e-global-color-secondary);
+            g {
+              path {
+                fill: var(--e-global-color-secondary);
+              }
+            }
+          }
+        }
+      }
+    }
+    .tab-current {
+      .premium-title-icon {
+        color: var(--e-global-color-primary);
+      }
+      .premium-tab-link {
+        > svg {
+          fill: var(--e-global-color-primary);
+          g {
+            path {
+              fill: var(--e-global-color-primary);
+            }
+          }
+        }
+      }
+    }
+  }
+  .premium-tabs {
+    .premium-tab-title {
+      color: var(--e-global-color-secondary);
+    }
+    .premium-tabs-nav-list-item {
+      &:hover {
+        .premium-tab-title {
+          color: var(--e-global-color-secondary);
+        }
+      }
+    }
+    .tab-current {
+      .premium-tab-title {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-content-wrap-inner {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-tabs-nav-list {
+    .slick-arrow {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-twitter-feed {
+  .premium-twitter-header-link {
+    .premium-twitter-feed-name {
+      color: var(--e-global-color-secondary);
+    }
+    .premium-twitter-screen-name {
+      color: var(--e-global-color-text);
+    }
+  }
+  .premium-twitter-header-count {
+    span {
+      &:last-of-type {
+        color: var(--e-global-color-secondary);
+      }
+      &:first-of-type {
+        color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-twitter-feed-follow {
+    a {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-feed-element-text {
+    color: var(--e-global-color-primary);
+  }
+  .premium-feed-element-read-more {
+    color: var(--e-global-color-secondary);
+    &:hover {
+      color: var(--e-global-color-text);
+    }
+  }
+  .premium-social-icon {
+    color: var(--e-global-color-primary);
+  }
+  .premium-feed-element-author {
+    a {
+      color: var(--e-global-color-secondary);
+    }
+    &:hover {
+      a {
+        color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-feed-element-date {
+    a {
+      color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-twitter-comments-field {
+    color: var(--e-global-color-secondary);
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+    &:hover {
+      color: var(--e-global-color-primary);
+      svg {
+        fill: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-twitter-feed-wrapper {
+    .slick-arrow {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-unfold-addon {
+  .premium-unfold-heading {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-unfold-content {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-button {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    background-color: var(--e-global-color-primary);
+    span {
+      color: var(--e-global-color-secondary);
+    }
+    i {
+      color: var(--e-global-color-secondary);
+    }
+    svg {
+      fill: var(--e-global-color-secondary);
+      g {
+        path {
+          fill: var(--e-global-color-secondary);
+        }
+      }
+    }
+    &:hover {
+      span {
+        color: var(--e-global-color-primary);
+      }
+      i {
+        color: var(--e-global-color-primary);
+      }
+      svg {
+        fill: var(--e-global-color-primary);
+        g {
+          path {
+            fill: var(--e-global-color-primary);
+          }
+        }
+      }
+      background-color: var(--e-global-color-text);
+    }
+  }
+}
+.elementor-widget-premium-whatsapp-chat {
+  .premium-whatsapp-link {
+    .premium-whatsapp-text {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+      color: var(--e-global-color-secondary);
+    }
+    background-color: var(--e-global-color-accent);
+    &:hover {
+      .premium-whatsapp-text {
+        color: var(--e-global-color-secondary);
+      }
+      .premium-whatsapp-icon {
+        color: var(--e-global-color-secondary);
+      }
+      svg {
+        fill: var(--e-global-color-secondary);
+      }
+      background-color: var(--e-global-color-accent);
+    }
+  }
+  .premium-whatsapp-icon {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-whatsapp-icon-wrap {
+    svg {
+      fill: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-yelp-reviews {
+  .premium-fb-rev-rating-count {
+    span {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-page-link {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-page-rating {
+    color: var(--e-global-color-primary);
+  }
+  .premium-fb-rev-reviewer-link {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-time {
+    .premium-fb-rev-time-text {
+      color: var(--e-global-color-primary);
+      &:hover {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-fb-rev-text {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-fb-rev-readmore {
+    color: var(--e-global-color-primary);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-fb-rev-container {
+    .slick-arrow {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+  ul.slick-dots {
+    li {
+      color: var(--e-global-color-secondary);
+    }
+    li.slick-active {
+      color: var(--e-global-color-primary);
+    }
+  }
+}
+.elementor-widget-text-path {
+  font-family: var(--e-global-typography-text-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-text-font-weight);
+}
+.elementor-widget-premium-addon-banner {
+  .premium-banner-ib-desc {
+    .premium_banner_title {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .premium_banner_content {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .premium-banner-link {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+    &:hover {
+      color: var(--e-global-color-text);
+    }
+  }
+}
+.elementor-widget-premium-addon-blog {
+  .premium-blog-filters-container {
+    li {
+      a.category {
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+        color: var(--e-global-color-secondary);
+        background-color: var(--e-global-color-primary);
+      }
+      a.active {
+        color: var(--e-global-color-primary);
+        background-color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-blog-post-link {
+    &:before {
+      border-color: var(--e-global-color-secondary);
+    }
+    &:after {
+      border-color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-blog-entry-title {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    a {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+      color: var(--e-global-color-secondary);
+    }
+    &:hover {
+      a {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-blog-cats-container {
+    a {
+      font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-secondary-font-weight);
+    }
+  }
+  .premium-blog-meta-data {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .premium-blog-post-content {
+    color: var(--e-global-color-text);
+  }
+  .premium-blog-post-tags-container {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+    color: var(--e-global-color-secondary);
+  }
+  .premium-blog-pagination-container {
+    .page-numbers {
+      color: var(--e-global-color-secondary);
+      background-color: var(--e-global-color-primary);
+      &:hover {
+        color: var(--e-global-color-primary);
+        background-color: var(--e-global-color-secondary);
+      }
+    }
+    span.current {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+  ul.slick-dots {
+    li {
+      color: var(--e-global-color-secondary);
+    }
+    li.slick-active {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-blog-wrap {
+    .slick-arrow {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-addon-button {
+  .premium-button {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    background-color: var(--e-global-color-primary);
+    .premium-button-text-icon-wrapper {
+      span {
+        color: var(--e-global-color-secondary);
+      }
+    }
+    &:hover {
+      .premium-button-text-icon-wrapper {
+        span {
+          color: var(--e-global-color-primary);
+        }
+        i {
+          color: var(--e-global-color-primary);
+        }
+        svg {
+          fill: var(--e-global-color-primary);
+          * {
+            fill: var(--e-global-color-primary);
+          }
+        }
+      }
+    }
+  }
+  .premium-button-text-icon-wrapper {
+    i {
+      color: var(--e-global-color-secondary);
+    }
+    svg {
+      fill: var(--e-global-color-secondary);
+      * {
+        fill: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-button.premium-button-style2-shutinhor {
+    &:before {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-button.premium-button-style2-shutinver {
+    &:before {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-button-style5-radialin {
+    &:before {
+      background-color: var(--e-global-color-primary);
+    }
+    background-color: var(--e-global-color-text);
+  }
+  .premium-button-style5-rectin {
+    &:before {
+      background-color: var(--e-global-color-primary);
+    }
+    background-color: var(--e-global-color-text);
+  }
+  .premium-button-style4-icon-wrapper {
+    color: var(--e-global-color-primary);
+    background-color: var(--e-global-color-text);
+    svg {
+      fill: var(--e-global-color-primary);
+    }
+  }
+  .premium-button-none {
+    &:hover {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style1 {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style2-shutouthor {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style2-shutoutver {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style2-shutinhor {
+    background-color: var(--e-global-color-text);
+  }
+  .premium-button-style2-shutinver {
+    background-color: var(--e-global-color-text);
+  }
+  .premium-button-style2-dshutinhor {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style2-dshutinver {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style2-scshutouthor {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style2-scshutoutver {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style3-after {
+    &:hover {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style3-before {
+    &:hover {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style5-radialout {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style5-rectout {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style6-bg {
+    background-color: var(--e-global-color-text);
+  }
+  .premium-button-style6 {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style7 {
+    .premium-button-text-icon-wrapper {
+      &:before {
+        background-color: var(--e-global-color-secondary);
+      }
+      &:after {
+        background-color: var(--e-global-color-text);
+      }
+    }
+  }
+}
+.elementor-widget-premium-carousel-widget {
+  .premium-carousel-wrapper {
+    .slick-arrow {
+      color: var(--e-global-color-secondary);
+      svg {
+        fill: var(--e-global-color-secondary);
+      }
+      &:hover {
+        color: var(--e-global-color-secondary);
+        svg {
+          fill: var(--e-global-color-secondary);
+        }
+      }
+    }
+  }
+  ul.slick-dots {
+    li {
+      color: var(--e-global-color-secondary);
+      svg {
+        fill: var(--e-global-color-secondary);
+      }
+    }
+    li.slick-active {
+      color: var(--e-global-color-primary);
+      svg {
+        fill: var(--e-global-color-primary);
+      }
+    }
+  }
+}
+.elementor-widget-premium-countdown-timer {
+  .countdown {
+    .countdown-section {
+      .countdown-amount {
+        color: var(--e-global-color-secondary);
+        font-family: var(--e-global-typography-text-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-text-font-weight);
+        background-color: var(--e-global-color-primary);
+      }
+      .countdown-period {
+        color: var(--e-global-color-secondary);
+        font-family: var(--e-global-typography-text-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-text-font-weight);
+      }
+    }
+  }
+  .premium-countdown-flip {
+    .premium-countdown-figure {
+      span {
+        color: var(--e-global-color-secondary);
+        font-family: var(--e-global-typography-text-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-text-font-weight);
+      }
+      background-color: var(--e-global-color-primary);
+      .top {
+        background-color: var(--e-global-color-primary);
+      }
+      .top-back {
+        background-color: var(--e-global-color-primary);
+      }
+      .bottom-back {
+        background-color: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-countdown-label {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .countdown_separator {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-countdown-exp-message {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-premium-counter {
+  .premium-counter-area {
+    .premium-counter-icon {
+      .icon {
+        i {
+          color: var(--e-global-color-primary);
+        }
+        svg {
+          fill: var(--e-global-color-primary);
+          * {
+            fill: var(--e-global-color-primary);
+          }
+        }
+      }
+      .icon-bg {
+        background: var(--e-global-color-secondary);
+      }
+    }
+    .premium-counter-init {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    span#prefix {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    span#suffix {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .premium-counter-title {
+    .premium-counter-title-val {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .premium-counter-desc {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+}
+.elementor-widget-premium-addon-dual-header {
+  .premium-dual-header-first-span {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    color: var(--e-global-color-primary);
+  }
+  .premium-dual-header-second-header {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    color: var(--e-global-color-secondary);
+  }
+}
+.elementor-widget-premium-addon-dual-header.premium-bg-text-yes {
+  .elementor-widget-container {
+    &:before {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+}
+.elementor-widget-premium-addon-fancy-text {
+  .premium-fancy-text {
+    color: var(--e-global-color-primary);
+    svg {
+      g {
+        > text {
+          font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-primary-font-weight);
+        }
+      }
+    }
+  }
+  .premium-fancy-svg-text {
+    .premium-fancy-list-items {
+      fill: var(--e-global-color-primary);
+    }
+  }
+  .premium-fancy-text-wrapper {
+    &:not(.auto-fade) {
+      .premium-fancy-text {
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+    }
+  }
+  .typed-cursor {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-prefix-text {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-suffix-text {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .loading {
+    .premium-loading-bar {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+}
+.elementor-widget-premium-img-gallery {
+  .premium-gallery-img-name {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    a {
+      color: var(--e-global-color-secondary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .premium-gallery-img-desc {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    a {
+      color: var(--e-global-color-text);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .pa-gallery-magnific-image {
+    i {
+      color: var(--e-global-color-primary);
+    }
+    svg {
+      fill: var(--e-global-color-primary);
+      color: var(--e-global-color-primary);
+    }
+    span {
+      background-color: var(--e-global-color-secondary);
+    }
+    &:hover {
+      i {
+        color: var(--e-global-color-primary);
+      }
+      svg {
+        fill: var(--e-global-color-primary);
+        color: var(--e-global-color-primary);
+      }
+      span {
+        background-color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .pa-gallery-img-link {
+    i {
+      color: var(--e-global-color-primary);
+    }
+    svg {
+      fill: var(--e-global-color-primary);
+      color: var(--e-global-color-primary);
+    }
+    span {
+      background-color: var(--e-global-color-secondary);
+    }
+    &:hover {
+      i {
+        color: var(--e-global-color-primary);
+      }
+      svg {
+        fill: var(--e-global-color-primary);
+        color: var(--e-global-color-primary);
+      }
+      span {
+        background-color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-gallery-cats-container {
+    li {
+      a.category {
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+        color: var(--e-global-color-secondary);
+      }
+      a.active {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-gallery-load-more-btn {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    color: var(--e-global-color-secondary);
+    .premium-loader {
+      border-color: var(--e-global-color-secondary);
+      border-top-color: var(--e-global-color-secondary);
+    }
+    &:hover {
+      color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-icon-list {
+  .premium-bullet-list-wrapper {
+    i {
+      color: var(--e-global-color-primary);
+    }
+    svg {
+      fill: var(--e-global-color-primary);
+      * {
+        fill: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-bullet-list-icon-text {
+    p {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .premium-bullet-list-blur {
+    &:hover {
+      .premium-bullet-list-wrapper {
+        i {
+          text-shadow: var(--e-global-color-primary);
+        }
+        svg {
+          text-shadow: var(--e-global-color-primary);
+        }
+        .premium-bullet-list-icon-text {
+          p {
+            text-shadow: var(--e-global-color-primary);
+          }
+        }
+      }
+      .premium-bullet-list-text {
+        span {
+          text-shadow: var(--e-global-color-primary);
+        }
+      }
+    }
+    .premium-bullet-list-content {
+      &:hover {
+        .premium-bullet-list-wrapper {
+          i {
+            text-shadow: var(--e-global-color-primary);
+            color: var(--e-global-color-primary);
+          }
+        }
+        .premium-bullet-list-icon-text {
+          p {
+            text-shadow: var(--e-global-color-primary);
+            color: var(--e-global-color-primary);
+          }
+        }
+        .premium-bullet-list-text {
+          span {
+            text-shadow: var(--e-global-color-primary);
+            color: var(--e-global-color-primary);
+          }
+        }
+      }
+    }
+  }
+  .premium-bullet-list-content {
+    &:hover {
+      .premium-bullet-list-wrapper {
+        i {
+          color: var(--e-global-color-primary);
+        }
+        svg {
+          fill: var(--e-global-color-primary);
+          color: var(--e-global-color-primary);
+        }
+      }
+      .premium-bullet-list-icon-text {
+        p {
+          color: var(--e-global-color-primary);
+        }
+      }
+      .premium-bullet-list-text {
+        span {
+          color: var(--e-global-color-primary);
+        }
+      }
+    }
+  }
+  .premium-bullet-list-text {
+    span {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-bullet-list-badge {
+    span {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-bullet-list-divider {
+    &:not(:last-child) {
+      &:after {
+        border-top-color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-bullet-list-divider-inline {
+    &:not(:last-child) {
+      &:after {
+        border-left-color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  li.premium-bullet-list-content {
+    &:not(:last-of-type) {
+      .premium-bullet-list-connector {
+        .premium-icon-connector-content {
+          &:after {
+            border-color: var(--e-global-color-secondary);
+          }
+        }
+      }
+    }
+  }
+}
+.elementor-widget-premium-addon-image-button {
+  .premium-image-button {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    background-color: var(--e-global-color-primary);
+    .premium-image-button-text-icon-wrapper {
+      span {
+        color: var(--e-global-color-secondary);
+      }
+    }
+    &:hover {
+      .premium-image-button-text-icon-wrapper {
+        span {
+          color: var(--e-global-color-secondary);
+        }
+        i {
+          color: var(--e-global-color-secondary);
+        }
+        svg {
+          fill: var(--e-global-color-secondary);
+          * {
+            fill: var(--e-global-color-secondary);
+          }
+        }
+      }
+    }
+  }
+  .premium-image-button-text-icon-wrapper {
+    i {
+      color: var(--e-global-color-secondary);
+    }
+    svg {
+      fill: var(--e-global-color-secondary);
+      * {
+        fill: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-image-button-style4-icon-wrapper {
+    color: var(--e-global-color-primary);
+    background-color: var(--e-global-color-text);
+    svg {
+      fill: var(--e-global-color-primary);
+    }
+  }
+  .premium-image-button-style3 {
+    &:before {
+      background-color: var(--e-global-color-primary);
+    }
+    &:hover {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-image-button-overlap-effect-horizontal {
+    &:before {
+      background-color: var(--e-global-color-primary);
+    }
+    &:hover {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-image-button-overlap-effect-vertical {
+    &:before {
+      background-color: var(--e-global-color-primary);
+    }
+    &:hover {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-image-button-none {
+    &:hover {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-image-button-style1 {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-button-style6-bg {
+    background-color: var(--e-global-color-text);
+  }
+  .premium-button-style6 {
+    &:before {
+      background-color: var(--e-global-color-text);
+    }
+  }
+  .premium-image-button-squares-effect {
+    &:before {
+      background-color: var(--e-global-color-primary);
+    }
+    &:after {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-image-button-squares-square-container {
+    &:before {
+      background-color: var(--e-global-color-primary);
+    }
+    &:after {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+}
+.elementor-widget-premium-addon-image-separator {
+  .premium-image-separator-container {
+    i {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+      &:hover {
+        color: var(--e-global-color-primary);
+        background-color: var(--e-global-color-secondary);
+      }
+    }
+    svg {
+      fill: var(--e-global-color-primary);
+      * {
+        fill: var(--e-global-color-primary);
+      }
+      &:hover {
+        fill: var(--e-global-color-primary);
+        * {
+          fill: var(--e-global-color-primary);
+        }
+      }
+    }
+    > svg {
+      background-color: var(--e-global-color-secondary);
+      &:hover {
+        background-color: var(--e-global-color-secondary);
+      }
+    }
+  }
+}
+.elementor-widget-premium-addon-maps {
+  .premium-maps-info-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-maps-info-desc {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-premium-addon-modal-box {
+  .premium-modal-trigger-btn {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    color: var(--e-global-color-secondary);
+    background-color: var(--e-global-color-primary);
+    i {
+      color: var(--e-global-color-secondary);
+    }
+    svg {
+      fill: var(--e-global-color-secondary);
+      * {
+        fill: var(--e-global-color-secondary);
+      }
+    }
+    &:hover {
+      color: var(--e-global-color-primary);
+      background: var(--e-global-color-text);
+      i {
+        color: var(--e-global-color-primary);
+      }
+      svg {
+        fill: var(--e-global-color-primary);
+        * {
+          fill: var(--e-global-color-primary);
+        }
+      }
+    }
+  }
+  .premium-modal-trigger-text {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    color: var(--e-global-color-secondary);
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+  .premium-modal-box-modal-title {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-modal-box-modal-lower-close {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    color: var(--e-global-color-secondary);
+    background-color: var(--e-global-color-primary);
+    &:hover {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-premium-addon-person {
+  .premium-person-name {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-person-title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-person-content {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-person-list-item {
+    i {
+      color: var(--e-global-color-primary);
+    }
+    &:hover {
+      i {
+        color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-persons-container {
+    .slick-arrow {
+      color: var(--e-global-color-primary);
+      background-color: var(--e-global-color-secondary);
+      &:hover {
+        color: var(--e-global-color-primary);
+        background-color: var(--e-global-color-secondary);
+      }
+    }
+  }
+}
+.elementor-widget-premium-addon-pricing-table {
+  .premium-pricing-icon-container {
+    i {
+      color: var(--e-global-color-secondary);
+      background-color: var(--e-global-color-primary);
+    }
+    svg {
+      fill: var(--e-global-color-secondary);
+      * {
+        fill: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-pricing-icon {
+    background-color: var(--e-global-color-primary);
+  }
+  .premium-pricing-image {
+    background-color: var(--e-global-color-primary);
+  }
+  .premium-pricing-table-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-pricing-slashed-price-value {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-pricing-price-currency {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-pricing-price-value {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-pricing-price-separator {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-pricing-price-duration {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-pricing-list-span {
+    color: var(--e-global-color-secondary);
+  }
+  .premium-pricing-list {
+    .premium-pricing-list-span {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .premium-pricing-feature-icon {
+    color: var(--e-global-color-primary);
+  }
+  .premium-pricing-list-item {
+    svg {
+      fill: var(--e-global-color-primary);
+      * {
+        fill: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-pricing-list-tooltip {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-pricing-description-container {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-pricing-price-button {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    &:hover {
+      color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-pricing-badge-container {
+    .corner {
+      span {
+        color: var(--e-global-color-secondary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+    }
+  }
+  .premium-badge-triangle.premium-badge-left {
+    .corner {
+      border-top-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-badge-triangle.premium-badge-right {
+    .corner {
+      border-right-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-badge-circle {
+    background-color: var(--e-global-color-primary);
+  }
+  .premium-badge-stripe {
+    .corner {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-badge-flag {
+    .corner {
+      background-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-badge-flag.premium-badge-right {
+    .corner {
+      &::before {
+        border-left: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-badge-flag.premium-badge-left {
+    .corner {
+      &::after {
+        border-right: var(--e-global-color-primary);
+      }
+    }
+  }
+}
+.elementor-widget-premium-addon-progressbar {
+  .premium-progressbar-circle-base {
+    border-color: var(--e-global-color-primary);
+  }
+  .premium-progressbar-circle-inner {
+    border-color: var(--e-global-color-primary);
+  }
+  .premium-progressbar-circle {
+    div {
+      border-color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-progressbar-hf-circle-progress {
+    border-color: var(--e-global-color-secondary);
+  }
+  .premium-progressbar-left-label {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-progressbar-right-label {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-progressbar-circle-icon {
+    color: var(--e-global-color-primary);
+  }
+  .premium-progressbar-circle-content {
+    svg {
+      fill: var(--e-global-color-primary);
+      * {
+        fill: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-progressbar-center-label {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-progressbar-percentage {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-progressbar-arrow {
+    color: var(--e-global-color-primary);
+  }
+  .premium-progressbar-pin {
+    border-color: var(--e-global-color-secondary);
+  }
+  .premium-progressbar-hf-label-left {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-progressbar-hf-label-right {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-premium-addon-testimonials {
+  .premium-testimonial-img-wrapper {
+    border-color: var(--e-global-color-primary);
+  }
+  .premium-testimonial-person-name {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-testimonial-separator {
+    color: var(--e-global-color-primary);
+  }
+  .premium-testimonial-company-link {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-testimonial-text-wrapper {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-premium-addon-title {
+  .premium-title-header {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    svg {
+      fill: var(--e-global-color-primary);
+      * {
+        fill: var(--e-global-color-primary);
+      }
+    }
+  }
+  .premium-title-style8 {
+    .premium-title-text[data-animation='shiny'] {
+      --base-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-title-style2 {
+    background-color: var(--e-global-color-secondary);
+  }
+  .premium-title-style3 {
+    background-color: var(--e-global-color-secondary);
+  }
+  .premium-title-style5 {
+    border-bottom: var(--e-global-color-primary);
+  }
+  .premium-title-style6 {
+    border-bottom: var(--e-global-color-primary);
+    &:before {
+      border-bottom-color: var(--e-global-color-primary);
+    }
+  }
+  .premium-title-style7-stripe {
+    background-color: var(--e-global-color-primary);
+  }
+  .premium-title-icon {
+    color: var(--e-global-color-primary);
+  }
+  .premium-title-bg-text {
+    &:before {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+}
+.elementor-widget-premium-addon-title.premium-title-stroke-yes {
+  .premium-title-text {
+    -webkit-text-fill-color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-premium-addon-video-box {
+  .premium-video-box-play-icon {
+    color: var(--e-global-color-primary);
+  }
+  .premium-video-box-play-icon-container {
+    &:hover {
+      .premium-video-box-play-icon {
+        color: var(--e-global-color-secondary);
+      }
+    }
+  }
+  .premium-video-box-text {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-video-box-description-container {
+    &:hover {
+      .premium-video-box-text {
+        color: var(--e-global-color-primary);
+      }
+    }
+    background-color: var(--e-global-color-secondary);
+  }
+  .premium-video-box-sticky-close {
+    i {
+      color: var(--e-global-color-secondary);
+    }
+  }
+  .premium-video-box-sticky-infobar {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .premium-youtube-vid-title {
+    color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-premium-vscroll {
+  .premium-vscroll-tooltip {
+    color: var(--e-global-color-primary);
+    background-color: var(--e-global-color-primary);
+    span {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .premium-vscroll-inner {
+    .premium-vscroll-dots.right {
+      .premium-vscroll-tooltip {
+        &::after {
+          border-left-color: var(--e-global-color-primary);
+        }
+      }
+    }
+    .premium-vscroll-dots.left {
+      .premium-vscroll-tooltip {
+        &::after {
+          border-right-color: var(--e-global-color-primary);
+        }
+      }
+    }
+  }
+  .premium-vscroll-dots {
+    .premium-vscroll-nav-link {
+      span {
+        background-color: var(--e-global-color-primary);
+        border-color: var(--e-global-color-secondary);
+      }
+    }
+    li.active {
+      .premium-vscroll-nav-link {
+        span {
+          background-color: var(--e-global-color-secondary);
+        }
+      }
+    }
+    background-color: var(--e-global-color-primary);
+  }
+  .premium-vscroll-nav-menu {
+    .premium-vscroll-nav-item {
+      .premium-vscroll-nav-link {
+        color: var(--e-global-color-primary);
+        &:hover {
+          color: var(--e-global-color-primary);
+        }
+      }
+      background-color: var(--e-global-color-secondary);
+    }
+    .premium-vscroll-nav-item.active {
+      .premium-vscroll-nav-link {
+        color: var(--e-global-color-secondary);
+        &:hover {
+          color: var(--e-global-color-secondary);
+        }
+      }
+      background-color: var(--e-global-color-primary);
+    }
+  }
+}
+.elementor-widget-theme-site-logo {
+  .widget-image-caption {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-theme-site-title {
+  .elementor-heading-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-theme-page-title {
+  .elementor-heading-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-theme-post-title {
+  .elementor-heading-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-theme-post-excerpt {
+  .elementor-widget-container {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-theme-post-content {
+  color: var(--e-global-color-text);
+  font-family: var(--e-global-typography-text-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-text-font-weight);
+}
+.elementor-widget-theme-post-featured-image {
+  .widget-image-caption {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-theme-archive-title {
+  .elementor-heading-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-archive-posts {
+  .elementor-post__title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    a {
+      color: var(--e-global-color-secondary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .elementor-post__meta-data {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .elementor-post__excerpt {
+    p {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-post__read-more {
+    color: var(--e-global-color-accent);
+  }
+  a.elementor-post__read-more {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+  .elementor-post__card {
+    .elementor-post__badge {
+      background-color: var(--e-global-color-accent);
+      font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-accent-font-weight);
+    }
+  }
+  .elementor-pagination {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .elementor-button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+    background-color: var(--e-global-color-accent);
+  }
+  .e-load-more-message {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .elementor-posts-nothing-found {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-posts {
+  .elementor-post__title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+    a {
+      color: var(--e-global-color-secondary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .elementor-post__meta-data {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .elementor-post__excerpt {
+    p {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-post__read-more {
+    color: var(--e-global-color-accent);
+  }
+  a.elementor-post__read-more {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+  .elementor-post__card {
+    .elementor-post__badge {
+      background-color: var(--e-global-color-accent);
+      font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-accent-font-weight);
+    }
+  }
+  .elementor-pagination {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .elementor-button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+    background-color: var(--e-global-color-accent);
+  }
+  .e-load-more-message {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+}
+.elementor-widget-portfolio {
+  a {
+    .elementor-portfolio-item__overlay {
+      background-color: var(--e-global-color-accent);
+    }
+  }
+  .elementor-portfolio-item__title {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-portfolio__filter {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-portfolio__filter.elementor-active {
+    color: var(--e-global-color-primary);
+  }
+}
+.elementor-widget-gallery {
+  .elementor-gallery-item__title {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-gallery-item__description {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  --galleries-title-color-normal: var(--e-global-color-primary);
+  --galleries-title-color-hover: var(--e-global-color-secondary);
+  --galleries-pointer-bg-color-hover: var(--e-global-color-accent);
+  --gallery-title-color-active: var(--e-global-color-secondary);
+  --galleries-pointer-bg-color-active: var(--e-global-color-accent);
+  .elementor-gallery-title {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-form {
+  .elementor-field-group {
+    > label {
+      color: var(--e-global-color-text);
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+    .elementor-field {
+      color: var(--e-global-color-text);
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-field-subgroup {
+    label {
+      color: var(--e-global-color-text);
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-field-type-html {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+  .e-form__buttons__wrapper__button-next {
+    background-color: var(--e-global-color-accent);
+  }
+  .elementor-button[type='submit'] {
+    background-color: var(--e-global-color-accent);
+  }
+  .e-form__buttons__wrapper__button-previous {
+    background-color: var(--e-global-color-accent);
+  }
+  .elementor-message {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .e-form__indicators__indicator {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+  .e-form__indicators__indicator__label {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+  --e-form-steps-indicator-inactive-primary-color: var(--e-global-color-text);
+  --e-form-steps-indicator-active-primary-color: var(--e-global-color-accent);
+  --e-form-steps-indicator-completed-primary-color: var(--e-global-color-accent);
+  --e-form-steps-indicator-progress-color: var(--e-global-color-accent);
+  --e-form-steps-indicator-progress-background-color: var(--e-global-color-text);
+  --e-form-steps-indicator-progress-meter-color: var(--e-global-color-text);
+  .e-form__indicators__indicator__progress__meter {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-login {
+  .elementor-field-group {
+    > a {
+      color: var(--e-global-color-text);
+      &:hover {
+        color: var(--e-global-color-accent);
+      }
+    }
+    .elementor-field {
+      color: var(--e-global-color-text);
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-form-fields-wrapper {
+    label {
+      color: var(--e-global-color-text);
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-field-subgroup {
+    label {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+    background-color: var(--e-global-color-accent);
+  }
+  .elementor-widget-container {
+    .elementor-login__logged-in-message {
+      color: var(--e-global-color-text);
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+}
+.elementor-widget-slides {
+  .elementor-slide-heading {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-slide-description {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .elementor-slide-button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-nav-menu {
+  .elementor-nav-menu {
+    .elementor-item {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .elementor-nav-menu--main {
+    .elementor-item {
+      color: var(--e-global-color-text);
+      fill: var(--e-global-color-text);
+      &:hover {
+        color: var(--e-global-color-accent);
+        fill: var(--e-global-color-accent);
+      }
+      &:focus {
+        color: var(--e-global-color-accent);
+        fill: var(--e-global-color-accent);
+      }
+    }
+    .elementor-item.elementor-item-active {
+      color: var(--e-global-color-accent);
+      fill: var(--e-global-color-accent);
+    }
+    .elementor-item.highlighted {
+      color: var(--e-global-color-accent);
+      fill: var(--e-global-color-accent);
+    }
+    &:not(.e--pointer-framed) {
+      .elementor-item {
+        &:before {
+          background-color: var(--e-global-color-accent);
+        }
+        &:after {
+          background-color: var(--e-global-color-accent);
+        }
+      }
+    }
+  }
+  .e--pointer-framed {
+    .elementor-item {
+      &:before {
+        border-color: var(--e-global-color-accent);
+      }
+      &:after {
+        border-color: var(--e-global-color-accent);
+      }
+    }
+  }
+  --e-nav-menu-divider-color: var(--e-global-color-text);
+  .elementor-nav-menu--dropdown {
+    .elementor-item {
+      font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-accent-font-weight);
+    }
+    .elementor-sub-item {
+      font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-accent-font-weight);
+    }
+  }
+}
+.elementor-widget-animated-headline {
+  .elementor-headline-dynamic-wrapper {
+    path {
+      stroke: var(--e-global-color-accent);
+    }
+  }
+  .elementor-headline-plain-text {
+    color: var(--e-global-color-secondary);
+  }
+  .elementor-headline {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  --dynamic-text-color: var(--e-global-color-secondary);
+  .elementor-headline-dynamic-text {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-hotspot {
+  .widget-image-caption {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  --hotspot-color: var(--e-global-color-primary);
+  --hotspot-box-color: var(--e-global-color-secondary);
+  --tooltip-color: var(--e-global-color-secondary);
+  .e-hotspot__label {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .e-hotspot__tooltip {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+}
+.elementor-widget-price-list {
+  .elementor-price-list-header {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-price-list-price {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-price-list-description {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-price-list-separator {
+    border-bottom-color: var(--e-global-color-secondary);
+  }
+}
+.elementor-widget-price-table {
+  --e-price-table-header-background-color: var(--e-global-color-secondary);
+  .elementor-price-table__heading {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-price-table__subheading {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .elementor-price-table {
+    .elementor-price-table__price {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .elementor-price-table__original-price {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-price-table__period {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .elementor-price-table__features-list {
+    --e-price-table-features-list-color: var(--e-global-color-text);
+    li {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+      &:before {
+        border-top-color: var(--e-global-color-text);
+      }
+    }
+  }
+  .elementor-price-table__button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+    background-color: var(--e-global-color-accent);
+  }
+  .elementor-price-table__additional_info {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-price-table__ribbon-inner {
+    background-color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-flip-box {
+  .elementor-flip-box__front {
+    .elementor-flip-box__layer__title {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    .elementor-flip-box__layer__description {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-flip-box__back {
+    .elementor-flip-box__layer__title {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    .elementor-flip-box__layer__description {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  .elementor-flip-box__button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-call-to-action {
+  .elementor-cta__title {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-cta__description {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-cta__button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+  .elementor-ribbon-inner {
+    background-color: var(--e-global-color-accent);
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-media-carousel {
+  .elementor-carousel-image-overlay {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-testimonial-carousel {
+  .elementor-testimonial__text {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-testimonial__name {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-testimonial__title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+}
+.elementor-widget-reviews {
+  .elementor-testimonial__header {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-testimonial__name {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-testimonial__text {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-table-of-contents {
+  --header-color: var(--e-global-color-secondary);
+  --item-text-color: var(--e-global-color-text);
+  --item-text-hover-color: var(--e-global-color-accent);
+  --marker-color: var(--e-global-color-text);
+  .elementor-toc__header {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-toc__header-title {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-toc__list-item {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-countdown {
+  .elementor-countdown-item {
+    background-color: var(--e-global-color-primary);
+  }
+  .elementor-countdown-digits {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-countdown-label {
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  .elementor-countdown-expire--message {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-search-form {
+  input[type='search'].elementor-search-form__input {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-search-form__input {
+    color: var(--e-global-color-text);
+    fill: var(--e-global-color-text);
+  }
+  .elementor-search-form__icon {
+    color: var(--e-global-color-text);
+    fill: var(--e-global-color-text);
+  }
+  .elementor-lightbox {
+    .dialog-lightbox-close-button {
+      color: var(--e-global-color-text);
+      fill: var(--e-global-color-text);
+      &:hover {
+        color: var(--e-global-color-text);
+        fill: var(--e-global-color-text);
+      }
+    }
+  }
+  .elementor-search-form__submit {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+    background-color: var(--e-global-color-secondary);
+  }
+}
+.elementor-widget-search-form.elementor-search-form--skin-full_screen {
+  input[type='search'].elementor-search-form__input {
+    color: var(--e-global-color-text);
+    fill: var(--e-global-color-text);
+  }
+}
+.elementor-widget-author-box {
+  .elementor-author-box__name {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-author-box__bio {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-author-box__button {
+    color: var(--e-global-color-secondary);
+    border-color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+    &:hover {
+      border-color: var(--e-global-color-secondary);
+      color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-post-navigation {
+  span.post-navigation__prev--label {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  span.post-navigation__next--label {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  span.post-navigation__prev--title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+  span.post-navigation__next--title {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-secondary-font-weight);
+  }
+}
+.elementor-widget-post-info {
+  .elementor-icon-list-item {
+    &:not(:last-child) {
+      &:after {
+        border-color: var(--e-global-color-text);
+      }
+    }
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+  .elementor-icon-list-icon {
+    i {
+      color: var(--e-global-color-primary);
+    }
+    svg {
+      fill: var(--e-global-color-primary);
+    }
+  }
+  .elementor-icon-list-text {
+    color: var(--e-global-color-secondary);
+    a {
+      color: var(--e-global-color-secondary);
+    }
+  }
+}
+.elementor-widget-sitemap {
+  .elementor-sitemap-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-sitemap-item {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+    color: var(--e-global-color-text);
+    a {
+      color: var(--e-global-color-text);
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+  span.elementor-sitemap-list {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-breadcrumbs {
+  font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-secondary-font-weight);
+}
+.elementor-widget-blockquote {
+  .elementor-blockquote__content {
+    color: var(--e-global-color-text);
+  }
+  .elementor-blockquote__author {
+    color: var(--e-global-color-secondary);
+  }
+}
+.elementor-widget-wc-archive-products.elementor-wc-products {
+  ul.products {
+    li.product {
+      .woocommerce-loop-product__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .woocommerce-loop-category__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .price {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+        ins {
+          color: var(--e-global-color-primary);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+        del {
+          color: var(--e-global-color-primary);
+          font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-primary-font-weight);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+      }
+      .button {
+        font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-accent-font-weight);
+      }
+    }
+  }
+  .added_to_cart {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-wc-archive-products {
+  --products-title-color: var(--e-global-color-primary);
+  .elementor-products-nothing-found {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-wc-archive-products.products-heading-show {
+  .related-products {
+    > h2 {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .upsells {
+    > h2 {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .cross-sells {
+    > h2 {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+}
+.elementor-widget-woocommerce-archive-products.elementor-wc-products {
+  ul.products {
+    li.product {
+      .woocommerce-loop-product__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .woocommerce-loop-category__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .price {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+        ins {
+          color: var(--e-global-color-primary);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+        del {
+          color: var(--e-global-color-primary);
+          font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-primary-font-weight);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+      }
+      .button {
+        font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-accent-font-weight);
+      }
+    }
+  }
+  .added_to_cart {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-woocommerce-archive-products {
+  --products-title-color: var(--e-global-color-primary);
+  .elementor-products-nothing-found {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-woocommerce-archive-products.products-heading-show {
+  .related-products {
+    > h2 {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .upsells {
+    > h2 {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .cross-sells {
+    > h2 {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+}
+.elementor-widget-woocommerce-products.elementor-wc-products {
+  ul.products {
+    li.product {
+      .woocommerce-loop-product__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .woocommerce-loop-category__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .price {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+        ins {
+          color: var(--e-global-color-primary);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+        del {
+          color: var(--e-global-color-primary);
+          font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-primary-font-weight);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+      }
+      .button {
+        font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-accent-font-weight);
+      }
+    }
+  }
+  .added_to_cart {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-woocommerce-products {
+  --products-title-color: var(--e-global-color-primary);
+}
+.elementor-widget-woocommerce-products.products-heading-show {
+  .related-products {
+    > h2 {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .upsells {
+    > h2 {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .cross-sells {
+    > h2 {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+}
+.elementor-widget-wc-products.elementor-wc-products {
+  ul.products {
+    li.product {
+      .woocommerce-loop-product__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .woocommerce-loop-category__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .price {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+        ins {
+          color: var(--e-global-color-primary);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+        del {
+          color: var(--e-global-color-primary);
+          font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-primary-font-weight);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+      }
+      .button {
+        font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-accent-font-weight);
+      }
+    }
+  }
+  .added_to_cart {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-wc-add-to-cart {
+  .elementor-button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+    background-color: var(--e-global-color-accent);
+  }
+}
+.elementor-widget-wc-categories {
+  .woocommerce {
+    .woocommerce-loop-category__title {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .woocommerce-loop-category__title {
+    .count {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+}
+.elementor-widget-woocommerce-menu-cart {
+  .elementor-menu-cart__toggle {
+    .elementor-button {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .elementor-menu-cart__product-name {
+    a {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .elementor-menu-cart__product-price {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+  .elementor-menu-cart__footer-buttons {
+    .elementor-button {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    a.elementor-button--view-cart {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+    a.elementor-button--checkout {
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .woocommerce-mini-cart__empty-message {
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.elementor-widget-woocommerce-product-title {
+  .elementor-heading-title {
+    color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+  }
+}
+.woocommerce {
+  .elementor-widget-woocommerce-product-price {
+    .price {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+  .elementor-widget-woocommerce-product-related.elementor-wc-products {
+    .products {
+      > h2 {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+    }
+  }
+}
+.elementor-widget-woocommerce-product-meta {
+  .product_meta {
+    .detail-container {
+      &:not(:last-child) {
+        &:after {
+          border-color: var(--e-global-color-text);
+        }
+      }
+    }
+  }
+}
+.elementor-widget-woocommerce-product-content {
+  color: var(--e-global-color-text);
+  font-family: var(--e-global-typography-text-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-text-font-weight);
+}
+.elementor-widget-woocommerce-product-related.elementor-wc-products {
+  ul.products {
+    li.product {
+      .woocommerce-loop-product__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .woocommerce-loop-category__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .price {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+        ins {
+          color: var(--e-global-color-primary);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+        del {
+          color: var(--e-global-color-primary);
+          font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-primary-font-weight);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+      }
+      .button {
+        font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-accent-font-weight);
+      }
+    }
+  }
+  .added_to_cart {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+}
+.elementor-widget-woocommerce-product-upsell.elementor-wc-products {
+  ul.products {
+    li.product {
+      .woocommerce-loop-product__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .woocommerce-loop-category__title {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+      }
+      .price {
+        color: var(--e-global-color-primary);
+        font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-primary-font-weight);
+        ins {
+          color: var(--e-global-color-primary);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+        del {
+          color: var(--e-global-color-primary);
+          font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-primary-font-weight);
+          .amount {
+            color: var(--e-global-color-primary);
+          }
+        }
+      }
+      .button {
+        font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+        font-weight: var(--e-global-typography-accent-font-weight);
+      }
+    }
+  }
+  .added_to_cart {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+  }
+  .products {
+    > h2 {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-primary-font-weight);
+    }
+  }
+}
+.elementor-widget-woocommerce-checkout-page {
+  .product-name {
+    .variation {
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+    }
+  }
+}
+.elementor-widget-lottie {
+  --caption-color: var(--e-global-color-text);
+  .e-lottie__caption {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-video-playlist {
+  .e-tabs-header {
+    .e-tabs-title {
+      color: var(--e-global-color-text);
+    }
+    .e-tabs-videos-count {
+      color: var(--e-global-color-text);
+    }
+    .e-tabs-header-right-side {
+      i {
+        color: var(--e-global-color-text);
+      }
+      svg {
+        fill: var(--e-global-color-text);
+      }
+    }
+  }
+  .e-tab-title {
+    .e-tab-title-text {
+      color: var(--e-global-color-text);
+      font-family: var(--e-global-typography-text-font-family), Sans-serif;
+      font-weight: var(--e-global-typography-text-font-weight);
+      a {
+        color: var(--e-global-color-text);
+      }
+    }
+    .e-tab-duration {
+      color: var(--e-global-color-text);
+    }
+  }
+  .e-tabs-inner-tabs {
+    .e-inner-tabs-wrapper {
+      .e-inner-tab-title {
+        a {
+          font-family: var(--e-global-typography-text-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-text-font-weight);
+        }
+      }
+    }
+    .e-inner-tabs-content-wrapper {
+      .e-inner-tab-content {
+        .e-inner-tab-text {
+          font-family: var(--e-global-typography-text-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-text-font-weight);
+        }
+        button {
+          color: var(--e-global-color-text);
+          font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+          font-weight: var(--e-global-typography-accent-font-weight);
+          &:hover {
+            color: var(--e-global-color-text);
+          }
+        }
+      }
+    }
+  }
+}
+
+.elementor-widget-paypal-button {
+  .elementor-button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+    background-color: var(--e-global-color-accent);
+  }
+  .elementor-message {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-stripe-button {
+  .elementor-button {
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-accent-font-weight);
+    background-color: var(--e-global-color-accent);
+  }
+  .elementor-message {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}
+.elementor-widget-progress-tracker {
+  .current-progress-percentage {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-text-font-weight);
+  }
+}

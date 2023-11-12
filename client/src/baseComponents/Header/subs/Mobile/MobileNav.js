@@ -16,7 +16,7 @@ import AllPageClickable from '@/baseComponents/AllPageClickable';
 
 import styles from '../../Header.module.scss';
 
-const MobileNav = ({ changesThePage = true }) => {
+const MobileNav = ({ changesThePage = true, isAppPage }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const mobileNavIsActive = useSelector((state) => state.mobileNavIsActive);
@@ -24,6 +24,7 @@ const MobileNav = ({ changesThePage = true }) => {
   const activeSubMenu = useSelector((state) => state.activeSubMenu);
   const homePageElements = useSelector((state) => state.homePageElements);
   const profile = useSelector((state) => state.profile);
+  const curUserGroup = useSelector((state) => state.curUserGroup);
 
   const [hoveredSubMenu, setHoveredSubMenu] = useState([]);
 
@@ -37,16 +38,15 @@ const MobileNav = ({ changesThePage = true }) => {
         {MENU_ITEMS?.map((item, idx) => {
           if (
             item?.showInMobile &&
-            (!item?.allowedGroups?.length ||
-              (item?.allowedGroups?.length &&
-                item?.allowedGroups?.some((group) => profile?.user?.groups?.includes(group))))
+            ((!item?.allowedGroups?.length && !isAppPage) ||
+              item?.allowedGroups?.includes(curUserGroup))
           ) {
             return (
               <MobNavItem
                 key={idx}
                 isActive={activeMenu === item.identifier}
                 className={cx('p1 mouse-hand textWhite boxShaodwType1', styles.mobileNavItem)}
-                activeClassName={cx('textThemeFive')}
+                activeClassName={cx('navItemIsActive')}
                 onClick={() => {
                   if (!item?.hasSubMenu) {
                     dispatch(hideMobileNav());
@@ -79,8 +79,8 @@ const MobileNav = ({ changesThePage = true }) => {
                     className="px4">
                     {SUB_MENU_ITEMS[item.identifier]?.map((subItem, subIdx) => (
                       <MobSubNavItem
-                        className="mt2 textWhite"
-                        activeClassName={cx('textThemeFive')}
+                        className="mt2 textWhite fs-px-14"
+                        activeClassName={cx('fs-px-20')}
                         isActive={
                           activeMenu === item.identifier && activeSubMenu === subItem.identifier
                         }
@@ -91,7 +91,7 @@ const MobileNav = ({ changesThePage = true }) => {
                           dispatch(setActiveSubMenu(subItem.identifier));
                           setHoveredSubMenu([]);
                           if (changesThePage) {
-                            router.push(item?.to);
+                            router.push(subItem?.to);
                           } else {
                             homePageElements[subItem.identifier]?.scrollIntoView(
                               AUTO_SCROLL_BEHAVIOR

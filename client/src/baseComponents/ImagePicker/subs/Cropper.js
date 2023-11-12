@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import ReactCrop from 'react-image-crop';
-import { Div, Image as BaseImage } from 'basedesign-iswad';
+import { Div } from 'basedesign-iswad';
 
+import AppImage from '@/baseComponents/AppImage';
 import Button from '@/baseComponents/Button';
 import Close from '@/baseComponents/Close';
+
+import { COLORS } from '@/constants/vars';
 
 import 'react-image-crop/dist/ReactCrop.css';
 
@@ -13,12 +16,12 @@ import { CANVAS_ID, IMAGE_CROPPER_ID, CROPPER_ID } from '../constants';
 
 import styles from '../ImagePicker.module.scss';
 
-const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) => {
+const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo, mainMaxWidth }) => {
   const aspect = cropInfo?.aspect || 1;
   const minWidth = cropInfo?.minWidth || 0;
   const minHeight = cropInfo?.minHeight || 0;
-  const maxWidth = cropInfo?.maxWidth || 500;
-  const maxHeight = cropInfo?.maxHeight || 500;
+  const maxWidth = cropInfo?.maxWidth || 200;
+  const maxHeight = cropInfo?.maxHeight || 200;
   const useScaledSize = cropInfo?.useScaledSize;
 
   const [crop, setCrop] = useState();
@@ -70,14 +73,22 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
       <Div
         type="flex"
         direction="vertical"
-        hAlign="center"
-        vAlign="center"
+        hAlign="start"
+        vAlign="start"
         className={cx(
-          'pos-fix pos-fix--center bgWhite z-100000 br-rad-px-10',
+          'pos-fix pos-fix--center bgWhite z-100000 br-rad-px-10 of-x-hidden of-y-hidden pb2',
           styles.cropperContainer
         )}
         id={CROPPER_ID}>
-        <Close barHeight="30px" onClick={() => setShowCropper(false)} />
+        <Div className="w-per-100">
+          <Close
+            barHeight="40px"
+            onClick={() => setShowCropper(false)}
+            barColor={COLORS.themeOne}
+            iconScale={1.3}
+            type={1}
+          />
+        </Div>
         {showSubmit && (
           <ReactCrop
             aspect={aspect}
@@ -91,19 +102,32 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
             }}
             className={styles.reactCropper}>
             <Div type="flex" hAlign="center" vAlign="center" className={cx(styles.cropper)}>
-              <BaseImage src={src} id={IMAGE_CROPPER_ID} />
+              <AppImage
+                src={src}
+                id={IMAGE_CROPPER_ID}
+                width={mainMaxWidth || 500}
+                height={mainMaxWidth || 500}
+                objectFit="cover"
+              />
             </Div>
           </ReactCrop>
         )}
         {!showSubmit && (
           <Div type="flex" hAlign="center" vAlign="center" className={cx(styles.cropper)}>
-            <BaseImage src={src} id={IMAGE_CROPPER_ID} />
+            <AppImage
+              src={src}
+              id={IMAGE_CROPPER_ID}
+              width={mainMaxWidth || 500}
+              height={mainMaxWidth || 500}
+              objectFit="cover"
+            />
           </Div>
         )}
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">
           {!showSubmit && (
             <Button
-              className={cx('mb2')}
+              btnType={2}
+              className={cx('')}
               onClick={(e) => {
                 e.preventDefault();
                 setCrop({
@@ -119,7 +143,11 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo }) =
             </Button>
           )}
           {showSubmit && (
-            <Button isDisabled={!crop?.width} className={cx('mb2')} onClick={cropHandler}>
+            <Button
+              btnType={2}
+              isDisabled={!crop?.width}
+              className={cx('mb2')}
+              onClick={cropHandler}>
               Submit
             </Button>
           )}

@@ -9,7 +9,13 @@ import MobileHeader from './subs/Mobile/MobileHeader';
 import DesktopHeader from './subs/Desktop/DesktopHeader';
 import styles from './Header.module.scss';
 
-const Header = ({ hasStickyHeader, changesThePage = true }) => {
+const Header = ({
+  hasStickyHeader,
+  changesThePage = true,
+  hasWavyShape,
+  headerColorType,
+  isAppPage
+}) => {
   const scrollPosition = useSelector((state) => state.scrollPosition);
 
   return (
@@ -31,19 +37,26 @@ const Header = ({ hasStickyHeader, changesThePage = true }) => {
       <Div
         type="flex"
         distributedBetween
-        vAlign="center"
+        vAlign={hasWavyShape ? 'start' : 'center'}
         className={cx(
-          'w-per-100 bgThemeOne',
+          'w-per-100',
           hasStickyHeader && 'pos-fix pos-fix--lt headerZIndex',
-          styles.headerContainer
+          !isAppPage ? styles.headerContainer : 'hasHeaderHeight pl2 pr2',
+          hasWavyShape && styles.headerContainerHasWavyShape,
+          !hasWavyShape && headerColorType === 'light' && 'bgThemeOne',
+          !hasWavyShape && headerColorType === 'dark' && 'bgThemeFour'
         )}>
         <Div
           type="flex"
           vAlign="center"
           distributedBetween
           showIn={smDesignSize}
-          className="w-per-100 px2">
-          <MobileHeader changesThePage={changesThePage} />
+          className="w-per-100">
+          <MobileHeader
+            changesThePage={changesThePage}
+            headerColorType={headerColorType}
+            isAppPage={isAppPage}
+          />
         </Div>
 
         <Div
@@ -51,8 +64,12 @@ const Header = ({ hasStickyHeader, changesThePage = true }) => {
           vAlign="center"
           distributedBetween
           showIn={lgDesignSize}
-          className="w-per-100 maxContainerWidth ml-auto mr-auto px2">
-          <DesktopHeader changesThePage={changesThePage} />
+          className={cx(
+            'w-per-100 ml-auto mr-auto',
+            isAppPage ? 'maxContainerWidthForApp' : 'maxContainerWidth',
+            hasWavyShape && 'height-px-60 pt4'
+          )}>
+          <DesktopHeader changesThePage={changesThePage} isAppPage={isAppPage} />
         </Div>
       </Div>
     </>

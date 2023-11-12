@@ -54,7 +54,7 @@ const AllowedGroupRoute = ({ allowedGroup, children }) => {
         }, 1000);
       }
       if (time === 0) {
-        Router.push('/');
+        Router.push('/test-pages/login');
       }
     }
   }, [isChecked, isAllowedUser, time]);

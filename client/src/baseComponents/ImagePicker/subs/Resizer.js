@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
-import { Div, Image as BaseImage } from 'basedesign-iswad';
+import { Div } from 'basedesign-iswad';
+
+import AppImage from '@/baseComponents/AppImage';
 
 import { resizeImage, getResizedImg } from '../utils';
 import { RESIZE_IMAGE_CANVAS_ID, IMAGE_RESIZER_ID, RESIZER_ID } from '../constants';
@@ -57,7 +59,7 @@ const Resizer = ({ src, setSrc, setFile, fileName, maxWidth, setShowResizer }) =
         id={RESIZER_ID}>
         <Div className={styles.reactCropper}>
           <Div type="flex" hAlign="center" vAlign="center" className={cx(styles.cropper)}>
-            <BaseImage src={src} id={IMAGE_RESIZER_ID} />
+            <AppImage src={src} id={IMAGE_RESIZER_ID} width={maxWidth} height={maxWidth} />
           </Div>
         </Div>
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">

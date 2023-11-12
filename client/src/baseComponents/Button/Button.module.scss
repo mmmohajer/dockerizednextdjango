@@ -6,17 +6,24 @@
   outline: none;
   border: solid 1px #ccc;
   color: white;
+
+  &:hover {
+    background-color: #ccc;
+    outline: none;
+    border: solid 1px #ccc;
+    color: white;
+  }
 }
 
 .btn1 {
   outline: none;
   border: solid 1px;
   border-radius: 4px;
-  box-shadow: $boxShadow1;
   padding: 10px 1rem;
   background-color: $themeOne;
-  border-color: $primaryColor;
+  border-color: $themeOne;
   color: white;
+  text-transform: uppercase;
 
   &:hover {
     background-color: $themeFour;
@@ -27,30 +34,100 @@
 .btn2 {
   outline: none;
   border: solid 1px;
-  border-radius: 0;
   padding: 10px 1rem;
-  background-color: $themeOne;
-  border-color: $themeOne;
+  background-color: $themeTwo;
+  border-color: $themeTwo;
+  border-radius: 4px;
+  text-transform: uppercase;
+
+  color: white;
 
   &:hover {
-    background-color: $fadedColor;
-    border-color: $fadedColor;
+    background-color: #dd7d1d;
+    border-color: #dd7d1d;
   }
 }
 
 .btn3 {
   outline: none;
-  border: none;
-  border-radius: 0;
+  border: solid 1px $themeTwo;
+  border-radius: 4px;
+  padding: 10px 1rem;
+  box-shadow: $boxShadow1;
+  background-color: white;
+  color: $themeTwo;
+
+  &:hover {
+    background-color: #dd7d1d;
+    border-color: #dd7d1d;
+  }
+}
+
+.btn4 {
+  outline: none;
+  border: solid 1px;
   padding: 10px 1rem;
   background-color: $themeTwo;
   border-color: $themeTwo;
-  box-shadow: $boxShadow1;
-  transition: all 0.3s ease-in-out;
+  border-radius: 40px;
+  color: white;
 
   &:hover {
-    background-color: $successColor;
-    border-color: $successColor;
-    transform: scale(1.05);
+    background-color: #dd7d1d;
+    border-color: #dd7d1d;
+  }
+}
+
+.btn5 {
+  outline: none;
+  border: solid 1px;
+  padding: 10px 1rem;
+  background-color: transparent;
+  border-color: $themeOne;
+  // border-radius: 40px;
+  color: $themeOne;
+  font-weight: bold;
+
+  &:hover {
+    background-color: white;
+    border-color: $themeOne;
+    color: $themeOne;
+  }
+  &:focus {
+    background-color: white;
+    border-color: $themeOne;
+    color: $themeOne;
+    outline: none;
+  }
+}
+
+.btn6 {
+  outline: none;
+  border: solid 1px;
+  padding: 10px 1rem;
+  background-color: $themeFive;
+  border-color: $themeFive;
+  border-radius: 40px;
+  color: $themeTwo;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #dd7d1d;
+    border-color: #dd7d1d;
+  }
+}
+
+.btn7 {
+  outline: none;
+  border: solid 1px;
+  padding: 10px 1rem;
+  background-color: silver;
+  border-color: silver;
+  border-radius: 5px;
+  color: white;
+
+  &:hover {
+    background-color: rgb(156, 156, 156);
+    border-color: rgb(156, 156, 156);
   }
 }

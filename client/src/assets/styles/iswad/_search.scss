@@ -1,18 +1,19 @@
 .iswad_search {
   &_input {
-    border-radius: 10px;
-    border: transparent;
-    width: 0;
-    transition: all 0.4s ease-in-out;
+    border-radius: 10px !important;
+    border: transparent !important;
+    width: 0px !important;
+    transition: all 0.4s ease-in-out !important;
+    padding: 0 !important;
 
     &:focus {
-      outline: none;
-      background-color: transparent;
+      outline: none !important;
+      background-color: transparent !important;
     }
 
     &_active {
-      width: 120px;
-      padding: 4px 4px;
+      width: 120px !important;
+      padding: 0px 4px !important;
     }
   }
 }

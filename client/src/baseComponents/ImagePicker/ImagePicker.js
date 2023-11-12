@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import cx from 'classnames';
 import { Div } from 'basedesign-iswad';
+
+import { APP_DOMAIN_FOR_SERVER_SIDE_PROPS } from 'config';
 
 import DefaultPicker from './subs/ImagePickers/DefaultPicker';
 import Cropper from './subs/Cropper';
@@ -19,6 +21,10 @@ const ImagePicker = ({
   errorMessage,
   errorHandler,
   type = 'default',
+  initialSrc = '',
+  setInitialSrc,
+  initialSrcComesFromOurServer = false,
+  previewer = 'default',
   className
 }) => {
   const inputFileField = useRef();
@@ -27,6 +33,16 @@ const ImagePicker = ({
   const [fileName, setFileName] = useState('');
   const [showCropper, setShowCropper] = useState(false);
   const [showResizer, setShowResizer] = useState(false);
+
+  useEffect(() => {
+    if (initialSrc) {
+      if (initialSrcComesFromOurServer) {
+        setSrc(`${APP_DOMAIN_FOR_SERVER_SIDE_PROPS}${initialSrc}`);
+      } else {
+        setSrc(initialSrc);
+      }
+    }
+  }, [initialSrc]);
 
   const fileChangeHandler = (e) => {
     if (e.target?.files?.[0]) {
@@ -62,6 +78,7 @@ const ImagePicker = ({
           fileName={fileName}
           setShowCropper={setShowCropper}
           cropInfo={cropInfo}
+          mainMaxWidth={maxWidth}
         />
       ) : (
         ''
@@ -79,6 +96,8 @@ const ImagePicker = ({
           errorMessage={errorMessage}
           errorHandler={errorHandler}
           className={cx(className)}
+          setInitialSrc={setInitialSrc}
+          previewer={previewer}
         />
       )}
     </>

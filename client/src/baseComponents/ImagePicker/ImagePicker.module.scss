@@ -35,23 +35,23 @@
 }
 
 .previewContainer {
-  border: solid 1px $themeThree;
+  border: solid 1px $themeOne;
   border-radius: 5px;
 }
 
 .cropperContainer {
   box-shadow: $boxShadow1;
-  position: fixed;
-  overflow-y: auto;
   @extend %cropper;
 }
 
 .reactCropper {
   @extend %cropper;
+  position: relative !important;
 }
 
 .cropper {
   @extend %cropper;
+  position: relative !important;
 }
 
 .canvasContainer {

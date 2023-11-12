@@ -1,6 +1,6 @@
 %fontclass {
   font-family: $fontFamily;
-  color: $themeOne;
+  color: black;
   font-size: $fontSize;
 }
 
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  background-color: $themeTwo;
+  background-color: $appGrayBrightColor;
 
   @extend %fontclass;
   overflow-x: hidden;
@@ -74,6 +74,13 @@ ul {
   margin-right: auto;
 }
 
+.maxContainerWidthForApp {
+  width: 100%;
+  max-width: $maxContainerWidthForApp;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .captcha {
   font-family: 'Rubik Maze', cursive;
   letter-spacing: 0.5rem;
@@ -98,9 +105,18 @@ ul {
 }
 
 textarea,
-input[type='text'],
+.inputText,
 button {
   @extend %fontclass;
+}
+
+textarea,
+.inputText {
+  font-size: 12px;
+}
+
+.inputwithLessPadding {
+  padding: 0 4px !important;
 }
 
 .height-per-100 {
@@ -113,4 +129,151 @@ button {
 
 .text-title {
   text-transform: capitalize;
+}
+
+.hasHeaderHeight {
+  height: $HeaderHeight;
+}
+
+.hasAppHeaderHeight {
+  height: $appHeaderHeight;
+}
+
+.height-px-5 {
+  height: 5px;
+}
+
+.rotate {
+  &90 {
+    transform: rotate(90deg);
+  }
+
+  &180 {
+    transform: rotate(180deg);
+  }
+
+  &270 {
+    transform: rotate(270deg);
+  }
+}
+
+.font-type2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ç {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+}
+
+.sectionSpacing {
+  &Top {
+    margin-top: 4rem !important;
+
+    @include atLarge {
+      margin-top: 8rem !important;
+    }
+  }
+
+  &Bottom {
+    margin-top: 4rem !important;
+
+    @include atLarge {
+      margin-top: 8rem !important;
+    }
+  }
+}
+
+.fs-px-42 {
+  font-size: 24px;
+
+  @include atMedium {
+    font-size: 42px;
+  }
+}
+
+.paddingInSection {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.navItemIsActive {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+.flex--1 {
+  flex: 1;
+}
+
+.go-under {
+  z-index: -1;
+}
+
+.highlitedText {
+  font-size: 20px;
+
+  @include atMedium {
+    font-size: 24px;
+  }
+}
+
+.highlitedTextBolder {
+  font-weight: bold;
+  font-size: 22px;
+
+  @include atMedium {
+    font-size: 28px;
+  }
+}
+
+.centralizedInSmDesign {
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include atMedium {
+    text-align: left;
+    justify-content: start;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.register {
+  &Photo {
+    width: 350px;
+
+    @include atMedium {
+      width: 500px;
+    }
+  }
+
+  &Form {
+    width: 350px;
+
+    @include atMedium {
+      width: 500px;
+    }
+  }
+}
+
+.max-w-px-700 {
+  max-width: 700px;
+}
+
+.w-per-one-third {
+  width: 33.33%;
+}
+
+// .appSectionTitle {
+//   margin-bottom: 1rem;
+// }
+
+.hasMarginRightOnlyInDesktop {
+  margin-right: 0;
+  @include atMedium {
+    margin-right: 1rem;
+  }
 }

@@ -1,0 +1,55 @@
+.elementor-kit-89867 {
+  --e-global-color-primary: #202020;
+  --e-global-color-secondary: #b7b4b4;
+  --e-global-color-text: #707070;
+  --e-global-color-accent: #0fafa3;
+  --e-global-color-34e95787: #805185;
+  --e-global-color-10f399e0: #7a7a7a;
+  --e-global-color-75da6480: #feba13;
+  --e-global-color-7ef3b61d: #186496;
+  --e-global-color-3097d598: #85a43d;
+  --e-global-color-37957127: #c24c4a;
+  --e-global-color-5c77a7d4: #f5891f;
+  --e-global-color-657c397: #000;
+  --e-global-color-52af2de2: #fff;
+  --e-global-color-72846967: #f7f7f7;
+  --e-global-color-4666813: #707070;
+  --e-global-typography-primary-font-family: 'Poppins';
+  --e-global-typography-primary-font-weight: 700;
+  --e-global-typography-secondary-font-family: 'Poppins';
+  --e-global-typography-secondary-font-weight: 500;
+  --e-global-typography-text-font-family: 'Poppins';
+  --e-global-typography-text-font-weight: 500;
+  --e-global-typography-accent-font-family: 'Poppins';
+  --e-global-typography-accent-font-weight: 500;
+  font-family: 'Poppins', Sans-serif;
+  font-weight: normal;
+}
+.elementor-section.elementor-section-boxed > .elementor-container {
+  max-width: 1140px;
+}
+.e-container {
+  --container-max-width: 1140px;
+}
+h1.entry-title {
+  display: var(--page-title-display);
+}
+.elementor-kit-89867 e-page-transition {
+  background-color: #ffbc7d;
+}
+@media (max-width: 1024px) {
+  .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 1024px;
+  }
+  .e-container {
+    --container-max-width: 1024px;
+  }
+}
+@media (max-width: 767px) {
+  .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 767px;
+  }
+  .e-container {
+    --container-max-width: 767px;
+  }
+}

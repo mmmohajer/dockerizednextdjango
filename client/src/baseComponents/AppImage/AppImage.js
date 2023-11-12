@@ -17,7 +17,9 @@ const AppImage = ({ type = 1, ...props }) => {
 
   return (
     <>
-      <Image {...props} onLoad={() => setLoading(false)} />
+      <Div type="flex" className="pos-rel">
+        <Image {...props} onLoad={() => setLoading(false)} />
+      </Div>
       {loading && (
         <Div
           type="flex"

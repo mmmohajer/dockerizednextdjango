@@ -267,3 +267,4 @@ backup_db.sh
 use_backup_db.sh
 use_backup_db_from_local.sh
 backup_db_from_local.sh
+reset_docker.sh

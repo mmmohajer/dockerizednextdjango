@@ -2,11 +2,12 @@ from django.shortcuts import get_object_or_404, render
 from django.conf import settings
 from rest_framework import viewsets, mixins, permissions, status, views, response, decorators, response, pagination
 from django.contrib.auth import get_user_model
+import os
 
 from core.permissions import *
 from core.models import *
 from core.serializers import *
-from core.utils import isAdmin, isSubscriber
+from core.utils import isAdmin, isSubscriber, code_generator, find_post_fix_of_a_file
 from core.pagination import PaginationType1
 
 User = get_user_model()
@@ -41,9 +42,47 @@ class ProfileViewSet(
             serializer = ProfileSerializer(profile)
             return response.Response(status=status.HTTP_200_OK, data=serializer.data)
         elif request.method == "PUT":
-            serializer = ProfileSerializer(profile, data=request.data)
-            serializer.is_valid(raise_exception=True)
-            serializer.save()
+            profile = ProfileModel.objects.filter(
+                user=request.user).select_related("user")
+            if profile.first():
+                cur_user = profile.first().user
+                first_name = request.data.get("first_name", "")
+                last_name = request.data.get("last_name", "")
+                if first_name:
+                    cur_user.first_name = first_name
+                if last_name:
+                    cur_user.last_name = last_name
+                cur_user.save()
+                updatable_fields = [
+                    "city", "address", "province", "postal_code", "phone_number"]
+                update_kwargs = {}
+                for attr in request.data:
+                    if (attr in updatable_fields):
+                        if request.data.get(attr, ""):
+                            update_kwargs[attr] = request.data.get(attr, "")
+                profile.update(**update_kwargs)
+                if request.data.get("remove_profile_photo", 1):
+                    if int(request.data.get("remove_profile_photo")) == 1:
+                        photo_path = ""
+                        if profile.first().photo:
+                            photo_path = profile.first().photo.path
+                        if photo_path:
+                            if os.path.exists(photo_path):
+                                os.remove(photo_path)
+                        profile.update(photo=None)
+                if request.data.get("photo", ""):
+                    photo_path = ""
+                    if profile.first().photo:
+                        photo_path = profile.first().photo.path
+                    if photo_path:
+                        if os.path.exists(photo_path):
+                            os.remove(photo_path)
+                    profile.update(photo=None)
+                    postfix, sent_file_name = find_post_fix_of_a_file(
+                        request.data.get("photo"))
+                    file_name = f"{sent_file_name}-{code_generator(16)}.{postfix}"
+                    profile.first().photo.save(file_name, request.data.get("photo"))
+            serializer = ProfileSerializer(profile.first())
             return response.Response(status=status.HTTP_200_OK, data=serializer.data)
         elif request.method == "DELETE":
             user = profile.user

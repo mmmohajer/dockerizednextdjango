@@ -22,6 +22,8 @@ import { websocketApiRoute } from '@/utils/helpers';
 import { chatSocketEventHandler } from '@/utils/chatSocket';
 import { setScrollPosition } from '@/reducers/general/scrollPosition';
 import { setUserIPInfo } from '@/reducers/general/userIPInfo';
+import { setCurUserGroup } from '@/reducers/general/curUserGroup';
+import { USER_GROUPS } from '@/constants/userGroups';
 
 import Loading from '@/baseComponents/Loading';
 import Alert from '@/baseComponents/Alert';
@@ -233,6 +235,12 @@ const BaseTemplate = ({ children }) => {
       getProfile(dispatch, profileData);
     }
   }, [profileData]);
+
+  useEffect(() => {
+    if (profile?.user?.groups?.includes(USER_GROUPS.APP_ADMIN)) {
+      dispatch(setCurUserGroup(USER_GROUPS.APP_ADMIN));
+    }
+  }, [profile]);
 
   return (
     <>

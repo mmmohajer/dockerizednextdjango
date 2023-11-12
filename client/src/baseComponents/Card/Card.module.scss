@@ -1,2 +1,418 @@
 @import '@/styles/base/_variables';
 @import '@/styles/base/mixins';
+
+.fulfilledNeed {
+  &TextOnImgContainer {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &HeartContainer {
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.needBusinessEmployee {
+  &HeartContainer {
+    top: 200px;
+    left: 50%;
+    transform: translateX((-50%));
+  }
+}
+
+.needBusinessAdmin {
+  &RegisteredCharity {
+    &Container {
+      top: 8px;
+      right: 8px;
+    }
+
+    &CheckedContainer {
+      top: 0px;
+      right: 0px;
+    }
+  }
+
+  &YourVoteContainer {
+    left: 1rem;
+    top: calc(250px - 3rem);
+    background: rgba($color: $themeOne, $alpha: 0.8);
+  }
+}
+
+.needProfile {
+  &RegisteredCharity {
+    &Container {
+      top: 8px;
+      right: 8px;
+    }
+
+    &CheckedContainer {
+      top: 0px;
+      right: 0px;
+    }
+  }
+
+  &YourVoteContainer {
+    left: 1rem;
+    top: calc(250px - 3rem);
+    background: rgba($color: $themeOne, $alpha: 0.8);
+  }
+}
+
+.testimonial {
+  &Container {
+    flex-direction: column;
+    width: 300px;
+
+    @include atMedium {
+      flex-direction: row;
+      width: 500px;
+    }
+  }
+
+  &PersonInfo {
+    flex-direction: column;
+    align-items: center;
+
+    @include atMedium {
+      flex-direction: row;
+    }
+  }
+
+  &PhotoContainer {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+    @include atMedium {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &NameContainer {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1rem;
+
+    @include atMedium {
+      font-size: 24px;
+      text-align: left;
+      margin-top: 0;
+    }
+  }
+
+  &CareerContainer {
+    text-align: center;
+    height: 60px;
+
+    @include atMedium {
+      text-align: left;
+      height: auto;
+    }
+  }
+
+  &Letter {
+    margin-left: 0;
+
+    @include atMedium {
+      margin-left: 5rem;
+    }
+  }
+}
+
+.imapctStory {
+  &LetterBackground {
+    background: linear-gradient(
+      90deg,
+      rgba($color: #fbbe81, $alpha: 1),
+      rgba($color: #ffe5d0, $alpha: 1)
+    );
+  }
+  &Container {
+    border-color: $themeSix;
+    width: 350px;
+    font-size: 12px;
+
+    @include atMedium {
+      width: 470px;
+      font-size: 16px;
+    }
+  }
+}
+
+.faq {
+  &Container {
+    width: 350px;
+
+    @include atMedium {
+      width: 700px;
+    }
+  }
+
+  &QuestionContainer {
+    height: 80px;
+    font-size: 18px;
+
+    @include atMedium {
+      height: 30px;
+      font-size: 20px;
+    }
+  }
+
+  &AnswerText {
+    line-height: 2;
+  }
+}
+
+.integration {
+  &Container {
+    width: 350px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include atMedium {
+      width: 1000px;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  &ContentContainer {
+    margin-top: 2rem;
+
+    @include atMedium {
+      margin-top: 0;
+    }
+  }
+
+  &TitleContainer {
+    text-align: center;
+
+    @include atMedium {
+      text-align: left;
+    }
+  }
+
+  &LineSeparatorContainer {
+    justify-content: center;
+
+    @include atMedium {
+      justify-content: start;
+    }
+  }
+}
+
+.why {
+  &Container {
+    width: 80%;
+    min-width: 350px;
+
+    @include atMedium {
+      max-width: 700px;
+      width: 100%;
+      padding-right: 8rem;
+    }
+  }
+}
+
+.teamMember {
+  &Container {
+    flex-direction: column;
+    width: 350px;
+
+    @include atMedium {
+      flex-direction: row;
+      width: 600px;
+    }
+  }
+
+  &PhotoContainer {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    @include atMedium {
+      width: 350px;
+      height: 100%;
+      border-radius: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &InfoContainer {
+    width: 350px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0;
+    padding-bottom: 1rem;
+
+    @include atMedium {
+      width: 500px;
+    }
+  }
+}
+
+.howToWork {
+  &Container {
+    width: 350px;
+
+    @include atMedium {
+      width: 1000px;
+    }
+  }
+
+  &PhotoContainer {
+    @include atMedium {
+    }
+  }
+
+  &ContentContainer {
+    padding: 1rem;
+
+    @include atMedium {
+      padding: 3rem;
+    }
+  }
+
+  &TitleContainer {
+    text-align: center;
+
+    @include atMedium {
+      text-align: left;
+    }
+  }
+
+  &LineSeparatorContainer {
+    justify-content: center;
+
+    @include atMedium {
+      justify-content: start;
+    }
+  }
+
+  &IconContainer {
+    justify-content: center;
+
+    @include atMedium {
+      justify-content: start;
+    }
+  }
+}
+
+.skinnyCard {
+  &TextContainer {
+    height: 120px;
+  }
+}
+
+.pricingCard {
+  &Container {
+    border-color: #ccc;
+    transition: all 0.1s ease-in-out;
+    transform-origin: bottom center;
+    transform: scaleY(1);
+
+    &IsActive {
+      transform: scaleY(1.05);
+    }
+  }
+
+  &HasLeftBorder {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  &HasRightBorder {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+.blog {
+  &Container {
+    width: 300px;
+    @include atMedium {
+      width: 700px;
+      height: 600px;
+      &:hover {
+        transition: all 0.2s ease-in-out;
+        transform: scale(
+          1.03
+        ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+      }
+    }
+  }
+
+  &ImageContainer {
+    height: 175px;
+
+    @include atMedium {
+      height: 350px;
+    }
+  }
+}
+
+.excerpt {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.featuredBlog {
+  &Container {
+    width: 300px;
+
+    @include atMedium {
+      width: 400px;
+      &:hover {
+        transition: all 0.2s ease-in-out;
+        transform: scale(
+          1.03
+        ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+      }
+    }
+  }
+
+  &ImageContainer {
+    height: 175px;
+
+    @include atMedium {
+      height: 200px;
+    }
+  }
+}
+
+.smallBtn {
+  outline: none;
+  border: solid 1px $themeTwo;
+  border-radius: 4px;
+  padding: 5px 20px;
+  box-shadow: $boxShadow1;
+  background-color: white;
+  color: $themeTwo;
+
+  &:hover {
+    background-color: #dd7d1d;
+    border-color: #dd7d1d;
+  }
+}
+
+.impactStoryInEmployeeDashboard {
+  &TextContainer {
+    font-style: italic;
+    line-height: 2rem;
+  }
+}
+
+.fulfilledCard {
+  background-color: $appBrightOrangeColor;
+}

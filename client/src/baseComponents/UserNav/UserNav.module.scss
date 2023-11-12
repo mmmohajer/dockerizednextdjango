@@ -1,0 +1,15 @@
+@import '@/styles/base/_variables';
+@import '@/styles/base/mixins';
+
+.container {
+  top: $HeaderHeight;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  right: -100px;
+
+  &IsActive {
+    opacity: 1;
+    right: 0;
+  }
+}

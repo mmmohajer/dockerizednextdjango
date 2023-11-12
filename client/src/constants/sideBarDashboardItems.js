@@ -1,20 +1,14 @@
 import { USER_GROUPS } from '@/constants/userGroups';
+import { PAGE_ROUTES } from '@/constants/vars';
 
-export const SIDE_BAR_DASHBOARD_ITEMS = [
-  { identifier: 'profile', title: 'Profile', to: '/', icon: 'person-fill' },
-  { identifier: 'settings', title: 'Settings', to: '/', icon: 'gear' },
+export const adminRoutes = [
   {
-    identifier: 'dev-design',
-    title: 'Dev Design',
-    to: '/dev-pages/dev-design',
-    icon: 'desktop',
-    allowedGroups: [USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER]
-  },
-  {
-    identifier: 'api-doc',
-    title: 'API Doc',
-    to: '/dev-pages/api-doc',
-    icon: 'source-code',
-    allowedGroups: [USER_GROUPS.APP_ADMIN, USER_GROUPS.DEVELOPER]
+    identifier: 'dashboard',
+    title: 'Dashboard',
+    to: PAGE_ROUTES.DASHBOARD,
+    icon: 'dashboard2',
+    allowedGroups: [USER_GROUPS.APP_ADMIN]
   }
 ];
+
+export const SIDE_BAR_DASHBOARD_ITEMS = [...adminRoutes];

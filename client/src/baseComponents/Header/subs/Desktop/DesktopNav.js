@@ -13,13 +13,14 @@ import { AUTO_SCROLL_BEHAVIOR } from '@/constants/vars';
 
 import styles from '../../Header.module.scss';
 
-const DesktopNav = ({ changesThePage = true }) => {
+const DesktopNav = ({ changesThePage = true, isAppPage }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const activeMenu = useSelector((state) => state.activeMenu);
   const activeSubMenu = useSelector((state) => state.activeSubMenu);
   const homePageElements = useSelector((state) => state.homePageElements);
   const profile = useSelector((state) => state.profile);
+  const curUserGroup = useSelector((state) => state.curUserGroup);
 
   const [hoveredSubMenu, setHoveredSubMenu] = useState('');
 
@@ -29,16 +30,15 @@ const DesktopNav = ({ changesThePage = true }) => {
         {MENU_ITEMS?.map((item, idx) => {
           if (
             item?.showInDesktop &&
-            (!item?.allowedGroups?.length ||
-              (item?.allowedGroups?.length &&
-                item?.allowedGroups?.some((group) => profile?.user?.groups?.includes(group))))
+            ((!item?.allowedGroups?.length && !isAppPage) ||
+              item?.allowedGroups?.includes(curUserGroup))
           ) {
             return (
               <NavItem
                 key={idx}
                 isActive={activeMenu === item.identifier}
-                className={cx('mr2 mouse-hand textWhite pos-rel', styles.desktopNavItem)}
-                activeClassName={cx('textThemeFive')}
+                className={cx('mr2 mouse-hand textWhite pos-rel fs-px-16', styles.desktopNavItem)}
+                activeClassName={'navItemIsActive'}
                 onClick={() => {
                   if (!item?.hasSubMenu) {
                     dispatch(setActiveMenu(item.identifier));
@@ -60,7 +60,7 @@ const DesktopNav = ({ changesThePage = true }) => {
                 {item?.hasSubMenu ? (
                   <HeightTransitionEffect
                     isActive={hoveredSubMenu === item.identifier}
-                    className={cx('px1 pos-abs', styles.desktopNavItemSubNavContainer)}
+                    className={cx('px1 pos-abs z-10', styles.desktopNavItemSubNavContainer)}
                     style={{
                       left: `${item?.submenuTranslteX}` || '0px',
                       width: `${item?.subMenuWidth}` || '300px'
@@ -72,15 +72,23 @@ const DesktopNav = ({ changesThePage = true }) => {
                     }}
                     onMouseLeave={() => setHoveredSubMenu('')}>
                     <Div style={{ height: '5px' }} />
-                    <Div className="bgThemeOne p2">
+                    <Div
+                      className={cx(
+                        'br-rad-px-5 boxShadowType1 p2',
+                        styles.desktopNavItemSubNavContainerMenu
+                      )}>
                       {SUB_MENU_ITEMS[item.identifier]?.map((subItem, subIdx) => (
                         <SubNavItem
-                          className="mouse-hand p1 flex flex--jc--center textWhite"
+                          className={cx(
+                            'mouse-hand p1 flex flex--jc--center',
+                            activeMenu === item.identifier && activeSubMenu === subItem.identifier
+                              ? 'fs-px-18 f-b'
+                              : 'fs-px-14'
+                          )}
                           key={subIdx}
                           isActive={
                             activeMenu === item.identifier && activeSubMenu === subItem.identifier
-                          }
-                          activeClassName={cx('textThemeFive')}>
+                          }>
                           <Div
                             className={cx(styles.desktopNavItemSubNavItemTitle)}
                             onClick={() => {

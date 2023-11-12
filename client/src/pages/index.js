@@ -24,7 +24,7 @@ const Index = () => {
           hasFooter={true}
           hasStickyHeader={false}
           hasStickyFooter={false}
-          hasSideBarDashboard={true}
+          // hasSideBarDashboard={true}
           changesThePage={false}>
           <Div className="maxContainerWidth px2">HomePage</Div>
         </PageContainer>

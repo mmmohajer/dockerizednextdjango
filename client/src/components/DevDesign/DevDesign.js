@@ -25,6 +25,8 @@ import DisplayResponsiveSwipeableSlider from './subs/DisplayResponsiveSwipeableS
 import DisplayUserEvent from './subs/DisplayUserEvent';
 import DisplayPolygon from './subs/DisplayPolygon';
 import DisplayLimitedSwipeableSlider from './subs/DisplayLimitedSwipeableSlider';
+import DisplayPngIcon from './subs/DevPngIcon';
+import DisplaySlider from './subs/DisplaySlider';
 
 import DevSection from './subs/DevSection';
 import styles from './DevDesign.module.scss';
@@ -144,6 +146,20 @@ const DevDesign = () => {
         activeElements={activeElements}
         setActiveElements={setActiveElements}>
         <DisplayParagraph />
+      </DevSection>
+
+      <DevSection
+        title="PNG Icons"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplayPngIcon />
+      </DevSection>
+
+      <DevSection
+        title="Slider"
+        activeElements={activeElements}
+        setActiveElements={setActiveElements}>
+        <DisplaySlider />
       </DevSection>
 
       <DevSection

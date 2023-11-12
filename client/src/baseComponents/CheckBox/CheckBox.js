@@ -18,6 +18,7 @@ const CheckBox = ({
   checked = false,
   className,
   onBoxClick,
+  hasDefaultClass = true,
   ...props
 }) => {
   return (
@@ -29,7 +30,7 @@ const CheckBox = ({
         hAlign={hAlign}
         vAlign={vAlign}
         distributedBetween={distributedBetween}
-        className={cx('mainCheckBoxContainer pos-rel', className)}>
+        className={cx('pos-rel', hasDefaultClass && 'mainCheckBoxContainer', className)}>
         {labelText && (
           <Div
             className={cx(
@@ -45,10 +46,10 @@ const CheckBox = ({
         <Div
           type="flex"
           hAlign="center"
-          vAlign="center"
-          className={cx('chechBoxField w-px-20 height-px-20 mouse-hand mr1')}
+          vAlign="start"
+          className={cx('chechBoxField mouse-hand mr1 br-all-solid-2 br-color-themeOne')}
           onClick={onBoxClick}>
-          {checked && <Icon type="check-mark" color={'blue'} />}
+          {checked && <Icon type="check-mark" color={COLORS.themeOne} />}
         </Div>
       </Div>
     </>

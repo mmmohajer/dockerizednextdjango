@@ -18,28 +18,49 @@ const TextBox = ({
   hasIcon = false,
   iconType,
   iconColor = 'gray',
+  hasMarginBottom = true,
+  hasDefaultClass = true,
+  labelType = 'normal',
+  inputFieldClassName = '',
+  hasDefaultPadding = true,
   ...props
 }) => {
   const [curType, setCurType] = useState(type);
 
   return (
     <>
-      <Div className={cx('mainInputContainer', className)}>
+      <Div
+        className={cx(hasMarginBottom && hasDefaultClass ? 'mainInputContainer' : '', className)}>
         {labelText && (
           <Div className={cx('labelForInputContainer')}>
-            <Label className={cx(isRequired && 'required', 'labelForInput')}>{labelText}</Label>
+            <Label
+              className={cx(
+                isRequired && 'required',
+                labelType === 'normal' && 'labelForInputContainer',
+                labelType === 'small' && 'fs-px-10 textGrayDark'
+              )}>
+              {labelText}
+            </Label>
           </Div>
         )}
-        <Div className={cx('inputFieldContainer')}>
+        <Div className={cx(hasDefaultClass && 'inputFieldContainer')}>
           <BaseInput
             containerClassName={cx('pos-rel')}
-            className={cx('inputField', type === 'password' && 'inputWithIcon')}
+            className={cx(
+              '',
+              hasDefaultClass && 'inputField inputText',
+              type === 'password' && 'inputWithIcon',
+              inputFieldClassName,
+              !hasDefaultPadding && 'inputwithLessPadding'
+            )}
             errorContainerClassName={cx('inputErrorMessage')}
             activeErrorContainerClassName={cx('inputErrorMessageIsActive')}
             type={curType}
             value={val}
             onChange={(e) => {
-              setVal(e.target.value);
+              if (setVal) {
+                setVal(e.target.value);
+              }
               errorHandler && errorHandler('');
               if (onChange) {
                 onChange(e);

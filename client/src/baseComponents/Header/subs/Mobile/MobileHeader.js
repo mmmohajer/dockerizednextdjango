@@ -4,16 +4,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { Div, HamburgerIcon } from 'basedesign-iswad';
 
+import AppImage from '@/baseComponents/AppImage';
+
 import { setActiveMenu } from '@/reducers/general/activeMenu';
 import { setActiveSubMenu } from '@/reducers/general/activeSubMenu';
 import { toggleMobileNav } from '@/reducers/general/mobileNavIsActive';
+
+import Logo from '@/images/js-Images/general/Header/Header-Logo.png';
 
 import { HAMBURGER_CONFIG } from '../../constants';
 import UserManager from '../UserManager';
 import MobileNav from './MobileNav';
 import styles from '../../Header.module.scss';
 
-const MobileHeader = ({ changesThePage }) => {
+const MobileHeader = ({ changesThePage, headerColorType, isAppPage }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const mobileNavIsActive = useSelector((state) => state.mobileNavIsActive);
@@ -40,10 +44,10 @@ const MobileHeader = ({ changesThePage }) => {
           </Div>
         )}
         <Div>
-          <MobileNav changesThePage={changesThePage} />
+          <MobileNav changesThePage={changesThePage} isAppPage={isAppPage} />
         </Div>
         <Div
-          className="mouse-hand ml4"
+          className="mouse-hand ml2"
           onClick={() => {
             dispatch(setActiveMenu('/home'));
             dispatch(setActiveSubMenu(''));
@@ -53,11 +57,17 @@ const MobileHeader = ({ changesThePage }) => {
               window.scrollTo(0, 0);
             }
           }}>
-          <Div className="textWhite">Logo</Div>
+          <Div
+            type="flex"
+            hAlign="center"
+            vAlign="center"
+            className={cx('textWhite pos-rel hasHeaderHeight w-px-80')}>
+            <AppImage src={Logo} />
+          </Div>
         </Div>
       </Div>
       <Div>
-        <UserManager />
+        <UserManager isAppPage={isAppPage} />
       </Div>
     </>
   );

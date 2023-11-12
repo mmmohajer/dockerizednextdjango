@@ -4,7 +4,7 @@ import { Div } from 'basedesign-iswad';
 
 import RoleBasedRoute from '@/components/RoleBasedRoute';
 import Seo from '@/components/Seo';
-import AppPageContainer from '@/components/AppPageContainer';
+import PageContainer from '@/components/PageContainer';
 
 import { USER_GROUPS } from '@/constants/userGroups';
 
@@ -14,10 +14,18 @@ const Index = () => {
   return (
     <RoleBasedRoute hasAccessRole={[USER_GROUPS.APP_ADMIN]}>
       <Seo>
-        <AppPageContainer>
+        <PageContainer
+          hasHeader={true}
+          hasFooter={false}
+          hasWavyShape={false}
+          hasSideBarDashboard={true}
+          hasFooterNavInMobile={true}
+          hasStickyFooter={true}
+          isAppPage={true}
+          pageDashboardIdentifier="dashboard">
           <Div className="bgRed height-vh-full">This is a sample of an admin page</Div>
           <Div className="bgBlue">This is a sample of an admin page</Div>
-        </AppPageContainer>
+        </PageContainer>
       </Seo>
     </RoleBasedRoute>
   );

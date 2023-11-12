@@ -165,9 +165,10 @@ Update the following files <br>
 - `init-letsencrypt.sh`
 - `use_backup_db.sh`
 - `backup_db.sh` <br>
+- `reset_docker.sh` <br>
 
 Change DB_NAME, DB_USER in backup_db.sh, USER_NAME, domains in init-letsencrypt.sh <br>
-Run `sudo chmod +x ./init-letsencrypt.sh`, `sudo chmod +x ./backup_db.sh`, `sudo chmod +x ./use_backup_db.sh`, `sudo chmod +x ./redeploy.sh` <br>
+Run `sudo chmod +x ./init-letsencrypt.sh`, `sudo chmod +x ./backup_db.sh`, `sudo chmod +x ./use_backup_db.sh`, `sudo chmod +x ./redeploy.sh`, `sudo chmod +x ./reset_docker.sh` <br>
 Also change the redis password in `redis/redis.conf` file. Seach for `requirepass` and then determine the password for it. Also, in django env variables, you must set the exact same value for `REDIS_USER_PASS` <br>
 Then run `sudo apt-get install apache2-utils` <br>
 Then go to folder nginx <br>
@@ -188,12 +189,6 @@ Then run `sudo ./init-letsencrypt.sh` <br>
 
 Now your app must be ready on server <br>
 
-In order to automatcally renew ssl certificate add the followings to crontab: (Note that you can skip this cronjob, because, certbot itself will automatically renew ssl certificate)
-`sudo crontab -e` <br>
-
-`0 1 * * * /var/www/app/backup_db.sh` <br>
-`0 6,18 * * * /var/www/app/redeploy.sh` <br>
-
 In order to automatically create a backup of the database, you must run:
 `sudo chown -R USERNAME:docker /var/www/app/db_backups`<br>
 
@@ -201,6 +196,7 @@ Go to the `/home/USER_NAME` folder and create a new folder called `db_backups` <
 
 `sudo crontab -e`<br>
 `0 1 * * * /var/www/app/backup_db.sh` <br>
+`0 2 * * * /var/www/app/reset_docker.sh` <br>
 
 Note that in order to restore a database you can use the following command:
 `docker exec app_db_1 psql -U USER_NAME -d DB_NAME < BACKUP_FILE` <br>

@@ -31,7 +31,7 @@ const DevSection = ({
         {title}
       </Div>
       <HeightTransitionEffect isActive={isAlwaysActive || activeElements.includes(title)}>
-        {children}
+        {children || ''}
       </HeightTransitionEffect>
     </>
   );

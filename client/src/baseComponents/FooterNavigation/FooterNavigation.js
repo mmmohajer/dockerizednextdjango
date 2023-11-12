@@ -10,6 +10,7 @@ import styles from './FooterNavigation.module.scss';
 
 const FooterNavigation = () => {
   const profile = useSelector((state) => state.profile);
+  const curUserGroup = useSelector((state) => state.curUserGroup);
 
   return (
     <>
@@ -17,12 +18,11 @@ const FooterNavigation = () => {
         type="flex"
         distributedBetween
         vAlign="center"
-        className={cx('p2', styles.footerContainer)}>
+        className={cx('p2 bgWhite', styles.footerContainer)}>
         {FOOTER_NAV_ITEMS?.map((item, idx) => {
           if (
             !item?.allowedGroups?.length ||
-            (item?.allowedGroups?.length &&
-              item?.allowedGroups?.some((group) => profile?.user?.groups?.includes(group)))
+            (item?.allowedGroups?.length && item?.allowedGroups?.includes(curUserGroup))
           ) {
             return <MenuItem key={idx} item={item} />;
           }

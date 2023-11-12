@@ -5,6 +5,7 @@ initialSetupInMAcOrLinux() {
     pip install -r api/requirements.txt
     pip install pytest pytest-django model_bakery pytest-watch isort flake8 autopep8 locust python-dotenv
     echo "Python virtual environment is ready"
+    cp "reset_docker.sh.sample" "reset_docker.sh"
     cp ".env.sample" ".env"
     cp "config/envFiles/django/develop/.env.sample" "config/envFiles/django/develop/.env"
     cp "config/envFiles/django/prod/.env.sample" "config/envFiles/django/prod/.env"

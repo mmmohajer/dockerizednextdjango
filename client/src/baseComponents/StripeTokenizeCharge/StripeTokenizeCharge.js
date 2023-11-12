@@ -8,16 +8,16 @@ import { stripePublishableApiKey } from './utils';
 import CheckoutForm from './subs/CheckoutForm';
 import styles from './StripeTokenizeCharge.module.scss';
 
-const StripeTokenizeCharge = () => {
+const StripeTokenizeCharge = ({ cardAddedFunc, onCancelClick, isCenteralized = false }) => {
   return (
     <>
       <Elements stripe={stripePublishableApiKey}>
-        <Div
-          className={cx(
-            'boxShadowType1 pl4 pr4 pt2 pb2 w-per-100 max-w-px-600 ml-auto mr-auto br-rad-px-10',
-            styles.formContainer
-          )}>
-          <CheckoutForm />
+        <Div className={cx('w-per-100', styles.formContainer)}>
+          <CheckoutForm
+            cardAddedFunc={cardAddedFunc}
+            onCancelClick={onCancelClick}
+            isCenteralized={isCenteralized}
+          />
         </Div>
       </Elements>
     </>

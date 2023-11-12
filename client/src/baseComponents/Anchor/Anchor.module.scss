@@ -24,12 +24,45 @@
 }
 
 .anchor3 {
-  padding: 1rem;
-  color: $themeTwo;
+  padding: 6px 0;
+  background: linear-gradient($themeTwo 0 0) center bottom / 100% 2px no-repeat;
+  background-size: 0% 2px;
   transition: all 0.3s ease-in-out;
+  color: black;
 
   &:hover {
-    color: $successColor;
-    transform: scale(1.05);
+    background-size: 100% 2px;
+    color: black;
+  }
+}
+
+.anchor4 {
+  padding: 6px 0;
+  background: linear-gradient($themeTwo 0 0) center bottom / 100% 2px no-repeat;
+  background-size: 0% 2px;
+  transition: all 0.3s ease-in-out;
+  color: white;
+
+  &:hover {
+    background-size: 100% 2px;
+    color: white;
+  }
+}
+
+.anchor5 {
+  text-decoration: underline;
+  color: $themeTwo;
+
+  &:hover {
+    color: $themeOne;
+  }
+}
+
+.anchor6 {
+  padding: 1rem;
+  color: white;
+
+  &:hover {
+    color: white;
   }
 }

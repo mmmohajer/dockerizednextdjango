@@ -1,0 +1,21 @@
+fieldset {
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+  border-width: 1px 0 0 0;
+  border-style: none;
+  border-color: black;
+  border-image: none;
+}
+div.woocommerce-MyAccount-content {
+  font-family: 'Poppins';
+  color: #7a7a7a;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+}
