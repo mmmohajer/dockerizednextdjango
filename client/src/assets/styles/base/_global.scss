@@ -166,37 +166,6 @@ textarea,
   font-size: 24px;
 }
 
-.sectionSpacing {
-  &Top {
-    margin-top: 4rem !important;
-
-    @include atLarge {
-      margin-top: 8rem !important;
-    }
-  }
-
-  &Bottom {
-    margin-top: 4rem !important;
-
-    @include atLarge {
-      margin-top: 8rem !important;
-    }
-  }
-}
-
-.fs-px-42 {
-  font-size: 24px;
-
-  @include atMedium {
-    font-size: 42px;
-  }
-}
-
-.paddingInSection {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-}
-
 .navItemIsActive {
   font-size: 18px !important;
   font-weight: bold;
@@ -208,23 +177,6 @@ textarea,
 
 .go-under {
   z-index: -1;
-}
-
-.highlitedText {
-  font-size: 20px;
-
-  @include atMedium {
-    font-size: 24px;
-  }
-}
-
-.highlitedTextBolder {
-  font-weight: bold;
-  font-size: 22px;
-
-  @include atMedium {
-    font-size: 28px;
-  }
 }
 
 .centralizedInSmDesign {
@@ -241,35 +193,9 @@ textarea,
   }
 }
 
-.register {
-  &Photo {
-    width: 350px;
-
-    @include atMedium {
-      width: 500px;
-    }
-  }
-
-  &Form {
-    width: 350px;
-
-    @include atMedium {
-      width: 500px;
-    }
-  }
-}
-
-.max-w-px-700 {
-  max-width: 700px;
-}
-
 .w-per-one-third {
   width: 33.33%;
 }
-
-// .appSectionTitle {
-//   margin-bottom: 1rem;
-// }
 
 .hasMarginRightOnlyInDesktop {
   margin-right: 0;
