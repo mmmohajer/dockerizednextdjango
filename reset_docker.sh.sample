@@ -1,0 +1,21 @@
+#!/bin/bash
+
+REFERENCE_DATE="2023-11-11"  # Change this to your desired reference date
+
+current_date=$(date "+%Y-%m-%d")
+
+# Calculate the difference in days
+days_difference=$(( ( $(date -d "$current_date" +%s) - $(date -d "$reference_date" +%s) ) / 86400 ))
+
+# Check if the difference is a multiple of 10
+if [ $((days_difference % 10)) -eq 0 ]; then
+    echo "Restarting the app"
+    docker container rm -f $(docker container ls -a -q)
+    docker image rm -f $(docker image ls -a -q)
+    docker-compose -f /var/www/app/docker-compose-prod-ssl.yml down
+    docker-compose -f /var/www/app/docker-compose-prod-ssl.yml up --build -d && docker volume prune -f
+    echo "Create a log"
+    echo "App restarted successfuly on: $(date)" >> /home/USER_NAME/cron_commands.log
+else
+    echo "Not a scheduled day"
+fi
