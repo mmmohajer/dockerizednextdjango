@@ -5,7 +5,9 @@ REFERENCE_DATE="2023-11-11"  # Change this to your desired reference date
 current_date=$(date "+%Y-%m-%d")
 
 # Calculate the difference in days
-days_difference=$(( ( $(date -d "$current_date" +%s) - $(date -d "$reference_date" +%s) ) / 86400 ))
+days_difference=$(( ( $(date -d "$current_date" +%s) - $(date -d "$REFERENCE_DATE" +%s) ) / 86400 ))
+
+echo $days_difference
 
 # Check if the difference is a multiple of 10
 if [ $((days_difference % 10)) -eq 0 ]; then
