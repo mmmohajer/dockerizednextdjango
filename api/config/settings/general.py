@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-import environ
 
 if not os.environ.get('DEBUG'):
     from dotenv import load_dotenv
