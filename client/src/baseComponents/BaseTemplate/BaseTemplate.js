@@ -244,7 +244,7 @@ const BaseTemplate = ({ children }) => {
 
   return (
     <>
-      {loading && <Loading />}
+      {loading ? <Loading /> : ''}
       <Alert />
       <Modal />
       <Div className="appContainer">{children}</Div>
