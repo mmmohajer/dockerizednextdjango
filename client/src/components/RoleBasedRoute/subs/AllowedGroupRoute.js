@@ -39,8 +39,8 @@ const AllowedGroupRoute = ({ allowedGroup, children }) => {
           setIsAllowedUser(false);
           setIsChecked(true);
         }
-        dispatch(isLoaded());
       }
+      dispatch(isLoaded());
     }
   }, [profile]);
 
