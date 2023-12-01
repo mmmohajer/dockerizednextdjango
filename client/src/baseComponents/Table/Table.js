@@ -34,6 +34,12 @@ const Table = ({ className, headLines, data, isFullWidth, ...props }) => {
           localHeadLines.push({ ...col, width: col.width + addedPx });
         });
         setUpdatedHeadLines([...localHeadLines]);
+      } else {
+        const localHeadLines = [];
+        headLines.forEach((col) => {
+          localHeadLines.push({ ...col, width: col.width });
+        });
+        setUpdatedHeadLines([...localHeadLines]);
       }
     }
   }, [headLines, isFullWidth, containerWidth]);
