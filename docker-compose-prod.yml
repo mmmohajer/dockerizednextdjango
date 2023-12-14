@@ -6,10 +6,14 @@ services:
     build:
       dockerfile: Dockerfile.prod
       context: ./nginx
+      args:
+        APP_URL: ${APP_URL}
     ports:
       - "80:80"
     volumes:
       - static-data:/vol/static
+      - ./nginx/certbot/conf:/etc/letsencrypt
+      - ./nginx/certbot/www:/var/www/certbot
       - ./nginx/htpasswd:/etc/nginx/.htpasswd
     depends_on:
       - client
@@ -18,6 +22,7 @@ services:
       - celery-flower
 
   client:
+    restart: always
     build:
       dockerfile: Dockerfile
       context: ./client
@@ -41,42 +46,49 @@ services:
       - db
 
   celery:
+    restart: always
     build:
       dockerfile: Dockerfile
       context: ./api
     env_file:
       - ./config/envFiles/django/prod/.env
+    volumes:
+      - static-data:/usr/src/app/vol
     command: celery -A config worker -l info
     depends_on:
       - db
-      - smtp4dev
       - redis
 
   celery-beat:
+    restart: always
     build:
       dockerfile: Dockerfile
       context: ./api
     env_file:
       - ./config/envFiles/django/prod/.env
+    volumes:
+      - static-data:/usr/src/app/vol
     command: celery -A config beat -l info
     depends_on:
       - db
-      - smtp4dev
       - redis
 
   celery-flower:
+    restart: always
     build:
       dockerfile: Dockerfile
       context: ./api
     env_file:
       - ./config/envFiles/django/prod/.env
+    volumes:
+      - static-data:/usr/src/app/vol
     command: celery -A config flower --url_prefix=/flower --basic_auth=${CELERY_FLOWER_USER}:${CELERY_FLOWER_PASSWORD}
     depends_on:
       - db
-      - smtp4dev
       - redis
 
   channels:
+    restart: always
     build:
       dockerfile: Dockerfile
       context: ./api
@@ -85,7 +97,6 @@ services:
     command: daphne -b 0.0.0.0 -p 8001 config.asgi:application
     depends_on:
       - db
-      - smtp4dev
       - redis
 
   db:
@@ -99,16 +110,6 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ./db_backups:/db_backups
 
-  smtp4dev:
-    image: rnwood/smtp4dev:3.1.3-ci20211206101
-    restart: always
-    ports:
-      - "1025:80"
-      - "2525:25"
-      - "143:143"
-    volumes:
-      - smtp4dev-data:/smtp4dev
-
   redis:
     image: redis:7.0.4-alpine3.16
     restart: always
@@ -119,4 +120,3 @@ services:
 volumes:
   pgdata:
   static-data:
-  smtp4dev-data:

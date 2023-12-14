@@ -4,7 +4,8 @@ import { Div } from 'basedesign-iswad';
 
 import { APP_DOMAIN_FOR_SERVER_SIDE_PROPS } from 'config';
 
-import DefaultPicker from './subs/ImagePickers/DefaultPicker';
+import DefaultImagePicker from './subs/ImagePickers/DefaultPicker';
+import DefaultVideoPicker from './subs/VideoPickers/DefaultPicker';
 import Cropper from './subs/Cropper';
 import Resizer from './subs/Resizer';
 import styles from './ImagePicker.module.scss';
@@ -25,7 +26,9 @@ const ImagePicker = ({
   setInitialSrc,
   initialSrcComesFromOurServer = false,
   previewer = 'default',
-  className
+  className,
+  hasDefaultClass,
+  fileType = 'image'
 }) => {
   const inputFileField = useRef();
 
@@ -51,7 +54,9 @@ const ImagePicker = ({
       setFileName(localFile?.name);
       setSrc(URL.createObjectURL(localFile));
       setShowCropper(true);
-      setShowResizer(true);
+      if (hasResizer) {
+        setShowResizer(true);
+      }
     }
   };
 
@@ -83,8 +88,8 @@ const ImagePicker = ({
       ) : (
         ''
       )}
-      {type === 'default' && (
-        <DefaultPicker
+      {fileType === 'image' && type === 'default' ? (
+        <DefaultImagePicker
           labelText={labelText}
           isRequired={isRequired}
           fileChangeHandler={fileChangeHandler}
@@ -98,7 +103,31 @@ const ImagePicker = ({
           className={cx(className)}
           setInitialSrc={setInitialSrc}
           previewer={previewer}
+          hasDefaultClass={hasDefaultClass}
         />
+      ) : (
+        ''
+      )}
+
+      {fileType === 'video' && type === 'default' ? (
+        <DefaultVideoPicker
+          labelText={labelText}
+          isRequired={isRequired}
+          fileChangeHandler={fileChangeHandler}
+          src={src}
+          setSrc={setSrc}
+          setFile={setFile}
+          setFileName={setFileName}
+          inputFileField={inputFileField}
+          errorMessage={errorMessage}
+          errorHandler={errorHandler}
+          className={cx(className)}
+          setInitialSrc={setInitialSrc}
+          previewer={previewer}
+          hasDefaultClass={hasDefaultClass}
+        />
+      ) : (
+        ''
       )}
     </>
   );

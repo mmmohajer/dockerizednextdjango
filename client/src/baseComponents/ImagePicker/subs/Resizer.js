@@ -59,7 +59,13 @@ const Resizer = ({ src, setSrc, setFile, fileName, maxWidth, setShowResizer }) =
         id={RESIZER_ID}>
         <Div className={styles.reactCropper}>
           <Div type="flex" hAlign="center" vAlign="center" className={cx(styles.cropper)}>
-            <AppImage src={src} id={IMAGE_RESIZER_ID} width={maxWidth} height={maxWidth} />
+            <AppImage
+              src={src}
+              id={IMAGE_RESIZER_ID}
+              width={maxWidth}
+              height={maxWidth}
+              objectFit="contain"
+            />
           </Div>
         </Div>
         <Div type="flex" hAlign="center" vAlign="center" className="w-per-100 mt2">

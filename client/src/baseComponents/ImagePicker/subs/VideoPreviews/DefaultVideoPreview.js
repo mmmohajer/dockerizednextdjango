@@ -9,7 +9,7 @@ import { COLORS } from '@/constants/vars';
 
 import styles from '../../ImagePicker.module.scss';
 
-const DefaultImagePreview = ({
+const DefaultVideoPreview = ({
   src,
   setFile,
   setSrc,
@@ -49,7 +49,12 @@ const DefaultImagePreview = ({
               hAlign="center"
               vAlign="center"
               className={cx('pos-rel mouse-hand of-hidden', styles.imagePreviewContainer)}>
-              <AppImage width={90} height={60} src={src} objectFit="contain" />
+              <video width="90" height="60" controls>
+                <source src={src} type="video/mp4"></source>
+                <source src={src} type="video/webm"></source>
+                <source src={src} type="video/ogg"></source>
+                Your browser does not support the video tag.
+              </video>
             </Div>
           </Div>
         </Div>
@@ -58,4 +63,4 @@ const DefaultImagePreview = ({
   );
 };
 
-export default DefaultImagePreview;
+export default DefaultVideoPreview;

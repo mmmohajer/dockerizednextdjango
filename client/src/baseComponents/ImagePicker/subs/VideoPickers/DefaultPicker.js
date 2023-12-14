@@ -6,7 +6,7 @@ import Icon from '@/baseComponents/Icon';
 
 import { COLORS } from '@/constants/vars';
 
-import DefaultImagePreview from '../ImagePreviews/DefaultImagePreview';
+import DefaultVideoPreview from '../VideoPreviews/DefaultVideoPreview';
 import styles from '../../ImagePicker.module.scss';
 
 const DefaultPicker = ({
@@ -45,7 +45,7 @@ const DefaultPicker = ({
               type="file"
               onChange={fileChangeHandler}
               className="no-display"
-              accept=".jpg,.jpeg,.png"
+              accept=".mp4,.webm,.ogg,.heic"
               ref={(el) => (inputFileField.current = el)}
             />
             <Div
@@ -54,11 +54,11 @@ const DefaultPicker = ({
               vAlign="center"
               className={cx(styles.iconContainer)}
               color="#ccc">
-              <Icon type="image-upload" color={COLORS.grayDark} scale={4} />
+              <Icon type="circle-play" color={COLORS.grayDark} scale={4} />
             </Div>
           </Label>
           {previewer === 'default' ? (
-            <DefaultImagePreview
+            <DefaultVideoPreview
               src={src}
               setSrc={setSrc}
               setFile={setFile}

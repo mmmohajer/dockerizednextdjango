@@ -107,7 +107,7 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo, mai
                 id={IMAGE_CROPPER_ID}
                 width={mainMaxWidth || 500}
                 height={mainMaxWidth || 500}
-                objectFit="cover"
+                objectFit="contain"
               />
             </Div>
           </ReactCrop>
@@ -119,7 +119,7 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo, mai
               id={IMAGE_CROPPER_ID}
               width={mainMaxWidth || 500}
               height={mainMaxWidth || 500}
-              objectFit="cover"
+              objectFit="contain"
             />
           </Div>
         )}
