@@ -4,6 +4,7 @@ import { Div } from 'basedesign-iswad';
 
 import Close from '@/baseComponents/Close';
 import AppImage from '@/baseComponents/AppImage';
+import AppVideo from '@/baseComponents/AppVideo';
 
 import { COLORS } from '@/constants/vars';
 
@@ -49,12 +50,7 @@ const DefaultVideoPreview = ({
               hAlign="center"
               vAlign="center"
               className={cx('pos-rel mouse-hand of-hidden', styles.imagePreviewContainer)}>
-              <video width="90" height="60" controls>
-                <source src={src} type="video/mp4"></source>
-                <source src={src} type="video/webm"></source>
-                <source src={src} type="video/ogg"></source>
-                Your browser does not support the video tag.
-              </video>
+              <AppVideo src={src} width={90} height={60} />
             </Div>
           </Div>
         </Div>

@@ -31,6 +31,8 @@ const Cropper = ({ src, setSrc, setFile, fileName, setShowCropper, cropInfo, mai
 
   const doCrop = () => {
     return new Promise(function (resolve, reject) {
+      console.log(crop.width);
+      console.log(crop.height);
       const cropped = cropImage(src, crop.x, crop.y, crop.width, crop.height);
       setTimeout(() => {
         if (cropped) {

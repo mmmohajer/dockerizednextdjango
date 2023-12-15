@@ -19,8 +19,8 @@ export const cropImage = (imagePath, newX, newY, newWidth, newHeight) => {
     //wait for the image to finish loading
     originalImage.addEventListener('load', function () {
       //set the canvas size to the new width and height
-      canvas.width = newWidth * widthScale;
-      canvas.height = newHeight * heightScale;
+      canvas.width = newWidth * 1;
+      canvas.height = newHeight * 1;
 
       //draw the image
       ctx.drawImage(
@@ -31,8 +31,8 @@ export const cropImage = (imagePath, newX, newY, newWidth, newHeight) => {
         newHeight * heightScale,
         0,
         0,
-        newWidth * widthScale,
-        newHeight * heightScale
+        newWidth * 1,
+        newHeight * 1
       );
     });
     return true;
