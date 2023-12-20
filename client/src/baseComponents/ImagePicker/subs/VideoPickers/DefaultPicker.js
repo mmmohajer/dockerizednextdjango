@@ -45,7 +45,7 @@ const DefaultPicker = ({
               type="file"
               onChange={fileChangeHandler}
               className="no-display"
-              accept=".mp4,.webm,.ogg,.heic"
+              accept=".mp4,.webm,.ogg,.avi,.mkv,.flv,.wmv,.mov"
               ref={(el) => (inputFileField.current = el)}
             />
             <Div

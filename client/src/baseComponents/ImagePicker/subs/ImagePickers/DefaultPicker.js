@@ -45,7 +45,7 @@ const DefaultPicker = ({
               type="file"
               onChange={fileChangeHandler}
               className="no-display"
-              accept=".jpg,.jpeg,.png"
+              accept=".jpg,.jpeg,.png,.heic,.webp"
               ref={(el) => (inputFileField.current = el)}
             />
             <Div
