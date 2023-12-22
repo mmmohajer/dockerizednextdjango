@@ -13,8 +13,8 @@ USE_TZ = True
 BASE_DIR = Path(os.path.dirname(os.path.dirname(
     os.path.abspath(__file__)))).parent.absolute()
 
-DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50Mb
-FILE_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50Mb
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10Mb
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10Mb
 
 STATIC_URL = '/static/static/'
 MEDIA_URL = '/static/media/'
