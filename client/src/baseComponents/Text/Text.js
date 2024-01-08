@@ -80,7 +80,7 @@ const Text = ({
         style={{ height: textContainerHeight }}
         className={cx('pos-rel w-per-100 pos-rel', styles.textContainer, className)}
         {...props}>
-        <DivConvertTextToHtml text={shownText} style={{ display: 'inline' }} />
+        <Div style={{ display: 'inline' }}>{shownText}</Div>
         {mustBeTruncated && isTruncated && !showViewAll ? <>...</> : ''}
         {mustBeTruncated && isTruncated && showViewAll ? (
           <>
