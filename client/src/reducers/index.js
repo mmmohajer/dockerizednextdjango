@@ -18,6 +18,7 @@ import sideBarDashboardIsActive from './general/sidebarDashboardIsActive';
 import activeDashboardMenu from './general/activeDashboardMenu';
 import curUserGroup from './general/curUserGroup';
 import userNavIsActive from './general/userNavIsActive';
+import visitedRoutes from './general/visitedRoutes';
 
 import isAuthenticated from './apiCalls/isAuthenticated';
 import profile from './apiCalls/profile';
@@ -41,6 +42,7 @@ const reducer = combineReducers({
   activeDashboardMenu,
   curUserGroup,
   userNavIsActive,
+  visitedRoutes,
   isAuthenticated,
   profile
 });

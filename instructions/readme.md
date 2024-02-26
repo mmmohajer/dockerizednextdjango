@@ -208,3 +208,36 @@ Note that in order to remove backup files older than for example 7 days ago, you
 `find /path/to/folder -type f -mtime +7 -delete` <br>
 To remove all empty folders inside a folder, you can type <br>
 `find /path/to/folder -type d -empty -delete`
+
+The following commands are to remove any backups and make the space free:
+`docker image prune -a -f`
+`docker container prune -f`
+`docker volume prune -f`
+`docker network prune -f`
+`docker builder prune -a -f`
+
+In order to show sth while the site is down for maintenance:
+
+1. `sudo apt update`
+   If there are some errors while updating: look at this url:
+   https://www.digitalocean.com/community/questions/unable-to-update-getting-the-error-while-running-the-command-sudo-apt-update
+
+It says what we can do is:
+`sudo nano /etc/apt/sources.list`
+Replace all instances of http://mirrors.digitalocean.com/ubuntu with http://old-releases.ubuntu.com/ubuntu
+
+2. `sudo apt install nginx`
+3. from your local statics/nginx/default.conf copy to /etc/nginx/DOMAIN.conf in the server.
+4. RUn
+   `sudo ln -s /etc/nginx/sites-available/DOMAIN.conf /etc/nginx/sites-enabled/`
+5. Test Nginx configuration
+   `sudo nginx -t`
+6. Restart Nginx
+   `sudo systemctl restart nginx`
+   If get port conflicts, you need to remove and stop the running docker
+7. In order to be able to start and stop nginx without prompting for password as a sudo command, Use the visudo command to edit the sudoers file:
+   `sudo visudo`
+   Add the following lines to the sudoers
+   `USER_NAME ALL=(ALL) NOPASSWD: /bin/systemctl start nginx`
+   `USER_NAME ALL=(ALL) NOPASSWD: /bin/systemctl stop nginx`
+   Then everything is fine

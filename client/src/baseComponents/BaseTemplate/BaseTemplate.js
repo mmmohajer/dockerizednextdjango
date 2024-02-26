@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { Div } from 'basedesign-iswad';
+import { useRouter } from 'next/router';
 
 import { getLocalStorage, setLocalStorage, removeLocalStorage } from '@/utils/auth';
 import { authenticated, notAuthenticated } from '@/services/auth';
@@ -24,6 +25,7 @@ import { setScrollPosition } from '@/reducers/general/scrollPosition';
 import { setUserIPInfo } from '@/reducers/general/userIPInfo';
 import { setCurUserGroup } from '@/reducers/general/curUserGroup';
 import { USER_GROUPS } from '@/constants/userGroups';
+import { addVistitedRoute } from '@/reducers/general/visitedRoutes';
 
 import Loading from '@/baseComponents/Loading';
 import Alert from '@/baseComponents/Alert';
@@ -32,6 +34,7 @@ import Modal from '@/baseComponents/Modal';
 import styles from './BaseTemplate.module.scss';
 
 const BaseTemplate = ({ children }) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.loading);
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
@@ -241,6 +244,14 @@ const BaseTemplate = ({ children }) => {
       dispatch(setCurUserGroup(USER_GROUPS.APP_ADMIN));
     }
   }, [profile]);
+
+  // -----------------------------------------------
+  // -----------------------------------------------
+  useEffect(() => {
+    if (router?.isReady && router?.asPath) {
+      dispatch(addVistitedRoute(router.asPath));
+    }
+  }, [router]);
 
   return (
     <>
